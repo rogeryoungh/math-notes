@@ -1,0 +1,166 @@
+\chapter{数列极限}
+
+\section{数列极限的概念}
+
+\begin{definition}[数列极限的 $\varepsilon - N$ 定义]
+	设 $\{a_n\}$ 为数列，$A$ 为定数。若对任给的正数 $\varepsilon$，总存在正整数 $N=N(\varepsilon)$，使得当 $n>N$ 时有
+	$$|a_n - A| < \varepsilon$$
+	则称数列 $\{a_n\}$ 收敛于 $A$，或称 $A$ 为数列 $\{a_n\}$ 的极限，记作
+	$$\displaystyle\lim_{n\to \infty} a_n = A \text{，或}\ a_n \to a(n \to \infty)$$
+\end{definition}
+
+等价定义：任给 $\varepsilon > 0$，若在 $U(A;\varepsilon)$ 之外数列 $\{a_n\}$ 中的项至多只有有限个，则称 $\{a_n\}$ 收敛于极限 $A$。
+
+若对于数列 $\{a_n\}$，不存在 $A$ 使得 $a_n\to A$，则称数列 $\{a_n\}$ 发散。
+
+特殊地，若 $\displaystyle\lim_{n\to \infty} a_n = 0$，则称 $\{a_n\}$ 为无穷小数列。
+
+\begin{definition}[无穷大数列]
+	若数列 $\{a_n\}$ 满足：对任意正数 $M>0$，存在正整数 $N$，使得当 $n>N$ 时，
+
+	1. $a_n>M$，则称数列 $\{a_n\}$ 发散于正无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = +\infty$，或 $a_n \to +\infty$。
+
+	2. 有 $a_n<M$，则称数列 $\{a_n\}$ 发散于负无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = -\infty$，或 $a_n \to -\infty$。
+\end{definition}
+
+\section{收敛数列的性质}
+
+\begin{theorem}[唯一性]
+	若数列 $\{a_n\}$ 收敛，则它只有一个极限。
+\end{theorem}
+
+\begin{proof}
+	如果数列 $\{a_n\}$ 同时以 $A,B$ 为极限，即任给 $\varepsilon>0$，总存在 $N_1,N_2$，使得
+	$$|a_n-A|<\varepsilon,n>N_1;\quad |a_n-B|<\varepsilon,n>N_2$$
+	那么当 $n>\max\{N_1,N_2\}$ 时需要恒成立
+	$$2\varepsilon > |a_n-A|+|a_n-B| \geqslant |A-B|$$
+	当 $A\ne B$ 时，对于 $2\varepsilon <|A-B|$ 不恒成立，因此只能 $A=B$。
+\end{proof}
+
+\begin{theorem}[有界性]
+	若数列 $\{a_n\}$ 收敛，则 $\{a_n\}$ 有界。
+\end{theorem}
+
+\begin{proof}
+	不妨设 $\displaystyle\lim_{n\to \infty} a_n = A$。令 $\varepsilon = 1$，那么存在 $n>N$ 使得
+	$$|a_n-A| \leqslant 1$$
+	令
+	$$M = \{|a_1|,\cdots,|a_N|,|A-1|,|A+1|\}$$
+	那么对任意正整数 $n$，总有 $|a_n|\leqslant M$。
+\end{proof}
+
+\begin{theorem}[保号性]
+	若 $\displaystyle\lim_{n\to \infty}a_n = a>0$，则对任何 $a'\in (0,a)$ 存在正数 $N$，使得当 $n>N$ 时，有 $a_n>a'$。
+\end{theorem}
+
+\begin{theorem}[保不等式性，保序性]
+	设 $\displaystyle\lim_{n\to \infty} a_n = A,\displaystyle\lim_{n\to \infty} b_n = B$，则有
+
+	（1）如果存在 $n>N$ 使得 $a_n\geqslant b_n$ 恒成立，则 $A\geqslant B$。
+
+	（2）反之，如果 $A>B$，则存在 $n>N_1$ 使得 $a_n>b_n$ 恒成立。
+\end{theorem}
+
+\begin{theorem}[迫敛性，夹逼定理]
+	设数列 $\{a_n\},\{b_n\},\{c_n\}$ 满足当 $n>N_0$ 有 $a_n\leqslant c_n\leqslant b_n$。若
+	$$\lim_{n\to \infty}a_n = A = \lim_{n\to \infty}c_n$$
+	则 $\displaystyle\lim_{n\to \infty}b_n = A$。
+\end{theorem}
+
+\begin{proof}
+	即对于任给的 $\varepsilon>0$，存在 $N_1,N_2$，使得当 $n>N_1$ 有 
+	$$A-\varepsilon<a_n<A+\varepsilon$$
+	当 $n>N_2$ 有 
+	$$A-\varepsilon<c_n<A+\varepsilon$$
+	因此当 $n>\max\{N_0,N_1,N_2\}$ 时，有
+	$$A-\varepsilon < a_n \leqslant b_n \leqslant c_n < A+\varepsilon$$
+\end{proof}
+
+\begin{theorem}[四则运算法则]
+	若 $\{a_n\}$ 与 $\{b_n\}$ 均为收敛数列。则
+	\begin{equation*}
+		\begin{aligned}
+			\lim_{n\to \infty}(a_n \pm b_n) &= \lim_{n\to \infty}a_n \pm \lim_{n\to \infty}b_n\\
+			\lim_{n\to \infty}(a_n \cdot b_n) &= \lim_{n\to \infty}a_n \cdot \lim_{n\to \infty}b_n
+		\end{aligned}
+	\end{equation*}
+	若再假设 $b_n \ne 0$ 及 $\displaystyle\lim_{n\to \infty}b_n \ne 0$，则
+	\begin{equation*}
+		\lim_{n\to \infty}\frac{a_n}{b_n} = \frac{\lim_{n\to \infty}a_n}{\lim_{n\to \infty}b_n}
+	\end{equation*}
+\end{theorem}
+
+\begin{definition}[数列的子列]
+	设 $\{a_n\}$ 为数列，$\{n_k\}$ 为正整数集 $\NN^+$ 的无限子集，且 $n_1<n_2<\cdots<n_k<\cdots$，则数列 $\{a_{n_k}\}$ 称为数列 $\{a_n\}$ 的一个子列。
+\end{definition}
+
+\begin{theorem}
+	数列 $\{a_n\}$ 收敛的充要条件：$\{a_n\}$ 的任何子列都收敛。
+\end{theorem}
+
+\section{数列极限存在的条件}
+
+\begin{definition}
+	若数列 $\{a_n\}$ 各项满足关系式 $a_n \leqslant a_{n+1}(a_n \geqslant a_{n+1})$，则称 $\{a_n\}$ 为递增（递减）数列，统称为单调数列。
+\end{definition}
+
+\begin{theorem}[单调有界定理]
+	有界的单调数列必有极限。
+\end{theorem}
+
+\begin{theorem}[致密性定理]
+	任何有界数列必定有收敛的子列。
+\end{theorem}
+
+\begin{theorem}[柯西（Cauchy）收敛准则]
+	数列 $\{a_n\}$ 收敛的充要条件是：对任给的 $\varepsilon >0$，存在正整数 $N$，使得当 $n,m>N$ 时，有 
+	$$|a_n-a_m| < \varepsilon$$
+\end{theorem}
+
+柯西收敛准则的条件称为柯西条件。
+
+\section{Stolz 公式}
+
+\begin{theorem}
+	对于任意的 $1 \leqslant k \leqslant n$，设 $b_k>0$ 且 $m \leqslant \dfrac{a_k}{b_k} \leqslant M$，则有
+	$$m \leqslant \frac{\sum a_n}{\sum b_n} \leqslant M$$
+\end{theorem}
+
+\begin{theorem}[Stolz 公式一]
+	设数列 $\{x_n\},\{y_n\}$，且 $\{y_n\}$ 严格单调地趋于 $+\infty$，如果
+	$$\lim_{n\to \infty}\frac{x_n-x_{n-1}}{y_n-y_{n-1}}=A$$
+	则
+	$$\lim_{n\to \infty} \frac{x_n}{y_n} = A$$
+\end{theorem}
+
+\begin{proof}
+	分类讨论 Todo……
+\end{proof}
+
+\begin{theorem}[Stolz 公式二]
+	设数列 $\{y_n\}$ 严格单调地趋于 $0$，且数列 $\{x_n\}$ 也收敛到 $0$，那么如果
+	$$\lim_{n\to \infty}\frac{x_n-x_{n-1}}{y_n-y_{n-1}}=A$$
+	则
+	$$\lim_{n\to \infty} \frac{x_n}{y_n} = A$$
+\end{theorem}
+
+\begin{proof}
+	分类讨论 Todo……
+\end{proof}
+
+\section{例题}
+
+\begin{problem}
+	设 $\displaystyle\lim_{n\to\infty}a_n=A$，求证：$\displaystyle\lim_{n\to\infty}\frac{\sum a_n}{n}=A$。
+\end{problem}
+
+\begin{solution}
+	即对于任给的 $\varepsilon>0$，存在 $n>N_1$ 使得
+	$$|a_n-A|<\dfrac{\varepsilon}{2}$$
+	那么变形有
+	$$\left|\frac{\sum a_n}{n}-A\right| \leqslant \frac{\sum |a_n-A|}{n} = \frac{\sum_{k=1}^{N_1} |a_k-A|}{n} + \frac{\sum_{k=N_1+1}^{n} |a_k-A|}{n}$$
+	注意到 $\sum_{k=1}^{N_1} |a_k-A|$ 已经为定值，从而存在 $n>N_2$ 使得
+	$$\frac{\sum_{k=1}^{N_1}|x_k-A|}{n}<\frac{\varepsilon}{2}$$
+	因此当 $n>\max\{N_1,N_2\}$ 时有
+	$$LHS < \frac{\varepsilon}{2}+\frac{n-N_1}{n}\times \frac{\varepsilon}{2} < \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon$$
+\end{solution}

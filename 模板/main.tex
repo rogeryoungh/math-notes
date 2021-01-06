@@ -1,0 +1,194 @@
+\documentclass[cn,11pt,blue,normal,founder]{elegantbook}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[cache=false]{minted}
+
+\begin{document}
+\newcommand\mfrac[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
+\newcommand\ee{\mathrm{e}}
+\newcommand\dd{\mathrm{d}}
+\newcommand\uppi{\mathrm{\pi}}
+%%----------- 封面部分 ----------- %%
+
+\begin{titlepage}
+	\vspace*{35ex}% A4->35,Boox->25,Kindle->10
+	\begin{minipage}{.9\textwidth}
+	\flushright
+		{\zihao{0}\textbf{ACM 模板}}\\%%中文书名
+		\rule{\linewidth}{1pt}\\ \vspace{2ex}
+		{\zihao{2}\textsf{ACM Template}} \\%% 英文书名
+		\vspace{30ex}% A4->30,Boox->20,Kindle->10
+		{\zihao{4}rogeryoungh}%% 作者
+	\end{minipage}
+	\vfill\centering
+	{\zihao{4}\number\year 年 \number\month 月 \number\day 日 · \LaTeX{}}
+\end{titlepage}
+%%----------- 目录部分 ----------- %%
+\clearpage{\hypersetup{hidelinks}\tableofcontents}
+
+%%----------- 主体部分 ----------- %%
+\clearpage
+
+\chapter{上号}
+
+\section{头文件}
+
+\lstinputlisting[style=cpp]{上号/头文件.h}
+
+\section{预编译}
+
+头文件引入方式改为如下，可以把头文件放入 \lstinline[style=cpp]{lab.h} ，然后使用 \lstinline[language=bash]{g++ lab.h} 预编译。
+
+实际编译使用 \lstinline[language=bash]{g++ lab.cpp -D YCYLOCAL} 添加条件编译参数。
+
+\begin{lstlisting}[style=cpp]
+#ifdef YCYLOCAL
+#include "lab.h"
+#else  //#include <bits/stdc++.h>
+#include <list>      #include <stack>      #include <iostream>
+#include <cmath>     #include <cstdio>     #include <algorithm>
+#include <queue>     #include <cstring>    #include <functional>
+#endif
+\end{lstlisting}
+
+\section{进制转换}
+
+\lstinputlisting[style=cpp]{上号/进制转换.cpp}
+
+\section{常见技巧}
+
+向上取整 $p/q$ 为 \lstinline[style=cpp]{(p-1)/q+1} 。
+
+%\lstinputlisting[style=cpp]{上号/二分查找.cpp}
+
+%\section{二分查找}
+
+%\lstinputlisting[style=cpp]{上号/二分查找.cpp}
+
+\section{快速幂} %洛谷P1226
+
+\lstinputlisting[style=cpp]{上号/快速幂.cpp}
+
+\section{矩阵快速幂}
+
+\lstinputlisting[style=cpp]{上号/矩阵快速幂.cpp}
+
+\section{快速排序}
+
+\lstinputlisting[style=cpp]{上号/快速排序.cpp}
+
+\section{第 $k$ 大数}
+
+\lstinputlisting[style=cpp]{上号/第k大数.cpp}
+
+\section{链表}
+
+\lstinputlisting[style=cpp]{上号/链表.cpp}
+
+
+\chapter{数论}
+
+\section{GCD 和 LCM} %洛谷P1888
+
+\lstinputlisting[style=cpp]{数论/gcdlcm.cpp}
+
+\section{EXGCD} %洛谷P5656
+
+对于方程 $ax+by=c$，令 $g=\gcd(a,b)$，若 $g\nmid c$ 则无解。
+
+因此可通过 $exgcd$ 先求出 $ax+by=g$ 的整数解，再转换回原方程的解。
+
+
+
+\lstinputlisting[style=cpp]{数论/exgcd.cpp}
+
+\section{Eratosthenes 筛}
+
+\lstinputlisting[style=cpp]{数论/Eratosthenes筛.cpp}
+
+\section{Eular 筛}
+
+\lstinputlisting[style=cpp]{数论/Eular筛.cpp}
+
+\section{素性测试}
+
+\subsection{试除法}
+
+\lstinputlisting[style=cpp]{数论/试除法.cpp}
+
+\subsection{Miller Rabbin}
+
+如果 $n\leqslant 2^{32}$，那么 $ppp$ 取 $2,7,61$；如果 $ppp$ 选择 $2,3,7,61,24251$，那么 $10^{16}$ 内只有唯一的例外。如果莫名 WA 了，就多取点素数吧。
+
+%如果 $n\leqslant 2^{32}$，那么 ppp 取 $2,7,61$；如果 ppp 选择 $2,3,7,61,24251$，那么 $10^16$ 内只有唯一的 $46856248255981$，若选择 $2,3,5,7,11,13,17$ ，则 $341550071728320$ 以内都是正确的。
+
+\lstinputlisting[style=cpp]{数论/Miller_Rabbin.cpp}
+
+\chapter{图论}
+
+\section{链式前项星}
+
+\lstinputlisting[style=cpp]{图论/链式前项星.cpp}
+
+\section{Dijkstra}
+
+\lstinputlisting[style=cpp]{图论/Dijkstra.cpp}
+
+\section{Bellman-Ford}
+
+\lstinputlisting[style=cpp]{图论/Bellman-Ford.cpp}
+
+\section{Floyd}
+
+起始条件 $f(i,j)=edge(i,j)$，$f(i,i)=0$。
+
+\lstinputlisting[style=cpp]{图论/Floyd.cpp}
+
+\section{最近公共祖先(LCA)}
+
+如果数据小，可以不用求 $\log_2$，直接莽 $20$。
+
+\lstinputlisting[style=cpp]{图论/LCA.cpp}
+
+
+\chapter{动态规划}
+
+\section{背包}
+
+\subsection{01 背包}
+
+给定体积为 $v_i$，价值 $w_i$ 的 $N$ 个物品，背包容积为 $M$，每个物品只能取 $1$ 个，求最大价值。
+
+\lstinputlisting[style=cpp]{动态规划/01背包.cpp}
+
+\subsection{完全背包}
+
+给定体积为 $v_i$，价值 $w_i$ 的 $n$ 个物品，背包容积为 $v$，每个物品任意取，求最大价值。
+
+\lstinputlisting[style=cpp]{动态规划/完全背包.cpp}
+
+\subsection{多重背包}
+
+给定体积为 $v_i$，价值 $w_i$ 的 $N$ 个物品，背包容积为 $M$，每个物品有 $c_i$ 个，求最大价值。
+
+如各种背包组合（如洛谷 P1833 樱花），通常把完全背包转为 $99999$ 个（适当调节）多重背包，再按 01 背包来。
+
+\lstinputlisting[style=cpp]{动态规划/多重背包.cpp}
+
+\section{最长公共上升序列}
+
+给出 $1,2,\ldots,n$ 的两个排列 $a$ 和 $b$ ，求它们的最长公共子序列。
+
+\lstinputlisting[style=cpp]{动态规划/最长公共上升序列.cpp}
+
+\section{数字计数}
+
+试计算在区间 $1$ 到 $n$ 的所有整数中，数字 $x(0 \leqslant x \leqslant 9)$共出现了多少次？
+
+\lstinputlisting[style=cpp]{动态规划/数字计数.cpp}
+
+
+
+
+\end{document}

@@ -1,0 +1,138 @@
+\chapter{实数集与函数}
+
+集合论与函数和映射视作熟知的。若无额外说明，皆在 $\RR$ 下。
+
+\section{实数}
+
+有理数和无理数统称实数，有理数可用分数形式 $\mfrac{p}{q}$ 表示，也可用有限十进小数或无限十进循环小数表示；而无限十进不循环小数则成为无理数。
+
+为了让任意实数都可用一个确定的无限小数来表示，如下规定：
+
+对于正有限小数（包括正整数） $x$，当 $x=a_0.a_1a_2\cdots{}a_n$ 时，其中 $0\ge a_i \ge 9,i=1,2,\cdots,n,a_n\neq 0$，$a_0$ 为非负整数，即 $$x=a_0.a_1a_2\cdots{}(a_n-1)9999\cdots,$$ 而当 $x=a_0$ 为正整数时，则记 $$x=(a_0-1).9999\cdots$$
+
+对于负有限小数（包括负整数）$y$，则先将 $-y$ 表示为无限小数，再在所得无限小数之前加负号。并规定 $0$ 表示为 $0.0000\cdots$。
+
+%\begin{definition}
+	%给定两个非负实数 $$x=a_0.a_1a_2\cdots{}a_n\cdots,\quad y=b_0.b_1b_2\cdots{}b_n\cdots,$$ 其中 $a_0,b_0$ 为非负整数，$a_k,b_k(k=1,2,\cdots)$ 为整数，$0\ge a_k\ge9,0\ge b_k\ge9$。若有 $$a_k=b_k,k=0,1,2,\cdots,$$ 则称 $x$ 与 $y$ 相等，记为 $x=y$；若 $a_0>b_0$ 或存在非负实数 $l$，使得 $$a_k=b_k(k=0,1,2,\cdots,l)\text{而}a_{l+1}>b_{l+1},$$ 则称 $x$ 大于 $y$ 或 $y$ 小于 $x$，分别记为 $x>y$ 或 $y<x$。
+
+	%对于负实数 $x,y$，若按上述规定有 $-x=-y$，称作 $x=y$。若按上述有 $-x>-y$，则
+%\end{definition}
+
+实数有以下性质：
+
+\begin{enumerate}
+	\item 实数集 $\RR$ 对加、减、乘、除（除数不为 $0$）四则运算是封闭的。
+	\item 实数集是有序的：任意 $a,b$ 必满足三个关系之一（$a<b,a=b,a>b$）。
+	\item 实数的大小关系具有传递性：若 $a>b,b>c$，则有 $a>c$。
+	\item 实数具有阿基米德性：对任何 $a,b\in\RR$，若 $b>a>0$，则存在正整数 $n$，使得 $na>b$。
+	\item 实数集具有稠密性：任意 $a,b$ 之间必存在另一个实数，可以是有理数，也可以是无理数。
+\end{enumerate}
+
+\subsection{数集·确界原理}
+
+区间分为无限区间和有限区间。
+
+设实数 $a<b$，则称数集 $\{x \mid a<x<b\}$ 为开区间，记作 $(a,b)$；数集 $\{x \mid a\leqslant x \leqslant b\}$ 称为闭区间，记作 $[a,b]$；数集 $\{x \mid a\leqslant x<b\}$ 和 $\{x \mid a<x\leqslant b\}$ 都称为半开半闭区间，分别记作 $[a,b)$ 和 $(a,b]$。以上几类区间统称为有限区间。
+
+满足关系式 $x\ge a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\RR = (-\infty,+\infty)$。这几类区间统称为无限区间。
+
+设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
+$$U(a;\delta) = (a-\delta,a+\delta)$$
+点 $a$ 的空心 $\delta$ 邻域定义为
+$$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
+也可以简单的记作 $U^\circ(a)$。
+
+此外，常用的邻域还有：
+
+点 $a$ 的 $\delta$ 右邻域 $U_+(a;\delta) = [a,a+\delta)$，左邻域 $U_-(a;\delta)$。以及点 $a$ 的空心 $\delta$ 左、右邻域 $U_{-}^\circ(a)$ 与 $U_{+}^{\circ}(a)$。
+
+以及 $\infty$ 邻域 $U(\infty) = \{x \mid |x|>M\}$，其中 $M$ 为充分大的正数。类似的还有 $U(+\infty) = \{x \mid x>M\}$ 和 $U(-\infty) = \{x \mid x<-M\}$。
+
+\begin{definition}[有界集]
+	设 $S$ 为一个非空数集，若存在数 $M\in$ 使得 $\forall x\in S$
+	
+	1. 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
+	
+	2. 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
+\end{definition}
+
+若数集 $S$ 既有上界又有下界，则称 $S$ 为有界集，反之称为无界集。
+
+\begin{definition}[上确界]
+	设 $S$ 是一个数集，若数 $\beta$ 满足：
+	
+	1. $\beta$ 是 $S$ 的上界：$\forall x\in S$，有 $x\leqslant \beta$。
+	
+	2. 任何小于 $\beta$ 的数不是数集 $S$ 的上界：$\forall \mu<\beta, \exists x_0\in S$ 使得 $x_0>\mu$。
+	
+	则称数 $\beta$ 为数集 $S$ 的上确界，记作 $\sup S$。
+\end{definition}
+
+\begin{definition}[下确界]
+	设 $S$ 是一个数集，若数 $\alpha$ 满足：
+	
+	1. $\alpha$ 是 $S$ 的下界：$\forall x\in S$，有 $x\geqslant \alpha$。
+	
+	2. 任何大于 $\alpha$ 的数不是数集 $S$ 的下界：$\forall \mu>\alpha, \exists x_0\in S$ 使得 $x_0<\mu$。
+	
+	则称数 $\alpha$ 为数集 $S$ 的下确界，记作 $\sup S$。
+\end{definition}
+
+上确界与下确界统称为确界。应注意，数集 $S$ 的确界可能属于 $S$，也可能不属于 $S$。
+
+\begin{theorem}[确界原理]
+	设 $S$ 为非空数集，若 $S$ 有上界，则 $S$ 必有上确界；若 $S$ 有下界，则 $S$ 必有下确界。
+\end{theorem}
+
+若把 $\pm \infty$ 看作非正常上下确界，前文定义视为正常上（下）确界，那么任一非空数集必有上下确界。
+
+\section{函数的上下界}
+
+\begin{definition}
+	设 $f$ 为定义在 $D$ 上的函数。若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\leqslant M(f(x) \ge L)$，则称 $f$ 为 $D$ 上的有上（下）界函数，$M(L)$ 称为 $f$ 在 $D$ 上的一个上（下）界。
+
+	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\ge M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
+\end{definition}
+
+\begin{definition}
+	设 $f$ 为定义在 $D$ 上的函数。若存在正数 $M$，使得对每一个 $x\in D$，有 $|f(x)|\leqslant M$，则称 $f$ 为 $D$ 上的有界函数。
+
+	反之，若存在正数 $M$，使得对每一个 $x\in D$，有 $|f(x)|\ge M$，则称 $f$ 为 $D$ 上的无界函数。
+\end{definition}
+
+记函数 $f$ 在 $D$ 上的上确界为 $\sup_{x\in D} f(x)$，类似的有 $\inf_{x\in D} f(x)$。
+
+\begin{definition}
+	设 $f$ 为定义在 $D$ 上的函数，若对任何 $x_1,x_2\in D$，当 $x_1<x_2$ 时：
+	\begin{enumerate}
+		\item 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
+		\item 总有 $f(x_1) \ge f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
+	\end{enumerate}
+\end{definition}
+
+增函数和减函数统称为单调函数，严格增函数和严格减函数统称为严格单调函数。
+
+严格单调函数必有反函数，其也为严格单调函数。
+
+\begin{definition}
+	设 $D$ 为对称于原点的数集， 函数 $f$ 为定义在 $D$ 上的函数。若对每一个 $x\in D$：
+	\begin{enumerate}
+		\item 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
+		\item 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
+	\end{enumerate}
+\end{definition}
+
+\section{实数系的构造}
+
+\begin{definition}[Dedekind 分割]
+	设 $A$ 为 $Q$ 的子集，若满足以下三个条件
+
+	1. $A \ne \varnothing,A \ne \QQ$；
+
+	2. 当 $p\in A,p \in A^c$ 时，$p<q$；
+
+	3. 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
+
+	则称 $A$ 为 $\QQ$ 的一个分割，分割的全体组成集合为 $\RR$。
+\end{definition}
+

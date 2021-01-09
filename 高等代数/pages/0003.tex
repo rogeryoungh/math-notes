@@ -89,6 +89,138 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 于是线性方程组有解，等价与 $\bbb$ 可以由 $\aaa_1,\cdots,\aaa_n$ 线性表出，即 $\bbb \in \langle\aaa_1,\cdots,\aaa_n\rangle$。
 
+\section{线性相关与无关}
+
+\begin{definition}
+	$K^n$ 中向量组 $\aaa_1,\cdots,\aaa_s$ 称为是线性相关的，如果有 $K$ 中不全为 $0$ 的数 $k_1,\cdots,k_s$，使得
+	$$k_1\aaa_1+\cdots+k_s\aaa_s=\ling$$
+	否则称为线性无关。
+\end{definition}
+
+即线性无关意味着所有的系数只能都为 $0$。
+
+\section{向量组的秩}
+
+\begin{definition}[极大线性无关组]
+	向量组的一个部分组称为一个极大线性无关组，如果这个部分组本身是线性无关的，但是从这个向量组的其余向量（如果还有的话）中任取一个添进去，得到的新的部分组都线性相关。
+\end{definition}
+
+如果向量组 $\aaa_1,\cdots,\aaa_s$ 的每一个向量都可以由向量组 $\bbb_1,\cdots,\bbb_r$ 线性表出，那么称向量组 $\aaa_1,\cdots,\aaa_s$ 可以由向量组线性表出。
+
+\begin{definition}
+	如果向量组 $\aaa_1,\cdots,\aaa_s$ 与向量组 $\bbb_1,\cdots,\bbb_r$ 可以互相线性表出，那么称两个向量组等价，记作
+	$$\{\aaa_1,\cdots,\aaa_s\} \cong \{\bbb_1,\cdots,\bbb_r\}$$
+\end{definition}
+
+可以证明，这种关系具有下述三条性质（反身性，对称性，传递性），即是等价关系。
+
+那么向量组与它的极大线性无关组等价。
+
+\begin{definition}
+	向量组 $\aaa_1,\cdots,\aaa_r$ 的极大线性无关组所含向量的个数称为这个向量组的秩，记作
+	$$\rank\{\aaa_1,\cdots,\aaa_r\}$$
+\end{definition}
+
+\section{子空间的基与维数}
+
+\begin{definition}
+	设 $U$ 是 $K^n$ 的一个子空间，如果 $\aaa_1,\cdots,\aaa_r\in U$ 是 $U$ 的一个基，那么
+
+	1. $\aaa_1,\cdots,\aaa_r$ 线性无关。
+
+	2. $U$ 中每一个向量都可以由 $\aaa_1,\cdots,\aaa_r$ 线性表出。
+\end{definition}
+
+显然，单位向量组 $\varepsilon_1,\cdots,\varepsilon_n$ 是 $K^n$ 的一个基，称作标准基。
+
+\begin{theorem}
+	$K^n$ 的任一非零子空间 $U$ 都有一个基。
+\end{theorem}
+
+\begin{theorem}
+	$K^n$ 的任一非零子空间 $U$ 的任一两个基所含向量的个数相等，称为 $U$ 的维数，记作 $\dim_KU$ 或 $\dim U$。
+\end{theorem}
+
+\begin{theorem}
+	向量组 $\aaa_1,\cdots,\aaa_s$ 的一个极大线性无关组是这个向量组生成的子空间的 $\langle \aaa_1,\cdots,\aaa_s \rangle$，从而
+	$$\dim\langle \aaa_1,\cdots,\aaa_s \rangle = \rank\{\aaa_1,\cdots,\aaa_s\}$$
+\end{theorem}
+
+\section{矩阵的秩}
+
+\begin{theorem}
+	阶梯形矩阵 $J$ 的行秩与列秩相等，它们都等于 $J$ 的非零行的个数；并且 $J$ 的主元所在的列构成列向量的一个极大线性无关组。
+\end{theorem}
+
+\begin{theorem}
+	矩阵的初等行变换不改变矩阵的行秩和列秩。
+\end{theorem}
+
+\begin{theorem}
+	矩阵的行秩和列秩相等，统称为矩阵的秩。矩阵 $A$ 的秩记作 $\rank(A)$。
+\end{theorem}
+
+\begin{theorem}
+	非零矩阵的秩等于它的不为零的子式的阶数。
+\end{theorem}
+
+若一个 $n$ 级矩阵的秩如果等于它的级数，那么称为满秩矩阵。
+
+\section{线性方程组有解的充分必要条件}
+
+\begin{theorem}
+	数域 $K$ 上有线性方程组
+	$$x_1\aaa_1 + \cdots + x_n\aaa_n = \beta$$
+	有解的充分必要条件是：它的系数矩阵与增广矩阵的秩相等。
+\end{theorem}
+
+\begin{theorem}
+	数域 $K$ 上 $n$ 元线性方程组有解时，如果它的系数矩阵满秩，那么方程组有唯一解；否则方程组有无穷多个解。
+\end{theorem}
+
+\section{齐次线性方程组解集的结构}
+
+数域 $K$ 上 $n$ 元齐次线性方程组
+$$x_1\aaa_1 + \cdots + x_n\aaa_n = 0$$
+的一个解是 $K^n$ 中的一个向量，称它为齐次线性方程组的一个解向量。
+
+可知齐次线性方程组的解集 $W$ 是 $K^n$ 的一个子空间，称为方程组的一个解空间。
+
+\begin{definition}
+	齐次线性方程组有非零解时，如果它的有限多个解 $\eee_1,\cdots,\eee_t$ 是其基础解系
+
+	1. $\eee_1,\cdots,\eee_t$ 线性无关。
+
+	2. 齐次线性方程组的每一个解都可以由 $\eee_1,\cdots,\eee_t$ 线性表出。
+\end{definition}
+
+于是解空间为
+$$W = \langle \eee_1,\cdots,\eee_t \rangle$$
+
+\begin{theorem}
+	数域 $K$ 上 $n$ 元齐次线性方程组的解空间 $W$ 的维数为
+	$$\dim W = n-\rank(A)$$
+\end{theorem}
+
+\section{非齐次线性方程组的结构}
+
+称数域 $K$ 上 $n$ 元齐次线性方程组
+$$x_1\aaa_1 + \cdots + x_n\aaa_n = \bbb$$
+的导出组为
+$$x_1\aaa_1 + \cdots + x_n\aaa_n = 0$$
+其的解空间用 $W$ 表示。
+
+\begin{theorem}
+	如果数域 $K$ 上 $n$ 元齐次线性方程组有解，那么它的解集 $U$ 为
+	$$U = \{\ggg_0+\eee \mid \eee \in W\}$$
+	其中 $\ggg_0$ 是非其次线性方程组的一个特解，$W$ 是导出组的解空间用。
+\end{theorem}
+
+
+
+
+
+
 
 
 

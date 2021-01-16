@@ -1,0 +1,63 @@
+\chapter{多项式环}
+
+\section{一元多项式环}
+
+\begin{definition}
+    数域 $K$ 上的一元多项式实值如下述的表达式
+    $$a_nx^n+\cdots + a_1x + a_0$$
+    其中 $x$ 是一个符号（它不属于 $K$）称为不定元，$n$ 是非负整数，$a_i\in K(i=0,\cdots,n)$ 称为系数，$a_ix^i$ 称为 $i$ 次项（$i=1,\cdots,n$），$a_0$ 称为零次项或常数项。
+\end{definition}
+
+两个这种形式的表达式相等规定为它们含有完全相同的项。此时符号 $x$ 为不定元。系数全为 $0$ 的多项式称为零多项式，记作 $0$。
+
+因此两个一元多项式相等当且仅当它们的同次项都对应相等相等，即一元多项式 的表示方式是唯一的。
+
+我们常常用 $f(x),g(x),h(x),\cdots$ 或 $f,g,h,\cdots$ 表示一元多项式。
+
+一元多项式的重要特点是它有次数概念。设
+$$f(x) = a_nx^n+\cdots + a_1x + a_0$$
+如果 $a_n\ne 0$，那么称 $a_nx^n$ 是 $f(x)$ 的首项，称 $n$ 是 $f(x)$ 的次数，记作 $\deg f(x)$。
+
+零多项式的次数定义为 $-\infty$，并且规定对于任意 $n\in \NN$
+$$(-\infty)+(-\infty):=-\infty$$
+$$(-\infty) +n := -\infty$$
+$$-\infty < n$$
+
+数域 $K$ 上所有一元多项式组成的集合记作 $K[x]$。在 $K[x]$ 中可以定义加法和乘法运算。
+
+设 $f(x) = \sum_{i=0}^na_ix^i,g(x) = \sum_{i=0}^mb_ix^i$，不妨设 $m \leqslant n$，令
+$$f(x) + g(x) := \sum_{i=0}^n(a_i+b_i)x^i$$
+$$f(x)g(x) := \sum_{s=0}^{m+n}\left(\sum_{i+j=s}a_ib_j\right)$$
+
+容易验证，一元多项式 的加法满足交换律、结合律。同样，其适合消去律
+$$f(x)g(x) = f(x)h(x),\text{且}\ f(x)\ne 0 \Rightarrow g(x) = h(x)$$
+
+\subsection{环的基本概念}
+
+集合 $S$ 上的一个代数运算，是指 $S\times S$ 到 $S$ 的一个映射。
+
+\begin{definition}
+    设 $R$ 是一个非空集合，如果其上定义了加法和乘法两个代数运算，并且满足如下六条运算法则，其中 $\forall a,b,c\in R$：
+
+    1. 加法结合律 $(a+b)+c = a+(b+c)$。
+
+    2. 加法交换律 $a+b = b+a$。
+
+    3. 在 $R$ 中有元素 $0$，使得 $a+0=a$，称 $0$ 为 $R$ 的零元素。
+
+    4. 对于 $a$，在 $R$ 中有元素 $d$，使得 $a+d=0$，称 $d$ 是 $a$ 的负元素，记作 $-a$。
+
+    5. 乘法结合律 $(ab)c = a(bc)$。
+
+    6. 乘法对于加法的左、右分配律
+    $$a(b+c) = ab+ac,(b+c)a = ba+ca$$
+
+    那么称 $R$ 是一个环。
+\end{definition}
+
+\begin{theorem}
+    环 $R$ 中的零元素是唯一的，元素 $a$ 的负元素是唯一的。
+\end{theorem}
+\begin{proof}
+    hhh 
+\end{proof}

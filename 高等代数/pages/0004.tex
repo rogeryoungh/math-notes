@@ -1,0 +1,312 @@
+\chapter{矩阵的运算}
+
+\section{矩阵的运算}
+
+数域上 $K$ 两个矩阵的行数、列数都相等，且所有元素对应相等，那么称两个矩阵相等。
+
+\begin{definition}
+    设数域 $K$ 上的 $s\times n$ 矩阵 $A=(a_{ij}),B=(b_{ij})$，令 $A,B$ 的和为
+    $$A+B := (a_{ij}+b_{ij})_{s\times n}$$
+\end{definition}
+
+\begin{definition}
+    设数域 $K$ 上的 $s\times n$ 矩阵 $A=(a_{ij})$，令 $k\in K$ 与 $A$ 的数量乘积为
+    $$kA := (ka_{ij})_{s\times n}$$
+\end{definition}
+
+容易验证，矩阵的加法和数量乘法满足类似于 $n$ 维向量的 8 条运算法则。
+
+同样定义矩阵的减法
+$$A-B := A+(-B)$$
+
+\begin{definition}
+    设 $A=(a_{ij})_{s\times n},B=(a_{ij})_{n\times m}$，令 $A,B$ 的乘积为
+    $$AB = \left(\sum_{k=1}^na_{ik}b_{kj}\right)_{s\times m}$$
+\end{definition}
+
+同样，若 $AB$ 和 $BA$ 几乎都不相等，甚至不一定能够运算。
+
+\begin{theorem}
+    设 $A=(a_{ij})_{s\times n},B=(b_{ij})_{n\times m},C=(c_{ij})_{m\times r}$，则
+    $$(AB)C = A(BC)$$
+\end{theorem}
+
+注意到，若 $A,B\ne 0$，有可能 $BA = 0$。因此 $BA = 0$ 不能推出 $B=0$ 或 $A=0$。
+
+\begin{definition}[零因子]
+    对于矩阵 $A$，若存在矩阵 $B\ne 0$ 使得 $AB = 0$，那么称 $A$ 是一个左零因子。
+    
+    如果存在一个矩阵 $C\ne 0$ 使得 $CA = 0$，那么称 $A$ 是一个右零因子。
+    
+    左零因子和右零因子称为零因子。 
+\end{definition}
+
+特殊的，零矩阵是零因子，称为平凡的零因子。
+
+\begin{theorem}
+    矩阵的乘法有分配律（左分配律、右分配律）
+    $$A(B+C) = AB+AC$$
+    $$(B+C)D = BD + CD$$
+\end{theorem}
+
+矩阵的乘法不适合消去律，从 $AC = BC$ 且 $C\ne 0$ 不能推出 $A=B$。
+
+主对角线上元素都是 $1$，其余元素都是 $0$ 的 $n$ 级矩阵称为 $n$ 级单位矩阵，记作 $I_n$ 或者简记作 $I$。主对角线上元素是同一个数 $k$，其余元素全为 $0$ 的 $n$ 级矩阵称为数量矩阵，可以记作 $kI$。一些书上写作 $\mathrm{E}$。
+
+因此有
+$$I_s A_{s\times n} = A_{s\times n}, A_{s\times n} I_n= A_{s\times n}$$
+若 $A$ 是 $n$ 级矩阵，则
+$$IA = AI = A$$
+矩阵的乘法与数量乘法满足下述关系式
+$$k(AB) = (kA)B = A(kB)$$
+
+数量矩阵还有
+$$kI + lI = (k+l)I$$
+$$k(lI) = (kl)I$$
+$$(kI)(lI) = (kl)I$$
+
+矩阵的乘法虽不满足交换律，但若对具体的两个矩阵 $A$ 与 $B$，也有可能 $AB = BA$，那么称 $A$ 与 $B$ 可交换。比如数量矩阵与任一同级矩阵可交换
+$$(kI)A = A(kI) = kA$$
+
+\begin{definition}
+    定义 $n$ 级矩阵 $A$ 的非负整数次幂为
+
+    1. $A^n := I$
+
+    2. $A^{m+1} := AA^m$
+\end{definition}
+
+
+\begin{theorem}
+    1. $(A+B)' = A'$
+    
+    2. $(kA)' = kA'$
+    
+    3. $(AB)' = B'A'$
+\end{theorem}
+
+如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $\bbb$，未知量 $x_1,\cdots,x_n$ 组成的列向量为 $\XXX$，那么 $n$ 元线性方程组可以写成
+$$A\XXX = \bbb$$
+于是列向量 $\eee$ 是方程组的 $A\XXX = \bbb$ 的解当且仅当 $A\eee = \bbb$。
+
+\section{特殊矩阵}
+
+\begin{definition}
+    主对角线以外的元素全为 $0$ 的方阵称为对角矩阵，简记作
+    $$\diag\{d_1,\cdots,d_n\}$$
+\end{definition}
+
+\begin{definition}
+    只有一个元素是 $1$，其他元素全为 $0$ 的矩阵称为基本矩阵。$(i,j)$ 元为 $1$ 的基本矩阵记作 $E_{ij}$。
+\end{definition}
+
+\begin{definition}
+    主对角线下（上）方的元素全为 $0$ 的方阵称为上（下）三角矩阵。
+\end{definition}
+
+显然 $A=(a_{ij})$ 为上三角矩阵的 充分必要条件是
+$$a_{ij}=0，\text{当}\ i>j$$
+同样，上三角矩阵也可表述为
+$$A = \sum_{i=1}^n\sum_{j=i}^na_{ij}E_{ij}$$
+
+\begin{definition}
+    由单位矩阵经过一次初等行（列）变换得到的矩阵称为初等矩阵。
+\end{definition}
+
+初等矩阵有且只有三种类型：$P(j,i(k)),P(i,j),P(i(c))$，其中 $c\ne 0$。
+
+1. 用 $P(j,i(k))$ 左乘 $A$，即把 $A$ 的第 $i$ 行的 $k$ 倍加到第 $j$ 行上。
+
+2. 用 $P(j,i(k))$ 右乘 $A$，即把 $A$ 的第 $j$ 列的 $k$ 倍加到第 $i$ 列上。
+
+类似的，用 $P(i,j)$ 左（右）乘 $A$，就相当于把 $A$ 的第 $i$ 行（列）与第 $j$ 行（列）互换。
+
+用 $P(i(c))$ 左（右）乘 $A$，就相当于用 $c$ 乘 $A$ 的第 $i$ 行（列）。
+
+\begin{definition}
+    一个矩阵 $A$ 如果满足 $A' = A$，那么称 $A$ 是对称矩阵。
+\end{definition}
+
+\begin{definition}
+    如果一个矩阵 $A$ 如果满足 $A' = -A$，那么称 $A$ 是斜对称矩阵。
+\end{definition}
+
+\section{矩阵乘积的秩与行列式}
+
+\begin{theorem}
+    设 $A = (a_{ij})_{s\times n},B = (b_{ij})_{n\times m}$，则
+    $$\rank(AB) \leqslant \min\{\rank(A),\rank(B)\}$$
+\end{theorem}
+
+\begin{theorem}
+    设 $A = (a_{ij})_{s\times n},B = (b_{ij})_{n\times m}$，则
+    $$|AB| = |A||B| = |B||A| = |BA|$$
+\end{theorem}
+
+\begin{theorem}[Binet $-$ Cauchy 公式]
+    设 $A = (a_{ij})_{s\times n},B = (b_{ij})_{n\times m}$，则
+
+    1. 如果 $s>n$，那么 $|AB| = 0$；
+
+    2. 如果 $s\leqslant n$，那么  $|AB|$ 等于 $A$ 的所有 $s$ 阶子式的与相应 $s$ 阶子式的乘积之和，即
+    $$|AB|=\sum_{1\leqslant v_1<\cdots< v_s\leqslant n}A \dbinom{1,\cdots,s}{v_1,\cdots,v_s} \cdot B \dbinom{v_1,\cdots,v_s}{1,\cdots,s}$$
+\end{theorem}
+
+\begin{definition}
+    对于数域 $K$ 上的矩阵 $A$，如果存在数域 $K$ 上的矩阵 $B$，使得
+    $$AB = BA = I$$
+    那么称 $A$ 是可逆矩阵（或非奇异矩阵），$B$ 称为 $A$ 的逆矩阵，记作 $A^{-1}$。
+\end{definition}
+
+易知可逆矩阵一定是方阵，$n$ 级矩阵 $A$ 可逆的充分必要条件是
+$$|A| \ne 0$$
+
+\begin{definition}
+    设矩阵 $A = (a_{ij})$，那么 $A$ 的伴随矩阵为
+    $$A^*=(A_{ij})$$
+\end{definition}
+
+有
+$$AA^* = |A|I$$
+
+\begin{theorem}
+    数域 $K$ 上 $n$ 级矩阵 $A$ 可逆的充分必要条件是 $|A| \ne 0$。当 $A$ 可逆时，
+    $$A^{-1} = \frac{A^*}{|A|}$$
+\end{theorem}
+
+易得，可逆矩阵有如下性质
+
+1. $(A^{-1})^{-1} = A$
+
+2. $(AB)^{-1} = B^{-1}A^{-1}$
+
+可逆矩阵能够通过初等行变换变成第简化行阶梯形矩阵一定是单位矩阵。
+
+\begin{theorem}
+    矩阵 $A$ 可逆的充分必要条件是它可以表示成一些初等矩阵的乘积。
+\end{theorem}
+
+用一个可逆矩阵左（右）乘一个矩阵 $A$，不改变 $A$ 的秩。
+
+这里给出了求可逆矩阵第逆矩阵的又一种方法，称为初等变换法。
+
+\section{矩阵的分块}
+
+由矩阵 $A$ 的若干行、若干列的交叉位置元素按原来顺序排成的矩阵称为 $A$ 的一个子矩阵。若把分为若干组，列也分成若干组，从而 $A$ 被分成若干个子矩阵，把 $A$ 看成是由这些子矩阵组成的，这称为矩阵的分块，这种由子矩阵组成的矩阵称为分块矩阵。
+
+\section{正交矩阵}
+
+\begin{definition}
+    实数域上的 $n$ 级矩阵 $A$ 如果满足
+    $$AA'=I$$
+    那么称 $A$ 是正交矩阵。
+\end{definition}
+
+那么其具有如下性质
+
+1. 若 $A$ 和  $B$ 都是 $n$ 级正交矩阵，则 $AB$ 也是正交矩阵。
+
+2. 若 $A$ 是正交矩阵，则 $A^{-1}$ （即 $A'$）也是正交矩阵。
+
+3. 若 $A$ 是正交矩阵，则 $|A|=\pm 1$
+
+
+引用 Kronecker 记号 $\delta_{ij}$，它的含义是
+$$\delta_{ij}=\begin{cases}
+    1,\quad \text{当}\ i=j\\
+    0,\quad \text{当}\ i\ne j
+\end{cases}$$
+
+\begin{theorem}
+    设实数域上 $n$ 级矩阵 $A$ 的行向量组为 $\ggg_1,\cdots,\ggg_n$，列向量组为 $\aaa_1,\cdots,\aaa_n$，则
+    $$\ggg_i\ggg_j'=\delta_{ij},\aaa_i'\aaa_j=\delta_{ij},1 \leqslant i,j \leqslant n$$
+\end{theorem}
+
+\begin{definition}
+    在 $\RR^n$ 中，任给 $\aaa = (a_1,\cdots,a_n),\bbb=(b_1,\cdots,b_n)$，规定
+    $$(\aaa,\bbb) := \sum a_nb_n = \aaa\bbb'$$
+    这个二元实值函数 $(\aaa,\bbb)$ 称为 $\RR^n$ 的一个内积（通常称为标准内积）。
+\end{definition}
+
+可以验证 $\RR^n$ 的标准内积有下列性质：
+
+1. 对称性 $(\aaa,\bbb) = (\bbb,\aaa)$。
+
+2. 线性性之一 $(\aaa+\ggg,\bbb) = (\aaa,\bbb) + (\ggg,\bbb)$。
+
+3. 线性性之二 $(k\aaa,\bbb) = k(\aaa,\bbb)$。
+
+4. 正定性 $(\aaa,\aaa)\geqslant 0$，当且仅当 $\aaa=\ling$ 时等号成立。
+
+可以验证
+$$(k_1\aaa_1+\k_2\aaa_2,\bbb) = k_1(\aaa_1,\bbb) + k_2(\aaa_2,\bbb)$$
+$$(\aaa,k_1\bbb_1+k_2\bbb_2) = k_1(\aaa,\bbb_1) + k_2(\aaa,\bbb_2)$$
+
+$n$ 维向量空间 $\RR^n$ 有了标准内积后，就称 $\RR^n$ 为一个欧几里得空间。其中，向量 $\aaa$ 的长度 $|\aaa|$ 规定为
+$$|\aaa| := \sqrt{(\aaa,\aaa)}$$
+
+容易验证
+$$|k\aaa| = |k||\aaa|$$
+
+长度为 $1$ 的向量称为单位向量，把非零向量 $\aaa$ 除以 $|\aaa|$ 称为把 $\aaa$ 单位化。
+
+在欧几里得空间 $\RR^n$ 中，如果 $(\aaa,\bbb)=0$，那么称 $\aaa$ 与 $\bbb$ 是正交的，记作 $\aaa \bot \bbb$。由非零向量组成的向量组如果其中每两个不同的向量都正交，那么称它们为正交向量组。如果其每个向量都是单位向量，那么称它为正交单位向量组。
+
+特殊的，零向量与任何向量正交，仅由一个非零向量组成的向量组也是正交向量组。
+
+容易验证，欧几里得空间 $\RR^n$ 中 $n$ 个向量组成的正交向量组一定是 $\RR^n$ 的一个基，称它为正交基。如果其每个向量都是单位向量，那么称它为 $\RR^n$ 的一个标准正交基。
+
+\begin{theorem}
+    实数域上的 $n$ 级矩阵 $A$ 是正交矩阵的充分必要条件为：$A$ 的行（列）向量组是欧几里得空间 $\RR^n$ 的一个标准正交基。
+\end{theorem}
+
+\begin{theorem}
+    设 $\aaa_1,\cdots,\aaa_s$ 是欧几里得空间 $\RR^n$ 中一个线性无关的向量组，令
+    \begin{equation*}
+        \begin{aligned}
+            \bbb_1&=\aaa_1\\
+            \bbb_2&=\aaa_2 - \frac{\aaa_2,\bbb_1}{\bbb_1,\bbb_1}\bbb_1\\
+            &\cdots \\
+            \bbb_s &= \aaa_s-\sum_{j=1}^{s-1}\frac{\aaa_s,\bbb_j}{\bbb_j,\bbb_j}\bbb_j
+        \end{aligned}
+    \end{equation*}
+    则 $\bbb_1,\cdots,\bbb_s$ 是正交向量组，并且与 $\aaa_1,\cdots,\aaa_s$ 等价。
+\end{theorem}
+
+这给出了在欧几里得空间 $\RR^n$ 中从一个线性无关的向量组 $\aaa_1,\cdots,\aaa_s$ 出发，够造出与它等价的一个正交向量组的方法，这种方法称为 施密特（Schmidt）正交化过程，只要再将 $\bbb_1,\cdots,\bbb_s$ 中每个向量单位化，则其就是与原向量组等价的正交单位向量组，就是 $\RR^n$ 的一个标准正交基。
+
+\section{\texorpdfstring{$K^n$ 到 $K^s$ 的线性映射}{Kn 到 Ks 的线性映射}}
+
+映射视作熟知的。设 $f$ 是集合 $S$ 到集合 $S'$，$S$ 所有元素在 $f$ 下的象组成的集合叫做 $f$ 的值域或者 $f$ 的象，记作 $f(S)$ 或 $\Im f$。
+
+\begin{definition}
+    数域 $K$ 上的向量空间 $K^n$ 到 $K^s$ 的一个映射 $\sigma$ 如果保持加法和数量乘法，即 $\forall \aaa,\bbb \in K^n,k\in K$ 有
+    $$\sigma (\aaa+\bbb) = \sigma(\aaa) + \sigma(\bbb)$$
+    $$\sigma(k\aaa) = k\sigma(\aaa)$$
+    那么称 $\sigma$ 是 $K^n$ 到 $K^s$ 上的一个线性映射。
+\end{definition}
+
+设 $A$ 是数域 $K$ 上 $s\times n$ 矩阵，令
+\begin{equation*}
+    \begin{aligned}
+        \AAA : K^n &\longrightarrow K^s\\
+        \aaa &\longmapsto A\aaa
+    \end{aligned}
+\end{equation*}
+
+
+\begin{definition}
+    设 $\sigma$ 是 $K^n$ 到 $K^s$ 的一个映射，$K^n$ 的一个子集
+    $$\{\aaa \in K^n \mid \sigma(\aaa) = \ling\}$$
+    称为映射 $\sigma$ 的核，记作 $\ker \sigma$
+\end{definition}
+
+容易验证，如果 $\sigma$ 是 $K^n$ 到 $K^s$ 的一个线性映射，那么 $\ker \sigma$ 是 $K^n$ 的一个子空间。
+
+\begin{theorem}
+    设数域上 $K$ 上齐次线性方程组 $A\XXX = \ling$ 的解空间是 $W$，$A$ 对应的线性映射为 $\AAA$ 则
+    $$\ker \AAA = W$$
+\end{theorem}
+
+因此
+$$\dim \ker \AAA + \dim \Im \AAA = \dim K^n$$

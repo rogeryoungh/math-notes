@@ -11,12 +11,20 @@
 \newcommand\CC{\mathbb{C}}
 \newcommand\ee{\mathrm{e}}
 \newcommand\dd{\mathrm{d}}
-\newcommand\rank{\mathrm{rank}}
 \newcommand\uppi{\mathrm{\pi}}
+
+\newcommand\rank{\operatorname{rank}}
+\newcommand\diag{\operatorname{diag}}
+\renewcommand\Im{\operatorname{Im}}
+\newcommand\tr{\operatorname{tr}}
+
 \newcommand\aaa{\boldsymbol{\alpha}}
+\newcommand\AAA{\boldsymbol{A}}
 \newcommand\bbb{\boldsymbol{\beta}}
 \newcommand\eee{\boldsymbol{\eta}}
 \renewcommand\ggg{\boldsymbol{\gamma}}
+\newcommand\XXX{\boldsymbol{X}}
+\newcommand\YYY{\boldsymbol{Y}}
 \newcommand\ling{\boldsymbol{0}}
 %%----------- 封面部分 ----------- %%
 
@@ -26,9 +34,9 @@
 	\flushright
 		{\zihao{0}\textbf{高等代数笔记}}\\%%中文书名
 		\rule{\linewidth}{1pt}\\ \vspace{2ex}
-		{\zihao{2}\textsf{Gao Deng Dai Shu}} \\%% 英文书名
+		{\zihao{2}\texttt{GAODENGDAISHUBIJI}} \\%% 英文书名
 		\vspace{20ex}% A4->35,Boox->20,Kindle->10
-		{\zihao{4}rogeryoungh}%% 作者
+		{\zihao{3}\texttt{rogeryoungh}}%% 作者
 	\end{minipage}
 	\vfill\centering
 	{\zihao{4}\number\year 年 \number\month 月 \number\day 日 · \LaTeX{}}
@@ -42,5 +50,9 @@
 \include{pages/0001} % 多项式
 \include{pages/0002} % 行列式
 \include{pages/0003} % 线性方程组的解系
+\include{pages/0004} % 矩阵的运算
+\include{pages/0005} % 矩阵的相抵与相似
+\include{pages/0006} % 二次型 · 矩阵的合同
+\include{pages/0007} % 多项式环
 
 \end{document}

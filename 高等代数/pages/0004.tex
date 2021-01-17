@@ -194,6 +194,11 @@ $$AA^* = |A|I$$
 
 由矩阵 $A$ 的若干行、若干列的交叉位置元素按原来顺序排成的矩阵称为 $A$ 的一个子矩阵。若把分为若干组，列也分成若干组，从而 $A$ 被分成若干个子矩阵，把 $A$ 看成是由这些子矩阵组成的，这称为矩阵的分块，这种由子矩阵组成的矩阵称为分块矩阵。
 
+\begin{theorem}
+    设 $A = \left(\begin{matrix} B & C\\ 0 & D \end{matrix}\right)$，其中 $B,C,D$ 都是方阵，那么
+    $$A^{-1} = \left(\begin{matrix} B^{-1} & -B^{-1}CD^{-1}\\ 0 & D^{-1} \end{matrix}\right)$$
+\end{theorem}
+
 \section{正交矩阵}
 
 \begin{definition}

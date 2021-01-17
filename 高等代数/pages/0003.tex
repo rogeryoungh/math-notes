@@ -99,6 +99,8 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 即线性无关意味着所有的系数只能都为 $0$。
 
+注意线性相关不意味着每个向量都可以由其他向量线性表出，该向量前的 $k$ 可以为 $0$。
+
 \section{向量组的秩}
 
 \begin{definition}[极大线性无关组]
@@ -112,7 +114,9 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 	$$\{\aaa_1,\cdots,\aaa_s\} \cong \{\bbb_1,\cdots,\bbb_r\}$$
 \end{definition}
 
-可以证明，这种关系具有下述三条性质（反身性，对称性，传递性），即是等价关系。
+可以证明，这种关系具有三条性质（反身性，对称性，传递性），即是等价关系。
+
+对矩阵作初等行变换，变换前后的行向量组等价，不保证列向量组等价。
 
 那么向量组与它的极大线性无关组等价。
 

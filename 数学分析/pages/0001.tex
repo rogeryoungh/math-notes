@@ -32,9 +32,9 @@
 
 区间分为无限区间和有限区间。
 
-设实数 $a<b$，则称数集 $\{x \mid a<x<b\}$ 为开区间，记作 $(a,b)$；数集 $\{x \mid a\leqslant x \leqslant b\}$ 称为闭区间，记作 $[a,b]$；数集 $\{x \mid a\leqslant x<b\}$ 和 $\{x \mid a<x\leqslant b\}$ 都称为半开半闭区间，分别记作 $[a,b)$ 和 $(a,b]$。以上几类区间统称为有限区间。
+设实数 $a<b$，则称数集 $\{x \mid a<x<b\}$ 为开区间，记作 $(a,b)$；数集 $\{x \mid a\leqslant x \leqslant b\}$ 称为闭区间，记作 $[a,b]$；数集 $\{x \mid a\leqslant x<b\}$ 和 $\{x \mid a < x \leqslant b\}$ 都称为半开半闭区间，分别记作 $[a,b)$ 和 $(a,b]$。以上几类区间统称为有限区间。
 
-满足关系式 $x\ge a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\RR = (-\infty,+\infty)$。这几类区间统称为无限区间。
+满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\RR = (-\infty,+\infty)$。这几类区间统称为无限区间。
 
 设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
 $$U(a;\delta) = (a-\delta,a+\delta)$$
@@ -75,7 +75,7 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 	
 	2. 任何大于 $\alpha$ 的数不是数集 $S$ 的下界：$\forall \mu>\alpha, \exists x_0\in S$ 使得 $x_0<\mu$。
 	
-	则称数 $\alpha$ 为数集 $S$ 的下确界，记作 $\sup S$。
+	则称数 $\alpha$ 为数集 $S$ 的下确界，记作 $\inf S$。
 \end{definition}
 
 上确界与下确界统称为确界。应注意，数集 $S$ 的确界可能属于 $S$，也可能不属于 $S$。
@@ -91,7 +91,7 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}
 	设 $f$ 为定义在 $D$ 上的函数。若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\leqslant M(f(x) \ge L)$，则称 $f$ 为 $D$ 上的有上（下）界函数，$M(L)$ 称为 $f$ 在 $D$ 上的一个上（下）界。
 
-	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\ge M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
+	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\geqslant M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
 \end{definition}
 
 \begin{definition}
@@ -104,10 +104,10 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 
 \begin{definition}
 	设 $f$ 为定义在 $D$ 上的函数，若对任何 $x_1,x_2\in D$，当 $x_1<x_2$ 时：
-	\begin{enumerate}
-		\item 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
-		\item 总有 $f(x_1) \ge f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
-	\end{enumerate}
+
+	1. 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
+
+	2. 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
 \end{definition}
 
 增函数和减函数统称为单调函数，严格增函数和严格减函数统称为严格单调函数。
@@ -116,10 +116,10 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 
 \begin{definition}
 	设 $D$ 为对称于原点的数集， 函数 $f$ 为定义在 $D$ 上的函数。若对每一个 $x\in D$：
-	\begin{enumerate}
-		\item 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
-		\item 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
-	\end{enumerate}
+
+	1. 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
+
+	2. 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
 \end{definition}
 
 \section{实数系的构造}

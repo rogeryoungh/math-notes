@@ -1014,7 +1014,7 @@
         language=C++,
     morekeywords={_fora,_forz,_forb,_fore,_in,_dbg},
     emph={return,int,long,float,double,short,byte,bool,ll,signed,unsigned,void},
-    emphstyle=\color{codecolortypes},
+    emphstyle=\color{frenchplum},
 }
 \lstset{basicstyle=\ttfamily,style=mystyle,breaklines=true}
 

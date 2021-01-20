@@ -18,9 +18,9 @@
 \begin{definition}[无穷大数列]
 	若数列 $\{a_n\}$ 满足：对任意正数 $M>0$，存在正整数 $N$，使得当 $n>N$ 时，
 
-	1. $a_n>M$，则称数列 $\{a_n\}$ 发散于正无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = +\infty$，或 $a_n \to +\infty$。
+	\num{1} $a_n>M$，则称数列 $\{a_n\}$ 发散于正无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = +\infty$，或 $a_n \to +\infty$。
 
-	2. 有 $a_n<M$，则称数列 $\{a_n\}$ 发散于负无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = -\infty$，或 $a_n \to -\infty$。
+	\num{2} 有 $a_n<M$，则称数列 $\{a_n\}$ 发散于负无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = -\infty$，或 $a_n \to -\infty$。
 \end{definition}
 
 \section{收敛数列的性质}
@@ -49,24 +49,34 @@
 	那么对任意正整数 $n$，总有 $|a_n|\leqslant M$。
 \end{proof}
 
-\begin{theorem}[保号性]
-	若 $\displaystyle\lim_{n\to \infty}a_n = a>0$，则对任何 $a'\in (0,a)$ 存在正数 $N$，使得当 $n>N$ 时，有 $a_n>a'$。
-\end{theorem}
-
 \begin{theorem}[保不等式性，保序性]
 	设 $\displaystyle\lim_{n\to \infty} a_n = A,\displaystyle\lim_{n\to \infty} b_n = B$，则有
 
-	（1）如果存在 $n>N$ 使得 $a_n\geqslant b_n$ 恒成立，则 $A\geqslant B$。
+	\num{1} 如果存在 $n>N$ 使得 $a_n\geqslant b_n$ 恒成立，则 $A\geqslant B$。
 
-	（2）反之，如果 $A>B$，则存在 $n>N_1$ 使得 $a_n>b_n$ 恒成立。
+	\num{2} 反之，如果 $A>B$，则存在 $n>N_1$ 使得 $a_n>b_n$ 恒成立。
 \end{theorem}
+\begin{proof}
+	\num{1} 如果设 $B-A=2\delta>0$，那么存在 $N_2,N_3>N$
+	$$|a_n-A|<\delta,n>N_2;\qquad |b_n-B|<\delta,n>N_3$$
+	于是当 $n>\max\{N_2,N_3\}$ 时有
+	$$a_n<A+\delta=B-\delta<b_n$$
+	因此矛盾，故 $A\geqslant B$。
+
+	\num{2} 设 $A-B=2\delta>0$，那么存在 $N_2,N_3$
+	$$|a_n-A|<\delta,n>N_2;\qquad |b_n-B|<\delta,n>N_3$$
+	于是存在 $N_1=\max\{N_2,N_3\}$，当 $n>N_1$ 时有
+	$$a_n>A-\delta=B+\delta>b_n$$
+\end{proof}
+
+若 $b_n$ 是常数列，$A\ne 0$，我们还可得到推论：存在 $N$，使得当 $n>N$ 时，有
+$$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 
 \begin{theorem}[迫敛性，夹逼定理]
 	设数列 $\{a_n\},\{b_n\},\{c_n\}$ 满足当 $n>N_0$ 有 $a_n\leqslant c_n\leqslant b_n$。若
 	$$\lim_{n\to \infty}a_n = A = \lim_{n\to \infty}c_n$$
 	则 $\displaystyle\lim_{n\to \infty}b_n = A$。
 \end{theorem}
-
 \begin{proof}
 	即对于任给的 $\varepsilon>0$，存在 $N_1,N_2$，使得当 $n>N_1$ 有 
 	$$A-\varepsilon<a_n<A+\varepsilon$$
@@ -76,23 +86,41 @@
 	$$A-\varepsilon < a_n \leqslant b_n \leqslant c_n < A+\varepsilon$$
 \end{proof}
 
-\begin{theorem}[四则运算法则]
-	若 $\{a_n\}$ 与 $\{b_n\}$ 均为收敛数列。则
+\begin{theorem}[四则运算]
+	设 $\displaystyle\lim_{n\to \infty} a_n = A,\displaystyle\lim_{n\to \infty} b_n = B$，则有
+
+	\num{1} $\{\alpha a_n+\beta b_n\}$ 收敛到 $\alpha A+\beta B$，其中 $\alpha,\beta$ 为常数。
+
+	\num{2} $\{a_nb_n\}$ 收敛到 $AB$。
+
+	\num{3} 当 $B\ne 0$ 时，$\{a_n/b_n\}$ 收敛到 $A/B$。
+\end{theorem}
+\begin{proof}
+	\num{1} 任给 $\varepsilon >0$，存在 $N_1,N_2$ 使得
+	$$|a_n-A|<\frac{\varepsilon}{2|\alpha|+1},n>N_1;\qquad |b_n-B|<\frac{\varepsilon}{2|\beta|+1},n>N_2$$
+	则当 $n>\max\{N_1,N_2\}$ 时有
 	\begin{equation*}
 		\begin{aligned}
-			\lim_{n\to \infty}(a_n \pm b_n) &= \lim_{n\to \infty}a_n \pm \lim_{n\to \infty}b_n\\
-			\lim_{n\to \infty}(a_n \cdot b_n) &= \lim_{n\to \infty}a_n \cdot \lim_{n\to \infty}b_n
+			|(\alpha a_n+\beta b_n)-(\alpha A+\beta B)|&\leqslant |\alpha||a_n-A|+|\beta||b_n-B|\\
+			&< \frac{\varepsilon|\alpha|}{2|\alpha|+1}+\frac{\varepsilon|\beta|}{2|\beta|+1}\\
+			&< \frac{\varepsilon}2+\frac{\varepsilon}2=\varepsilon
 		\end{aligned}
 	\end{equation*}
-	若再假设 $b_n \ne 0$ 及 $\displaystyle\lim_{n\to \infty}b_n \ne 0$，则
-	\begin{equation*}
-		\lim_{n\to \infty}\frac{a_n}{b_n} = \frac{\lim_{n\to \infty}a_n}{\lim_{n\to \infty}b_n}
-	\end{equation*}
-\end{theorem}
+
+	\num{2} 由收敛数列的有界性，存在 $M$ 使得 $|a_n|\leqslant M$，那么
+	$$0\leqslant |a_nb_n-AB|=|(a_n-A)b_n+A(b_n-B)|\leqslant M|a_n-A|+|A||b_n-B|$$
+	由迫敛性知 $\displaystyle\lim_{n\to \infty}|a_nb_n-AB| =0$。
+
+	\num{3} 由保号性的推论，存在 $N$ 使得当 $n>N$ 时有 $|b_n|>\dfrac{|B|}{2}$，那么
+	$$0 \leqslant \left|\frac{1}{b_n}-\frac{1}{B}\right| = \frac{|b_n-B|}{|b_n||B|} \leqslant \frac{2}{|B|^2}{|b_n-B|}$$
+	由迫敛性知 $\displaystyle\lim_{n\to \infty}\left|\frac{1}{b_n}-\frac{1}{B}\right| =0$。
+\end{proof}
 
 \begin{definition}[数列的子列]
-	设 $\{a_n\}$ 为数列，$\{n_k\}$ 为正整数集 $\NN^+$ 的无限子集，且 $n_1<n_2<\cdots<n_k<\cdots$，则数列 $\{a_{n_k}\}$ 称为数列 $\{a_n\}$ 的一个子列。
+	设 $\{a_n\}$ 为数列，如果 $\{n_k\}$ 是一列严格递增的正整数，则数列 $\{a_{n_k}\}$ 称为数列 $\{a_n\}$ 的一个子列。
 \end{definition}
+
+特殊的子列 $\{a_{2k},a_{2k-1}\}$ 分别称为偶子列与奇子列。
 
 \begin{theorem}
 	数列 $\{a_n\}$ 收敛的充要条件：$\{a_n\}$ 的任何子列都收敛。
@@ -105,17 +133,44 @@
 \end{definition}
 
 \begin{theorem}[单调有界定理]
-	有界的单调数列必有极限。
+	单调有界数列必有极限。
 \end{theorem}
 
 \begin{theorem}[致密性定理]
 	任何有界数列必定有收敛的子列。
 \end{theorem}
 
-\begin{theorem}[柯西（Cauchy）收敛准则]
-	数列 $\{a_n\}$ 收敛的充要条件是：对任给的 $\varepsilon >0$，存在正整数 $N$，使得当 $n,m>N$ 时，有 
-	$$|a_n-a_m| < \varepsilon$$
+\section{柯西（Cauchy）准则}
+
+\begin{definition}
+	设 $\{a_n\}$ 为数列，如果任给 $\varepsilon>0$，均存在 $N(\varepsilon)$ 使当 $m,n>N(\varepsilon)$ 时有
+	$$|a_m-a_n| < \varepsilon$$
+	则称 $\{a_n\}$ 为 Cauchy 数列或基本列。
+\end{definition}
+
+\begin{theorem}
+	Cauchy 数列必定时有界数列。
 \end{theorem}
+\begin{proof}
+	取 $\varepsilon=1$，则存在 $N$ 使得当 $m,n>N$ 时有
+	$$|a_m-a_n| < 1$$
+	令 $M = \max\{|a_k|+1 \mid 1 \leqslant k \leqslant N+1\}$，则当 $n\leqslant N$ 时显然有 $|a_n|\leqslant M$，而当 $n>N$ 时有
+	$$|a_n| \leqslant |a_n-a_{N+1}| + |a_{N+1} < 1+ |a_{N+1}| \leqslant M$$
+	这说明 $\{a_n\}$ 是有界数列。
+\end{proof}
+
+\begin{theorem}[Cauchy 收敛准则]
+	$\{a_n\}$ 为 Cauchy 数列当且仅当它是收敛的。
+\end{theorem}
+\begin{proof}
+	\num{1} 充分性：设 $\{a_n\}$ 收敛到 $A$，则任给 $\varepsilon >0$ 存在 $N$，当 $n>N$ 时有
+	$$|a_n-A|\leqslant \frac{\varepsilon}{2}$$
+	因此当 $m,n>N$ 时有
+	$$|a_m-a_n| \leqslant |a_m-A| + |A-a_n| < \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$$
+	这说明 $a_n$ 为 Cauchy 数列。
+	
+	\num{2} 必要性：Todo ……
+\end{proof}
 
 柯西收敛准则的条件称为柯西条件。
 

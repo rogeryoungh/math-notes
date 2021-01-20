@@ -3,25 +3,25 @@
 \section{函数极限的概念}
 
 \begin{definition}
-	设 $f$ 为定义在 $[a,+\infty)$ 上的函数，$A$ 为定数。若对任给的 $\varepsilon>0$，存在正数 $M=M(\varepsilon) \geqslant a$，使得当 $x>M$ 时，有
-	$$|f(x)-A| < \varepsilon$$
-	则称函数 $f$ 当 $x$ 趋于 $+\infty$ 时以 $A$ 为极限，记作
-	$$\lim_{x\to +\infty}f(x) = A\ \text{或}\ f(x) \to A(x\to +\infty)$$
+    设 $f$ 为定义在 $[a,+\infty)$ 上的函数，$A$ 为定数。若对任给的 $\varepsilon>0$，存在正数 $M=M(\varepsilon) \geqslant a$，使得当 $x>M$ 时，有
+    $$|f(x)-A| < \varepsilon$$
+    则称函数 $f$ 当 $x$ 趋于 $+\infty$ 时以 $A$ 为极限，记作
+    $$\lim_{x\to +\infty}f(x) = A\ \text{或}\ f(x) \to A(x\to +\infty)$$
 \end{definition}
 
-类似的有 $\lim_{x\to -\infty}f(x)$ 和 $\lim_{x\to \infty}f(x)$。
+类似的有 $\displaystyle\lim_{x\to -\infty}f(x)$ 和 $\displaystyle\lim_{x\to \infty}f(x)$。
 
 不难证明
 $$\lim_{x \to \infty}f(x) = A \Leftrightarrow \lim_{x \to -\infty}f(x)=\lim_{x \to +\infty}f(x)=A$$
 
 \begin{definition}
-	设函数 $f$ 在 $U^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\varepsilon>0$，存在正数 $\delta<\delta'$，使得当 $0<|x-x_0|<\delta$ 时，有 $|f(x)-A|<\varepsilon$，则称函数 $f$ 当 $x$ 趋于 $x_0$ 时以 $A$ 为极限，记作
-	$$\lim_{x\to x_0}f(x) = A\ \text{或}\ f(x)\to A(x\to x_0)$$
+    设函数 $f$ 在 $U^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\varepsilon>0$，存在正数 $\delta<\delta'$，使得当 $0<|x-x_0|<\delta$ 时，有 $|f(x)-A|<\varepsilon$，则称函数 $f$ 当 $x$ 趋于 $x_0$ 时以 $A$ 为极限，记作
+    $$\lim_{x\to x_0}f(x) = A\ \text{或}\ f(x)\to A(x\to x_0)$$
 \end{definition}
 
 \begin{definition}
-	设函数 $f$ 在 $U_+^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\varepsilon>0$，存在正数 $\delta<\delta'$，使得当 $x_0<x<x_0+\delta$ 时，有 $|f(x)-A|<\varepsilon$，则称函数 $f$ 当 $x$ 趋于 $x_0^+$ 时以 $A$ 为极限，记作 
-	$$\lim_{x\to x_0^+}f(x) = A\ \text{或}\ f(x)\to A(x\to x_0^+)$$
+    设函数 $f$ 在 $U_+^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\varepsilon>0$，存在正数 $\delta<\delta'$，使得当 $x_0<x<x_0+\delta$ 时，有 $|f(x)-A|<\varepsilon$，则称函数 $f$ 当 $x$ 趋于 $x_0^+$ 时以 $A$ 为极限，记作 
+    $$\lim_{x\to x_0^+}f(x) = A\ \text{或}\ f(x)\to A(x\to x_0^+)$$
 \end{definition}
 
 类似的还有左极限 $\displaystyle\lim_{x\to x_0^-}f(x)$，统称为单侧极限。又可记为
@@ -33,53 +33,49 @@ $$\lim_{x \to x_0}f(x) = A \Leftrightarrow \lim_{x \to x_0^+}f(x)=\lim_{x \to x_
 \section{函数极限的性质}
 
 \begin{theorem}[唯一性]
-	若极限 $\displaystyle\lim_{x\to x_0}f(x)$ 存在，则此极限是唯一的。
+    若极限 $\displaystyle\lim_{x\to x_0}f(x)$ 存在，则此极限是唯一的。
 \end{theorem}
 
 \begin{theorem}[局部有界性]
-	若极限 $\displaystyle\lim_{x\to x_0}f(x)$ 存在，则 $f$ 在 $x_0$ 的某空心邻域 $U^\circ(x_0)$ 上有界。
-\end{theorem}
-
-\begin{theorem}[保号性]
-	若 $\displaystyle\lim_{x\to x_0}f(x) = A>0$，则对任何实数 $r<A$ 存在正数 $U^\circ(x_0)$，使得对一切 $x\in U^\circ(x_0)$ 时，有 $f(x)>r>0$。
+    若极限 $\displaystyle\lim_{x\to x_0}f(x)$ 存在，则 $f$ 在 $x_0$ 的某空心邻域 $U^\circ(x_0)$ 上有界。
 \end{theorem}
 
 \begin{theorem}[保不等式性]
-	设 $\lim_{x\to x_0}f(x)$ 与 $\lim_{x\to x_0}g(x)$ 均存在。若存在正数 $N_0$，使得当 $n>N_0$ 时，有 $a_n\leqslant b_n$，则 $\displaystyle\lim_{n\to \infty}a_n \leqslant \lim_{n\to \infty}b_n$。
+    设 $\lim_{x\to x_0}f(x)$ 与 $\lim_{x\to x_0}g(x)$ 均存在。若存在正数 $N_0$，使得当 $n>N_0$ 时，有 $a_n\leqslant b_n$，则 $\displaystyle\lim_{n\to \infty}a_n \leqslant \lim_{n\to \infty}b_n$。
 \end{theorem}
 
 \begin{theorem}[迫敛性]
-	设 $\lim_{x\to x_0}f(x) = \lim_{x\to x_0}g(x) = A$，且在某 $U^\circ(x_0;\delta')$ 上有
-	$$f(x)\leqslant h(x) \leqslant g(x)$$
-	则 $\lim_{x\to x_0}h(x) = A$。
+    设 $\displaystyle\lim_{x\to x_0}f(x) = \lim_{x\to x_0}g(x) = A$，且在某 $U^\circ(x_0;\delta')$ 上有
+    $$f(x)\leqslant h(x) \leqslant g(x)$$
+    则 $\lim_{x\to x_0}h(x) = A$。
 \end{theorem}
 
 \begin{theorem}[四则运算法则]
-	若 $\displaystyle\lim_{x\to x_0}f(x)$ 与 $\displaystyle\lim_{x\to x_0}g(x)$ 均存在，则
-	$$\lim_{x\to x_0}[f(x)\pm g(x)] = \lim_{x\to x_0}f(x) + \lim_{x\to x_0}g(x)$$
-	$$\lim_{x\to x_0}[f(x)g(x)] = \lim_{x\to x_0}f(x) \cdot \lim_{x\to x_0}g(x)$$
-	若 $\displaystyle\lim_{x\to x_0}g(x)\ne 0$，则
-	$$\lim_{x\to x_0}\frac{f(x)}{g(x)} = \frac{\lim_{x\to x_0}f(x)}{\lim_{x\to x_0}g(x)}$$
+    若 $\displaystyle\lim_{x\to x_0}f(x)$ 与 $\displaystyle\lim_{x\to x_0}g(x)$ 均存在，则
+    $$\lim_{x\to x_0}[f(x)\pm g(x)] = \lim_{x\to x_0}f(x) + \lim_{x\to x_0}g(x)$$
+    $$\lim_{x\to x_0}[f(x)g(x)] = \lim_{x\to x_0}f(x) \cdot \lim_{x\to x_0}g(x)$$
+    若 $\displaystyle\lim_{x\to x_0}g(x)\ne 0$，则
+    $$\lim_{x\to x_0}\frac{f(x)}{g(x)} = \frac{\lim_{x\to x_0}f(x)}{\lim_{x\to x_0}g(x)}$$
 \end{theorem}
 
 \section{函数极限存在的条件}
 
 \begin{theorem}[海涅（Heine）定理，归结原则]
-	若 $f(x)$ 在 $U^\circ(x_0;\delta')$ 上有定义。$\displaystyle\lim_{x\to x_0}f(x)$ 存在的充要条件是：任何含于 $U^\circ(x_0;\delta')$ 且以 $x_0$ 为极限的数列 $\{x_n\}$，极限 $\displaystyle\lim_{x\to x_0}f(x_n)$ 都存在且相等。
+    若 $f(x)$ 在 $U^\circ(x_0;\delta')$ 上有定义。$\displaystyle\lim_{x\to x_0}f(x)$ 存在的充要条件是：任何含于 $U^\circ(x_0;\delta')$ 且以 $x_0$ 为极限的数列 $\{x_n\}$，极限 $\displaystyle\lim_{x\to x_0}f(x_n)$ 都存在且相等。
 \end{theorem}
 
 即若对任何 $x_n\to x_0(n\to \infty)$ 有 $\displaystyle\lim_{n\to \infty}f(x_n) = A$，则 $\displaystyle\lim_{x\to x_0}f(x)=A$。
 
 \begin{theorem}
-	设 $f(x)$ 在点 $x_0$ 的某空心右邻域 $U_+^\circ(x_0)$ 有定义，则 $\displaystyle\lim_{x\to x_0^+}f(x)=A$ 的充要条件是：对任何以 $x_0$ 为极限的递减数列 $\{x_n\}\subset U_+^\circ(x_0)$，有 $\displaystyle\lim_{n\to \infty}f(x_n) = A$。
+    设 $f(x)$ 在点 $x_0$ 的某空心右邻域 $U_+^\circ(x_0)$ 有定义，则 $\displaystyle\lim_{x\to x_0^+}f(x)=A$ 的充要条件是：对任何以 $x_0$ 为极限的递减数列 $\{x_n\}\subset U_+^\circ(x_0)$，有 $\displaystyle\lim_{n\to \infty}f(x_n) = A$。
 \end{theorem}
 
 \begin{theorem}
-	设 $f(x)$ 为定义在 $U_+^\circ(x_0)$ 上的单调有界函数，则右极限 $\displaystyle\lim_{x\to x_0^+}f(x)=A$ 存在。
+    设 $f(x)$ 为定义在 $U_+^\circ(x_0)$ 上的单调有界函数，则右极限 $\displaystyle\lim_{x\to x_0^+}f(x)=A$ 存在。
 \end{theorem}
 
 \begin{theorem}[柯西准则]
-	设 $f(x)$ 在 $U^\circ(x_0;\delta')$ 上有定义，则 $\displaystyle\lim_{x\to x_0}f(x)$ 存在的充要条件是：任给 $\varepsilon > 0$，存在正数 $\delta(<\delta')$，使得对任何 $x',x''\in U^\circ(x_0,\delta)$，有 $|f(x')-f(x'')|<\varepsilon$。
+    设 $f(x)$ 在 $U^\circ(x_0;\delta')$ 上有定义，则 $\displaystyle\lim_{x\to x_0}f(x)$ 存在的充要条件是：任给 $\varepsilon > 0$，存在正数 $\delta(<\delta')$，使得对任何 $x',x''\in U^\circ(x_0,\delta)$，有 $|f(x')-f(x'')|<\varepsilon$。
 \end{theorem}
 
 \section{两个重要的极限}
@@ -90,11 +86,11 @@ $$\lim_{x\to \infty}\left(1+\frac{1}{x}\right)^x = \ee$$
 \section{无穷小量与无穷大量}
 
 \begin{definition}[无穷小量]
-	设函数 $f$ 在某 $U^\circ(x_0)$ 上有定义，若 $\displaystyle\lim_{x\to x_0}f(x)=0$，则称 $f$ 为当 $x\to x_0$ 时的无穷小量。
+    设函数 $f$ 在某 $U^\circ(x_0)$ 上有定义，若 $\displaystyle\lim_{x\to x_0}f(x)=0$，则称 $f$ 为当 $x\to x_0$ 时的无穷小量。
 \end{definition}
 
 \begin{definition}[有界量]
-	设函数 $f$ 在某 $U^\circ(x_0)$ 上有界，则称 $f$ 为当 $x\to x_0$ 时的有界量。
+    设函数 $f$ 在某 $U^\circ(x_0)$ 上有界，则称 $f$ 为当 $x\to x_0$ 时的有界量。
 \end{definition}
 
 无穷小量收敛于 $0$ 的速度有快有慢。设当 $x\to x_0$ 时，$f$ 与 $g$ 均为无穷小量。
@@ -118,34 +114,48 @@ $$f(x) \sim g(x) (x\to x_0)$$
 注意并不是任何两个无穷小量都可以进行这种阶的比较。例如 $x\to 0$ 时，$x\sin\dfrac{1}{x}$ 和 $x^2$ 都是无穷小量，但它们的比都不是有界量。
 
 \begin{theorem}
-	设函数 $f,g,h$ 在 $U^\circ(x_0)$ 上有定义，且有 $f(x) \sim g(x)(x\to x_0)$，则
+    设函数 $f,g,h$ 在 $U^\circ(x_0)$ 上有定义，且有 $f(x) \sim g(x)(x\to x_0)$，则
 
-	1.若 $\displaystyle\lim_{x\to x_0}f(x)h(x) = A$，则 $\displaystyle\lim_{x\to x_0}g(x)h(x) = A$。
+    1.若 $\displaystyle\lim_{x\to x_0}f(x)h(x) = A$，则 $\displaystyle\lim_{x\to x_0}g(x)h(x) = A$。
 
-	2.若 $\displaystyle\lim_{x\to x_0}\frac{h(x)}{f(x)}=B$，则 $\displaystyle\lim_{x\to x_0}\frac{h(x)}{g(x)}=B$
+    2.若 $\displaystyle\lim_{x\to x_0}\frac{h(x)}{f(x)}=B$，则 $\displaystyle\lim_{x\to x_0}\frac{h(x)}{g(x)}=B$
 \end{theorem}
 
 \begin{definition}[无穷大量]
-	设函数 $f$ 在某 $U^\circ(x_0)$ 上有定义，若对任给的 $G>0$，存在 $\delta>0$，使得当 $x\in U^\circ(x_0;\delta)\subset U^\circ(x_0)$ 时，有 $|f(x)|>G$，则称函数 $f$ 当 $x\to x_0$ 时有非正常极限 $\infty$，记作 $\lim_{x\to x_0}f(x) = \infty$。
+    设函数 $f$ 在某 $U^\circ(x_0)$ 上有定义，若对任给的 $G>0$，存在 $\delta>0$，使得当 $x\in U^\circ(x_0;\delta)\subset U^\circ(x_0)$ 时，有 $|f(x)|>G$，则称函数 $f$ 当 $x\to x_0$ 时有非正常极限 $\infty$，记作 $\displaystyle\lim_{x\to x_0}f(x) = \infty$。
 \end{definition}
 
 \section{常见等价无穷小}
 
-实际上这些等价无穷小，就是泰勒展开。
+实际上这些等价无穷小就是泰勒展开。
+
+% \begin{equation*}
+%     \begin{aligned}
+%         \frac{1}{1-x} &= \sum_{k=0}^\infty x^n,(-1,1) \\
+%         &= 1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + O(x^7)\\
+%         \ln(1+x) &= \sum_{k=0}^\infty\frac{(-1)^k}{k+1}x^{k+1},(-1,1] \\
+%         &= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} + \frac{x^7}{7} + O(x^8)\\
+%         \sin x &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1},\RR \\
+%         &= x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \frac{x^9}{362880}+ O(x^{11})\\
+%         \cos x &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^{2k},\RR \\
+%         &= 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + \frac{x^{10}}{3628800} + O(x^{12})\\
+%         \ee^x &= \sum_{k=0}^\infty\frac{1}{n!}x^n,\RR \\
+%         &= 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + \frac{x^6}{720} + \frac{x^7}{5040} + \frac{x^8}{40320} + O(x^{10})\\
+%         \tan x &= \sum_{k=1}^\infty \frac{(-4)^n(1-4^n)B_{2n}}{(2n)!}x^{2n-1},(-\frac{\pi}{2},\frac{\pi}{2}) \\
+%         &= x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^{7}}{315} + \frac{67x^9}{2835} + O(x^{11})
+%     \end{aligned}
+% \end{equation*}
 
 \begin{equation*}
-	\begin{aligned}
-		\frac{1}{1-x} &= \sum_{k=0}^\infty x^n,(-1,1) \\
-		&= 1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + O(x^7)\\
-		\ln(1+x) &= \sum_{k=0}^\infty\frac{(-1)^k}{k+1}x^{k+1},(-1,1] \\
-		&= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} + \frac{x^7}{7} + O(x^8)\\
-		\sin x &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1},\RR \\
-		&= x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \frac{x^9}{362880}+ O(x^{11})\\
-		\cos x &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^{2k},\RR \\
-		&= 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + \frac{x^{10}}{3628800} + O(x^{12})\\
-		\ee^x &= \sum_{k=0}^\infty\frac{1}{n!}x^n,\RR \\
-		&= 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + \frac{x^6}{720} + \frac{x^7}{5040} + \frac{x^8}{40320} + O(x^{10})\\
-		\tan x &= \sum_{k=1}^\infty \frac{(-4)^n(1-4^n)B_{2n}}{(2n)!}x^{2n-1},(-\frac{\pi}{2},\frac{\pi}{2}) \\
-		&= x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^{7}}{315} + \frac{67x^9}{2835} + O(x^{11})
-	\end{aligned}
+    \begin{aligned}
+        \frac{x}{1-x} &= x + x^2 + x^3 + x^4 + x^5 &+ O(x^6)\\
+        \ln(1+x)      &= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} &+ O(x^6)\\
+        \sin x        &= x - \frac{x^3}{6} + \frac{x^5}{120} &+ O(x^{7})\\
+        1- \cos x     &= \frac{x^2}{2} - \frac{x^4}{24} &+ O(x^{6})\\
+        \ee^x-1       &= x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} &+  O(x^{6})\\
+        \tan x        &= x + \frac{x^3}{3} + \frac{2x^5}{15} &+ O(x^{7})\\
+        \sqrt{x+1}-1  &= \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256} &+  O(x^{6})\\
+        \arcsin x     &= x + \frac{x^3}{6} + \frac{3x^5}{40} &+ O(x^7)\\
+        \arctan x     &= x - \frac{x^3}{3} + \frac{x^5}{5} &+ O(x^7)
+    \end{aligned}
 \end{equation*}

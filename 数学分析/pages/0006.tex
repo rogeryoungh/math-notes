@@ -1,0 +1,36 @@
+\chapter{微分中值定理}
+
+\section{拉格朗日定理}
+
+\begin{theorem}[罗尔（Rolle）中值定理]
+    若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，且 $f(a)=f(b)$。则存在 $\xi\in(a,b)$，使得 $f'(\xi)=0$。
+\end{theorem}
+
+\begin{theorem}
+    若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，则存在 $\xi\in(a,b)$，使得
+    $$f'(\xi)=\frac{f(b)-f(a)}{b-a}$$
+\end{theorem}
+
+拉格朗日公式还有下面几种等价形式
+
+$$f(b)-f(a) = f'(\xi)(b-a),a<\xi<b$$
+$$f(b)-f(a) = f'(a+\theta(b-a))(b-a),0<\theta<1$$
+$$f(a+h) - f(a) = f'(a+\theta h)h,0<\theta<1$$
+
+\section{柯西中值定理}
+
+\begin{theorem}
+    设 $f,g$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，且 $g'(x)\ne 0$，则存在 $\xi\in (a,b)$，使得
+    $$\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(\xi)}{g'(\xi)}$$
+\end{theorem}
+
+\section{凹凸性}
+
+\begin{definition}
+    设 $f$ 为定义在区间 $I$ 上的函数，若对 $I$ 上当任意两点 $x_1,x_2$ 和任意实数 $\lambda\in (0,1)$ 总有
+    $$f(\lambda x_1+(1-\lambda)x_2) \leqslant \lambda f(x_1)+(1-\lambda)f(x_2)$$
+    则称 $f$ 为 $I$ 上的凸函数。反之，如果总有
+    $$f(\lambda x_1+(1-\lambda)x_2) \geqslant \lambda f(x_1)+(1-\lambda)f(x_2)$$
+    则称 $f$ 为 $I$ 上的凹函数。
+\end{definition}
+

@@ -1,0 +1,60 @@
+\chapter{积分的方法与技巧}
+
+这部分我的参考书是《积分的方法与技巧》（金玉明等）。
+
+\section{分项积分法}
+
+若干微分式的和或差的不定积分，等于每个微分式的各自积分的和或差。
+
+$$\int\left( f(x)+g(x)-h(x) \right)\dd x = \int f(x)\dd x + \int g(x)\dd x - \int h(x)\dd x$$
+
+因此多项式的积分可以简单的通过积分各个单项式得到。
+
+如果一个分式的分母为多项式，则可把它化成最简单的分式再积分。如
+
+$$\frac{1}{x^2-a^2} = \frac{1}{2a}\left( \frac{1}{x-a}-\frac{1}{x+a} \right)$$
+
+这里可以通过通分后待定系数得到。于是其积分为
+
+$$\int \frac{\dd x}{x^2-a^2} = \frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C$$
+
+对于更复杂的真分式的情况，若要计算的是
+
+$$\int \frac{mx+n}{x^2+px+q} \dd x$$
+
+分母不一定能直接分解，但总能进行配方
+
+$$x^2+px+q = \left(x+\frac{p}{2}\right)^2+q-\frac{p^2}{4} = t^2 \pm a^2$$
+
+再令 $A=m,B=n-\mfrac12mp$，可得
+
+$$\int \frac{mx+n}{x^2+px+q} \dd x = \int \frac{At+B}{t^2 \pm a^2} \dd t 
+= A\int \frac{t\dd t}{t^2 \pm a^2} + B\int \frac{\dd t}{t^2 \pm a^2}$$
+
+其中
+
+\begin{equation*}
+    \begin{aligned}
+        A\int \frac{t \dd t}{t^2 \pm a^2} &= \frac{A}{2}\int \frac{\dd(t^2 \pm a^2)}{t^2 \pm a^2} = \frac{A}{2} \ln|t^2 \pm a^2| +C \\
+        B\int \frac{\dd t}{t^2 + a^2} &= \frac{B}{a}\arctan\frac{t}{a}+C \\
+        B\int \frac{t \dd t}{t^2 - a^2} &= \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C
+    \end{aligned}
+\end{equation*}
+
+因此当 $p^2<4q$ 时，可以得到
+
+\begin{equation*}
+    \begin{aligned}
+        \int \frac{mx+n}{x^2+px+q} &= \frac{A}{2} \ln|t^2 + a^2| + \frac{B}{a}\arctan\frac{t}{a} + C\\
+        &=\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{\sqrt{4q-p^2}}\arctan{\frac{2x+p}{\sqrt{4q-p^2}}} + C
+    \end{aligned}
+\end{equation*}
+
+当 $p^2>4q$ 时，可以得到
+
+\begin{equation*}
+    \begin{aligned}
+        \int \frac{mx+n}{x^2+px+q} &= \frac{A}{2} \ln|t^2 - a^2| + \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|\\
+        &=\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{2\sqrt{4q-p^2}}\ln\left| \frac{2x+p-\sqrt{p^2-4q}}{2x+p+\sqrt{p^2-4q}} \right| + C
+    \end{aligned}
+\end{equation*}

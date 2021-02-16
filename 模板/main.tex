@@ -3,6 +3,43 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
+\lstdefinestyle{cpp}{
+	basicstyle=%
+		\ttfamily
+		\lst@ifdisplaystyle\small\fi,
+		% Line numbers
+		numbers=left,
+		numbersep=10pt,
+		xleftmargin=2em,
+		stepnumber=1,
+		firstnumber=1,
+		numberfirstline=true,
+		% Code
+		tabsize=4,
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		breaklines=true,
+		% Code design
+		keywordstyle=\color{codecolorkeywords},
+		commentstyle=\color{codecolorcomments},
+		stringstyle=\color{codecolorstrings},
+		numberstyle=\ttfamily\small\color{gray},
+		breakatwhitespace=false,
+		breaklines=true,
+		captionpos=t,
+		keepspaces=true,
+		frame=tb,
+		framerule=.5pt,
+		rulecolor=\color{black},
+		abovecaptionskip=0pt,
+        belowcaptionskip=5pt,
+        language=C++,
+    morekeywords={_fora,_forz,_forb,_fore,_in,_dbg},
+    emph={return,int,long,float,double,short,byte,bool,ll,signed,unsigned,void},
+    emphstyle=\color{frenchplum},
+}
+
 \begin{document}
 \newcommand\mfrac[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
 \newcommand\ee{\mathrm{e}}

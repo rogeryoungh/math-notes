@@ -51,9 +51,9 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}[有界集]
 	设 $S$ 为一个非空数集，若存在数 $M\in$ 使得 $\forall x\in S$
 	
-	1. 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
+	（1） 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
 	
-	2. 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
+	（2） 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
 \end{definition}
 
 若数集 $S$ 既有上界又有下界，则称 $S$ 为有界集，反之称为无界集。
@@ -61,9 +61,9 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}[上确界]
 	设 $S$ 是一个数集，若数 $\beta$ 满足：
 	
-	1. $\beta$ 是 $S$ 的上界：$\forall x\in S$，有 $x\leqslant \beta$。
+	（1） $\beta$ 是 $S$ 的上界：$\forall x\in S$，有 $x\leqslant \beta$。
 	
-	2. 任何小于 $\beta$ 的数不是数集 $S$ 的上界：$\forall \mu<\beta, \exists x_0\in S$ 使得 $x_0>\mu$。
+	（2） 任何小于 $\beta$ 的数不是数集 $S$ 的上界：$\forall \mu<\beta, \exists x_0\in S$ 使得 $x_0>\mu$。
 	
 	则称数 $\beta$ 为数集 $S$ 的上确界，记作 $\sup S$。
 \end{definition}
@@ -71,9 +71,9 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}[下确界]
 	设 $S$ 是一个数集，若数 $\alpha$ 满足：
 	
-	1. $\alpha$ 是 $S$ 的下界：$\forall x\in S$，有 $x\geqslant \alpha$。
+	（1） $\alpha$ 是 $S$ 的下界：$\forall x\in S$，有 $x\geqslant \alpha$。
 	
-	2. 任何大于 $\alpha$ 的数不是数集 $S$ 的下界：$\forall \mu>\alpha, \exists x_0\in S$ 使得 $x_0<\mu$。
+	（2） 任何大于 $\alpha$ 的数不是数集 $S$ 的下界：$\forall \mu>\alpha, \exists x_0\in S$ 使得 $x_0<\mu$。
 	
 	则称数 $\alpha$ 为数集 $S$ 的下确界，记作 $\inf S$。
 \end{definition}
@@ -105,9 +105,9 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}
 	设 $f$ 为定义在 $D$ 上的函数，若对任何 $x_1,x_2\in D$，当 $x_1<x_2$ 时：
 
-	1. 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
+	（1） 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
 
-	2. 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
+	（2） 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
 \end{definition}
 
 增函数和减函数统称为单调函数，严格增函数和严格减函数统称为严格单调函数。
@@ -117,9 +117,9 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}
 	设 $D$ 为对称于原点的数集， 函数 $f$ 为定义在 $D$ 上的函数。若对每一个 $x\in D$：
 
-	1. 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
+	（1） 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
 
-	2. 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
+	（2） 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
 \end{definition}
 
 \section{实数系的构造}
@@ -127,11 +127,11 @@ $$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
 \begin{definition}[Dedekind 分割]
 	设 $A$ 为 $Q$ 的子集，若满足以下三个条件
 
-	1. $A \ne \varnothing,A \ne \QQ$；
+	（1） $A \ne \varnothing,A \ne \QQ$；
 
-	2. 当 $p\in A,p \in A^c$ 时，$p<q$；
+	（2） 当 $p\in A,p \in A^c$ 时，$p<q$；
 
-	3. 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
+	（3） 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
 
 	则称 $A$ 为 $\QQ$ 的一个分割，分割的全体组成集合为 $\RR$。
 \end{definition}

@@ -1,6 +1,6 @@
 # 我的笔记
 
-$\LaTeX$ 初学者，这些是我学习的笔记，目前以数学为主。
+<img style="margin-bottom:-0.5em" src="https://www.zhihu.com/equation?tex=\mathrm\LaTeX"/> 初学者，这些是我学习的笔记，目前以数学为主。
 
 很多地方的描述可能不规范，主要是为了让我自己懂。
 

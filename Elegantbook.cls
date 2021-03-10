@@ -176,22 +176,22 @@
     }{\relax}
     
     
-\ifcsname kaishu\endcsname
-  \newcommand{\citshape}{\kaishu}
+\ifcsname fzkai\endcsname
+  \newcommand{\citshape}{\fzkai}
 \else
   \newcommand{\citshape}{\itshape}
 \fi
-\ifcsname kaishu\endcsname
-  \newcommand{\cnormal}{\kaishu}
+\ifcsname fzkai\endcsname
+  \newcommand{\cnormal}{\fzkai}
 \else
   \newcommand{\cnormal}{\normalfont}
 \fi
 
-\ifcsname fangsong\endcsname
-  \newcommand{\cfs}{\fangsong}
-\else
+%\ifcsname fzfs\endcsname
+%  \newcommand{\cfs}{\fzfs}
+%\else
   \newcommand{\cfs}{\normalfont}
-\fi
+%\fi
 
 
 \usepackage{fontspec}

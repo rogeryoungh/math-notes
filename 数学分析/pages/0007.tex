@@ -2,35 +2,161 @@
 
 这部分我的参考书是《积分的方法与技巧》（金玉明等）。
 
+\section{积分的存在性}
+
+先放这，稍后做整理。
+
+\begin{definition}
+    设函数 $f$ 与 $F$ 在区间 $I$ 上都有定义。若
+    $$F'(x) = f(x), x\in I$$
+    则称 $F$ 为 $f$ 在区间 $I$ 上的一个原函数。
+\end{definition}
+
+\begin{theorem}
+    设 $F$ 是 $f$ 在区间 $I$ 上的一个原函数，则
+    （1） $F+C$ 也是 $f$ 在 $I$ 上的原函数，其中 $C$ 为任意常量函数
+    （2） $f$ 在 $I$ 上的任意两个原函数之间，只可能相差一个常数。
+\end{theorem}
+\begin{proof}
+    （1） 显然
+    $$\left[ F(x)+C \right]' = F'(x) = f(x), x\in I$$
+    
+    （2） 设 $F$ 和 $G$ 是 $f$ 在 $I$ 上的任意两个原函数，则有
+    $$\left[ F(x)-G(x) \right]' = F'(x) - G'(x) = f(x) - f(x) = 0, x\in I$$
+    根据 Lagrange 中值定理，有
+    $$F(x) - G(x) \equiv C, x\in I$$
+\end{proof}
+
+\begin{definition}
+    函数 $f$ 在区间 $I$ 上的全体原函数称为 $f$ 在 $I$ 上的不定积分，记作
+    $$\int f(x) \dd x = F(x) + C$$
+\end{definition}
+
+其中 $\displaystyle\int$ 称为积分号，$f(x)$ 为被积函数，$f(x)\dd x$ 为被积表达式，$x$ 称为积分变量。
+
+\subsection{定积分}
+
+设闭区间 $[a,b]$ 上有 $n-1$ 个点，依次为
+$$a = x_0 < x_1 < \cdots < x_{n-1} < x_n = b$$
+它们把 $[a,b]$ 分为 $n$ 个小区间 $\Delta_i = [x_{i-1},x_i], i=1,\cdots,n$。这些分点或这些闭子区间构成对 $[a,b]$ 的一个分割，记为
+$$T=\{x_0,\cdots,x_n\}\ \text{或}\ \{\Delta_1,\cdots,\Delta_n\}$$
+小区间 $\Delta_i$ 的长度为 $\Delta x_i = x_i-x_{i-1}$，并记 
+$$\| T \| = \max_{1 \leqslant i \leqslant n}\{\Delta x_i\}$$
+称为分割的模。
+
+\begin{definition}
+    设 $f$ 是定义在 $[a,b]$ 上的一个函数。对于 $[a,b]$ 的一个分割 $T=\{\Delta_1,\cdots,\Delta_n\}$，任取点 $\xi\in\Delta_i,i=1,\cdots,n$，并作和式
+    $$\sum_{i=1}^nf(\xi_i)\Delta x_i$$
+    称此和式为函数 $f$ 在 $[a,b]$ 上的一个积分和，也称黎曼和。
+\end{definition}
+
+显然，积分既与分割 $T$ 与有关，又与所选取的点集 $\{\xi_i\}$ 有关。
+
+\begin{definition}
+    设 $f$ 是定义在 $[a,b]$ 上的一个函数，$J$ 是一个确定的实数。若对任给的正数 $\epsilon$，总存在某一正数 $\delta$，使得对 $[a,b]$ 的任何分割 $T$，以及在其上任意选取的点集 $\{\xi_i\}$，只要 $\| T \| < \delta$，就有
+    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - J \right| < \varepsilon$$
+    则称函数 $f$ 在区间 $[a,b]$ 上可积或黎曼可积；数 $J$ 称为 $f$ 在 $[a,b]$ 上的定积分或黎曼积分，记作
+    $$J = \int_a^b f(x) \dd x = \lim_{\| T \| \to 0} \sum_{i=1}^nf(\xi_i)\Delta x_i$$
+\end{definition}
+
+其中 $f$ 称为被积函数，$x$ 称为积分变量，$[a,b]$ 称为积分区间，$a,b$ 分别称为这个定积分的下限和上限。
+
+\begin{theorem}[Newton - Leibniz 公式]
+    若函数 $f$ 在 $[a,b]$ 上连续，且存在原函数 $F$，即 $F'(x) = f(x), x\in[a,b]$，则 $f$ 在 $[a,b]$ 上可积，且
+    $$\int_a^bf(x)\dd x = F(b) - F(a)$$
+\end{theorem}
+
+\begin{proof}
+    即证对于任给的 $\varepsilon > 0$，存在 $\delta>0$ 使得当 $\| T \| < \delta$ 时有
+    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - [F(b)-F(a)] \right| < \varepsilon$$
+    对于任意分割 $T$，在每个小区间 $[x_{i-1},x_i]$ 上对 $F(x)$ 使用 Lagrange 中值定理，则分别存在 $\eta_i \in (x_{i-1},x_i),i=1,\cdots,n$，使得
+    $$F(b)-F(a) = \sum_{i=1}^n F'(\eta_i)\Delta x_i = \sum_{i=1}^nf(\eta_i)\Delta x_i$$
+    又因为 $f$ 在 $[a,b]$ 上一致连续，因此存在 $\delta > 0$ 当 $x_1,x_2\in[a,b]$ 且 $|x_1-x_2| < \delta$ 时，有
+    $$f(x_1) - f(x_2)| < \frac{\varepsilon}{b-a}$$
+    由 $\Delta x_i \leqslant \| T \| < \delta$ 时，任取 $\xi_i \in [x_{i-1},x_i]$，便有 $|\xi_i-\eta_i|<\delta$，于是
+    $$LHS = \left| \sum_{i=1}^n [f(\xi_i)-f(\eta_i)]\Delta x_i \right| \leqslant \frac{\varepsilon}{b-a}\sum_{i=1}^n\Delta x_i = \varepsilon$$
+    于是 $f$ 在 $[a,b]$ 上可积。
+\end{proof}
+
+\subsection{可积条件}
+
+\begin{theorem}
+    若函数 $f$ 在 $[a,b]$ 上可积，则 $f$ 在 $[a,b]$ 上必定有界。
+\end{theorem}
+\begin{proof}
+    反证，若 $f$ 在 $[a,b]$ 上无界，则对于即对于 $[a,b]$ 的任意分割 $T$，必存在属于 $T$ 的某区间 $\Delta_k$，使 $f$ 在其上无界。在 $i\ne k$ 的各个区间 $\Delta_i$ 上取定 $\xi_i$，记
+    $$G = \left| \sum_{i\ne k}f(\xi)\Delta x_i \right|$$    
+    任意大的正数 $M$，存在 $\xi_k\in \Delta_k$，使得
+    $$|f(\xi_k)| > \frac{M+G}{\Delta x_k}$$
+    于是有
+    $$\left| \sum_{i=1}^nf(\xi)\Delta x_i \right| \geqslant |f(\xi_k)\Delta x_k| - \left| \sum_{i\ne k}f(\xi)\Delta x_i \right| > \frac{M+G}{\Delta x_k}\cdot \Delta x_k - G = M$$
+\end{proof}
+
+有界函数不一定黎曼可积，比如 Dirichlet 函数。
+
+设 $T$ 为对 $[a,b]$ 的任意分割。由 $f$ 在 $[a,b]$ 上有界，它在每个 $\Delta_i$ 上存在上、下确界：
+$$M_i=\sup_{x\in\Delta_i}f(x),m_i = \inf_{x=\Delta_i}f(x),i=1,\cdots,n$$
+作和
+$$S(T) = \sum_{i=1}^nM_i\Delta x_i, s(T) = \sum_{i=1}^n m_i \Delta x_i$$
+分别称为 $f$ 关于分割 $T$ 的上和与下和（或称达布上和与达布下和，统称达布和）。任给 $\xi_i = \Delta_i,i=1,\cdots,n$，显然有
+$$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T) \leqslant M(b-a)$$
+与积分和相比较，达布和只与分割 $T$ 有关，而与点集 $\{\xi_i\}$ 无关。
+
+\begin{proposition}
+    给定分割 $T$，对于任何点集 $\{\xi_i\}$ 而言，上和时所有积分和的上确界，下和是所有积分和的下确界。
+\end{proposition}
+\begin{proof}
+    设 $\Delta_i$ 中 $M_i$ 是 $f(x)$ 的上确界，故可选取点 $\xi=\Delta_i$，使 $f(\xi_i)>M_i-\frac{\varepsilon}{b-a}$，于是有
+    $$\sum_{i=1}^nf(\xi_i)\Delta x_i > \sum_{i=1}^nM_i\Delta x_i-\frac{\varepsilon}{b-a}\sum_{i=1}^n\Delta x_i = S(T)-\varepsilon$$
+    即 $S(T)$ 是全体积分和的上确界。类似可证 $s(T)$ 是全体积分和的下确界。
+\end{proof}
+
+
+\begin{proposition}
+    设 $T'$ 为分割 $T$ 添加 $p$ 个新分点后所得到的分割，则有
+    
+\end{proposition}
+
+\begin{theorem}
+    函数 $f$ 在 $[a,b]$ 上可积的充要条件是：人格 $\varepsilon >0$，总存在相应的一个分割 $T$ 使得
+    $$S(T) - s(T) < \sum_{i=1}^n\omega_i\Delta x_i = \varepsilon$$
+\end{theorem}
+
+其中 $\omega$ 称为 $f$ 在 $\Delta_i$ 上的振幅。
+
+由充要条件，我们可以得到一系列的可积函数类。
+
+\begin{theorem}
+    若 $f$ 为 $[a,b]$ 上的连续函数，则 $f$ 在 $[a,b]$ 上可积。
+\end{theorem}
+\begin{proof}
+    由于 $f$ 在闭区间 $[a,b]$ 上一致连续，即任给 $\varepsilon > 0$，存在 $\delta>0$，对 $[a,b]$ 中任意两点 $x_1,x_2$，只要 $|x_1-x_2|<\delta$，便有
+    $$|f(x_1)-f(x_2)| < \frac{\varepsilon}{b-a}$$
+    所以对于在 $[a,b]$ 的分割 $T$ 满足 $\|T\| < \delta$，在 $T$ 所属的任一小区间 $\Delta_i$ 上，都有
+    $$\omega_i = M_i-m_i = \sup_{x_1,x_2\in\Delta_i}|f(x_1)-f(x_2)| \leqslant \frac{\varepsilon}{b-a}$$
+    从而
+    $$\sum_{T}\omega_i\Delta x_i \leqslant \frac{\varepsilon}{b-a}\sum_T\Delta x_i = \varepsilon$$
+\end{proof}
+
+
+
 \section{分项积分法}
 
 若干微分式的和或差的不定积分，等于每个微分式的各自积分的和或差。
-
 $$\int\left( f(x)+g(x)-h(x) \right)\dd x = \int f(x)\dd x + \int g(x)\dd x - \int h(x)\dd x$$
-
 因此多项式的积分可以简单的通过积分各个单项式得到。
 
 如果一个分式的分母为多项式，则可把它化成最简单的分式再积分。如
-
 $$\frac{1}{x^2-a^2} = \frac{1}{2a}\left( \frac{1}{x-a}-\frac{1}{x+a} \right)$$
-
 这里可以通过通分后待定系数得到。于是其积分为
-
 $$\int \frac{\dd x}{x^2-a^2} = \frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C$$
-
 对于更复杂的真分式的情况，若要计算的是
-
 $$\int \frac{mx+n}{x^2+px+q} \dd x$$
-
 分母不一定能直接分解，但总能进行配方
-
 $$x^2+px+q = \left(x+\frac{p}{2}\right)^2+q-\frac{p^2}{4} = t^2 \pm a^2$$
-
 再令 $A=m,B=n-\mfrac12mp$，可得
-
 $$\int \frac{mx+n}{x^2+px+q} \dd x = \int \frac{At+B}{t^2 \pm a^2} \dd t 
 = A\int \frac{t\dd t}{t^2 \pm a^2} + B\int \frac{\dd t}{t^2 \pm a^2}$$
-
 其中
 
 \begin{equation*}

@@ -197,27 +197,12 @@
 \usepackage{fontspec}
 %\setmainfont{TeX Gyre TermesX}
 %\setsansfont{TeX Gyre Heros}
-\setmonofont{Iosevka Slab}
+\setmonofont[Contextuals=Alternate]{Sarasa Mono SC}
 % \setmonofont[Ligatures=TeX]{Latin Modern Mono}
 
 % Libertinus Serif/Libertinus Sans
 
 % TeX Gyre TermesX/TeX Gyre Heros
-
-\defaultfontfeatures[TeX Gyre Termes,TeX Gyre Heros]{
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic
-}
-\defaultfontfeatures[Latin Modern Mono]{
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-oblique,
-  BoldItalicFont = *-boldoblique
-}
 
 \RequirePackage{anyfontsize}
 \ifdefstring{\ELEGANT@math}{newtx}{
@@ -983,19 +968,9 @@
 
 
 \RequirePackage{listings}
-%\setmonofont{等距更纱黑体 SC}
-%\renewcommand{\ttdefault}{cmtt}
-\lstdefinestyle{mystyle}{
-  basicstyle=%
-    \ttfamily
-    \lst@ifdisplaystyle\small\fi,
-    % Line numbers
-    numbers=left,
-    numbersep=10pt,
-    xleftmargin=2em,
-    stepnumber=1,
-    firstnumber=1,
-    numberfirstline=true,
+%\setmonofont{JetBrains Mono}
+
+\lstset{basicstyle=\ttfamily \lst@ifdisplaystyle\small\fi,
     % Code
     tabsize=2,
     showspaces=false,
@@ -1015,10 +990,9 @@
     framerule=.5pt,
     rulecolor=\color{black},
     abovecaptionskip=0pt,
-    belowcaptionskip=5pt,
+    belowcaptionskip=5pt
 }
 
-\lstset{basicstyle=\ttfamily,style=mystyle,breaklines=true}
 
 \definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
 \definecolor{frenchplum}{RGB}{190,20,83}
@@ -1086,7 +1060,7 @@
 \labelformat{exercise}{习题~#1}
 
 \newcommand*{\mylmargin}{\dimexpr\oddsidemargin+1in\relax}
-\RequirePackage{pagecolor,afterpage}
+\RequirePackage{afterpage}
 \def\@part[#1]#2{%
     \ifnum \c@secnumdepth >-2\relax
       \refstepcounter{part}%

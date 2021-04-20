@@ -74,7 +74,7 @@ $$\lim_{x \to x_0}f(x) = A \Leftrightarrow \lim_{x \to x_0^+}f(x)=\lim_{x \to x_
     设 $f(x)$ 为定义在 $U_+^\circ(x_0)$ 上的单调有界函数，则右极限 $\displaystyle\lim_{x\to x_0^+}f(x)=A$ 存在。
 \end{theorem}
 
-\begin{theorem}[柯西准则]
+\begin{theorem}[Cauchy 准则]
     设 $f(x)$ 在 $U^\circ(x_0;\delta')$ 上有定义，则 $\displaystyle\lim_{x\to x_0}f(x)$ 存在的充要条件是：任给 $\varepsilon > 0$，存在正数 $\delta(<\delta')$，使得对任何 $x',x''\in U^\circ(x_0,\delta)$，有 $|f(x')-f(x'')|<\varepsilon$。
 \end{theorem}
 
@@ -95,7 +95,7 @@ $$\lim_{x\to \infty}\left(1+\frac{1}{x}\right)^x = \ee$$
 
 无穷小量收敛于 $0$ 的速度有快有慢。设当 $x\to x_0$ 时，$f$ 与 $g$ 均为无穷小量。
 
-若 $\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = 0$，则称当 $x\to x_0$ 时 $f$ 为 $g$ 的高阶无穷小量，或称 $g$ 为 $f$ 的低阶无穷小量。
+若 $\displaystyle\lim_{x\to x_0}\mfrac{f(x)}{g(x)} = 0$，则称当 $x\to x_0$ 时 $f$ 为 $g$ 的高阶无穷小量，或称 $g$ 为 $f$ 的低阶无穷小量。
 
 记作
 $$f(x)=o(g(x))(x\to x_0)$$
@@ -108,7 +108,7 @@ $$K\leqslant \left|\frac{f(x)}{g(x)}\right| \leqslant L$$
 $$\lim_{x\to x_0}\frac{f(x)}{g(x)} = c \ne 0$$
 时，$f$ 与 $g$ 必为同阶无穷小量。
 
-若 $\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = 1$ 则称 $f$ 与 $g$ 是当 $x\to x_0$ 时的等价无穷小量。记作
+若 $\displaystyle\lim_{x\to x_0}\mfrac{f(x)}{g(x)} = 1$ 则称 $f$ 与 $g$ 是当 $x\to x_0$ 时的等价无穷小量。记作
 $$f(x) \sim g(x) (x\to x_0)$$
 
 注意并不是任何两个无穷小量都可以进行这种阶的比较。例如 $x\to 0$ 时，$x\sin\dfrac{1}{x}$ 和 $x^2$ 都是无穷小量，但它们的比都不是有界量。

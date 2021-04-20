@@ -1,0 +1,31 @@
+\chapter{图论}
+
+\section{链式前项星}
+
+\lstinputlisting[style=cpp,caption=/图论/链式前项星.cpp]{图论/链式前项星.cpp}
+
+\section{最短路}
+
+\subsection{Dijkstra}
+
+权值必须是非负，复杂度 $O(E\log E)$。
+
+\lstinputlisting[style=cpp,caption=/图论/最短路/Dijkstra.cpp]{图论/最短路/Dijkstra.cpp}
+
+\subsection{Bellman-Ford}
+
+复杂度 $O(VE)$。
+
+\lstinputlisting[style=cpp,caption=/图论/最短路/Bellman-Ford.cpp]{图论/最短路/Bellman-Ford.cpp}
+
+\subsection{Floyd}
+
+起始条件 $f(i,j)={\rm edge}(i,j)$，$f(i,i)=0$。
+
+\lstinputlisting[style=cpp,caption=/图论/最短路/Floyd.cpp]{图论/最短路/Floyd.cpp}
+
+\section{最近公共祖先 LCA}
+
+如果数据小，可以不用求 $\log_2$，直接莽 $20$。
+
+\lstinputlisting[style=cpp,caption=图论/LCA.cpp]{图论/LCA.cpp}

@@ -6,10 +6,28 @@
 
 使用 `xelatex` 编译。
 
-我有时指定了纸张大小为 `pad` ，需要 A4 大小请修改为 `normal`。
+> 暂时很多坑都没填，…… 好吧，好像一个都没填
 
-# 日志
+## 页面
+
+如果需要修改页面大小，文档前加
+
+```latex
+\documentclass{probook}
+
+\geometry{
+  paperwidth=158mm,
+  paperheight=209mm,
+  margin=4mm,
+  headheight=2.17cm,
+  headsep=4mm
+}
+
+%%% .........
+```
+
+## 日志
+
+2021-04-14 拼出来了自己的模板 `probook.cls`。
 
 2021-01-06 初始化
-
-2021-01-06 使用 ElegantBook 的一个自用改版，主要修改了代码高亮和字体部分，感谢原作者。

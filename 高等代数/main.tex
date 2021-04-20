@@ -1,7 +1,7 @@
-\documentclass[cn,11pt,blue,normal,founder]{elegantbook}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+\documentclass{probook}
+
+\title{高等代数笔记}
+\author{rogeryoungh}
 
 \begin{document}
 \newcommand\mfrac[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
@@ -12,6 +12,7 @@
 \newcommand\ee{\mathrm{e}}
 \newcommand\dd{\mathrm{d}}
 \newcommand\uppi{\mathrm{\pi}}
+\newcommand\transpose[1]{{#1}^\mathsf{T}}
 
 \newcommand\rank{\operatorname{rank}}
 \newcommand\diag{\operatorname{diag}}
@@ -26,33 +27,22 @@
 \newcommand\XXX{\boldsymbol{X}}
 \newcommand\YYY{\boldsymbol{Y}}
 \newcommand\ling{\boldsymbol{0}}
-%%----------- 封面部分 ----------- %%
 
-\begin{titlepage}
-	\vspace*{25ex}% A4->35,Boox->25,Kindle->10
-	\begin{minipage}{.9\textwidth}
-	\flushright
-		{\zihao{0}\textbf{高等代数笔记}}\\%%中文书名
-		\rule{\linewidth}{1pt}\\ \vspace{2ex}
-		{\zihao{2}\texttt{GAODENGDAISHUBIJI}} \\%% 英文书名
-		\vspace{20ex}% A4->35,Boox->20,Kindle->10
-		{\zihao{3}\texttt{rogeryoungh}}%% 作者
-	\end{minipage}
-	\vfill\centering
-	{\zihao{4}\number\year 年 \number\month 月 \number\day 日 · \LaTeX{}}
-\end{titlepage}
-%%----------- 目录部分 ----------- %%
-\clearpage{\hypersetup{hidelinks}\tableofcontents}
+\maketitle
 
-%%----------- 主体部分 ----------- %%
-\clearpage
+\frontmatter
 
-\include{pages/0001} % 多项式
+\tableofcontents
+
+\mainmatter
+
+\include{pages/0001} % 线性方程组的解法
 \include{pages/0002} % 行列式
 \include{pages/0003} % 线性方程组的解系
 \include{pages/0004} % 矩阵的运算
 \include{pages/0005} % 矩阵的相抵与相似
 \include{pages/0006} % 二次型 · 矩阵的合同
 \include{pages/0007} % 多项式环
+\include{pages/0008} % 线性空间
 
 \end{document}

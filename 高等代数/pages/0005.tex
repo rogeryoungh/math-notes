@@ -58,7 +58,7 @@
 \begin{theorem}
     设数域 $K$ 上 $s\times n$ 矩阵 $A$ 的秩为 $r$，如果 $r>0$，那么 $A$ 相抵于下述形式的矩阵
     $$\left(\begin{matrix}
-        I_r & 0\\
+        E_r & 0\\
         0   & 0
     \end{matrix}\right)$$
     称其为 $A$ 的相抵标准形；如果 $r=0$，那么相抵标准形是零矩阵。
@@ -75,12 +75,12 @@
     $$AXA = A$$
     一定有解。如果 $\rank(A) = r$，并且
     $$A = P\left(\begin{matrix}
-        I_r & 0\\
+        E_r & 0\\
         0   & 0
     \end{matrix}\right)Q$$
     其中 $P,Q$ 分别是 $K$ 上 $s$ 级、$n$ 级可逆矩阵，那么矩阵方程的通解为
     $$X = Q^{-1}\left(\begin{matrix}
-        I_r & B\\
+        E_r & B\\
         C   & D
     \end{matrix}\right)P^{-1}$$
     其中 $B,C,D$ 分别是数域 $K$ 上任意的 $r\times (s-r),(n-r)\times r,(n-r)\times (s-r)$ 矩阵。
@@ -170,12 +170,12 @@
 \begin{theorem}
     设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，则
 
-    （1） $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda I-A|$ 在 $K$ 中的一个根。
+    （1） $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。
 
-    （2） $\aaa$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\aaa$ 是齐次线性方程组 $(\lambda_0I-A)\XXX = \ling$  的一个解。
+    （2） $\aaa$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\aaa$ 是齐次线性方程组 $(\lambda_0E-A)\XXX = \ling$  的一个解。
 \end{theorem}
 
-设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jI-A)\XXX = \ling$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
+设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)\XXX = \ling$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
 
 \begin{theorem}
     相似的矩阵有相等的特征多项式。

@@ -1,37 +1,30 @@
-\documentclass[cn,11pt,blue,normal,founder]{elegantbook}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{lmodern}
+\documentclass{probook}
+
+\title{数学分析笔记}
+\author{rogeryoungh}
 
 \begin{document}
 \newcommand\mfrac[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
 \newcommand\RR{\mathbb{R}}
 \newcommand\NN{\mathbb{N}}
 \newcommand\QQ{\mathbb{Q}}
+\newcommand\ZZ{\mathbb{Z}}
 \newcommand\ee{\mathrm{e}}
 \newcommand\dd{\mathrm{d}}
 \newcommand\uppi{\mathrm{\pi}}
-%%----------- 封面部分 ----------- %%
 
-\begin{titlepage}
-    \vspace*{25ex}% A4->35,Boox->25,Kindle->10
-    \begin{minipage}{.9\textwidth}
-    \flushright
-        {\zihao{0}\textbf{数学分析笔记}}\\%%中文书名
-        \rule{\linewidth}{1pt}\\ \vspace{2ex}
-        {\zihao{2}\texttt{SHUXUEFENXIBIJI}} \\%% 英文书名
-        \vspace{20ex}% A4->35,Boox->20,Kindle->10
-        {\zihao{3}\texttt{rogeryoungh}}%% 作者
-    \end{minipage}
-    \vfill\centering
-    {\zihao{4}\number\year 年 \number\month 月 \number\day 日 · \LaTeX{}}
-\end{titlepage}
-%%----------- 目录部分 ----------- %%
-\clearpage{\hypersetup{hidelinks}\tableofcontents}
+\newcommand\dom{\operatorname{\mathbf{Dom}}}
+\newcommand\im{\operatorname{\mathbf{Im}}}
+\newcommand\graph{\operatorname{\mathbf{graph}}}
+\newcommand\LIM{\operatorname{{LIM}}}
 
-%%----------- 主体部分 ----------- %%
-\clearpage
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
 
 \include{pages/0001} % 实数集与函数
 \include{pages/0002} % 数列极限

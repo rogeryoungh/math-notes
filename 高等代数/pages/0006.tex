@@ -1,5 +1,7 @@
 \chapter{二次型 · 矩阵的合同}
 
+\section{二次型及其标准型}
+
 \begin{definition}
     数域 $K$ 上的一个 $n$ 元二次型型是系数在 $K$ 中的 $n$ 个变量的齐次多项式，它的一般形式是
     $$f(x_1,\cdots,x_n) = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$$
@@ -8,29 +10,29 @@
 
 把二次型的系数按原来顺序排成一个 $n$ 级矩阵 $A$，则称 $A$ 是二次型 $f(x_1,\cdots,x_n)$ 的矩阵，它是对称矩阵。
 
-再令 $\XXX = (x_1,\cdots,x_n)'$，则二次型可以写作
-$$f(x_1,\cdots,x_n) = X'AX$$
+再令 $\XXX = \transpose{(x_1,\cdots,x_n)}$，则二次型可以写作
+$$f(x_1,\cdots,x_n) = \transpose{X}AX$$
 
-令 $\YYY = (y_1,\cdots,y_n)'$，设 $C$ 是数域 $K$ 上的 $n$ 级可逆矩阵，则关系式
+令 $\YYY = \transpose{(y_1,\cdots,y_n)}$，设 $C$ 是数域 $K$ 上的 $n$ 级可逆矩阵，则关系式
 $$\XXX = C\YYY$$
 称为变量 $x_1,\cdots,x_n$ 到变量 $y_1,\cdots,y_n$ 的一个非退化线性替换。
 
 \begin{definition}
-    数域上两个 $n$ 元二次型 $\XXX'A\XXX$ 与 $\YYY'A\YYY$，如果存在一个非退化线性替换 $\XXX = C\YYY$，把 $\XXX'A\XXX$ 变成 $\YYY'B\YYY$ 那么称二次型 $\XXX'A\XXX$ 与 $\YYY'B\YYY$ 等价，记作 $\XXX'A\XXX \cong \YYY'B\YYY$。
+    数域上两个 $n$ 元二次型 $\transpose{\XXX}A\XXX$ 与 $\transpose{\YYY}A\YYY$，如果存在一个非退化线性替换 $\XXX = C\YYY$，把 $\transpose{\XXX}A\XXX$ 变成 $\transpose{\YYY}B\YYY$ 那么称二次型 $\transpose{\XXX}A\XXX$ 与 $\transpose{\YYY}B\YYY$ 等价，记作 $\transpose{\XXX}A\XXX \cong \transpose{\YYY}B\YYY$。
 \end{definition}
 
 \begin{definition}
     数域 $K$ 上两个 $n$ 级矩阵 $A$ 与 $B$，如果存在 $K$ 上的一个 $n$ 级可逆矩阵 $C$，使得
-    $$C'AC = B$$
+    $$\transpose{C}AC = B$$
     那么称 $A$ 与 $B$ 合同，记作 $A\simeq B$。
 \end{definition}
 
-如果二次型 $\XXX' A \XXX$ 等价于一个只含平方项的二次型，那么这个只含平方项的二次型称为 $\XXX'A\XXX$ 的一个标准形。
+如果二次型 $\transpose{\XXX} A \XXX$ 等价于一个只含平方项的二次型，那么这个只含平方项的二次型称为 $\transpose{\XXX}A\XXX$ 的一个标准形。
 
 如果 $T$ 是正交矩阵，那么变量的替换 $\XXX = T\YYY$ 称为正交替换。
 
 \begin{theorem}
-    设 $A,B$ 都是数域 $K$ 上 $n$ 级矩阵，则 $A$ 合同于 $B$ 当且仅当 $A$ 经过一系列成对初等行、列变换可以变成 $B$，此时对 $I$ 只作其中的初等列变换得到的可逆矩阵 $C$，就使得 $C'AC=B$。
+    设 $A,B$ 都是数域 $K$ 上 $n$ 级矩阵，则 $A$ 合同于 $B$ 当且仅当 $A$ 经过一系列成对初等行、列变换可以变成 $B$，此时对 $I$ 只作其中的初等列变换得到的可逆矩阵 $C$，就使得 $\transpose{C}AC=B$。
 \end{theorem}
 
 \begin{theorem}
@@ -39,43 +41,43 @@ $$\XXX = C\YYY$$
 
 这意味着数域 $K$ 上任一 $n$ 元二次型都等价于一个只含平方项的二次型。
 
-二次型 $\XXX'A\XXX$ 的矩阵 $A$ 的秩就称为二次型 $\XXX'A\XXX$ 的秩。
+二次型 $\transpose{\XXX}A\XXX$ 的矩阵 $A$ 的秩就称为二次型 $\transpose{\XXX}A\XXX$ 的秩。
 
 \section{实二次型的规范形}
 
-实数域上的二次型简称为实二次型，$n$ 元实二次型 $\XXX'A\XXX$ 经过一个适当的非退化线性替换 $\XXX = C\YYY$ 可以化成下述形式的标准形
+实数域上的二次型简称为实二次型，$n$ 元实二次型 $\transpose{\XXX}A\XXX$ 经过一个适当的非退化线性替换 $\XXX = C\YYY$ 可以化成下述形式的标准形
 $$d_1y_1^2+\cdots+d_py_p^2-d_{p+1}y_{p+1}^2-\cdots-d_ry_r^2$$
 其中 $d_i>0,i=1,\cdots,r$。再做一次非退化线性替换可以变成
 $$z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2$$
 
 \begin{theorem}
-    $n$ 元实二次型 $\XXX'A\XXX$ 的规范形是唯一的。
+    $n$ 元实二次型 $\transpose{\XXX}A\XXX$ 的规范形是唯一的。
 \end{theorem}
 
 \begin{definition}
-    在实二次型 $\XXX'A\XXX$ 的规范形中，系数为 $+1$ 的平方项个数 $p$ 称为 $\XXX'A\XXX$ 的正惯性指数，系数为 $-1$ 的平方项个数 $r-p$ 称为 $\XXX'A\XXX$ 的负惯性指数；正惯性指数减去负惯性指数所得的差 $2p-r$ 称为 $\XXX'A\XXX$ 的符号差。
+    在实二次型 $\transpose{\XXX}A\XXX$ 的规范形中，系数为 $+1$ 的平方项个数 $p$ 称为 $\transpose{\XXX}A\XXX$ 的正惯性指数，系数为 $-1$ 的平方项个数 $r-p$ 称为 $\transpose{\XXX}A\XXX$ 的负惯性指数；正惯性指数减去负惯性指数所得的差 $2p-r$ 称为 $\transpose{\XXX}A\XXX$ 的符号差。
 \end{definition}
 
-任一 $n$ 级实对称矩阵合同于对角矩阵 $\diag\{1,\cdots,1,-1,\cdots,-1,0,\cdots,0\}$，其中 $0$ 的个数等于 $\XXX'A\XXX$ 的正惯性指数，$-1$ 的个数等于 $\XXX'A\XXX$ 的负惯性指数（也分别称作 $A$ 的惯性指数），这个对角举着称为 $A$ 的合同规范形。
+任一 $n$ 级实对称矩阵合同于对角矩阵 $\diag\{1,\cdots,1,-1,\cdots,-1,0,\cdots,0\}$，其中 $0$ 的个数等于 $\transpose{\XXX}A\XXX$ 的正惯性指数，$-1$ 的个数等于 $\transpose{\XXX}A\XXX$ 的负惯性指数（也分别称作 $A$ 的惯性指数），这个对角举着称为 $A$ 的合同规范形。
 
-现讨论复数域上的二次型，简称为复二次型。设 $n$ 元复二次型 $\XXX'A\XXX$ 经过一个适当的非退化线性替换 $\XXX = C\YYY$ 变成下述形式的标准形
+现讨论复数域上的二次型，简称为复二次型。设 $n$ 元复二次型 $\transpose{\XXX}A\XXX$ 经过一个适当的非退化线性替换 $\XXX = C\YYY$ 变成下述形式的标准形
 $$d_1y_1^2+\cdots+d_ry_r^2$$
 其中 $d_i\ne 0,i=1,\cdots,n$，$r$ 是这个二次型的秩。再做一个非退化线性替换可得
 $$z_1^2+\cdots+z_r^2$$
-把这个标准形叫做复二次型 $\XXX'A\XXX$ 的规范形，显然其完全由其秩决定，故只有一种形式。
+把这个标准形叫做复二次型 $\transpose{\XXX}A\XXX$ 的规范形，显然其完全由其秩决定，故只有一种形式。
 
 \section{正定二次型与正定矩阵}
 
 \begin{definition}
-    $n$ 元实二次型 $\XXX'A\XXX$ 称为正定的，如果对于 $\RR^n$ 中任一非零列向量 $\aaa$，都由 $\aaa'A\aaa>0$。
+    $n$ 元实二次型 $\transpose{\XXX}A\XXX$ 称为正定的，如果对于 $\RR^n$ 中任一非零列向量 $\aaa$，都由 $\transpose{\aaa}A\aaa>0$。
 \end{definition}
 
 \begin{theorem}
-    $n$ 元实二次型 $\XXX'A\XXX$ 是正定的当且仅当它的正惯性系数等于 $n$。
+    $n$ 元实二次型 $\transpose{\XXX}A\XXX$ 是正定的当且仅当它的正惯性系数等于 $n$。
 \end{theorem}
 
 \begin{definition}
-    实对称矩阵 $A$ 称为正定的，如果实二次型 $\XXX'A\XXX$ 是正定的 。
+    实对称矩阵 $A$ 称为正定的，如果实二次型 $\transpose{\XXX}A\XXX$ 是正定的 。
 \end{definition}
 
 正定的实对称矩阵简称为正定矩阵。
@@ -86,12 +88,12 @@ $$z_1^2+\cdots+z_r^2$$
 
 \begin{definition}
     实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型对于 $\RR^n$ 中任一非零列向量 $\aaa$，都有
-    $$\aaa'A\aaa \geqslant 0 \quad (\aaa'A\aaa<0,\aaa'A\aaa\leqslant 0)$$
-    如果 $\XXX'A\XXX$ 既不是半正定的，又不是半负定的，那么称它是不定的。
+    $$\transpose{\aaa}A\aaa \geqslant 0 \quad (\transpose{\aaa}A\aaa<0,\transpose{\aaa}A\aaa\leqslant 0)$$
+    如果 $\transpose{\XXX}A\XXX$ 既不是半正定的，又不是半负定的，那么称它是不定的。
 \end{definition}
 
 \begin{definition}
-    实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型 $\XXX'A\XXX$ 是半正定（负定，半负定，不定）的。
+    实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型 $\transpose{\XXX}A\XXX$ 是半正定（负定，半负定，不定）的。
 \end{definition}
 
 \begin{theorem}

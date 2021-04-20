@@ -1,140 +1,598 @@
 \chapter{实数集与函数}
 
-我初次用的书是华师的数分，后面还会加一些别的书的内容。可能会有点乱，有空了做整理。
+我初次用的书是华师的数分，现在发觉基础部分有相当多的细节。仍待调整。
 
-集合论与函数和映射视作熟知的。若无额外说明，皆在 $\RR$ 下。
+若无额外说明，皆在 $\RR$ 下。
 
-\section{实数}
+实数集与函数的基础是集合和映射，仍有很多术语不曾了解。
 
-有理数和无理数统称实数，有理数可用分数形式 $\mfrac{p}{q}$ 表示，也可用有限十进小数或无限十进循环小数表示；而无限十进不循环小数则成为无理数。
+参考自李逸的《基本分析讲义》。
 
-为了让任意实数都可用一个确定的无限小数来表示，如下规定：
+\section{集合}
 
-对于正有限小数（包括正整数） $x$，当 $x=a_0.a_1a_2\cdots{}a_n$ 时，其中 $0\ge a_i \ge 9,i=1,2,\cdots,n,a_n\neq 0$，$a_0$ 为非负整数，即 $$x=a_0.a_1a_2\cdots{}(a_n-1)9999\cdots,$$ 而当 $x=a_0$ 为正整数时，则记 $$x=(a_0-1).9999\cdots$$
+集合的交并补是熟知的。
 
-对于负有限小数（包括负整数）$y$，则先将 $-y$ 表示为无限小数，再在所得无限小数之前加负号。并规定 $0$ 表示为 $0.0000\cdots$。
+定义有序对为 $(a,b) := \{\{a\},\{a,b\}\}$，其中 $a$ 称为有序对的第一坐标，而 $b$ 称为第二坐标。特殊的，$(a,a) = \{a\}$。
 
-%\begin{definition}
-	%给定两个非负实数 $$x=a_0.a_1a_2\cdots{}a_n\cdots,\quad y=b_0.b_1b_2\cdots{}b_n\cdots,$$ 其中 $a_0,b_0$ 为非负整数，$a_k,b_k(k=1,2,\cdots)$ 为整数，$0\ge a_k\ge9,0\ge b_k\ge9$。若有 $$a_k=b_k,k=0,1,2,\cdots,$$ 则称 $x$ 与 $y$ 相等，记为 $x=y$；若 $a_0>b_0$ 或存在非负实数 $l$，使得 $$a_k=b_k(k=0,1,2,\cdots,l)\text{而}a_{l+1}>b_{l+1},$$ 则称 $x$ 大于 $y$ 或 $y$ 小于 $x$，分别记为 $x>y$ 或 $y<x$。
+定义集合的笛卡尔 Cartesian 乘积为
+$$A \times B := \{(a,b) \mid a\in A \text{且} b\in B\}$$
+一般 $A \times B \ne B \times A$。同样可以推广到多个集合
+$$\prod X_i := X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cdots \times X_{n-1}) \times X_n$$
+其元素 $x$ 是多层嵌套，我们可以简记为
+$$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
+称 $x_i := \mathrm{pr}_i(x)$ 为 $x$ 的第 $i$ 个分量，$\mathrm{pr}$ 是投影映射。当所有 $X_i$ 都等于 $X$ 时，上述乘积记为 $X^n$。
 
-	%对于负实数 $x,y$，若按上述规定有 $-x=-y$，称作 $x=y$。若按上述有 $-x>-y$，则
-%\end{definition}
+\section{映射}
 
-实数有以下性质：
+设 $C$ 和 $D$ 为两个给定的集合。
 
-\begin{enumerate}
-	\item 实数集 $\RR$ 对加、减、乘、除（除数不为 $0$）四则运算是封闭的。
-	\item 实数集是有序的：任意 $a,b$ 必满足三个关系之一（$a<b,a=b,a>b$）。
-	\item 实数的大小关系具有传递性：若 $a>b,b>c$，则有 $a>c$。
-	\item 实数具有阿基米德性：对任何 $a,b\in\RR$，若 $b>a>0$，则存在正整数 $n$，使得 $na>b$。
-	\item 实数集具有稠密性：任意 $a,b$ 之间必存在另一个实数，可以是有理数，也可以是无理数。
-\end{enumerate}
-
-\subsection{数集·确界原理}
-
-区间分为无限区间和有限区间。
-
-设实数 $a<b$，则称数集 $\{x \mid a<x<b\}$ 为开区间，记作 $(a,b)$；数集 $\{x \mid a\leqslant x \leqslant b\}$ 称为闭区间，记作 $[a,b]$；数集 $\{x \mid a\leqslant x<b\}$ 和 $\{x \mid a < x \leqslant b\}$ 都称为半开半闭区间，分别记作 $[a,b)$ 和 $(a,b]$。以上几类区间统称为有限区间。
-
-满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\RR = (-\infty,+\infty)$。这几类区间统称为无限区间。
-
-设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
-$$U(a;\delta) = (a-\delta,a+\delta)$$
-点 $a$ 的空心 $\delta$ 邻域定义为
-$$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
-也可以简单的记作 $U^\circ(a)$。
-
-此外，常用的邻域还有：
-
-点 $a$ 的 $\delta$ 右邻域 $U_+(a;\delta) = [a,a+\delta)$，左邻域 $U_-(a;\delta)$。以及点 $a$ 的空心 $\delta$ 左、右邻域 $U_{-}^\circ(a)$ 与 $U_{+}^{\circ}(a)$。
-
-以及 $\infty$ 邻域 $U(\infty) = \{x \mid |x|>M\}$，其中 $M$ 为充分大的正数。类似的还有 $U(+\infty) = \{x \mid x>M\}$ 和 $U(-\infty) = \{x \mid x<-M\}$。
-
-\begin{definition}[有界集]
-	设 $S$ 为一个非空数集，若存在数 $M\in$ 使得 $\forall x\in S$
-	
-	（1） 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
-	
-	（2） 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
+\begin{definition}[赋值法则]
+	设 $R$ 是 $C\times D$ 的一个子集，若满足当 $(c,d_1)\in R$ 且 $(c,d_2)\in R \Rightarrow d_1=d_2$，称 $R$ 是一个赋值法则。
 \end{definition}
 
-若数集 $S$ 既有上界又有下界，则称 $S$ 为有界集，反之称为无界集。
+赋值法则的定义域 Domain 和像域 Image Set 约定如下
+\begin{equation*}
+	\begin{aligned}
+		\dom(R) := \{c\in C \mid \exists d \in D, (c,d) \in R\}\\
+		\im(R) := \{d\in D \mid \exists c \in C, (c,d) \in R\}\\
+	\end{aligned}
+\end{equation*}
+
+\begin{definition}
+	设 $R$ 为一个赋值法则，$B$ 为满足 $\im(R) \subseteq B$ 的一个集合，记二元对 $(R,B)$ 为一个映射，$B$ 称为值域。定义 $f$ 的定义域 $A$ 和像域为 $R$ 的定义域和像域。记作
+	$$f:A\to B, a\mapsto f(a)$$
+\end{definition}
+
+称 $f$ 的图为
+$$\graph(f) := \{(a,f(a)) \in A\times B \mid a \in A\}$$
+
+对任意给定的 $A$ 的子集 $A_0$，定义 $f$ 在 $A_0$ 上的限制为映射
+$$f \mid_{A_0} = f : A_0 \to B$$
+
+称映射 $f$ 和 $g$ 的复合为
+$$g\circ f: A \to C, a \mapsto g(f(a))$$
+显然 $g \circ f$ 仅当 $\im(f) \subseteq \dom(g)$ 时有定义。$f\circ g$ 一般与 $g \circ f$ 不相等。
+
+若映射 $f$ 满足
+
+（1） $f(a_1) = f(a_2) \Rightarrow a_1,a_2$，称 $f$ 为单射。
+
+（2） 对任意的 $b\in B$ 存在 $a\in A$ 满足 $f(a)=b$，称 $f$ 为满射。
+
+（3） $f$ 既是单射又是满射，称 $f$ 为双射。
+
+若 $f$ 为双射，我们定义它的逆映射 $f^{-1}$ 为
+$$f^{-1}(b) =  a \Leftrightarrow f(a) = b$$
+
+映射 $\diamond$：$X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\diamond(x,y)$ 记做 $x \diamond y$。对 $X$ 中的非空子集定义
+$$A \diamond B := \diamond(a\times B) = \{A \diamond b \mid a \in A, b\in B\}$$
+
+\begin{definition}
+	（1） 若 $A \diamond A \subseteq A$，则称 $A$ 在运算 $\diamond$ 下封闭。
+
+	（2） 若 $x \diamond (y \diamond z) = (x \diamond y) \diamond z$，则称运算 $\diamond$ 是结合的。
+
+	（3） 若 $x \diamond y = y \diamond x$，则称运算 $\diamond$ 是交换的。
+
+	（4） 若存在 $e \in X$ 使得 $e \diamond x = x \diamond e = x$，则称 $e$ 为 $X$ 上的单位元。
+\end{definition}
+
+如果映射定义中的 $B$ 是一个数域，则把映射称为函数。
+
+\section{关系}
+
+简要提及一下关系的部分知识。称集合 $S\times S$ 的子集 $C$ 为关系。把 $(x,y)\in C$ 记作 $xCy$。
+
+\begin{definition}[等价关系]
+	若集合 $S$ 上的关系 $C$ 满足
+
+	（1） 自反性：对任意的 $x\in S$ 有 $xCx$。
+	
+	（2） 对称性：若 $xCy$ 则 $yCx$。
+
+	（3） 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
+
+	则称 $C$ 为等价关系，一般用 $\sim$ 来表示等价关系。
+\end{definition}
+
+记 $x\in A$ 的等价类：
+$$[x] := \{y \in A \mid y \sim x\}$$ 
+
+\begin{definition}[序关系]
+	若集合 $S$ 上的关系 $C$ 满足
+
+	（1） 相容性：对任意的 $x,y\in S$ 且 $x\ne y$ 满足要么 $xCy$ 要么 $yCx$。
+	
+	（2） 非自反性：不存在 $x\in S$ 使得 $xCx$。
+
+	（3） 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
+
+	则称 $C$ 为序关系，一般用 $<$ 来表示序关系，称 $(S,C)$ 为有序集。
+\end{definition}
+
+$x<y$ 也可以记作 $y>x$。记号 $x\leqslant y$ 指的是 $x<y$ 或 $x=y$，即是 $x>y$ 的否定。
+
+若在 $S$ 内定义了一种序，便是有序集。
+
+\begin{definition}[上界]
+	设有序集 $S$ 的非空子集 $E$，若存在 $a \in S$ 使得任取 $x\in E$ 满足 $x \leqslant a$，我们称 $E$ 有上界，$a$ 称为 $E$ 的一个上界。 
+\end{definition}
+
+同样可以得到下界。
 
 \begin{definition}[上确界]
-	设 $S$ 是一个数集，若数 $\beta$ 满足：
+	设有序集 $S$ 的非空子集 $E$，且 $E$ 有上界。若存在一个数 $a \in S$ 满足：
 	
-	（1） $\beta$ 是 $S$ 的上界：$\forall x\in S$，有 $x\leqslant \beta$。
+	（1） $a$ 是 $E$ 的上界：$\forall x\in E$，有 $x\leqslant a$。
 	
-	（2） 任何小于 $\beta$ 的数不是数集 $S$ 的上界：$\forall \mu<\beta, \exists x_0\in S$ 使得 $x_0>\mu$。
+	（2） 任何小于 $a$ 的数不是数集 $E$ 的上界：$\forall \mu<a, \exists x_0\in E$ 使得 $x_0>\mu$。
 	
-	则称数 $\beta$ 为数集 $S$ 的上确界，记作 $\sup S$。
+	则称数 $a$ 为数集 $E$ 的上确界，记作 $\sup E$。
 \end{definition}
 
-\begin{definition}[下确界]
-	设 $S$ 是一个数集，若数 $\alpha$ 满足：
-	
-	（1） $\alpha$ 是 $S$ 的下界：$\forall x\in S$，有 $x\geqslant \alpha$。
-	
-	（2） 任何大于 $\alpha$ 的数不是数集 $S$ 的下界：$\forall \mu>\alpha, \exists x_0\in S$ 使得 $x_0<\mu$。
-	
-	则称数 $\alpha$ 为数集 $S$ 的下确界，记作 $\inf S$。
+类似的可定义有界集的下确界 $a=\inf E$。
+
+\begin{definition}[最小上界性]
+	如果有序集 S'的任何非空有上界子集 $E$ 有最小上界，则称 $S$有最小上界性。
+	设 $E$ 是有序集 $S$ 的子集，若对任意的有上界的 $E$ 都有 $\sup E \in S$，那么称 $S$ 有最小上界性。
 \end{definition}
 
-上确界与下确界统称为确界。应注意，数集 $S$ 的确界可能属于 $S$，也可能不属于 $S$。
+例如 $\QQ \cap (0,\sqrt2)$ 是 $\QQ$ 的非空子集，其上界 $\sqrt2$ 并不在 $\QQ$ 内。
 
-\begin{theorem}[确界原理]
-	设 $S$ 为非空数集，若 $S$ 有上界，则 $S$ 必有上确界；若 $S$ 有下界，则 $S$ 必有下确界。
+同样的有最小下界性。可以证明，有最小上界性的一定有最大下界性。展开描述即
+
+\begin{theorem}
+	设 $B$ 是具有最小上界性的集合 $S$ 的子集，则对任意的有下界的 $B$ 都有 $\inf B \in S$。
 \end{theorem}
 
-若把 $\pm \infty$ 看作非正常上下确界，前文定义视为正常上（下）确界，那么任一非空数集必有上下确界。
+\begin{proof}
+	对于每个 $B$，构造 $L$ 为 $B$ 的下界组成的集合，显然每个 $B$ 中的元素都是 $L$ 的上界。由最小上界性知，存在 $\sup L \in S$。
 
-\section{函数的上下界}
+	尝试证明 $\inf B=\sup L$。
+	
+	对于任意的 $x\in B$，若 $x<\sup L$，则存在比 $\sup L$ 小的 $L$ 的上界 $x$，矛盾。故 $x \geqslant \sup L$，即 $\sup L$ 是 $B$ 的下界。
 
-\begin{definition}
-	设 $f$ 为定义在 $D$ 上的函数。若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\leqslant M(f(x) \ge L)$，则称 $f$ 为 $D$ 上的有上（下）界函数，$M(L)$ 称为 $f$ 在 $D$ 上的一个上（下）界。
+	设 $B$ 的下界 $x$ 有 $x>\sup L$，那么 $x\in L$，则存在比 $\sup L$ 大的 $L$ 元素，矛盾。故不存在比 $\sup L$ 大的 $B$ 的下界。
 
-	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\geqslant M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
+	综上，$B$ 的下界存在且 $\inf B=\sup L \in S$。
+\end{proof}
+
+\section{域公理}
+
+集合 $F$ 上定义的加法 $+$ 和 乘法 $\cdot$ 若满足 $(x,y,z\in F)$
+
+F1 加法结合率：$x+(y+z) = (x+y)+z$。
+
+F2 加法交换律：$x+y = y+x$。
+
+F3 存在加法单位元：存在 $0\in F$，使得对任意 $x\in F$ 有 $0+x=x$。
+
+F4 加法逆元的存在性：对任意 $x\in F$，总存在 $-x\in F$，使得 $x+(-x)=0$。
+
+F5 乘法结合率：$x\cdot (y\cdot z) = (x\cdot y)\cdot z$。
+
+F6 乘法交换律：$x\cdot y = y\cdot x$。
+
+F7 存在乘法单位元：存在 $1\in F$，使得 $1\ne 0$ 且对任意 $x\in F$ 有 $1\cdot x=x$。
+
+F8 乘法逆元的存在性：对任意 $x\in F-\{0\}$，总存在 $x^{-1}\in F$，使得 $x\cdot x^{-1} =0$。
+
+F9 乘法分配律：$x \cdot (y+z) = x\cdot y + x\cdot z$。
+
+则称 $(F,+,\cdot)$ 为一个域。
+
+注意 $-x$ 只是一个记号。同样的，$x^{-1}$ 也只是一个记号。
+
+\begin{definition}[有序域]
+	若域 $F$ 是满足如下条件的有序集
+
+	（1） 当 $x,y,z\in F$ 且 $y<z$ 时，$x+y<x+z$。
+
+	（2） 如果 $x,y\in F$，且 $x>0,y>0$，则 $xy>0$。
+
+	那么称 $F$ 是一个有序域。
 \end{definition}
 
-\begin{definition}
-	设 $f$ 为定义在 $D$ 上的函数。若存在正数 $M$，使得对每一个 $x\in D$，有 $|f(x)|\leqslant M$，则称 $f$ 为 $D$ 上的有界函数。
+例如 $\QQ$ 是有序域。
 
-	反之，若存在正数 $M$，使得对每一个 $x\in D$，有 $|f(x)|\ge M$，则称 $f$ 为 $D$ 上的无界函数。
+\begin{theorem}[存在定理]
+	具有最小上界性的有序域 $\RR$ 存在，且包容着 $\QQ$ 作为子域。
+\end{theorem}
+
+这个命题的证明较为复杂，是从 $\QQ$ 出发构造 $\RR$，而且其中有很多重要的信息，决定单独一章，这里略过。
+
+\begin{theorem}[Achimedes 原理]
+	对于 $x,y \in \RR$ 且 $x>0$，那么必定存在正整数 $n$，使得 $nx>y$。
+\end{theorem}
+\begin{proof}
+	设 $A = \{nx \mid n \in \NN^+ \}$，若不存在 $n$ 则 $y$ 将是 $A$ 的一个上界，由最小上界性可知 $A$ 的上确界存在。
+	
+	又因为小于上确界的数 $\sup A-x$ 不是上确界，即存在 $m\in \NN^+$ 使得 $\sup A -x <mx$，即 $\sup A < (m+1)x$，矛盾。
+
+	故必定存在 $n$ 使得 $nx>y$。
+\end{proof}
+
+\begin{definition}[度量空间]
+	称集合 $X$ 的元素为点，若存在 $X$ 上双变量的函数 $d:X \times X \to \RR$，满足（$x,y,z\in R$）
+
+	（1） 若 $x\ne y$，则 $d(x,y)$；仅 $d(x,x)=0$。
+
+	（2） 对于任意的 $x,y$ 都有 $d(x,y) = d(y,x)$。
+
+	（3） 对于任意的 $z$，都有 $d(x,y) \leqslant d(x,z) + d(z,y)$。
+
+	就称 $(X,d)$ 是一个度量空间（度量空间），函数 $d$ 称作其上的距离函数。
 \end{definition}
 
-记函数 $f$ 在 $D$ 上的上确界为 $\sup_{x\in D} f(x)$，类似的有 $\inf_{x\in D} f(x)$。
+这里的空间的含义是线性空间。
 
-\begin{definition}
-	设 $f$ 为定义在 $D$ 上的函数，若对任何 $x_1,x_2\in D$，当 $x_1<x_2$ 时：
+对于 $X$ 的子集 $Y$，定义其距离函数
+$$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
+则 $(Y,d_Y)$ 仍是度量空间，称 $d_Y$ 是 $d$ 在 $Y$ 上的诱导度量。$(Y,d_Y)$ 称作是 $(X,d)$ 的子（度量）空间。
 
-	（1） 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
-
-	（2） 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
+\begin{definition}[稠密性]
+	给定度量空间 $(X,d)$，$Y$ 是 $X$ 的子集。如果对任意的 $x\in X$ 和任意小的 $\varepsilon>0$，都存在 $y\in Y$，使得 $d(y,x)<\varepsilon$，我们就称 $Y$ 在 $X$ 中是稠密的。
 \end{definition}
 
-增函数和减函数统称为单调函数，严格增函数和严格减函数统称为严格单调函数。
+\begin{example}
+	$\QQ$ 在 $\RR$ 中稠密：对于 $x,y \in \RR$ 且 $x<y$，那么必定存在 $p\in\QQ$，使得 $x<p<y$。
+\end{example}
+\begin{proof}
+	由 Achimedes 原理，可设存在 $n\in \NN^+$ 使得 $n(y-x)>1$。
+	
+	再设存在 $m_1,m_2\in \NN^+$，使得 $m_1>nx,m_2>-nx$。于是
+	$$-m_2<nx<m_1$$
+	因此存在 $m\in \NN^+$ 有 $-m_2\leqslant m \leqslant m_1$ 使得
+	$$m-1\leqslant nx < m \leqslant 1+nx < ny$$
+	从而存在 $p=m/n$ 使得 $x<p<y$。
+\end{proof}
 
-严格单调函数必有反函数，其也为严格单调函数。
-
-\begin{definition}
-	设 $D$ 为对称于原点的数集， 函数 $f$ 为定义在 $D$ 上的函数。若对每一个 $x\in D$：
-
-	（1） 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
-
-	（2） 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
-\end{definition}
 
 \section{实数系的构造}
 
+直到我读了陶哲轩的《实分析》时，才感到接受了实数理论。实数的定义是公理化的，不是构造性的。
+
+更具体的说，我们不需要知道实数是什么，只需知道这些对象有什么性质，我们就可以抽象的处理它们。从其他的数学对象出发来构造实数是可能的，有多种多样的模型，只要它们服从所有的公理并正确的运作，都是满足的。
+
+实数究竟有多少性质？从自然数开始。
+
+\begin{axiom}[Peano 公理]
+	若集合 $N$ 和其上的映射 $v(n)$ 满足
+
+	（1） $0\in N$。
+
+	（2） 若 $n\in N$，则 $v(n) \in N$。
+
+	（3） 对于任意的 $n\in N$，$v(n) \ne 0$。
+
+	（4） 若 $v(m) \ne v(n)$，则 $m\ne n$。
+
+	（5） 【归纳原理】设 $P(n)$ 是关于自然数的性质，假设只要 $P(n)$ 为真，则 $P(v(n))$ 也为真；且 $P(0)$ 为真。那么对 $N$ 中所有的元素 $P$ 都为真。
+
+	那么称 $N$ 为自然数，记作 $\NN$，$v(n)$ 称为后继函数。
+\end{axiom}
+
+\subsection{自然数}
+
+设 $m,n\in \NN$，定义 $\NN$ 上的加法 $+$ 和乘法 $\cdot$ 为
+\begin{equation*}
+	\begin{aligned}
+		0+m:=m&,\quad v(n)+m:=v(n+m)\\
+		0\cdot m:=m&,\quad v(n)\cdot m:=n \cdot m + m
+	\end{aligned}
+\end{equation*}
+
+我们可以利用归纳原理推出我们熟悉的一些性质。
+
+\begin{theorem}[$\NN$ 的代数算律]
+	对于 $a,b,c\in \NN$ 有
+
+	（1） 加法是结合的和交换的，且有单位元 $0$。
+
+	（2） 乘法是结合的和交换的，且有单位元 $1$。
+
+	（3） 分配律：$(a+b) \cdot  c = a \cdot c + b\cdot c$。
+\end{theorem}
+
+\begin{definition}[$\NN$ 的序]
+	设 $m,n\in \NN$。
+
+	（1） 若存在 $a\in \NN$，使得 $n=m+a$，称 $m$ 小于等于 $n$，记作 $m \leqslant n$。
+
+	（2） 若 $n\geqslant m$ 且 $n\ne m$，则称 $m$ 严格小于 $n$，记作 $m < n$。
+\end{definition}
+
+可以验证，$<$ 和 $\leqslant$ 是 $\NN$ 上的序关系。
+
+\begin{theorem}[加法保序]
+	对于 $a,b\in \NN$，若 $a>b$，则 $a+c>b+c$。
+\end{theorem}
+
+\subsection{整数}
+
+接下来几节，都是记 $a,b,c$ 为当前集合的元素，$x,y,z$ 都是被构造的集合的元素。
+
+为了表达整数，定义二元组 $(a,b)$，其中 $a,b \in \NN$。记全体二元组的集合为 $Z$。我们约定
+$$(a,b) = (c,d) \Leftrightarrow a+d=b+c$$
+因为自然数的序是已定义的，于是定义 $Z$ 上的序关系
+$$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
+然后是定义 $N$ 上的加法和乘法
+\begin{equation*}
+	\begin{aligned}
+		(a,b) + (c,d) &:= (a+c,b+d)\\
+		(a,b) \cdot (c,d) &:= (a c,b d)
+	\end{aligned}
+\end{equation*}
+
+可以验证，$(n,0)$ 与 $n$ 有相同的性状，我们可以令其相等，从而把自然数嵌入到整数内。至此，我们可以着手验证整数是否满足我们预想的性质。
+
+\begin{theorem}[$\ZZ$ 的代数算律]
+	对于 $x,y,z\in \ZZ$ 有
+
+	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
+
+	（2） 乘法是结合的和交换的，且有单位元 $1$。
+
+	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
+\end{theorem}
+
+即 $\ZZ$ 是一个交换环。于是
+
+\begin{theorem}[$\ZZ$ 是有序域]
+	（1） 加法保序：当 $x,y,z\in \ZZ$ 且 $y<z$ 时，$x+y<x+z$。
+
+	（2） 乘法保序：如果 $x,y\in \ZZ$，且 $x>0,y>0$，则 $xy>0$。
+\end{theorem}
+
+我们有理由相信，$(a,b)$ 符合我们对整数的一切想象。因此 $Z = \ZZ$。
+
+另外的，定义整数的负运算为 $-(a,b) = (b,a)$，以此定义减法
+$$x - y := x + (-y)$$
+可以验证
+$$(a,0) - (b,0) = (a,b) = a - b$$
+
+\subsection{有理数}
+
+类似的，记整数的二元组 $(a,b)$，其中 $a,b\in \ZZ,b\ne 0$，记全体二元组的集合为 $Q$。我们约定
+$$(a,b) = (c,d) \Leftrightarrow ad = bc$$
+因为整数的序是已定义的，于是定义 $Q$ 上的序关系
+$$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
+于是定义 $Q$ 上的加法和乘法
+\begin{equation*}
+	\begin{aligned}
+		(a,b) + (c,d) &:= (ad+bc,b+d)\\
+		(a,b) \cdot (c,d) &:= (a \cdot c,b \cdot d)\\
+	\end{aligned}
+\end{equation*}
+定义加法逆元为 $-(a,b) := (-a,b)$。可以验证，$(a,1)$ 与 $a$ 有相同的性状，我们可以令其相等，从而把整数嵌入到有理数内。
+
+至此，我们可以着手验证有理数是否满足我们预想的性质。
+
+\begin{theorem}[$\QQ$ 的代数算律]
+	对于 $x,y,z\in \QQ$ 有
+
+	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
+
+	（2） 乘法是结合的和交换的，且有单位元 $1$，非零元逆元存在。
+
+	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
+\end{theorem}
+
+即 $\QQ$ 是一个域。
+
+\begin{theorem}[$\QQ$ 是有序域]
+	（1） 加法保序：当 $x,y,z\in \QQ$ 且 $y<z$ 时，$x+y<x+z$。
+
+	（2） 乘法保序：如果 $x,y\in \QQ$，且 $x>0,y>0$，则 $xy>0$。
+\end{theorem}
+
+我们有理由相信，$(a,b)$ 符合我们对有理数的一切想象。因此 $Q = \QQ$。
+
+另外，定义倒数 $(a,b)^{-1} = (b,a)$，显然 $a,b\ne 0$。从而定义除法
+$$x/y := x \cdot y^{-1}$$
+可以验证，
+$$(a,1)/(b,1) = (a,b) = a/b$$
+
+\subsection{实数\ ·\ Dedekind 分割}
+
+
+
 \begin{definition}[Dedekind 分割]
-	设 $A$ 为 $Q$ 的子集，若满足以下三个条件
+	设 $A \subset \QQ, A' = \complement_\QQ A$，若满足以下三个条件
 
-	（1） $A \ne \varnothing,A \ne \QQ$；
+	（1） $A \ne \varnothing,A' \ne \varnothing$；
 
-	（2） 当 $p\in A,p \in A^c$ 时，$p<q$；
+	（2） 当 $p\in A,q \in A'$ 时，$p<q$；
 
 	（3） 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
 
-	则称 $A$ 为 $\QQ$ 的一个分割，分割的全体组成集合为 $\RR$。
+	则称 $A$ 为 $\QQ$ 的一个分割，记分割的全体为 $R$。
 \end{definition}
 
+集合的相等即是 $R$ 上的等价关系。$R$ 上的序关系定义是
+$$A \subseteq B \Leftrightarrow A\leqslant B$$
+定义加法
+$$A+B := \{ a+b \mid a\in A,b\in B\}$$
+于是可以定义负运算
+$$-A := \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\}$$
+$$-A := \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}$$
+
+
+然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \QQ \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
+$$A \cdot B := \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}$$
+同时
+\begin{equation*}
+	A \cdot B :=\begin{cases}
+		-((-A) \cdot B), &A<0^*, B\geqslant 0^*\\
+		-(A \cdot (-B)), &A\geqslant 0^*, B<0^*\\
+		-((-A) \cdot (-B)), &A<0^*, B<0^*\\
+	\end{cases}
+\end{equation*}
+
+当 $A > 0^*$ 时，定义乘法逆元
+$$A^{-1} := \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}\}$$
+当 $A < 0^*$ 时，定义乘法逆元为 $A^{-1} := -(-A^{-1})$。
+
+至此，我们可以着手验证实数是否满足我们预想的性质，在 Cauchy 序列中提过了，这里不再重复。
+
+实数和有理数的最基本的一个区别就是有最小上界性。
+
+\begin{theorem}
+	$\RR$ 有最小上界性。
+\end{theorem}
+\begin{proof}
+	设 $\alpha$ 是 $R$ 的非空子集，设 $\alpha$ 存在上界 $B$。令
+	$$S = \bigcup_{A \in \alpha} A$$
+	下证 $S = \sup A$。
+
+	首先证明 $S$ 是分割。显然 $S$ 非空，又因为对任意的 $A\in \alpha$ 都有 $A \subset B$，故 $S \subset B$，因此 $S \ne \QQ$。取 $p \in S,q\notin S$，于是存在 $A_0 \in \alpha$ 使得 $p \in A_0$，此时 $q \notin A_0$，故 $p<q$。设 $p \in S$，于是存在 $A_0 \in \alpha$ 使得 $p \in A_0$，此时存在 $q\in A_0$ 使得 $p < q$，且 $q \in S$。
+
+	其次，对任意的 $A \in \alpha$ 必然 $A \leqslant S$，故 $S$ 是 $A$ 的一个上界。若 $S' < S$，则有 $s \in S, s \notin S'$，同时存在 $A_0 \in \alpha$ 使得 $s \in A_0$，故 $S' < A_0$，故 $S'$ 不是 $A$ 的上界。
+
+	因此 $S = \sup A$。
+\end{proof}
+
+\subsection{实数\ ·\ Cauchy 序列}
+
+我们试图得到实数，是因为有理数还不足以表示所有的数，比如 $x^2=2$ 的解。得到实数和前面的方法有所不同，要复杂的多。
+
+一个有理数上的序列 $\{a_n\}$，是一个从集合 $\NN$ 到 $\QQ$ 的一个映射，即我们以前说的数列。
+
+对于 $\QQ$ 上的无限序列 $\{a_n\}$，若对于任意的 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
+$$d(a_j,a_k) < \varepsilon$$
+则称序列 $\{a_n\}$ 为 Cauchy 序列，记作 $\LIM(a_n)$。记 Cauchy 序列的全体为集合 $R$。
+
+对于 Cauchy 序列 $\LIM(a_n),\LIM(b_n)$，若对于任意的 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $n \geqslant N$ 时有
+$$d(a_n,b_n) < \varepsilon$$
+则记作 $\LIM(a_n) = \LIM(b_n)$。
+
+定义 $R$ 的序关系，对于实数 $x,y$，若存在 Cauchy 序列满足 $x=\LIM(a_n),y=\LIM(b_n)$，对于 $n\geqslant 1$ 有 $a_n \leqslant b_n$，则 $\LIM(a_n) \leqslant \LIM(b_n)$。
+
+于是定义 $R$ 上的加法和乘法
+\begin{equation*}
+	\begin{aligned}
+		\LIM(a_n) + \LIM(b_n) &:= \LIM(a_n+b_n)&\\
+		\LIM(a_n) \cdot \LIM(b_n) &:= \LIM(a_nb_n)\\
+	\end{aligned}
+\end{equation*}
+定义负运算 $-\LIM(a_n) := \LIM(-a_n)$。
+
+定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \QQ$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
+
+于是我们可以定义，设 $x$ 为一个不为零的实数，则存在限制离开零的 Cauchy 序列 $x=\LIM(a_n)$，定义倒数为
+$$x^{-1} := \LIM(a_n^{-1})$$
+
+可以验证，常数 Cauchy 序列 $\{a_n\}$ 与 $a$ 具有相同的性状，因此可以令它们相等，从而使有理数嵌入到实数中。
+
+至此，我们可以着手验证实数是否满足我们预想的性质。
+
+\begin{theorem}[$\RR$ 的代数算律]
+	对于 $x,y,z\in \RR$ 有
+
+	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
+
+	（2） 乘法是结合的和交换的，且有单位元 $1$，非零元逆元存在。
+
+	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
+\end{theorem}
+
+即 $\RR$ 是一个域。
+
+\begin{theorem}[$\RR$ 是有序域]
+	（1） 加法保序：当 $x,y,z\in \RR$ 且 $y<z$ 时，$x+y<x+z$。
+
+	（2） 乘法保序：如果 $x,y\in \RR$，且 $x>0,y>0$，则 $xy>0$。
+\end{theorem}
+
+我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \RR$。
+
+另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
+$$d(a_j,a_k) \leqslant \varepsilon$$
+
+可以证明，$R$ 上的 Cauchy 序列与 $\QQ$ 上的 Cauchy 序列等价。
+
+若存在实数 $L$ 满足，存在 $N>0$ 使得当 $n \geqslant N$ 时，都有 $d(a_n,L) \leqslant \varepsilon$，则 $a_n$ 收敛于 $L$，记作
+$$\lim_{n\to \infty} a_n = L$$
+
+可以验证
+$$\LIM(a_n) = \lim_{n\to \infty} a_n$$
+
+
+
+
+
+
+
+
+
+%\subsection{数集·确界原理}
+%
+%区间分为无限区间和有限区间。
+%
+%设实数 $a<b$，则称数集 $\{x \mid a<x<b\}$ 为开区间，记作 $(a,b)$；数集 $\{x \mid a\leqslant x \leqslant b\}$ 称为闭区间，记作 $[a,b]$；数集 $\{x \mid a\leqslant x<b\}$ 和 $\{x \mid a < x \leqslant b\}$ 都称为半开半闭区间，分别记作 $[a,b)$ 和 $(a,b]$。以上几类区间统称为有限区间。
+%
+%满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\RR = (-\infty,+\infty)$。这几类区间统称为无限区间。
+%
+%设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
+%$$U(a;\delta) = (a-\delta,a+\delta)$$
+%点 $a$ 的空心 $\delta$ 邻域定义为
+%$$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
+%也可以简单的记作 $U^\circ(a)$。
+%
+%此外，常用的邻域还有：
+%
+%点 $a$ 的 $\delta$ 右邻域 $U_+(a;\delta) = [a,a+\delta)$，左邻域 $U_-(a;\delta)$。以及点 $a$ 的空心 $\delta$ 左、右邻域 $U_{-}^\circ(a)$ 与 $U_{+}^{\circ}(a)$。
+%
+%以及 $\infty$ 邻域 $U(\infty) = \{x \mid |x|>M\}$，其中 $M$ 为充分大的正数。类似的还有 $U(+\infty) = \{x \mid x>M\}$ 和 $U(-\infty) = \{x \mid x<-M\}$。
+%
+%\begin{definition}[有界集]
+%	设 $S$ 为一个非空数集，若存在数 $M\in$ 使得 $\forall x\in S$
+%	
+%	（1） 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
+%	
+%	（2） 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
+%\end{definition}
+%
+%若数集 $S$ 既有上界又有下界，则称 $S$ 为有界集，反之称为无界集。
+%
+%\begin{theorem}[确界原理]
+%	设 $S$ 为非空数集，若 $S$ 有上界，则 $S$ 必有上确界；若 $S$ 有下界，则 $S$ 必有下确界。
+%\end{theorem}
+%
+%若把 $\pm \infty$ 看作非正常上下确界，前文定义视为正常上（下）确界，那么任一非空数集必有上下确界。
+%
+%\section{函数的上下界}
+%
+%\begin{definition}
+%	设 $f$ 为定义在 $D$ 上的函数。若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\leqslant M(f(x) \ge L)$，则称 $f$ 为 $D$ 上的有上（下）界函数，$M(L)$ 称为 $f$ 在 $D$ 上的一个上（下）界。
+%
+%	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\geqslant M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
+%\end{definition}
+%
+%\begin{definition}
+%	设 $f$ 为定义在 $D$ 上的函数。若存在正数 $M$，使得对每一个 $x\in D$，有 $|f(x)|\leqslant M$，则称 $f$ 为 $D$ 上的有界函数。
+%
+%	反之，若存在正数 $M$，使得对每一个 $x\in D$，有 $|f(x)|\ge M$，则称 $f$ 为 $D$ 上的无界函数。
+%\end{definition}
+%
+%记函数 $f$ 在 $D$ 上的上确界为 $\sup_{x\in D} f(x)$，类似的有 $\inf_{x\in D} f(x)$。
+%
+%\begin{definition}
+%	设 $f$ 为定义在 $D$ 上的函数，若对任何 $x_1,x_2\in D$，当 $x_1<x_2$ 时：
+%
+%	（1） 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
+%
+%	（2） 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
+%\end{definition}
+%
+%增函数和减函数统称为单调函数，严格增函数和严格减函数统称为严格单调函数。
+%
+%严格单调函数必有反函数，其也为严格单调函数。
+%
+%\begin{definition}
+%	设 $D$ 为对称于原点的数集， 函数 $f$ 为定义在 $D$ 上的函数。若对每一个 $x\in D$：
+%
+%	（1） 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
+%
+%	（2） 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
+%\end{definition}

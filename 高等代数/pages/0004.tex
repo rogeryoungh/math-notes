@@ -51,38 +51,38 @@ $$A-B := A+(-B)$$
 
 矩阵的乘法不适合消去律，从 $AC = BC$ 且 $C\ne 0$ 不能推出 $A=B$。
 
-主对角线上元素都是 $1$，其余元素都是 $0$ 的 $n$ 级矩阵称为 $n$ 级单位矩阵，记作 $I_n$ 或者简记作 $I$。主对角线上元素是同一个数 $k$，其余元素全为 $0$ 的 $n$ 级矩阵称为数量矩阵，可以记作 $kI$。一些书上写作 $\mathrm{E}$。
+主对角线上元素都是 $1$，其余元素都是 $0$ 的 $n$ 级矩阵称为 $n$ 级单位矩阵，记作 $E_n$ 或者简记作 $E$（有些书上记作 $I$）。主对角线上元素是同一个数 $k$，其余元素全为 $0$ 的 $n$ 级矩阵称为数量矩阵，可以记作 $kE$。
 
 因此有
-$$I_s A_{s\times n} = A_{s\times n}, A_{s\times n} I_n= A_{s\times n}$$
+$$E_s A_{s\times n} = A_{s\times n}, A_{s\times n} E_n= A_{s\times n}$$
 若 $A$ 是 $n$ 级矩阵，则
-$$IA = AI = A$$
+$$EA = AE = A$$
 矩阵的乘法与数量乘法满足下述关系式
 $$k(AB) = (kA)B = A(kB)$$
 
 数量矩阵还有
-$$kI + lI = (k+l)I$$
-$$k(lI) = (kl)I$$
-$$(kI)(lI) = (kl)I$$
+$$kE + lE = (k+l)E$$
+$$k(lE) = (kl)E$$
+$$(kE)(lE) = (kl)E$$
 
 矩阵的乘法虽不满足交换律，但若对具体的两个矩阵 $A$ 与 $B$，也有可能 $AB = BA$，那么称 $A$ 与 $B$ 可交换。比如数量矩阵与任一同级矩阵可交换
-$$(kI)A = A(kI) = kA$$
+$$(kE)A = A(kE) = kA$$
 
 \begin{definition}
     定义 $n$ 级矩阵 $A$ 的非负整数次幂为
 
-    （1） $A^n := I$
+    （1） $A^n := E$
 
     （2） $A^{m+1} := AA^m$
 \end{definition}
 
 
 \begin{theorem}
-    （1） $(A+B)' = A'$
+    （1） $\transpose{(A+B)} = \transpose{A}$
     
-    （2） $(kA)' = kA'$
+    （2） $\transpose{(kA)} = k\transpose{A}$
     
-    （3） $(AB)' = B'A'$
+    （3） $\transpose{(AB)} = \transpose{B}\transpose{A}$
 \end{theorem}
 
 如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $\bbb$，未知量 $x_1,\cdots,x_n$ 组成的列向量为 $\XXX$，那么 $n$ 元线性方程组可以写成
@@ -124,11 +124,11 @@ $$A = \sum_{i=1}^n\sum_{j=i}^na_{ij}E_{ij}$$
 用 $P(i(c))$ 左（右）乘 $A$，就相当于用 $c$ 乘 $A$ 的第 $i$ 行（列）。
 
 \begin{definition}
-    一个矩阵 $A$ 如果满足 $A' = A$，那么称 $A$ 是对称矩阵。
+    一个矩阵 $A$ 如果满足 $\transpose{A} = A$，那么称 $A$ 是对称矩阵。
 \end{definition}
 
 \begin{definition}
-    如果一个矩阵 $A$ 如果满足 $A' = -A$，那么称 $A$ 是斜对称矩阵。
+    如果一个矩阵 $A$ 如果满足 $\transpose{A} = -A$，那么称 $A$ 是斜对称矩阵。
 \end{definition}
 
 \section{矩阵乘积的秩与行列式}
@@ -154,7 +154,7 @@ $$A = \sum_{i=1}^n\sum_{j=i}^na_{ij}E_{ij}$$
 
 \begin{definition}
     对于数域 $K$ 上的矩阵 $A$，如果存在数域 $K$ 上的矩阵 $B$，使得
-    $$AB = BA = I$$
+    $$AB = BA = E$$
     那么称 $A$ 是可逆矩阵（或非奇异矩阵），$B$ 称为 $A$ 的逆矩阵，记作 $A^{-1}$。
 \end{definition}
 
@@ -167,7 +167,7 @@ $$|A| \ne 0$$
 \end{definition}
 
 有
-$$AA^* = |A|I$$
+$$AA^* = |A|E$$
 
 \begin{theorem}
     数域 $K$ 上 $n$ 级矩阵 $A$ 可逆的充分必要条件是 $|A| \ne 0$。当 $A$ 可逆时，
@@ -203,7 +203,7 @@ $$AA^* = |A|I$$
 
 \begin{definition}
     实数域上的 $n$ 级矩阵 $A$ 如果满足
-    $$AA'=I$$
+    $$A\transpose{A}=E$$
     那么称 $A$ 是正交矩阵。
 \end{definition}
 
@@ -211,7 +211,7 @@ $$AA^* = |A|I$$
 
 1. 若 $A$ 和  $B$ 都是 $n$ 级正交矩阵，则 $AB$ 也是正交矩阵。
 
-2. 若 $A$ 是正交矩阵，则 $A^{-1}$ （即 $A'$）也是正交矩阵。
+2. 若 $A$ 是正交矩阵，则 $A^{-1}$ （即 $\transpose{A}$）也是正交矩阵。
 
 3. 若 $A$ 是正交矩阵，则 $|A|=\pm 1$
 
@@ -229,7 +229,7 @@ $$\delta_{ij}=\begin{cases}
 
 \begin{definition}
     在 $\RR^n$ 中，任给 $\aaa = (a_1,\cdots,a_n),\bbb=(b_1,\cdots,b_n)$，规定
-    $$(\aaa,\bbb) := \sum a_nb_n = \aaa\bbb'$$
+    $$(\aaa,\bbb) := \sum a_nb_n = \aaa\transpose{\bbb}$$
     这个二元实值函数 $(\aaa,\bbb)$ 称为 $\RR^n$ 的一个内积（通常称为标准内积）。
 \end{definition}
 

@@ -13,18 +13,18 @@
 \begin{definition}
     集合 $S$ 上的一个二元关系 $\sim$ 如果具有下述性质：$\forall a,b,c\in S$，有
 
-    （1） 反身性 $a\sim a$
+    \num{1} 反身性 $a\sim a$
 
-    （2） 对称性 $a\sim b \Rightarrow b\sim a$
+    \num{2} 对称性 $a\sim b \Rightarrow b\sim a$
 
-    （3） 传递性 $a\sim b$ 且 $b\sim c \Rightarrow a\sim c$ 
+    \num{3} 传递性 $a\sim b$ 且 $b\sim c \Rightarrow a\sim c$ 
 
     那么称 $\sim$ 是 $S$ 上的一个等价关系。
 \end{definition}
 
 \begin{definition}
     设 $\sim$ 是集合 $S$ 上的一个等价关系，$a\in S$ ，令
-    $$\overline{a} := \{x\in S \mid x\in a\}$$
+    \[\overline{a} \coloneqq  \{x\in S \mid x\in a\}\]
     称 $\overline{a}$ 是由 $a$ 确定的等价类，$a$ 称为等价类 $\overline{a}$ 的一个代表。
 \end{definition}
 
@@ -57,10 +57,10 @@
 
 \begin{theorem}
     设数域 $K$ 上 $s\times n$ 矩阵 $A$ 的秩为 $r$，如果 $r>0$，那么 $A$ 相抵于下述形式的矩阵
-    $$\left(\begin{matrix}
+    \[\left(\begin{matrix}
         E_r & 0\\
         0   & 0
-    \end{matrix}\right)$$
+    \end{matrix}\right)\]
     称其为 $A$ 的相抵标准形；如果 $r=0$，那么相抵标准形是零矩阵。
 \end{theorem}
 
@@ -72,17 +72,17 @@
 
 \begin{theorem}
     设 $A$ 是数域 $K$ 上 $s\times n$ 非零矩阵，则矩阵方程
-    $$AXA = A$$
+    \[AXA = A\]
     一定有解。如果 $\rank(A) = r$，并且
-    $$A = P\left(\begin{matrix}
+    \[A = P\left(\begin{matrix}
         E_r & 0\\
         0   & 0
-    \end{matrix}\right)Q$$
+    \end{matrix}\right)Q\]
     其中 $P,Q$ 分别是 $K$ 上 $s$ 级、$n$ 级可逆矩阵，那么矩阵方程的通解为
-    $$X = Q^{-1}\left(\begin{matrix}
+    \[X = Q^{-1}\left(\begin{matrix}
         E_r & B\\
         C   & D
-    \end{matrix}\right)P^{-1}$$
+    \end{matrix}\right)P^{-1}\]
     其中 $B,C,D$ 分别是数域 $K$ 上任意的 $r\times (s-r),(n-r)\times r,(n-r)\times (s-r)$ 矩阵。
 \end{theorem}
 
@@ -92,28 +92,28 @@
 
 \begin{theorem}
     非齐次线性方程组 $A\XXX = \bbb$ 有解的充分必要条件是
-    $$\bbb = AA^-\bbb$$
+    \[\bbb = AA^-\bbb\]
 \end{theorem}
 
 \begin{theorem}
     非齐次线性方程组 $A\XXX = \bbb$ 有解时，它的通解为
-    $$\XXX  = A^-\bbb$$
+    \[\XXX  = A^-\bbb\]
 \end{theorem}
 
 \begin{theorem}
     数域 $K$ 上 $n$ 元齐次线性方程组 $A\XXX = 0$ 的通解为
-    $$\XXX  = (I_n - A^-A)\boldsymbol{Z}$$
+    \[\XXX  = (I_n - A^-A)\boldsymbol{Z}\]
     其中 $A^-$ 是 $A$ 的任意一个广义逆，$\boldsymbol{Z}$ 取遍 $K^n$ 中任意列向量。
 \end{theorem}
 
 % \begin{definition}
 %     设 $A$ 是复数域上 $s\times n$ 矩阵，矩阵方程组
-%     $$\begin{cases}
+%     \[\begin{cases}
 %         AXA = A,\\
 %         XAX = X,\\
 %         (AX)^* = AX,\\
 %         (XA)^* = XA,
-%     \end{cases}$$
+%     \end{cases}\]
 %     称为 $A$ 的 Penrose 方程组，它的解称为 $A$ 的 Moore-Penrose 广义逆，记作 $A^+$。
 % \end{definition}44
 
@@ -121,7 +121,7 @@
 
 \begin{definition}
     设 $A$ 与 $B$ 都是数域 $K$ 上 $n$ 级矩阵，如果存在数域 $K$ 上一个 $n$ 级可逆矩阵 $P$，使得
-    $$P^{-1}AP = B$$
+    \[P^{-1}AP = B\]
     那么称 $A$ 与 $B$ 是相似的，记作 $A\sim B$。
 \end{definition}
 
@@ -152,16 +152,16 @@
 
 \begin{theorem}
     数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是，$K^n$ 中有 $n$ 个线性无关的列向量 $\aaa_1,\cdots,\aaa_n$，以及 $K$ 中有 $n$ 个数 $\lambda_1,\cdots,\lambda_n$（它们之中有些可能相等），使得
-    $$A\aaa_i = \lambda_i \aaa_i, i=1,\cdots,n$$
+    \[A\aaa_i = \lambda_i \aaa_i, i=1,\cdots,n\]
     这时，令 $P = (\aaa_1,\cdots,\aaa_n)$，则
-    $$P^{-1}AP = \diag\{\lambda_1,\cdots,\lambda_n\}$$
+    \[P^{-1}AP = \diag\{\lambda_1,\cdots,\lambda_n\}\]
 \end{theorem}
 
 \section{矩阵的特征值和特征向量}
 
 \begin{definition}
     设 $A$ 是数域 $K$ 上的一个 $n$ 级矩阵，如果 $K^n$ 中有非零列向量 $\aaa$ 使得
-    $$A \aaa = \lambda_0\aaa,\text{且}\ \lambda_0\in K$$
+    \[A \aaa = \lambda_0\aaa,\text{且}\ \lambda_0\in K\]
     那么称 $\lambda_0$ 是 $A$ 的一个特征值，称 $\aaa$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量。
 \end{definition}
 
@@ -170,9 +170,9 @@
 \begin{theorem}
     设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，则
 
-    （1） $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。
+    \num{1} $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。
 
-    （2） $\aaa$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\aaa$ 是齐次线性方程组 $(\lambda_0E-A)\XXX = \ling$  的一个解。
+    \num{2} $\aaa$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\aaa$ 是齐次线性方程组 $(\lambda_0E-A)\XXX = \ling$  的一个解。
 \end{theorem}
 
 设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)\XXX = \ling$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
@@ -197,9 +197,9 @@
 
 \begin{theorem}
     数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是 $A$ 有 $n$ 个线性无关的特征向量 $\aaa_1,\cdots,\aaa_n$，此时令
-    $$P=(\aaa_1,\cdots,\aaa_n)$$
+    \[P=(\aaa_1,\cdots,\aaa_n)\]
     则
-    $$P^{-1}AP = \diag\{\lambda_1,\cdots,\lambda_n\}$$
+    \[P^{-1}AP = \diag\{\lambda_1,\cdots,\lambda_n\}\]
     其中 $\lambda_i$ 是 $\aaa_i$ 所属的特征值。上述对角矩阵称为 $A$ 的相似标准形。
 \end{theorem}
 
@@ -209,7 +209,7 @@
 
 \begin{theorem}
     设 $\lambda_1,\cdots,\lambda_m$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\aaa_{j1},\cdots,\aaa_{jr_j}$ 是 $A$ 的属于 $\lambda_j$ 的线性无关的特征向量，$j=1,\cdots,m$，则向量组
-    $$\aaa_{11},\cdots,\aaa_{1r_1},\cdots,\aaa_{m1},\cdots,\aaa_{1r_m}$$
+    \[\aaa_{11},\cdots,\aaa_{1r_1},\cdots,\aaa_{m1},\cdots,\aaa_{1r_m}\]
     线性无关。
 \end{theorem}
 
@@ -240,6 +240,6 @@
 2. 对于每一个特征值 $\lambda_j$，求 $(\lambda_jI-A)\XXX = \ling$ 的一个基础解系 $\aaa_{j1},\cdots,\aaa_{jr_j}$；然后把它们施密特正交化和单位化，得到 $\eee_{j1},\cdots,\eee_{jr_j}$。它们也是 $A$ 的属于 $\lambda_j$ 的一个特征向量。
 
 3. 令
-$$T=(\eee_{11},\cdots,\eee_{1r_1},\cdots,\eee_{m1},\cdots,\eee_{mr_m})$$
+\[T=(\eee_{11},\cdots,\eee_{1r_1},\cdots,\eee_{m1},\cdots,\eee_{mr_m})\]
 则 $T$ 是 $n$ 级正交矩阵，且
-$$T^{-1}AT = \diag\{\lambda_{1},\cdots,\lambda_{1},\cdots,\lambda_{m},\cdots,\lambda_{m}\}$$
+\[T^{-1}AT = \diag\{\lambda_{1},\cdots,\lambda_{1},\cdots,\lambda_{m},\cdots,\lambda_{m}\}\]

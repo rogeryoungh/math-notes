@@ -4,17 +4,17 @@
 
 \begin{definition}
     数域 $K$ 上的一个 $n$ 元二次型型是系数在 $K$ 中的 $n$ 个变量的齐次多项式，它的一般形式是
-    $$f(x_1,\cdots,x_n) = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j$$
+    \[f(x_1,\cdots,x_n) = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j\]
     其中 $a_{ij} = a_{ji}$。
 \end{definition}
 
 把二次型的系数按原来顺序排成一个 $n$ 级矩阵 $A$，则称 $A$ 是二次型 $f(x_1,\cdots,x_n)$ 的矩阵，它是对称矩阵。
 
 再令 $\XXX = \transpose{(x_1,\cdots,x_n)}$，则二次型可以写作
-$$f(x_1,\cdots,x_n) = \transpose{X}AX$$
+\[f(x_1,\cdots,x_n) = \transpose{X}AX\]
 
 令 $\YYY = \transpose{(y_1,\cdots,y_n)}$，设 $C$ 是数域 $K$ 上的 $n$ 级可逆矩阵，则关系式
-$$\XXX = C\YYY$$
+\[\XXX = C\YYY\]
 称为变量 $x_1,\cdots,x_n$ 到变量 $y_1,\cdots,y_n$ 的一个非退化线性替换。
 
 \begin{definition}
@@ -23,7 +23,7 @@ $$\XXX = C\YYY$$
 
 \begin{definition}
     数域 $K$ 上两个 $n$ 级矩阵 $A$ 与 $B$，如果存在 $K$ 上的一个 $n$ 级可逆矩阵 $C$，使得
-    $$\transpose{C}AC = B$$
+    \[\transpose{C}AC = B\]
     那么称 $A$ 与 $B$ 合同，记作 $A\simeq B$。
 \end{definition}
 
@@ -46,9 +46,9 @@ $$\XXX = C\YYY$$
 \section{实二次型的规范形}
 
 实数域上的二次型简称为实二次型，$n$ 元实二次型 $\transpose{\XXX}A\XXX$ 经过一个适当的非退化线性替换 $\XXX = C\YYY$ 可以化成下述形式的标准形
-$$d_1y_1^2+\cdots+d_py_p^2-d_{p+1}y_{p+1}^2-\cdots-d_ry_r^2$$
+\[d_1y_1^2+\cdots+d_py_p^2-d_{p+1}y_{p+1}^2-\cdots-d_ry_r^2\]
 其中 $d_i>0,i=1,\cdots,r$。再做一次非退化线性替换可以变成
-$$z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2$$
+\[z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2\]
 
 \begin{theorem}
     $n$ 元实二次型 $\transpose{\XXX}A\XXX$ 的规范形是唯一的。
@@ -61,9 +61,9 @@ $$z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2$$
 任一 $n$ 级实对称矩阵合同于对角矩阵 $\diag\{1,\cdots,1,-1,\cdots,-1,0,\cdots,0\}$，其中 $0$ 的个数等于 $\transpose{\XXX}A\XXX$ 的正惯性指数，$-1$ 的个数等于 $\transpose{\XXX}A\XXX$ 的负惯性指数（也分别称作 $A$ 的惯性指数），这个对角举着称为 $A$ 的合同规范形。
 
 现讨论复数域上的二次型，简称为复二次型。设 $n$ 元复二次型 $\transpose{\XXX}A\XXX$ 经过一个适当的非退化线性替换 $\XXX = C\YYY$ 变成下述形式的标准形
-$$d_1y_1^2+\cdots+d_ry_r^2$$
+\[d_1y_1^2+\cdots+d_ry_r^2\]
 其中 $d_i\ne 0,i=1,\cdots,n$，$r$ 是这个二次型的秩。再做一个非退化线性替换可得
-$$z_1^2+\cdots+z_r^2$$
+\[z_1^2+\cdots+z_r^2\]
 把这个标准形叫做复二次型 $\transpose{\XXX}A\XXX$ 的规范形，显然其完全由其秩决定，故只有一种形式。
 
 \section{正定二次型与正定矩阵}
@@ -88,7 +88,7 @@ $$z_1^2+\cdots+z_r^2$$
 
 \begin{definition}
     实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型对于 $\RR^n$ 中任一非零列向量 $\aaa$，都有
-    $$\transpose{\aaa}A\aaa \geqslant 0 \quad (\transpose{\aaa}A\aaa<0,\transpose{\aaa}A\aaa\leqslant 0)$$
+    \[\transpose{\aaa}A\aaa \geqslant 0 \quad (\transpose{\aaa}A\aaa<0,\transpose{\aaa}A\aaa\leqslant 0)\]
     如果 $\transpose{\XXX}A\XXX$ 既不是半正定的，又不是半负定的，那么称它是不定的。
 \end{definition}
 
@@ -106,13 +106,13 @@ $$z_1^2+\cdots+z_r^2$$
 
 \begin{theorem}
     设二元实值函数 $F(x,y)$ 有一个稳定点 $\aaa=(x_0,y_0)$ （即 $F(x,y)$ 在 $(x_0,y_0)$ 处的一阶偏导数全为 $0$）。设 $F(x,y)$ 在 $(x_0,y_0)$ 的一个邻域内有 3 阶连续偏导数。令
-    $$H = \left(\begin{matrix}
+    \[H = \left(\begin{matrix}
         F_{xx}''(x_0,y_0) & F_{xy}''(x_0,y_0)\\
         F_{yx}''(x_0,y_0) & F_{yy}''(x_0,y_0)
-    \end{matrix}\right)$$
+    \end{matrix}\right)\]
     称 $H$ 是 $F(x,y)$ 在 $(x_0,y_0)$ 处的黑塞（Hesse）矩阵。如果 $H$ 是正定的，那么 $F(x,y)$ 在 $(x_0,y_0)$ 处达到极小值。如果 $H$ 是负定的，那么 $F(x,y)$ 在 $(x_0,y_0)$ 处达到极大值。
 \end{theorem}
 
 其可推广到 $n$ 元函数的情形：设 $F(x_1,\cdots,x_n)$ 有一个稳定点 $\aaa = (a_1,\cdots,a_n)$，设 $F(x_1,\cdots,x_n)$ 在 $\aaa$ 的一个邻域内有 3 阶连续偏导数，令
-$$H = (F_{x_ix_j}''(\aaa))$$
+\[H = (F_{x_ix_j}''(\aaa))\]
 称 $H$ 是 $F(x_1,\cdots,x_n)$ 在 $\aaa$ 处的黑塞矩阵。如果 $H$ 是正定的，那么 $F$ 在 $(x_0,y_0)$ 处达到极小值。如果 $H$ 是负定的，那么 $F$ 在 $(x_0,y_0)$ 处达到极大值。

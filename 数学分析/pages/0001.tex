@@ -12,15 +12,15 @@
 
 集合的交并补是熟知的。
 
-定义有序对为 $(a,b) := \{\{a\},\{a,b\}\}$，其中 $a$ 称为有序对的第一坐标，而 $b$ 称为第二坐标。特殊的，$(a,a) = \{a\}$。
+定义有序对为 $(a,b) \coloneqq  \{\{a\},\{a,b\}\}$，其中 $a$ 称为有序对的第一坐标，而 $b$ 称为第二坐标。特殊的，$(a,a) = \{a\}$。
 
 定义集合的笛卡尔 Cartesian 乘积为
-$$A \times B := \{(a,b) \mid a\in A \text{且} b\in B\}$$
+$$A \times B \coloneqq  \{(a,b) \mid a\in A \text{且} b\in B\}$$
 一般 $A \times B \ne B \times A$。同样可以推广到多个集合
-$$\prod X_i := X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cdots \times X_{n-1}) \times X_n$$
+$$\prod X_i \coloneqq  X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cdots \times X_{n-1}) \times X_n$$
 其元素 $x$ 是多层嵌套，我们可以简记为
 $$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
-称 $x_i := \mathrm{pr}_i(x)$ 为 $x$ 的第 $i$ 个分量，$\mathrm{pr}$ 是投影映射。当所有 $X_i$ 都等于 $X$ 时，上述乘积记为 $X^n$。
+称 $x_i \coloneqq  \mathrm{pr}_i(x)$ 为 $x$ 的第 $i$ 个分量，$\mathrm{pr}$ 是投影映射。当所有 $X_i$ 都等于 $X$ 时，上述乘积记为 $X^n$。
 
 \section{映射}
 
@@ -33,8 +33,8 @@ $$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
 赋值法则的定义域 Domain 和像域 Image Set 约定如下
 \begin{equation*}
 	\begin{aligned}
-		\dom(R) := \{c\in C \mid \exists d \in D, (c,d) \in R\}\\
-		\im(R) := \{d\in D \mid \exists c \in C, (c,d) \in R\}\\
+		\dom(R) \coloneqq  \{c\in C \mid \exists d \in D, (c,d) \in R\}\\
+		\im(R) \coloneqq  \{d\in D \mid \exists c \in C, (c,d) \in R\}\\
 	\end{aligned}
 \end{equation*}
 
@@ -44,7 +44,7 @@ $$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
 \end{definition}
 
 称 $f$ 的图为
-$$\graph(f) := \{(a,f(a)) \in A\times B \mid a \in A\}$$
+$$\graph(f) \coloneqq  \{(a,f(a)) \in A\times B \mid a \in A\}$$
 
 对任意给定的 $A$ 的子集 $A_0$，定义 $f$ 在 $A_0$ 上的限制为映射
 $$f \mid_{A_0} = f : A_0 \to B$$
@@ -55,26 +55,26 @@ $$g\circ f: A \to C, a \mapsto g(f(a))$$
 
 若映射 $f$ 满足
 
-（1） $f(a_1) = f(a_2) \Rightarrow a_1,a_2$，称 $f$ 为单射。
+\num{1} $f(a_1) = f(a_2) \Rightarrow a_1,a_2$，称 $f$ 为单射。
 
-（2） 对任意的 $b\in B$ 存在 $a\in A$ 满足 $f(a)=b$，称 $f$ 为满射。
+\num{2} 对任意的 $b\in B$ 存在 $a\in A$ 满足 $f(a)=b$，称 $f$ 为满射。
 
-（3） $f$ 既是单射又是满射，称 $f$ 为双射。
+\num{3} $f$ 既是单射又是满射，称 $f$ 为双射。
 
 若 $f$ 为双射，我们定义它的逆映射 $f^{-1}$ 为
 $$f^{-1}(b) =  a \Leftrightarrow f(a) = b$$
 
 映射 $\diamond$：$X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\diamond(x,y)$ 记做 $x \diamond y$。对 $X$ 中的非空子集定义
-$$A \diamond B := \diamond(a\times B) = \{A \diamond b \mid a \in A, b\in B\}$$
+$$A \diamond B \coloneqq  \diamond(a\times B) = \{A \diamond b \mid a \in A, b\in B\}$$
 
 \begin{definition}
-	（1） 若 $A \diamond A \subseteq A$，则称 $A$ 在运算 $\diamond$ 下封闭。
+	\num{1} 若 $A \diamond A \subseteq A$，则称 $A$ 在运算 $\diamond$ 下封闭。
 
-	（2） 若 $x \diamond (y \diamond z) = (x \diamond y) \diamond z$，则称运算 $\diamond$ 是结合的。
+	\num{2} 若 $x \diamond (y \diamond z) = (x \diamond y) \diamond z$，则称运算 $\diamond$ 是结合的。
 
-	（3） 若 $x \diamond y = y \diamond x$，则称运算 $\diamond$ 是交换的。
+	\num{3} 若 $x \diamond y = y \diamond x$，则称运算 $\diamond$ 是交换的。
 
-	（4） 若存在 $e \in X$ 使得 $e \diamond x = x \diamond e = x$，则称 $e$ 为 $X$ 上的单位元。
+	\num{4} 若存在 $e \in X$ 使得 $e \diamond x = x \diamond e = x$，则称 $e$ 为 $X$ 上的单位元。
 \end{definition}
 
 如果映射定义中的 $B$ 是一个数域，则把映射称为函数。
@@ -86,26 +86,26 @@ $$A \diamond B := \diamond(a\times B) = \{A \diamond b \mid a \in A, b\in B\}$$
 \begin{definition}[等价关系]
 	若集合 $S$ 上的关系 $C$ 满足
 
-	（1） 自反性：对任意的 $x\in S$ 有 $xCx$。
+	\num{1} 自反性：对任意的 $x\in S$ 有 $xCx$。
 	
-	（2） 对称性：若 $xCy$ 则 $yCx$。
+	\num{2} 对称性：若 $xCy$ 则 $yCx$。
 
-	（3） 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
+	\num{3} 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
 
 	则称 $C$ 为等价关系，一般用 $\sim$ 来表示等价关系。
 \end{definition}
 
 记 $x\in A$ 的等价类：
-$$[x] := \{y \in A \mid y \sim x\}$$ 
+$$[x] \coloneqq  \{y \in A \mid y \sim x\}$$ 
 
 \begin{definition}[序关系]
 	若集合 $S$ 上的关系 $C$ 满足
 
-	（1） 相容性：对任意的 $x,y\in S$ 且 $x\ne y$ 满足要么 $xCy$ 要么 $yCx$。
+	\num{1} 相容性：对任意的 $x,y\in S$ 且 $x\ne y$ 满足要么 $xCy$ 要么 $yCx$。
 	
-	（2） 非自反性：不存在 $x\in S$ 使得 $xCx$。
+	\num{2} 非自反性：不存在 $x\in S$ 使得 $xCx$。
 
-	（3） 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
+	\num{3} 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
 
 	则称 $C$ 为序关系，一般用 $<$ 来表示序关系，称 $(S,C)$ 为有序集。
 \end{definition}
@@ -123,9 +123,9 @@ $x<y$ 也可以记作 $y>x$。记号 $x\leqslant y$ 指的是 $x<y$ 或 $x=y$，
 \begin{definition}[上确界]
 	设有序集 $S$ 的非空子集 $E$，且 $E$ 有上界。若存在一个数 $a \in S$ 满足：
 	
-	（1） $a$ 是 $E$ 的上界：$\forall x\in E$，有 $x\leqslant a$。
+	\num{1} $a$ 是 $E$ 的上界：$\forall x\in E$，有 $x\leqslant a$。
 	
-	（2） 任何小于 $a$ 的数不是数集 $E$ 的上界：$\forall \mu<a, \exists x_0\in E$ 使得 $x_0>\mu$。
+	\num{2} 任何小于 $a$ 的数不是数集 $E$ 的上界：$\forall \mu<a, \exists x_0\in E$ 使得 $x_0>\mu$。
 	
 	则称数 $a$ 为数集 $E$ 的上确界，记作 $\sup E$。
 \end{definition}
@@ -186,9 +186,9 @@ F9 乘法分配律：$x \cdot (y+z) = x\cdot y + x\cdot z$。
 \begin{definition}[有序域]
 	若域 $F$ 是满足如下条件的有序集
 
-	（1） 当 $x,y,z\in F$ 且 $y<z$ 时，$x+y<x+z$。
+	\num{1} 当 $x,y,z\in F$ 且 $y<z$ 时，$x+y<x+z$。
 
-	（2） 如果 $x,y\in F$，且 $x>0,y>0$，则 $xy>0$。
+	\num{2} 如果 $x,y\in F$，且 $x>0,y>0$，则 $xy>0$。
 
 	那么称 $F$ 是一个有序域。
 \end{definition}
@@ -215,11 +215,11 @@ F9 乘法分配律：$x \cdot (y+z) = x\cdot y + x\cdot z$。
 \begin{definition}[度量空间]
 	称集合 $X$ 的元素为点，若存在 $X$ 上双变量的函数 $d:X \times X \to \RR$，满足（$x,y,z\in R$）
 
-	（1） 若 $x\ne y$，则 $d(x,y)$；仅 $d(x,x)=0$。
+	\num{1} 若 $x\ne y$，则 $d(x,y)$；仅 $d(x,x)=0$。
 
-	（2） 对于任意的 $x,y$ 都有 $d(x,y) = d(y,x)$。
+	\num{2} 对于任意的 $x,y$ 都有 $d(x,y) = d(y,x)$。
 
-	（3） 对于任意的 $z$，都有 $d(x,y) \leqslant d(x,z) + d(z,y)$。
+	\num{3} 对于任意的 $z$，都有 $d(x,y) \leqslant d(x,z) + d(z,y)$。
 
 	就称 $(X,d)$ 是一个度量空间（度量空间），函数 $d$ 称作其上的距离函数。
 \end{definition}
@@ -248,7 +248,7 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 \end{proof}
 
 
-\section{实数系的构造}
+\section{数系的构造}
 
 直到我读了陶哲轩的《实分析》时，才感到接受了实数理论。实数的定义是公理化的，不是构造性的。
 
@@ -259,15 +259,15 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 \begin{axiom}[Peano 公理]
 	若集合 $N$ 和其上的映射 $v(n)$ 满足
 
-	（1） $0\in N$。
+	\num{1} $0\in N$。
 
-	（2） 若 $n\in N$，则 $v(n) \in N$。
+	\num{2} 若 $n\in N$，则 $v(n) \in N$。
 
-	（3） 对于任意的 $n\in N$，$v(n) \ne 0$。
+	\num{3} 对于任意的 $n\in N$，$v(n) \ne 0$。
 
-	（4） 若 $v(m) \ne v(n)$，则 $m\ne n$。
+	\num{4} 若 $v(m) \ne v(n)$，则 $m\ne n$。
 
-	（5） 【归纳原理】设 $P(n)$ 是关于自然数的性质，假设只要 $P(n)$ 为真，则 $P(v(n))$ 也为真；且 $P(0)$ 为真。那么对 $N$ 中所有的元素 $P$ 都为真。
+	\num{5} 【归纳原理】设 $P(n)$ 是关于自然数的性质，假设只要 $P(n)$ 为真，则 $P(v(n))$ 也为真；且 $P(0)$ 为真。那么对 $N$ 中所有的元素 $P$ 都为真。
 
 	那么称 $N$ 为自然数，记作 $\NN$，$v(n)$ 称为后继函数。
 \end{axiom}
@@ -277,8 +277,8 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 设 $m,n\in \NN$，定义 $\NN$ 上的加法 $+$ 和乘法 $\cdot$ 为
 \begin{equation*}
 	\begin{aligned}
-		0+m:=m&,\quad v(n)+m:=v(n+m)\\
-		0\cdot m:=m&,\quad v(n)\cdot m:=n \cdot m + m
+		0+m\coloneqq m&,\quad v(n)+m\coloneqq v(n+m)\\
+		0\cdot m\coloneqq m&,\quad v(n)\cdot m\coloneqq n \cdot m + m
 	\end{aligned}
 \end{equation*}
 
@@ -287,19 +287,19 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 \begin{theorem}[$\NN$ 的代数算律]
 	对于 $a,b,c\in \NN$ 有
 
-	（1） 加法是结合的和交换的，且有单位元 $0$。
+	\num{1} 加法是结合的和交换的，且有单位元 $0$。
 
-	（2） 乘法是结合的和交换的，且有单位元 $1$。
+	\num{2} 乘法是结合的和交换的，且有单位元 $1$。
 
-	（3） 分配律：$(a+b) \cdot  c = a \cdot c + b\cdot c$。
+	\num{3} 分配律：$(a+b) \cdot  c = a \cdot c + b\cdot c$。
 \end{theorem}
 
 \begin{definition}[$\NN$ 的序]
 	设 $m,n\in \NN$。
 
-	（1） 若存在 $a\in \NN$，使得 $n=m+a$，称 $m$ 小于等于 $n$，记作 $m \leqslant n$。
+	\num{1} 若存在 $a\in \NN$，使得 $n=m+a$，称 $m$ 小于等于 $n$，记作 $m \leqslant n$。
 
-	（2） 若 $n\geqslant m$ 且 $n\ne m$，则称 $m$ 严格小于 $n$，记作 $m < n$。
+	\num{2} 若 $n\geqslant m$ 且 $n\ne m$，则称 $m$ 严格小于 $n$，记作 $m < n$。
 \end{definition}
 
 可以验证，$<$ 和 $\leqslant$ 是 $\NN$ 上的序关系。
@@ -319,8 +319,8 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
 然后是定义 $N$ 上的加法和乘法
 \begin{equation*}
 	\begin{aligned}
-		(a,b) + (c,d) &:= (a+c,b+d)\\
-		(a,b) \cdot (c,d) &:= (a c,b d)
+		(a,b) + (c,d) &\coloneqq  (a+c,b+d)\\
+		(a,b) \cdot (c,d) &\coloneqq  (a c,b d)
 	\end{aligned}
 \end{equation*}
 
@@ -329,25 +329,25 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
 \begin{theorem}[$\ZZ$ 的代数算律]
 	对于 $x,y,z\in \ZZ$ 有
 
-	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
+	\num{1} 加法是结合的和交换的，且有单位元 $0$，逆元存在。
 
-	（2） 乘法是结合的和交换的，且有单位元 $1$。
+	\num{2} 乘法是结合的和交换的，且有单位元 $1$。
 
-	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
+	\num{3} 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
 \end{theorem}
 
 即 $\ZZ$ 是一个交换环。于是
 
 \begin{theorem}[$\ZZ$ 是有序域]
-	（1） 加法保序：当 $x,y,z\in \ZZ$ 且 $y<z$ 时，$x+y<x+z$。
+	\num{1} 加法保序：当 $x,y,z\in \ZZ$ 且 $y<z$ 时，$x+y<x+z$。
 
-	（2） 乘法保序：如果 $x,y\in \ZZ$，且 $x>0,y>0$，则 $xy>0$。
+	\num{2} 乘法保序：如果 $x,y\in \ZZ$，且 $x>0,y>0$，则 $xy>0$。
 \end{theorem}
 
 我们有理由相信，$(a,b)$ 符合我们对整数的一切想象。因此 $Z = \ZZ$。
 
 另外的，定义整数的负运算为 $-(a,b) = (b,a)$，以此定义减法
-$$x - y := x + (-y)$$
+$$x - y \coloneqq  x + (-y)$$
 可以验证
 $$(a,0) - (b,0) = (a,b) = a - b$$
 
@@ -360,36 +360,36 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
 于是定义 $Q$ 上的加法和乘法
 \begin{equation*}
 	\begin{aligned}
-		(a,b) + (c,d) &:= (ad+bc,b+d)\\
-		(a,b) \cdot (c,d) &:= (a \cdot c,b \cdot d)\\
+		(a,b) + (c,d) &\coloneqq  (ad+bc,b+d)\\
+		(a,b) \cdot (c,d) &\coloneqq  (a \cdot c,b \cdot d)\\
 	\end{aligned}
 \end{equation*}
-定义加法逆元为 $-(a,b) := (-a,b)$。可以验证，$(a,1)$ 与 $a$ 有相同的性状，我们可以令其相等，从而把整数嵌入到有理数内。
+定义加法逆元为 $-(a,b) \coloneqq  (-a,b)$。可以验证，$(a,1)$ 与 $a$ 有相同的性状，我们可以令其相等，从而把整数嵌入到有理数内。
 
 至此，我们可以着手验证有理数是否满足我们预想的性质。
 
 \begin{theorem}[$\QQ$ 的代数算律]
 	对于 $x,y,z\in \QQ$ 有
 
-	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
+	\num{1} 加法是结合的和交换的，且有单位元 $0$，逆元存在。
 
-	（2） 乘法是结合的和交换的，且有单位元 $1$，非零元逆元存在。
+	\num{2} 乘法是结合的和交换的，且有单位元 $1$，非零元逆元存在。
 
-	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
+	\num{3} 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
 \end{theorem}
 
 即 $\QQ$ 是一个域。
 
 \begin{theorem}[$\QQ$ 是有序域]
-	（1） 加法保序：当 $x,y,z\in \QQ$ 且 $y<z$ 时，$x+y<x+z$。
+	\num{1} 加法保序：当 $x,y,z\in \QQ$ 且 $y<z$ 时，$x+y<x+z$。
 
-	（2） 乘法保序：如果 $x,y\in \QQ$，且 $x>0,y>0$，则 $xy>0$。
+	\num{2} 乘法保序：如果 $x,y\in \QQ$，且 $x>0,y>0$，则 $xy>0$。
 \end{theorem}
 
 我们有理由相信，$(a,b)$ 符合我们对有理数的一切想象。因此 $Q = \QQ$。
 
 另外，定义倒数 $(a,b)^{-1} = (b,a)$，显然 $a,b\ne 0$。从而定义除法
-$$x/y := x \cdot y^{-1}$$
+$$x/y \coloneqq  x \cdot y^{-1}$$
 可以验证，
 $$(a,1)/(b,1) = (a,b) = a/b$$
 
@@ -400,11 +400,11 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 \begin{definition}[Dedekind 分割]
 	设 $A \subset \QQ, A' = \complement_\QQ A$，若满足以下三个条件
 
-	（1） $A \ne \varnothing,A' \ne \varnothing$；
+	\num{1} $A \ne \varnothing,A' \ne \varnothing$；
 
-	（2） 当 $p\in A,q \in A'$ 时，$p<q$；
+	\num{2} 当 $p\in A,q \in A'$ 时，$p<q$；
 
-	（3） 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
+	\num{3} 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
 
 	则称 $A$ 为 $\QQ$ 的一个分割，记分割的全体为 $R$。
 \end{definition}
@@ -412,17 +412,17 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 集合的相等即是 $R$ 上的等价关系。$R$ 上的序关系定义是
 $$A \subseteq B \Leftrightarrow A\leqslant B$$
 定义加法
-$$A+B := \{ a+b \mid a\in A,b\in B\}$$
+$$A+B \coloneqq  \{ a+b \mid a\in A,b\in B\}$$
 于是可以定义负运算
-$$-A := \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\}$$
-$$-A := \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}$$
+$$-A \coloneqq  \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\}$$
+$$-A \coloneqq  \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}$$
 
 
 然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \QQ \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
-$$A \cdot B := \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}$$
+$$A \cdot B \coloneqq  \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}$$
 同时
 \begin{equation*}
-	A \cdot B :=\begin{cases}
+	A \cdot B \coloneqq \begin{cases}
 		-((-A) \cdot B), &A<0^*, B\geqslant 0^*\\
 		-(A \cdot (-B)), &A\geqslant 0^*, B<0^*\\
 		-((-A) \cdot (-B)), &A<0^*, B<0^*\\
@@ -430,10 +430,30 @@ $$A \cdot B := \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in
 \end{equation*}
 
 当 $A > 0^*$ 时，定义乘法逆元
-$$A^{-1} := \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}\}$$
-当 $A < 0^*$ 时，定义乘法逆元为 $A^{-1} := -(-A^{-1})$。
+$$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}\}$$
+当 $A < 0^*$ 时，定义乘法逆元为 $A^{-1} \coloneqq  -(-A^{-1})$。
 
-至此，我们可以着手验证实数是否满足我们预想的性质，在 Cauchy 序列中提过了，这里不再重复。
+至此，我们可以着手验证实数是否满足我们预想的性质。
+
+\begin{theorem}[$\RR$ 的代数算律]
+	对于 $x,y,z\in \RR$ 有
+
+	\num{1} 加法是结合的和交换的，且有单位元 $0$，逆元存在。
+
+	\num{2} 乘法是结合的和交换的，且有单位元 $1$，非零元逆元存在。
+
+	\num{3} 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
+\end{theorem}
+
+即 $\RR$ 是一个域。
+
+\begin{theorem}[$\RR$ 是有序域]
+	\num{1} 加法保序：当 $x,y,z\in \RR$ 且 $y<z$ 时，$x+y<x+z$。
+
+	\num{2} 乘法保序：如果 $x,y\in \RR$，且 $x>0,y>0$，则 $xy>0$。
+\end{theorem}
+
+我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \RR$。
 
 实数和有理数的最基本的一个区别就是有最小上界性。
 
@@ -471,40 +491,20 @@ $$d(a_n,b_n) < \varepsilon$$
 于是定义 $R$ 上的加法和乘法
 \begin{equation*}
 	\begin{aligned}
-		\LIM(a_n) + \LIM(b_n) &:= \LIM(a_n+b_n)&\\
-		\LIM(a_n) \cdot \LIM(b_n) &:= \LIM(a_nb_n)\\
+		\LIM(a_n) + \LIM(b_n) &\coloneqq  \LIM(a_n+b_n)&\\
+		\LIM(a_n) \cdot \LIM(b_n) &\coloneqq  \LIM(a_nb_n)\\
 	\end{aligned}
 \end{equation*}
-定义负运算 $-\LIM(a_n) := \LIM(-a_n)$。
+定义负运算 $-\LIM(a_n) \coloneqq  \LIM(-a_n)$。
 
 定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \QQ$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
 
 于是我们可以定义，设 $x$ 为一个不为零的实数，则存在限制离开零的 Cauchy 序列 $x=\LIM(a_n)$，定义倒数为
-$$x^{-1} := \LIM(a_n^{-1})$$
+$$x^{-1} \coloneqq  \LIM(a_n^{-1})$$
 
 可以验证，常数 Cauchy 序列 $\{a_n\}$ 与 $a$ 具有相同的性状，因此可以令它们相等，从而使有理数嵌入到实数中。
 
-至此，我们可以着手验证实数是否满足我们预想的性质。
-
-\begin{theorem}[$\RR$ 的代数算律]
-	对于 $x,y,z\in \RR$ 有
-
-	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
-
-	（2） 乘法是结合的和交换的，且有单位元 $1$，非零元逆元存在。
-
-	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
-\end{theorem}
-
-即 $\RR$ 是一个域。
-
-\begin{theorem}[$\RR$ 是有序域]
-	（1） 加法保序：当 $x,y,z\in \RR$ 且 $y<z$ 时，$x+y<x+z$。
-
-	（2） 乘法保序：如果 $x,y\in \RR$，且 $x>0,y>0$，则 $xy>0$。
-\end{theorem}
-
-我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \RR$。
+至此，我们可以着手验证实数是否满足我们预想的性质，在 Dedekind 分割中提过了，这里不再重复。
 
 另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
 $$d(a_j,a_k) \leqslant \varepsilon$$
@@ -516,6 +516,20 @@ $$\lim_{n\to \infty} a_n = L$$
 
 可以验证
 $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
+
+\subsection{复数}
+
+记实数的二元组 $(a,b)$，其中 $a,b\in R$，记全体二元组的集合为 $C$。我们约定
+\[(a,b) = (c,d) \Leftrightarrow a=b \land  c=d\]
+复数没有序关系。定义 $C$ 上的加法和乘法
+\[\begin{aligned}
+		(a,b) + (c,d) &\coloneqq  (a+c,b+d)\\
+		(a,b) \cdot (c,d) &\coloneqq  (ac-bd,ad+bc)
+\end{aligned}\]
+
+定义加法逆元为 $-(a,b) \coloneqq  (-a,-b)$。可以验证，$(a,0)$ 与 $a$ 具相同的性状，我们可以令其相等，从而把实数嵌入到复数域内。
+
+定义非零数的乘法逆元 $(a,b)^{-1} \coloneqq  \left(\frac{a}{a^2+b^2},-\frac{b}{a^2+b^2}\right)$。
 
 
 
@@ -548,9 +562,9 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 %\begin{definition}[有界集]
 %	设 $S$ 为一个非空数集，若存在数 $M\in$ 使得 $\forall x\in S$
 %	
-%	（1） 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
+%	\num{1} 都有 $x\leqslant M$，则称 $M$ 是 $S$ 的一个上界。
 %	
-%	（2） 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
+%	\num{2} 都有 $x\geqslant M$，则称 $M$ 是 $S$ 的一个下界。
 %\end{definition}
 %
 %若数集 $S$ 既有上界又有下界，则称 $S$ 为有界集，反之称为无界集。
@@ -580,9 +594,9 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 %\begin{definition}
 %	设 $f$ 为定义在 $D$ 上的函数，若对任何 $x_1,x_2\in D$，当 $x_1<x_2$ 时：
 %
-%	（1） 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
+%	\num{1} 总有 $f(x_1) \leqslant f(x_2)$，则称 $f$ 为 $D$ 上的增函数，若成立严格不等式 $f(x_1) < f(x_2)$ 时，称 $f$ 为 $D$ 上的严格增函数。
 %
-%	（2） 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
+%	\num{2} 总有 $f(x_1) \geqslant f(x_2)$，则称 $f$ 为 $D$ 上的减函数，若成立严格不等式 $f(x_1) > f(x_2)$ 时，称 $f$ 为 $D$ 上的严格减函数。
 %\end{definition}
 %
 %增函数和减函数统称为单调函数，严格增函数和严格减函数统称为严格单调函数。
@@ -592,7 +606,7 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 %\begin{definition}
 %	设 $D$ 为对称于原点的数集， 函数 $f$ 为定义在 $D$ 上的函数。若对每一个 $x\in D$：
 %
-%	（1） 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
+%	\num{1} 有 $f(-x) = -f(x)$，则称 $f$ 为 $D$ 上的奇函数。
 %
-%	（2） 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
+%	\num{2} 有 $f(-x) = f(x)$，则称 $f$ 为 $D$ 上的偶函数。
 %\end{definition}

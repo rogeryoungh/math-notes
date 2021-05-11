@@ -7,6 +7,7 @@
 \newcommand\mfrac[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
 \newcommand\RR{\mathbb{R}}
 \newcommand\NN{\mathbb{N}}
+\newcommand\ZZ{\mathbb{Z}}
 \newcommand\QQ{\mathbb{Q}}
 \newcommand\CC{\mathbb{C}}
 \newcommand\ee{\mathrm{e}}
@@ -18,15 +19,19 @@
 \newcommand\diag{\operatorname{diag}}
 \renewcommand\Im{\operatorname{Im}}
 \newcommand\tr{\operatorname{tr}}
+\renewcommand\char{\operatorname{char}}
+\newcommand\codim{\operatorname{codim}}
 
-\newcommand\aaa{\boldsymbol{\alpha}}
+\newcommand\aaa{\alpha}
 \newcommand\AAA{\boldsymbol{A}}
-\newcommand\bbb{\boldsymbol{\beta}}
-\newcommand\eee{\boldsymbol{\eta}}
-\renewcommand\ggg{\boldsymbol{\gamma}}
-\newcommand\XXX{\boldsymbol{X}}
-\newcommand\YYY{\boldsymbol{Y}}
+\newcommand\bbb{\beta}
+\newcommand\eee{\eta}
+\renewcommand\ggg{\gamma}
+\newcommand\XXX{X}
+\newcommand\YYY{Y}
 \newcommand\ling{\boldsymbol{0}}
+
+\newcommand\num[1]{{\fzfs{（}}{\rm{#1}}{\fzfs{）}}}
 
 \maketitle
 
@@ -44,5 +49,6 @@
 \include{pages/0006} % 二次型 · 矩阵的合同
 \include{pages/0007} % 多项式环
 \include{pages/0008} % 线性空间
+\include{pages/0009} % 线性空间
 
 \end{document}

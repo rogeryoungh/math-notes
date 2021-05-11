@@ -3,14 +3,14 @@
 \section{\texorpdfstring{$n$ 维向量空间 $K^n$}{n 维向量空间 Kn}}
 
 取定一个数域 $K$，设 $n$ 是任意给定的一个正整数。令
-$$K^n=\{(a_1,\cdots,a_n) \mid a_i\in K,i=1,\cdots,n\}$$
+\[K^n=\{(a_1,\cdots,a_n) \mid a_i\in K,i=1,\cdots,n\}\]
 如果 $a_1=b_1,\cdots,a_n=b_n$，则称 $K^n$ 中的两个元素：$(a_1,\cdots,a_n),(b_1,\cdots,b_n)$ 相等。
 
 在 $K^n$ 中规定加法运算：
-$$(a_1,\cdots,a_n)+(b_1,\cdots,b_n):=(a_1+b_1,\cdots,a_n+b_n)$$
+\[(a_1,\cdots,a_n)+(b_1,\cdots,b_n)\coloneqq (a_1+b_1,\cdots,a_n+b_n)\]
 
 在 $K$ 的元素与 $K^n$ 的元素之间规定数量乘法运算：
-$$k(a_1,\cdots,a_n) := (ka_1,\cdots,ka_n)$$
+\[k(a_1,\cdots,a_n) \coloneqq  (ka_1,\cdots,ka_n)\]
 
 容易验证加法和数量乘法运算满足下述八条运算法则：对于 $\aaa,\bbb,\ggg\in K^n,k,l\in K$ 有
 
@@ -19,12 +19,12 @@ $$k(a_1,\cdots,a_n) := (ka_1,\cdots,ka_n)$$
 2. $(\aaa+\bbb)+\ggg=\aaa+(\bbb+\ggg)$
 
 3. 把元素 $(0,\cdots,0)$ 记作零元素 $\ling$，使得
-$$\ling + \aaa = \aaa + \ling = \aaa$$
+\[\ling + \aaa = \aaa + \ling = \aaa\]
 
 4. 对于 $\aaa = (a_1,\cdots,a_n)\in K^n$，定义其负元素
-$$-\aaa := (-a_1,\cdots,-a_n)$$
+\[-\aaa \coloneqq  (-a_1,\cdots,-a_n)\]
 于是有
-$$\aaa + (-\aaa) = (-\aaa)+\aaa = 0$$
+\[\aaa + (-\aaa) = (-\aaa)+\aaa = 0\]
 
 5. $1\aaa = \aaa$
 
@@ -39,7 +39,7 @@ $$\aaa + (-\aaa) = (-\aaa)+\aaa = 0$$
 \end{definition}
 
 在 $n$ 维向量空间 $K^n$ 中，可以定义减法运算
-$$\aaa - \bbb := \aaa + (-\bbb)$$
+\[\aaa - \bbb \coloneqq  \aaa + (-\bbb)\]
 
 $n$ 元有序数组写成一行，称为行向量；写成一列，称为列向量，也可以看作行向量的转置。
 
@@ -47,13 +47,13 @@ $K^n$ 可以看成是 $n$ 维行向量组成的向量空间，也可以看作是
 
 \begin{definition}[线性组合]
 	给定向量组 $\aaa_1,\cdots,\aaa_s$，再任给 $K$ 中的一组数 $k_1,\cdots,k_s$，那么向量
-	$$k_1 \aaa_1+\cdots+k_s \aaa_s$$
+	\[k_1 \aaa_1+\cdots+k_s \aaa_s\]
 	称为向量组 $k_1,\cdots,k_s$ 的一个线性组合，其中 $k_1,\cdots,k_s$ 称为系数。
 \end{definition}
 
 \begin{definition}[线性表出]
 	给定向量组 $\aaa_1,\cdots,\aaa_s$，对于 $\bbb \in K^n$，若存在 $K$ 中的一组数 $k_1,\cdots,k_s$ 满足
-	$$\bbb = k_1\aaa_1+\cdots+k_s\aaa_s$$
+	\[\bbb = k_1\aaa_1+\cdots+k_s\aaa_s\]
 	那么称 $\bbb$ 可以由向量组 $\aaa_1,\cdots,\aaa_s$ 线性表出。
 \end{definition}
 
@@ -71,21 +71,21 @@ $K^n$ 可以看成是 $n$ 维行向量组成的向量空间，也可以看作是
 \end{equation*}
 
 写成
-$$x_1\aaa_1+\cdots+x_n\aaa_n=\bbb$$
+\[x_1\aaa_1+\cdots+x_n\aaa_n=\bbb\]
 其中 $\aaa_1,\cdots,\aaa_n$ 是线性方程组的列向量组，$\bbb$ 是由常数项组成的列向量。
 
 \begin{definition}[线性子空间]
 	$K^n$ 的一个非空子集 $U$ 是 $K^n$ 的一个线性子空间，那么满足
 	
-	（1） $U$ 对于 $K^n$ 的加法封闭：$\aaa,\ggg\in U \Rightarrow \aaa+\ggg \in U$
+	\num{1} $U$ 对于 $K^n$ 的加法封闭：$\aaa,\ggg\in U \Rightarrow \aaa+\ggg \in U$
 
-	（2） $U$ 对于 $K^n$ 的乘法封闭：$\aaa \in U,k\in K \Rightarrow k\aaa \in U$
+	\num{2} $U$ 对于 $K^n$ 的乘法封闭：$\aaa \in U,k\in K \Rightarrow k\aaa \in U$
 \end{definition}
 
 特殊的，$\{0\}$ 也是 $K^n$ 的一个，称为零子空间。$K^n$ 本身也是 $K^n$ 的一个子空间。
 
 $\aaa_1,\cdots,\aaa_n$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 $\aaa_1,\cdots,\aaa_n$ 生成（张成）的子空间，记作
-$$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in K,i=1,\cdots,s\}$$
+\[\langle \aaa_1,\cdots,\aaa_n\rangle\coloneqq \{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in K,i=1,\cdots,s\}\]
 
 于是线性方程组有解，等价与 $\bbb$ 可以由 $\aaa_1,\cdots,\aaa_n$ 线性表出，即 $\bbb \in \langle\aaa_1,\cdots,\aaa_n\rangle$。
 
@@ -93,7 +93,7 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 \begin{definition}
 	$K^n$ 中向量组 $\aaa_1,\cdots,\aaa_s$ 称为是线性相关的，如果有 $K$ 中不全为 $0$ 的数 $k_1,\cdots,k_s$，使得
-	$$k_1\aaa_1+\cdots+k_s\aaa_s=\ling$$
+	\[k_1\aaa_1+\cdots+k_s\aaa_s=\ling\]
 	否则称为线性无关。
 \end{definition}
 
@@ -111,7 +111,7 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 \begin{definition}
 	如果向量组 $\aaa_1,\cdots,\aaa_s$ 与向量组 $\bbb_1,\cdots,\bbb_r$ 可以互相线性表出，那么称两个向量组等价，记作
-	$$\{\aaa_1,\cdots,\aaa_s\} \cong \{\bbb_1,\cdots,\bbb_r\}$$
+	\[\{\aaa_1,\cdots,\aaa_s\} \cong \{\bbb_1,\cdots,\bbb_r\}\]
 \end{definition}
 
 可以证明，这种关系具有三条性质（反身性，对称性，传递性），即是等价关系。
@@ -122,7 +122,7 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 \begin{definition}
 	向量组 $\aaa_1,\cdots,\aaa_r$ 的极大线性无关组所含向量的个数称为这个向量组的秩，记作
-	$$\rank\{\aaa_1,\cdots,\aaa_r\}$$
+	\[\rank\{\aaa_1,\cdots,\aaa_r\}\]
 \end{definition}
 
 \section{子空间的基与维数}
@@ -130,9 +130,9 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 \begin{definition}
 	设 $U$ 是 $K^n$ 的一个子空间，如果 $\aaa_1,\cdots,\aaa_r\in U$ 是 $U$ 的一个基，那么
 
-	（1） $\aaa_1,\cdots,\aaa_r$ 线性无关。
+	\num{1} $\aaa_1,\cdots,\aaa_r$ 线性无关。
 
-	（2） $U$ 中每一个向量都可以由 $\aaa_1,\cdots,\aaa_r$ 线性表出。
+	\num{2} $U$ 中每一个向量都可以由 $\aaa_1,\cdots,\aaa_r$ 线性表出。
 \end{definition}
 
 显然，单位向量组 $\varepsilon_1,\cdots,\varepsilon_n$ 是 $K^n$ 的一个基，称作标准基。
@@ -147,7 +147,7 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 \begin{theorem}
 	向量组 $\aaa_1,\cdots,\aaa_s$ 的一个极大线性无关组是这个向量组生成的子空间的 $\langle \aaa_1,\cdots,\aaa_s \rangle$，从而
-	$$\dim\langle \aaa_1,\cdots,\aaa_s \rangle = \rank\{\aaa_1,\cdots,\aaa_s\}$$
+	\[\dim\langle \aaa_1,\cdots,\aaa_s \rangle = \rank\{\aaa_1,\cdots,\aaa_s\}\]
 \end{theorem}
 
 \section{矩阵的秩}
@@ -174,7 +174,7 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 
 \begin{theorem}
 	数域 $K$ 上有线性方程组
-	$$x_1\aaa_1 + \cdots + x_n\aaa_n = \beta$$
+	\[x_1\aaa_1 + \cdots + x_n\aaa_n = \beta\]
 	有解的充分必要条件是：它的系数矩阵与增广矩阵的秩相等。
 \end{theorem}
 
@@ -185,7 +185,7 @@ $$\langle \aaa_1,\cdots,\aaa_n\rangle:=\{k_1\aaa_1+\cdots+k_s\aaa_s \mid k_i\in 
 \section{齐次线性方程组解集的结构}
 
 数域 $K$ 上 $n$ 元齐次线性方程组
-$$x_1\aaa_1 + \cdots + x_n\aaa_n = 0$$
+\[x_1\aaa_1 + \cdots + x_n\aaa_n = 0\]
 的一个解是 $K^n$ 中的一个向量，称它为齐次线性方程组的一个解向量。
 
 可知齐次线性方程组的解集 $W$ 是 $K^n$ 的一个子空间，称为方程组的一个解空间。
@@ -193,38 +193,29 @@ $$x_1\aaa_1 + \cdots + x_n\aaa_n = 0$$
 \begin{definition}
 	齐次线性方程组有非零解时，如果它的有限多个解 $\eee_1,\cdots,\eee_t$ 是其基础解系
 
-	（1） $\eee_1,\cdots,\eee_t$ 线性无关。
+	\num{1} $\eee_1,\cdots,\eee_t$ 线性无关。
 
-	（2） 齐次线性方程组的每一个解都可以由 $\eee_1,\cdots,\eee_t$ 线性表出。
+	\num{2} 齐次线性方程组的每一个解都可以由 $\eee_1,\cdots,\eee_t$ 线性表出。
 \end{definition}
 
 于是解空间为
-$$W = \langle \eee_1,\cdots,\eee_t \rangle$$
+\[W = \langle \eee_1,\cdots,\eee_t \rangle\]
 
 \begin{theorem}
 	数域 $K$ 上 $n$ 元齐次线性方程组的解空间 $W$ 的维数为
-	$$\dim W = n-\rank(A)$$
+	\[\dim W = n-\rank(A)\]
 \end{theorem}
 
 \section{非齐次线性方程组的结构}
 
 称数域 $K$ 上 $n$ 元齐次线性方程组
-$$x_1\aaa_1 + \cdots + x_n\aaa_n = \bbb$$
+\[x_1\aaa_1 + \cdots + x_n\aaa_n = \bbb\]
 的导出组为
-$$x_1\aaa_1 + \cdots + x_n\aaa_n = 0$$
+\[x_1\aaa_1 + \cdots + x_n\aaa_n = 0\]
 其的解空间用 $W$ 表示。
 
 \begin{theorem}
 	如果数域 $K$ 上 $n$ 元齐次线性方程组有解，那么它的解集 $U$ 为
-	$$U = \{\ggg_0+\eee \mid \eee \in W\}$$
+	\[U = \{\ggg_0+\eee \mid \eee \in W\}\]
 	其中 $\ggg_0$ 是非其次线性方程组的一个特解，$W$ 是导出组的解空间用。
 \end{theorem}
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@
 
 \begin{definition}
     数域 $K$ 上的一元多项式是指如下述的表达式
-    $$a_nx^n+\cdots + a_1x + a_0$$
+    \[a_nx^n+\cdots + a_1x + a_0\]
     其中 $x$ 是一个符号（它不属于 $K$）称为不定元，$n$ 是非负整数，$a_i\in K(i=0,\cdots,n)$ 称为系数，$a_ix^i$ 称为 $i$ 次项（$i=1,\cdots,n$），$a_0$ 称为零次项或常数项。
 \end{definition}
 
@@ -15,24 +15,24 @@
 我们常常用 $f(x),g(x),h(x),\cdots$ 或 $f,g,h,\cdots$ 表示一元多项式。
 
 一元多项式的重要特点是它有次数概念。设
-$$f(x) = a_nx^n+\cdots + a_1x + a_0$$
+\[f(x) = a_nx^n+\cdots + a_1x + a_0\]
 如果 $a_n\ne 0$，那么称 $a_nx^n$ 是 $f(x)$ 的首项，称 $n$ 是 $f(x)$ 的次数，记作 $\deg f(x)$。
 
 零多项式的次数定义为 $-\infty$，并且规定对于任意 $n\in \NN$
-$$(-\infty)+(-\infty):=-\infty$$
-$$(-\infty) +n := -\infty$$
-$$-\infty < n$$
+\[(-\infty)+(-\infty)\coloneqq -\infty\]
+\[(-\infty) +n \coloneqq  -\infty\]
+\[-\infty < n\]
 
 数域 $K$ 上所有一元多项式组成的集合记作 $K[x]$。在 $K[x]$ 中可以定义加法和乘法运算。
 
 设 $f(x) = \displaystyle\sum_{i=0}^na_ix^i,g(x) = \sum_{i=0}^mb_ix^i$，不妨设 $m \leqslant n$，令
-$$f(x) + g(x) := \sum_{i=0}^n(a_i+b_i)x^i$$
-$$f(x)g(x) := \sum_{s=0}^{m+n}\left(\sum_{i+j=s}a_ib_j\right)$$
+\[f(x) + g(x) \coloneqq  \sum_{i=0}^n(a_i+b_i)x^i\]
+\[f(x)g(x) \coloneqq  \sum_{s=0}^{m+n}\left(\sum_{i+j=s}a_ib_j\right)\]
 
 容易验证，一元多项式 的加法满足交换律、结合律。同样，其适合消去律
-$$f(x)g(x) = f(x)h(x),\text{且}\ f(x)\ne 0 \Rightarrow g(x) = h(x)$$
+\[f(x)g(x) = f(x)h(x) \land \ f(x)\ne 0 \Rightarrow g(x) = h(x)\]
 
-\subsection{环的基本概念}
+\paragraph{环的基本概念}
 
 集合 $S$ 上的一个代数运算，是指 $S\times S$ 到 $S$ 的一个映射。
 
@@ -50,7 +50,7 @@ $$f(x)g(x) = f(x)h(x),\text{且}\ f(x)\ne 0 \Rightarrow g(x) = h(x)$$
     5. 乘法结合律 $(ab)c = a(bc)$。
 
     6. 乘法对于加法的左、右分配律
-    $$a(b+c) = ab+ac,(b+c)a = ba+ca$$
+    \[a(b+c) = ab+ac,(b+c)a = ba+ca\]
 
     那么称 $R$ 是一个环。
 \end{definition}
@@ -58,6 +58,345 @@ $$f(x)g(x) = f(x)h(x),\text{且}\ f(x)\ne 0 \Rightarrow g(x) = h(x)$$
 \begin{theorem}
     环 $R$ 中的零元素是唯一的，元素 $a$ 的负元素是唯一的。
 \end{theorem}
+
+于是环上可以定义减法：
+\[a-b \coloneqq  a + (-b)\]
+
+若环中的乘法还满足交换律，则称 R 为交换环。
+
+若环 R 中有一个元素 $e$ 具有性质：
+\[ea = ae  = a, \forall a \in R\]
+则称 $e$ 是 $R$ 的单位元，此时称 $R$ 是有单位的单位环。容易证明，在有单位元的环 $R$ 中，单位元是唯一的，通常记其为 $1$。
+
+如果 $R$ 中有元素 $a$ 对于给定的 $b \ne 0$ 使得 $ab=0$，则称 $a$ 为一个左零因子。左、右零因子都简称为零因子。若存在元素 $0$ 使得
+\[0a=a0=0, \forall a \in R\]
+则称 $a$ 为平凡的零因子，其余的则称为非平凡的。
+
+若环 $R$ 中没有平凡的零因子，那么称 $R$ 是无零因子环。有单位元 $1(\ne 0)$ 的无零因子的交换环称为整环。$\ZZ,K,K[x]$ 都是整环；$M_n(K)$ 不是整环，因为它不满足乘法交换律，且它有非平凡的零因子。
+
+若环 $R$ 的一个非空子集 $R_1$ 对于 $R$ 的加法和乘法也称为一个环，那么称 $R_1$ 是 $R$ 的一个子环。明显有 $R_1$ 对加法和乘法封闭。
+
+\begin{theorem}
+    环 $R$ 的非空子集 $R_1$ 为子环的充要条件为 $R_1$ 对减法与乘法封闭。
+\end{theorem}
+
+\begin{definition}
+    设具有单位元 $1'$ 的交换环 $R$ 有一个子环 $R_1$，若满足
+
+    1. $1' \in R_1$。
+
+    2. 双射 $\tau : K \to R_1$，且 $\tau$ 保持加法与乘法运算。
+
+    那么 $R$ 可看作 $K$ 的一个扩环
+\end{definition}
+
+双射 $\tau$ 具有性质：$\tau(1) = 1'$。
+
+\begin{theorem}
+    设 $K$ 是一个数域，$R$ 是 $K$ 的一个扩环，任意给定 $t\in R$，令
+    \begin{equation*}
+        \begin{aligned}
+            \sigma_t : K[x] &\to R, f(x) = \sum_{i=0}^n a_ix^i &\mapsto f(t) \coloneqq  \sum_{i=0}^n \tau(a_i)t^i
+        \end{aligned}
+    \end{equation*}
+    则 $\sigma_t$ 是 $K[x]$ 到 $R$ 的一个映射，且 $\sigma_t$ 保持加法和乘法运算。有 $\sigma_t(x) = t$。映射 $\sigma_t$ 称为 $x$ 用 $t$ 代入。
+\end{theorem}
+
+\section{整除关系，带余除法}
+
+设 $f(x), g(x) \in K[x]$，如果存在 $h(x) \in K[x]$，使得 $f(x) = h(x)g(x)$，那么称 $g(x)$ 整除 $f(x)$，记作 $g(x) \mid f(x)$；否则记 $g(x) \nmid f(x)$。称 $g(x)$ 是 $f(x)$ 的一个隐式，$f(x)$ 是 $g(x)$ 的一个倍式。
+
+整除是集合 $K[x]$ 中的一个二元关系，它具有反身性和传递性。
+
+\begin{definition}
+    若 $f(x) \mid g(x)$ 且 $g(x) \mid f(x)$，那么称 $f(x)$ 与 $g(x)$ 相伴，记作 $f(x) \sim g(x)$。
+\end{definition}
+
+即 $f(x) \sim g(x)$ 当且仅当存在 $c \in K^*$ 使得 $f(x) = cg(x)$。
+
+\begin{definition}[带余除法]
+    设 $f(x), g(x) \in K[x]$，且 $g(x) \ne 0$，则在 $K[x]$ 中存在唯一的一对多项式 $h(x), r(x)$，使得
+    \[f(x) = h(x)g(x) + r(x), \deg r(x) < \deg g(x)\]
+    其中 $f(x), g(x)$ 分别叫做被除式、除式。$h(x),r(x)$ 分别叫商式、余式。此式称为除法算式。
+\end{definition}
+
+整数环 $\ZZ$ 中也有带余除法。
+
+\begin{theorem}
+    任给 $a,b\in \ZZ, b\ne 0$，则存在唯一的一对整数 $q,r$，使得
+    \[a = qb + r, 0 \leqslant r < |b|\]
+\end{theorem}
+
+\section{最大公因式}
+
+在 $K[x]$ 中，若 $c(x) \mid f(x)$ 且 $c(x) \mid g(x)$，则称 $c(x)$ 是 $f(x)$ 与 $g(x)$ 的一个公因式。
+
+\begin{definition}
+    $K[x]$ 中多项式 $f(x)$ 与 $g(x)$ 的一个公因式 $d_0(x)$ 如果满足：对于任意的公因式 $d(x)$，都有 $d(x) \mid d_0(x)$，那么称 $d_0(x)$ 是 $f(x)$ 的一个最大公因式。
+\end{definition}
+
+显然两个最大公因式总是相伴的。首项系数为 $1$ 的最大公因式称为 $f(x)$ 与 $g(x)$ 的首一最大公因式，用 $\gcd(f(x), g(x))$ 或直接表述为 $(f(x), g(x))$。
+
+\begin{lemma}
+    在 $K[x]$ 中，如果有
+    \[f(x) = h(x)g(x) + r(x)\]
+    那么
+    \[\left\{f(x)\ \text{与}\ g(x)\ \text{的最大公因式}\right\} = \left\{g(x)\ \text{与}\ r(x)\ \text{的最大公因式}\right\}\]
+\end{lemma}
+
+于是可以用辗转相除法求出 $f(x)$ 与 $g(x)$ 的最大公因式，其中 $g(x) \ne 0$。
+
+\begin{theorem}
+    对于 $K[x]$ 中任意两个多项式 $f(x)$ 与 $g(x)$，存在它们的一个最大公因式 $d(x)$，并且存在 $u(x),v(x) \in K[x]$ 使得
+    \[d(x) = u(x)f(x) + v(x)g(x)\]
+\end{theorem}
+
+\begin{definition}
+    $K[x]$ 中若 $\gcd(f(x), g(x)) = 1$，那么称 $f(x)$ 与 $g(x)$ 互素。 
+\end{definition}
+
+于是
+
+\begin{definition}
+    $K[x]$ 中多项式 $f(x), g(x)$ 互素的充要条件是：存在 $u(x),v(x) \in K[x]$，使得
+    \[u(x)f(x) + v(x)g(x) = 1\]
+\end{definition}
+
+\section{不可约多项式，唯一因式分解定理}
+
+下文中，$f(x)$ 为 $K[x]$ 中一个次数大于 $0$ 的多项式。
+
+\begin{definition}
+    若 $f(x)$ 在 $K[x]$ 中的因式只有 $K$ 中的非零数和 $f(x)$ 的相伴元，则称 $f(x)$ 是数域 $K$ 上的一个不可约多项式，否则称为可约的。
+\end{definition}
+
+\begin{theorem}
+    设 $p(x)$ 是 $K[x]$ 中一个次数大于 $0$ 的多项式，则下列命题等价。
+
+    \num{1} $p(x)$ 是不可约多项式；
+
+    \num{2} $\forall f(x) \in K[x]$，有 $p(x) \mid f(x)$ 或 $(p(x), f(x)) = 1$；
+
+    \num{3} 在 $K[x]$ 中，从 $p(x) \mid f(x)g(x)$ 可推出
+    \[p(x) \mid f(x) \lor p(x) \mid g(x)\]
+
+    \num{4} $p(x)$ 不能分解为两个多项式之积。
+\end{theorem}
+
+\begin{theorem}
+    $f(x)$ 能够唯一的分解为数域 $K$ 上有限多个不可约多项式的乘积。
+\end{theorem}
+
+在整数环 $\ZZ$ 中也有唯一因子分解定理。
+
+\begin{definition}
+    一个大于 $1$ 的整数 $m$，如果其正因数只有 $1$ 和它自身，那么称 $m$ 是一个素数；否则称 $m$ 为合数。
+\end{definition}
+
+\begin{theorem}
+    设 $p$ 为大于 $1$ 的整数，则下列命题等价
+
+    \num{1} $p$ 是一个素数。
+
+    \num{2} 对任意整数 $a$，都有 $p \mid a$ 或 $(p,a) = 1$；
+
+    \num{3} 在 $\ZZ$ 中，从 $p \mid ab$ 可推出 $p \mid a$ 或 $p \mid b$；
+
+    \num{4} $p$ 不能分解为两个较小的正整数之积。
+\end{theorem}
+
+\begin{theorem}[算术基本定理]
+    任意大于 $1$ 的整数 $a$ 都能唯一的分解为有限多个素数的乘积。
+\end{theorem}
+
+\section{重因式}
+
+\begin{definition}
+    $K[x]$ 中，不可约多项式 $p(x)$ 如果满足 $p^k(x) \mid f(x)$ 而 $p^{k+1}(x) \mid f(x)$，则 $p(x)$ 称为 $f(x)$ 的 $k$ 重因式，
+\end{definition}
+
+当 $k=1$ 时，称 $p(x)$ 是 $f(x)$ 的单因式。
+
+\begin{definition}
+    对于 $K[x]$ 中的多项式
+    \[f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_1 x + a_0\]
+    我们定义 $f(x)$ 的导数
+    \[f'(x) \coloneqq  na_nx^{n-1} + (n-1)a_{n-1}x^{n-2} + \cdots a_1\]
+\end{definition}
+
+显然一个 $n$ 次多项式的导数是一个 $n-1$ 次多项式；它的 $n$ 阶导数是 $K$ 中的一个非零数。
+
+\begin{theorem}
+    在 $K[x]$ 中，不可约多项式 $p(x)$ 是 $f(x)$ 的一个 $k \geqslant 1$ 次重因式，则 $p(x)$ 是 $f'(x)$ 的一个 $k-1$ 重因式。特别的，$f(x)$ 的单因式不是 $f'(x)$ 的因式。
+\end{theorem}
+
+\section{多项式的根}
+
+\begin{theorem}
+    在 $K[x]$ 中，用 $x-a$ 去除 $f(x)$ 所得的余式是 $f(a)$。
+\end{theorem}
+
+显然有
+
+\begin{theorem}[Bezout 定理]
+    在 $K[x]$ 中，$x-a$ 是 $f(x)$ 的一次因式当且仅当 $a$ 是 $f(x)$ 在 $K$ 中的一个根。
+\end{theorem}
+
+\begin{theorem}
+    在 $K[x]$ 中，设 $f(x)$ 与 $g(x)$ 的次数都不超过 $n$，如果 $K$ 中有 $n+1$ 个不同的数 $c_1,\cdots,c_{n+1}$ 使得 $f(c_i) = g(c_i)$，则 $f(x) = g(x)$。
+\end{theorem}
+
+该定理说明了一元多项式 $f(x)$ 与多项式函数 $f$ 等同看待。即映射 $f : a \mapsto to f(a), \forall a \in K$，称为由多项式 $f(x)$ 诱导的多项式函数，即 $K$ 上的一元多项式函数。
+
+把数域 $K$ 上所有一元多项式函数组成的集合记作 $K_{\rm pol}$，在此集合中规定
+\[ (f+g)(a) \coloneqq  f(a) + g(a), \quad (fg)(a) \coloneqq  f(a)g(a) \]
+即 $K_{\rm pol}$ 是一个有单位元的交换环，称它为 $K$ 上的一元多项式函数环。
+
+\begin{definition}
+    设 $R$ 和 $R'$ 两个环，存在双射 $\sigma : R \to R'$，它保持加法和乘法运算，那么称 $\sigma$ 是环 $R$ 到 $R'$ 的一个同构映射。此时称 $R$ 与 $R'$ 同构，记作 $R \cong R'$。
+\end{definition}
+
+对于数域 $K$ 上，显然有
+\[K[x] \cong K_{\rm pol}\]
+从而可以把数域 $K$ 上的一元多项式 $f(x)$ 与数域 $K$ 上的一元多项式函数 $f$ 等同起来。
+
+现在研究复数域上的不可约多项式有哪些。设
+\[f(x) \coloneqq a_nx^n + \cdots + a_1x + a_0 \in \CC[x]\]
+且 $\deg f(x) = n > 0$，假如 $f(x)$ 没有负根，则 $\forall z \in \CC$，有 $f(z) \ne 0$.于是函数
+\[\Phi(z) = \frac{1}{f(z)}\]
+的定义域为 $\CC$。可以验证，$\Phi(z)$ 在复平面 $\CC$ 的每一个点都有导数，此时称 $\Phi(z)$ 在 $\CC$ 上解析。
+
+\begin{theorem}[代数基本定理]
+    每一个次数大于 $0$ 的复系数多项式至少有一个复根。
+\end{theorem}
+
+\begin{theorem}
+    每一个次数大于 $0$ 的复系数多项式在复数域上都可以唯一的分解成一次因式的乘积。
+\end{theorem}
+
+回到定理：数域 $K$ 上次数不超过 $n$ 的多项式被它在 $K$ 中的 $n+1$ 个不同元素的值唯一的确定。
+
+\begin{theorem}
+    设 $c_0,\cdots,c_0$，数域 $K$ 中 $n+1$ 个不同的数 $d_0,\cdots,d_n \in K$，则 $K[x]$ 中存在唯一的一个次数不超过 $n$ 的多项式 $f(x)$ 使得$f(c_i) = d_i$。
+\end{theorem}
 \begin{proof}
-    hhh 
+    构造
+    \[ f(x) = \sum_{i=0}^n d_i \frac{(x-c_0)\cdots(x-c_{i-1})(x-c_{i+1})\cdots(x-c_n)}{(c-c_0)\cdots(c-c_{i-1})(c-c_{i+1})\cdots(c-c_n)} \]
+    容易验证 $f(c_j) = d_j$。
 \end{proof}
+
+构造出的多项式 $f(x)$ 称为 Lagrange 插值公式。类似的还有 Newton 插值公式。
+\[ f(x) = u_0 + u_1(x-c_0) + u_2(x-c_0)(x-c_1) + \cdots + u_n(x-c_0)\cdots(x-c_{n-1}) \]
+其中系数 $u_i$ 可以用待定系数法求出。不过既然都待定系数了，直接设
+\[ f(x) = a_nx^n + \cdots a_1x + a_0 \]
+解方程组即可，其的系数行列式是 Vandermonde 行列式，于是必有解。
+
+\section{实数域上的不可约多项式 · 实系数多项式的根}
+
+\begin{theorem}
+    设 $f(x)$ 是实系数多项式，如果 $c$ 是 $f(x)$ 的一个复根，那么 $\overline{c}$ 也是 $f(x)$ 的一个复根。
+\end{theorem}
+
+\begin{theorem}
+    实数域上的不可约多项式只有一次多项式和判别式小于 $0$ 的二次多项式。
+\end{theorem}
+
+\begin{theorem}
+    每一个次数大于 $0$ 的实系数多项式 $f(x)$ 在实数域上都可以唯一地分解称一次因式与判别式小于 $0$ 的二次因式的乘积。
+\end{theorem}
+
+\section{有理数域上的不可约多项式}
+
+\begin{definition}
+    一个非零的整系数多项式 $g(x)$，如果它的各项系数的最大公因数只有 $\pm 1$，则称 $g(x)$ 是一个本原多项式。
+\end{definition}
+
+显然两个本原多项式 $g(x), h(x)$ 在 $\QQ[x]$ 中相伴当且仅当 $g(x) = \pm h(x)$。
+
+\begin{theorem}[Gauss 引理]
+    两个本原多项式的乘积还是本原多项式。
+\end{theorem}
+
+\begin{theorem}
+    设
+    \[ f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\]
+    是一个次数 $n$ 大于 $0$ 的整系数多项式。若 $p/q$ 是 $f(x)$ 的一个有理根，其中 $p,q$ 互素，则 $p \mid a_n, q \mid a_0$。
+\end{theorem}
+
+\begin{theorem}[Eisenstein 判别法]
+    设
+    \[ f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\]
+    是一个次数 $n$ 大于 $0$ 的本原多项式。若存在素数 $p$ 使得
+
+    1. $p \mid a_i, i = 0,\cdots n-1$
+
+    2. $p \nmid a_n \land p^2 \nmid a_0$。
+
+    那么 $f(x)$ 在 $\QQ$ 上不可约。
+\end{theorem}
+
+\begin{theorem}
+    设
+    \[ f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\]
+    是一个次数 $n$ 大于 $0$ 的整系数多项式。若存在素数 $p$ 使得
+    \[ p \mid a_i, i = 1,\cdots,n, p \nmid a_0 \land  p^2 \nmid a_n \]
+    则 $f(x)$ 在 $\QQ$ 上不可约。
+\end{theorem}
+
+\section{多元多项式环}
+
+\begin{definition}
+    设 $K$ 是一个数域，用不属于 $K$ 的 $n$ 个符号 $x_1,\cdots,x_n$ 作表达式
+    \[ \sum_{i_1,\cdots,i_n}a_{i_1,\cdots,i_n} x_1^{i_1}\cdots x_n^{i_n} \]
+    其中 $a_{i_1\cdots i_n} \in K$ 称为系数，表达式每一项称为单项式。两个这种形式的表达式相等当且仅当他们除去系数为 $0$ 的单项式外含有完全相同的单项式。
+\end{definition}
+
+\section{域与域上的一元多项式环}
+
+数域 $K$ 上的一元多项式环 $K[x]$ 中有加法和乘法。现在我们试图引进分式的概念。
+
+定义多项式的有序对 $(f(x), g(x))$，其中 $g(x) \ne 0$，记全体二元组的集合是 $T = K[x]^+ \times K[x]^+$ 。我们约定
+\[ (f_1,g_1) \sim (f_2,g_2) \Leftrightarrow f_1g_2 = g_1f_2 \]
+于是 $T$ 上有了等价关系。记 $T$ 上等价关系 $\sim$ 商集为 $K(x)$，其中的元素 $(f,g)$ 也可记作 $f/g$，定义 $K(x)$ 上的加法
+\begin{equation*}
+    \begin{aligned}
+        (f_1,g_1) + (f_2,g_2) &\coloneqq \frac{f_1g_2+g_1f_2}{g_1g_2}\\
+        (f_1,g_1) \cdot (f_2,g_2) &\coloneqq \frac{f_1f_2}{g_1g_2}
+    \end{aligned}
+\end{equation*}
+定义加法逆元 $-(f,g) \coloneqq (-f,g)$ 和乘法逆元 $(f,g)^{-1} \coloneqq (g,f)$。可以验证 $(f,1)$ 与 $f$ 有相同的性状，我们可以令其相等，从而把多项式嵌入到分式内。于是可以在 $K(x)$ 上定义减法和除法。
+
+可以发现 $K(x)$ 与有理数集 $\QQ$ 有很多的相似之处。抽象出域的概念。
+
+\begin{definition}[域]
+    一个有单位元 $1 (\ne 0)$ 的交换环 $F$ 如果它的每个非零元都可逆，那么称 $F$ 是一个域。
+\end{definition}
+
+把 $K(x)$ 中的元素 $f/g$ 记称 $K$ 上的一元分式，其中 $f$ 称为分子，$g$ 称为分母。定义分式 $f/g$ 的次数为 $\deg f - \deg g$。特殊的，分式 $0/1$ 的次数为 $-\infty$。如果分式的分子与分母是互素的，那么称它是既约分式。
+
+类似于一元分式域的构造方法，我们可以构造出 $n$ 元分式域，记作 $K(x_1,\cdots,x_n)$。
+
+一般的，设 $m$ 是大于 $1$ 的正整数，在 $\ZZ$ 中规定
+\[ a \equiv b \pmod m \Leftrightarrow m \mid a - b\]
+这给出了 $\ZZ$ 上的模 $m$ 同余关系。模 $m$ 同余关系具有性质：若 $a \equiv b \pmod m, c \equiv d \pmod m$，则
+\[ \overline{i} = \{ a \in \ZZ \mid a \equiv i \pmod m \} = \{ km + i \mid k \in \ZZ \} \]
+该关系划分出 $\ZZ$ 的商集 $\ZZ_m$ 或 $\ZZ/(m)$。
+
+在 $\ZZ_m$ 中可以规定加法和乘法运算
+\[ \overline{i} + \overline{j} \coloneqq \overline{i+j}, \overline{i} \overline{j} \coloneqq \overline{ij} \]
+容易验证，$\ZZ_m$ 十一个有单位元 $\overline{1} (\ne \overline{0})$ 的交换环，称为模 $m$ 剩余环类。
+
+若 $p$ 是素数，则 $\ZZ_p$ 是一个域，称为模 $p$ 剩余类域。
+
+ \begin{definition}
+     设域 $F$ 的单位元为 $e$，如果对任意 $n \in \NN^+$ 都有 $ne \ne 0$，则称 $F$ 的特征 $\char F = 0$。若存在素数 $p$ 使得 $pe=0$，而对于 $0 < l < p$ 有 $le \ne 0$，则 $\char F = p$。
+ \end{definition}
+
+\begin{theorem}[中国剩余定理]
+    设 $m_1,\cdots,m_s$ 是两两互素的正整数，$b_1,\cdots,b_s$ 是任意给定的 $s$ 个整数，则同余方程组
+    \[ x \equiv b_i \pmod {m_i}, \quad i = 1,\cdots,s \]
+    在 $\ZZ$ 中必有解，并且如果 $c$ 和 $d$ 是两个解，那么
+    \[ c \equiv d \pmod {\prod m_i} \]
+\end{theorem}
+
+

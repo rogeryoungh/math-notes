@@ -2,7 +2,7 @@
 
 \section{一元多项式环}
 
-\begin{definition}
+\begin{definition}[一元多项式]\index{yiyuanduoxiangshi@一元多项式}
     数域 $K$ 上的一元多项式是指如下述的表达式
     \[a_nx^n+\cdots + a_1x + a_0\]
     其中 $x$ 是一个符号（它不属于 $K$）称为不定元，$n$ 是非负整数，$a_i\in K(i=0,\cdots,n)$ 称为系数，$a_ix^i$ 称为 $i$ 次项（$i=1,\cdots,n$），$a_0$ 称为零次项或常数项。
@@ -29,14 +29,14 @@
 \[f(x) + g(x) \coloneqq  \sum_{i=0}^n(a_i+b_i)x^i\]
 \[f(x)g(x) \coloneqq  \sum_{s=0}^{m+n}\left(\sum_{i+j=s}a_ib_j\right)\]
 
-容易验证，一元多项式 的加法满足交换律、结合律。同样，其适合消去律
+不难验证，一元多项式 的加法满足交换律、结合律。同样，其适合消去律
 \[f(x)g(x) = f(x)h(x) \land \ f(x)\ne 0 \Rightarrow g(x) = h(x)\]
 
 \paragraph{环的基本概念}
 
 集合 $S$ 上的一个代数运算，是指 $S\times S$ 到 $S$ 的一个映射。
 
-\begin{definition}
+\begin{definition}[环]\index{huan@环}
     设 $R$ 是一个非空集合，如果其上定义了加法和乘法两个代数运算，并且满足如下六条运算法则，其中 $\forall a,b,c\in R$：
 
     1. 加法结合律 $(a+b)+c = a+(b+c)$。
@@ -49,8 +49,7 @@
 
     5. 乘法结合律 $(ab)c = a(bc)$。
 
-    6. 乘法对于加法的左、右分配律
-    \[a(b+c) = ab+ac,(b+c)a = ba+ca\]
+    6. 乘法对于加法的分配律 $a(b+c) = ab+ac,(b+c)a = ba+ca$
 
     那么称 $R$ 是一个环。
 \end{definition}
@@ -66,7 +65,7 @@
 
 若环 R 中有一个元素 $e$ 具有性质：
 \[ea = ae  = a, \forall a \in R\]
-则称 $e$ 是 $R$ 的单位元，此时称 $R$ 是有单位的单位环。容易证明，在有单位元的环 $R$ 中，单位元是唯一的，通常记其为 $1$。
+则称 $e$ 是 $R$ 的单位元，此时称 $R$ 是有单位的单位环。不难证明，在有单位元的环 $R$ 中，单位元是唯一的，通常记其为 $1$。
 
 如果 $R$ 中有元素 $a$ 对于给定的 $b \ne 0$ 使得 $ab=0$，则称 $a$ 为一个左零因子。左、右零因子都简称为零因子。若存在元素 $0$ 使得
 \[0a=a0=0, \forall a \in R\]
@@ -106,7 +105,7 @@
 
 设 $f(x), g(x) \in K[x]$，如果存在 $h(x) \in K[x]$，使得 $f(x) = h(x)g(x)$，那么称 $g(x)$ 整除 $f(x)$，记作 $g(x) \mid f(x)$；否则记 $g(x) \nmid f(x)$。称 $g(x)$ 是 $f(x)$ 的一个隐式，$f(x)$ 是 $g(x)$ 的一个倍式。
 
-整除是集合 $K[x]$ 中的一个二元关系，它具有反身性和传递性。
+整除是集合 $K[x]$ 中的一个二元关系，它具有反身性和传递性。\index{zhengchu@整除}
 
 \begin{definition}
     若 $f(x) \mid g(x)$ 且 $g(x) \mid f(x)$，那么称 $f(x)$ 与 $g(x)$ 相伴，记作 $f(x) \sim g(x)$。
@@ -277,12 +276,12 @@
 回到定理：数域 $K$ 上次数不超过 $n$ 的多项式被它在 $K$ 中的 $n+1$ 个不同元素的值唯一的确定。
 
 \begin{theorem}
-    设 $c_0,\cdots,c_0$，数域 $K$ 中 $n+1$ 个不同的数 $d_0,\cdots,d_n \in K$，则 $K[x]$ 中存在唯一的一个次数不超过 $n$ 的多项式 $f(x)$ 使得$f(c_i) = d_i$。
+    设 $c_0,\cdots,c_n$，数域 $K$ 中 $n+1$ 个不同的数 $d_0,\cdots,d_n \in K$，则 $K[x]$ 中存在唯一的一个次数不超过 $n$ 的多项式 $f(x)$ 使得$f(c_i) = d_i$。
 \end{theorem}
 \begin{proof}
     构造
     \[ f(x) = \sum_{i=0}^n d_i \frac{(x-c_0)\cdots(x-c_{i-1})(x-c_{i+1})\cdots(x-c_n)}{(c-c_0)\cdots(c-c_{i-1})(c-c_{i+1})\cdots(c-c_n)} \]
-    容易验证 $f(c_j) = d_j$。
+    不难验证 $f(c_j) = d_j$。
 \end{proof}
 
 构造出的多项式 $f(x)$ 称为 Lagrange 插值公式。类似的还有 Newton 插值公式。
@@ -346,8 +345,8 @@
 \section{多元多项式环}
 
 \begin{definition}
-    设 $K$ 是一个数域，用不属于 $K$ 的 $n$ 个符号 $x_1,\cdots,x_n$ 作表达式
-    \[ \sum_{i_1,\cdots,i_n}a_{i_1,\cdots,i_n} x_1^{i_1}\cdots x_n^{i_n} \]
+    设 $K$ 是一个数域，用不属于 $K$ 的 $n$ 个符号 $\ji{x}{n}$ 作表达式
+    \[ \sum_{\ji{i}{n}}a_{\ji{i}{n}} x_1^{i_1}\cdots x_n^{i_n} \]
     其中 $a_{i_1\cdots i_n} \in K$ 称为系数，表达式每一项称为单项式。两个这种形式的表达式相等当且仅当他们除去系数为 $0$ 的单项式外含有完全相同的单项式。
 \end{definition}
 
@@ -368,13 +367,13 @@
 
 可以发现 $K(x)$ 与有理数集 $\QQ$ 有很多的相似之处。抽象出域的概念。
 
-\begin{definition}[域]
+\begin{definition}[域]\index{yu@域}
     一个有单位元 $1 (\ne 0)$ 的交换环 $F$ 如果它的每个非零元都可逆，那么称 $F$ 是一个域。
 \end{definition}
 
 把 $K(x)$ 中的元素 $f/g$ 记称 $K$ 上的一元分式，其中 $f$ 称为分子，$g$ 称为分母。定义分式 $f/g$ 的次数为 $\deg f - \deg g$。特殊的，分式 $0/1$ 的次数为 $-\infty$。如果分式的分子与分母是互素的，那么称它是既约分式。
 
-类似于一元分式域的构造方法，我们可以构造出 $n$ 元分式域，记作 $K(x_1,\cdots,x_n)$。
+类似于一元分式域的构造方法，我们可以构造出 $n$ 元分式域，记作 $K(\ji{x}{n})$。
 
 一般的，设 $m$ 是大于 $1$ 的正整数，在 $\ZZ$ 中规定
 \[ a \equiv b \pmod m \Leftrightarrow m \mid a - b\]
@@ -384,7 +383,7 @@
 
 在 $\ZZ_m$ 中可以规定加法和乘法运算
 \[ \overline{i} + \overline{j} \coloneqq \overline{i+j}, \overline{i} \overline{j} \coloneqq \overline{ij} \]
-容易验证，$\ZZ_m$ 十一个有单位元 $\overline{1} (\ne \overline{0})$ 的交换环，称为模 $m$ 剩余环类。
+不难验证，$\ZZ_m$ 十一个有单位元 $\overline{1} (\ne \overline{0})$ 的交换环，称为模 $m$ 剩余环类。
 
 若 $p$ 是素数，则 $\ZZ_p$ 是一个域，称为模 $p$ 剩余类域。
 
@@ -393,7 +392,7 @@
  \end{definition}
 
 \begin{theorem}[中国剩余定理]
-    设 $m_1,\cdots,m_s$ 是两两互素的正整数，$b_1,\cdots,b_s$ 是任意给定的 $s$ 个整数，则同余方程组
+    设 $\ji{m}{s}$ 是两两互素的正整数，$\ji{b}{s}$ 是任意给定的 $s$ 个整数，则同余方程组
     \[ x \equiv b_i \pmod {m_i}, \quad i = 1,\cdots,s \]
     在 $\ZZ$ 中必有解，并且如果 $c$ 和 $d$ 是两个解，那么
     \[ c \equiv d \pmod {\prod m_i} \]

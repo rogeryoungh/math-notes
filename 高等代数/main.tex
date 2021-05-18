@@ -1,41 +1,62 @@
 \documentclass{probook}
 
+\makeindex[
+  columns=2,
+  program=truexindy,
+  intoc=true,
+  options=-M texindy -I xelatex -C utf8,
+  title=索引,
+  intoc
+]
+
 \title{高等代数笔记}
-\author{rogeryoungh}
+\author{\href{https://github.com/rogeryoungh}{rogeryoungh}}
 
 \begin{document}
-\newcommand\mfrac[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
-\newcommand\RR{\mathbb{R}}
-\newcommand\NN{\mathbb{N}}
-\newcommand\ZZ{\mathbb{Z}}
-\newcommand\QQ{\mathbb{Q}}
-\newcommand\CC{\mathbb{C}}
-\newcommand\ee{\mathrm{e}}
-\newcommand\dd{\mathrm{d}}
-\newcommand\uppi{\mathrm{\pi}}
-\newcommand\transpose[1]{{#1}^\mathsf{T}}
 
-\newcommand\rank{\operatorname{rank}}
-\newcommand\diag{\operatorname{diag}}
-\renewcommand\Im{\operatorname{Im}}
-\newcommand\tr{\operatorname{tr}}
-\renewcommand\char{\operatorname{char}}
-\newcommand\codim{\operatorname{codim}}
+\newcommand{\mfrac}[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\uppi}{\mathrm{\pi}}
+\newcommand{\transpose}[1]{{#1}^\mathsf{T}}
+\newcommand{\eps}{\varepsilon}
 
-\newcommand\aaa{\alpha}
-\newcommand\AAA{\boldsymbol{A}}
-\newcommand\bbb{\beta}
-\newcommand\eee{\eta}
-\renewcommand\ggg{\gamma}
-\newcommand\XXX{X}
-\newcommand\YYY{Y}
-\newcommand\ling{\boldsymbol{0}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\diag}{\operatorname{diag}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\tr}{\operatorname{tr}}
+\renewcommand{\char}{\operatorname{char}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\rad}{\operatorname{rad}}
 
-\newcommand\num[1]{{\fzfs{（}}{\rm{#1}}{\fzfs{）}}}
+\newcommand{\valpha}{\alpha}
+\newcommand{\bfA}{\boldsymbol{A}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bfB}{\boldsymbol{B}}
+\newcommand{\bfI}{\boldsymbol{I}}
+\newcommand{\bfP}{\boldsymbol{P}}
+\newcommand{\bfeps}{\boldsymbol{\eps}}
+\newcommand{\vbeta}{\beta}
+\newcommand{\veta}{\eta}
+\newcommand{\vgamma}{\gamma}
+\newcommand{\vxi}{\xi}
+\newcommand{\vX}{X}
+\newcommand{\vY}{Y}
+\newcommand{\vzero}{\boldsymbol{0}}
 
-\maketitle
+\newcommand{\num}[1]{{\fzfs{（}}{\rm{#1}}{\fzfs{）}}}
+\newcommand{\ji}[2]{#1_1,\cdots,#1_#2}
 
 \frontmatter
+
+\maketitle
 
 \tableofcontents
 
@@ -49,6 +70,12 @@
 \include{pages/0006} % 二次型 · 矩阵的合同
 \include{pages/0007} % 多项式环
 \include{pages/0008} % 线性空间
-\include{pages/0009} % 线性空间
+\include{pages/0009} % 线性映射
+\include{pages/0010} % 具有度量的线性空间
+
+\backmatter
+
+\printindex
+
 
 \end{document}

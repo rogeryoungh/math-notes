@@ -2,14 +2,14 @@
 
 \section{数列极限的概念}
 
-\begin{definition}[数列极限的 $\varepsilon - N$ 定义]
-	设 $\{a_n\}$ 为数列，$A$ 为定数。若对任给的正数 $\varepsilon$，总存在正整数 $N=N(\varepsilon)$，使得当 $n>N$ 时有
-	$$|a_n - A| < \varepsilon$$
+\begin{definition}[数列极限的 $\eps - N$ 定义]
+	设 $\{a_n\}$ 为数列，$A$ 为定数。若对任给的正数 $\eps$，总存在正整数 $N=N(\eps)$，使得当 $n>N$ 时有
+	$$|a_n - A| < \eps$$
 	则称数列 $\{a_n\}$ 收敛于 $A$，或称 $A$ 为数列 $\{a_n\}$ 的极限，记作
 	$$\displaystyle\lim_{n\to \infty} a_n = A \text{，或}\ a_n \to a(n \to \infty)$$
 \end{definition}
 
-等价定义：任给 $\varepsilon > 0$，若在 $U(A;\varepsilon)$ 之外数列 $\{a_n\}$ 中的项至多只有有限个，则称 $\{a_n\}$ 收敛于极限 $A$。
+等价定义：任给 $\eps > 0$，若在 $U(A;\eps)$ 之外数列 $\{a_n\}$ 中的项至多只有有限个，则称 $\{a_n\}$ 收敛于极限 $A$。
 
 若对于数列 $\{a_n\}$，不存在 $A$ 使得 $a_n\to A$，则称数列 $\{a_n\}$ 发散。
 
@@ -30,11 +30,11 @@
 \end{theorem}
 
 \begin{proof}
-	如果数列 $\{a_n\}$ 同时以 $A,B$ 为极限，即任给 $\varepsilon>0$，总存在 $N_1,N_2$，使得
-	$$|a_n-A|<\varepsilon,n>N_1;\quad |a_n-B|<\varepsilon,n>N_2$$
+	如果数列 $\{a_n\}$ 同时以 $A,B$ 为极限，即任给 $\eps>0$，总存在 $N_1,N_2$，使得
+	$$|a_n-A|<\eps,n>N_1;\quad |a_n-B|<\eps,n>N_2$$
 	那么当 $n>\max\{N_1,N_2\}$ 时需要恒成立
-	$$2\varepsilon > |a_n-A|+|a_n-B| \geqslant |A-B|$$
-	当 $A\ne B$ 时，对于 $2\varepsilon <|A-B|$ 不恒成立，因此只能 $A=B$。
+	$$2\eps > |a_n-A|+|a_n-B| \geqslant |A-B|$$
+	当 $A\ne B$ 时，对于 $2\eps <|A-B|$ 不恒成立，因此只能 $A=B$。
 \end{proof}
 
 \begin{theorem}[有界性]
@@ -42,7 +42,7 @@
 \end{theorem}
 
 \begin{proof}
-	不妨设 $\displaystyle\lim_{n\to \infty} a_n = A$。令 $\varepsilon = 1$，那么存在 $n>N$ 使得
+	不妨设 $\displaystyle\lim_{n\to \infty} a_n = A$。令 $\eps = 1$，那么存在 $n>N$ 使得
 	$$|a_n-A| \leqslant 1$$
 	令
 	$$M = \{|a_1|,\cdots,|a_N|,|A-1|,|A+1|\}$$
@@ -78,12 +78,12 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	则 $\displaystyle\lim_{n\to \infty}b_n = A$。
 \end{theorem}
 \begin{proof}
-	即对于任给的 $\varepsilon>0$，存在 $N_1,N_2$，使得当 $n>N_1$ 有 
-	$$A-\varepsilon<a_n<A+\varepsilon$$
+	即对于任给的 $\eps>0$，存在 $N_1,N_2$，使得当 $n>N_1$ 有 
+	$$A-\eps<a_n<A+\eps$$
 	当 $n>N_2$ 有 
-	$$A-\varepsilon<c_n<A+\varepsilon$$
+	$$A-\eps<c_n<A+\eps$$
 	因此当 $n>\max\{N_0,N_1,N_2\}$ 时，有
-	$$A-\varepsilon < a_n \leqslant b_n \leqslant c_n < A+\varepsilon$$
+	$$A-\eps < a_n \leqslant b_n \leqslant c_n < A+\eps$$
 \end{proof}
 
 \begin{theorem}[四则运算]
@@ -96,14 +96,14 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	\num{3} 当 $B\ne 0$ 时，$\{a_n/b_n\}$ 收敛到 $A/B$。
 \end{theorem}
 \begin{proof}
-	\num{1} 任给 $\varepsilon >0$，存在 $N_1,N_2$ 使得
-	$$|a_n-A|<\frac{\varepsilon}{2|\alpha|+1},n>N_1;\qquad |b_n-B|<\frac{\varepsilon}{2|\beta|+1},n>N_2$$
+	\num{1} 任给 $\eps >0$，存在 $N_1,N_2$ 使得
+	$$|a_n-A|<\frac{\eps}{2|\alpha|+1},n>N_1;\qquad |b_n-B|<\frac{\eps}{2|\beta|+1},n>N_2$$
 	则当 $n>\max\{N_1,N_2\}$ 时有
 	\begin{equation*}
 		\begin{aligned}
 			|(\alpha a_n+\beta b_n)-(\alpha A+\beta B)|&\leqslant |\alpha||a_n-A|+|\beta||b_n-B|\\
-			&< \frac{\varepsilon|\alpha|}{2|\alpha|+1}+\frac{\varepsilon|\beta|}{2|\beta|+1}\\
-			&< \frac{\varepsilon}2+\frac{\varepsilon}2=\varepsilon
+			&< \frac{\eps|\alpha|}{2|\alpha|+1}+\frac{\eps|\beta|}{2|\beta|+1}\\
+			&< \frac{\eps}2+\frac{\eps}2=\eps
 		\end{aligned}
 	\end{equation*}
 
@@ -143,8 +143,8 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 \section{Cauchy 准则}
 
 \begin{definition}
-	设 $\{a_n\}$ 为数列，如果任给 $\varepsilon>0$，均存在 $N(\varepsilon)$ 使当 $m,n>N(\varepsilon)$ 时有
-	$$|a_m-a_n| < \varepsilon$$
+	设 $\{a_n\}$ 为数列，如果任给 $\eps>0$，均存在 $N(\eps)$ 使当 $m,n>N(\eps)$ 时有
+	$$|a_m-a_n| < \eps$$
 	则称 $\{a_n\}$ 为 Cauchy 数列或基本列。
 \end{definition}
 
@@ -152,7 +152,7 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	Cauchy 数列必定时有界数列。
 \end{theorem}
 \begin{proof}
-	取 $\varepsilon=1$，则存在 $N$ 使得当 $m,n>N$ 时有
+	取 $\eps=1$，则存在 $N$ 使得当 $m,n>N$ 时有
 	$$|a_m-a_n| < 1$$
 	令 $M = \max\{|a_k|+1 \mid 1 \leqslant k \leqslant N+1\}$，则当 $n\leqslant N$ 时显然有 $|a_n|\leqslant M$，而当 $n>N$ 时有
 	$$|a_n| \leqslant |a_n-a_{N+1}| + |a_{N+1} < 1+ |a_{N+1}| \leqslant M$$
@@ -163,10 +163,10 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	$\{a_n\}$ 为 Cauchy 数列当且仅当它是收敛的。
 \end{theorem}
 \begin{proof}
-	\num{1} 充分性：设 $\{a_n\}$ 收敛到 $A$，则任给 $\varepsilon >0$ 存在 $N$，当 $n>N$ 时有
-	$$|a_n-A|\leqslant \frac{\varepsilon}{2}$$
+	\num{1} 充分性：设 $\{a_n\}$ 收敛到 $A$，则任给 $\eps >0$ 存在 $N$，当 $n>N$ 时有
+	$$|a_n-A|\leqslant \frac{\eps}{2}$$
 	因此当 $m,n>N$ 时有
-	$$|a_m-a_n| \leqslant |a_m-A| + |A-a_n| < \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$$
+	$$|a_m-a_n| \leqslant |a_m-A| + |A-a_n| < \frac{\eps}{2}+\frac{\eps}{2}=\eps$$
 	这说明 $a_n$ 为 Cauchy 数列。
 	
 	\num{2} 必要性：Todo ……
@@ -210,12 +210,12 @@ Cauchy 收敛准则的条件称为 Cauchy 条件。
 \end{problem}
 
 \begin{solution}
-	即对于任给的 $\varepsilon>0$，存在 $n>N_1$ 使得
-	$$|a_n-A|<\dfrac{\varepsilon}{2}$$
+	即对于任给的 $\eps>0$，存在 $n>N_1$ 使得
+	$$|a_n-A|<\dfrac{\eps}{2}$$
 	那么变形有
 	$$\left|\frac{\sum a_n}{n}-A\right| \leqslant \frac{\sum |a_n-A|}{n} = \frac{\sum_{k=1}^{N_1} |a_k-A|}{n} + \frac{\sum_{k=N_1+1}^{n} |a_k-A|}{n}$$
 	注意到 $\sum_{k=1}^{N_1} |a_k-A|$ 已经为定值，从而存在 $n>N_2$ 使得
-	$$\frac{\sum_{k=1}^{N_1}|x_k-A|}{n}<\frac{\varepsilon}{2}$$
+	$$\frac{\sum_{k=1}^{N_1}|x_k-A|}{n}<\frac{\eps}{2}$$
 	因此当 $n>\max\{N_1,N_2\}$ 时有
-	$$LHS < \frac{\varepsilon}{2}+\frac{n-N_1}{n}\times \frac{\varepsilon}{2} < \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon$$
+	$$LHS < \frac{\eps}{2}+\frac{n-N_1}{n}\times \frac{\eps}{2} < \frac{\eps}{2}+\frac{\eps}{2} = \eps$$
 \end{solution}

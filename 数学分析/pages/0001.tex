@@ -231,7 +231,7 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 则 $(Y,d_Y)$ 仍是度量空间，称 $d_Y$ 是 $d$ 在 $Y$ 上的诱导度量。$(Y,d_Y)$ 称作是 $(X,d)$ 的子（度量）空间。
 
 \begin{definition}[稠密性]
-	给定度量空间 $(X,d)$，$Y$ 是 $X$ 的子集。如果对任意的 $x\in X$ 和任意小的 $\varepsilon>0$，都存在 $y\in Y$，使得 $d(y,x)<\varepsilon$，我们就称 $Y$ 在 $X$ 中是稠密的。
+	给定度量空间 $(X,d)$，$Y$ 是 $X$ 的子集。如果对任意的 $x\in X$ 和任意小的 $\eps>0$，都存在 $y\in Y$，使得 $d(y,x)<\eps$，我们就称 $Y$ 在 $X$ 中是稠密的。
 \end{definition}
 
 \begin{example}
@@ -478,12 +478,12 @@ $$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}
 
 一个有理数上的序列 $\{a_n\}$，是一个从集合 $\NN$ 到 $\QQ$ 的一个映射，即我们以前说的数列。
 
-对于 $\QQ$ 上的无限序列 $\{a_n\}$，若对于任意的 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
-$$d(a_j,a_k) < \varepsilon$$
+对于 $\QQ$ 上的无限序列 $\{a_n\}$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
+$$d(a_j,a_k) < \eps$$
 则称序列 $\{a_n\}$ 为 Cauchy 序列，记作 $\LIM(a_n)$。记 Cauchy 序列的全体为集合 $R$。
 
-对于 Cauchy 序列 $\LIM(a_n),\LIM(b_n)$，若对于任意的 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $n \geqslant N$ 时有
-$$d(a_n,b_n) < \varepsilon$$
+对于 Cauchy 序列 $\LIM(a_n),\LIM(b_n)$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $n \geqslant N$ 时有
+$$d(a_n,b_n) < \eps$$
 则记作 $\LIM(a_n) = \LIM(b_n)$。
 
 定义 $R$ 的序关系，对于实数 $x,y$，若存在 Cauchy 序列满足 $x=\LIM(a_n),y=\LIM(b_n)$，对于 $n\geqslant 1$ 有 $a_n \leqslant b_n$，则 $\LIM(a_n) \leqslant \LIM(b_n)$。
@@ -506,12 +506,12 @@ $$x^{-1} \coloneqq  \LIM(a_n^{-1})$$
 
 至此，我们可以着手验证实数是否满足我们预想的性质，在 Dedekind 分割中提过了，这里不再重复。
 
-另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\varepsilon > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
-$$d(a_j,a_k) \leqslant \varepsilon$$
+另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
+$$d(a_j,a_k) \leqslant \eps$$
 
 可以证明，$R$ 上的 Cauchy 序列与 $\QQ$ 上的 Cauchy 序列等价。
 
-若存在实数 $L$ 满足，存在 $N>0$ 使得当 $n \geqslant N$ 时，都有 $d(a_n,L) \leqslant \varepsilon$，则 $a_n$ 收敛于 $L$，记作
+若存在实数 $L$ 满足，存在 $N>0$ 使得当 $n \geqslant N$ 时，都有 $d(a_n,L) \leqslant \eps$，则 $a_n$ 收敛于 $L$，记作
 $$\lim_{n\to \infty} a_n = L$$
 
 可以验证

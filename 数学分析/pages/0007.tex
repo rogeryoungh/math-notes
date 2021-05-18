@@ -54,7 +54,7 @@ $$\| T \| = \max_{1 \leqslant i \leqslant n}\{\Delta x_i\}$$
 
 \begin{definition}
     设 $f$ 是定义在 $[a,b]$ 上的一个函数，$J$ 是一个确定的实数。若对任给的正数 $\epsilon$，总存在某一正数 $\delta$，使得对 $[a,b]$ 的任何分割 $T$，以及在其上任意选取的点集 $\{\xi_i\}$，只要 $\| T \| < \delta$，就有
-    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - J \right| < \varepsilon$$
+    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - J \right| < \eps$$
     则称函数 $f$ 在区间 $[a,b]$ 上可积或黎曼可积；数 $J$ 称为 $f$ 在 $[a,b]$ 上的定积分或黎曼积分，记作
     $$J = \int_a^b f(x) \dd x = \lim_{\| T \| \to 0} \sum_{i=1}^nf(\xi_i)\Delta x_i$$
 \end{definition}
@@ -67,14 +67,14 @@ $$\| T \| = \max_{1 \leqslant i \leqslant n}\{\Delta x_i\}$$
 \end{theorem}
 
 \begin{proof}
-    即证对于任给的 $\varepsilon > 0$，存在 $\delta>0$ 使得当 $\| T \| < \delta$ 时有
-    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - [F(b)-F(a)] \right| < \varepsilon$$
+    即证对于任给的 $\eps > 0$，存在 $\delta>0$ 使得当 $\| T \| < \delta$ 时有
+    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - [F(b)-F(a)] \right| < \eps$$
     对于任意分割 $T$，在每个小区间 $[x_{i-1},x_i]$ 上对 $F(x)$ 使用 Lagrange 中值定理，则分别存在 $\eta_i \in (x_{i-1},x_i),i=1,\cdots,n$，使得
     $$F(b)-F(a) = \sum_{i=1}^n F'(\eta_i)\Delta x_i = \sum_{i=1}^nf(\eta_i)\Delta x_i$$
     又因为 $f$ 在 $[a,b]$ 上一致连续，因此存在 $\delta > 0$ 当 $x_1,x_2\in[a,b]$ 且 $|x_1-x_2| < \delta$ 时，有
-    $$f(x_1) - f(x_2)| < \frac{\varepsilon}{b-a}$$
+    $$f(x_1) - f(x_2)| < \frac{\eps}{b-a}$$
     由 $\Delta x_i \leqslant \| T \| < \delta$ 时，任取 $\xi_i \in [x_{i-1},x_i]$，便有 $|\xi_i-\eta_i|<\delta$，于是
-    $$LHS = \left| \sum_{i=1}^n [f(\xi_i)-f(\eta_i)]\Delta x_i \right| \leqslant \frac{\varepsilon}{b-a}\sum_{i=1}^n\Delta x_i = \varepsilon$$
+    $$LHS = \left| \sum_{i=1}^n [f(\xi_i)-f(\eta_i)]\Delta x_i \right| \leqslant \frac{\eps}{b-a}\sum_{i=1}^n\Delta x_i = \eps$$
     于是 $f$ 在 $[a,b]$ 上可积。
 \end{proof}
 
@@ -106,8 +106,8 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
     给定分割 $T$，对于任何点集 $\{\xi_i\}$ 而言，上和时所有积分和的上确界，下和是所有积分和的下确界。
 \end{proposition}
 \begin{proof}
-    设 $\Delta_i$ 中 $M_i$ 是 $f(x)$ 的上确界，故可选取点 $\xi=\Delta_i$，使 $f(\xi_i)>M_i-\frac{\varepsilon}{b-a}$，于是有
-    $$\sum_{i=1}^nf(\xi_i)\Delta x_i > \sum_{i=1}^nM_i\Delta x_i-\frac{\varepsilon}{b-a}\sum_{i=1}^n\Delta x_i = S(T)-\varepsilon$$
+    设 $\Delta_i$ 中 $M_i$ 是 $f(x)$ 的上确界，故可选取点 $\xi=\Delta_i$，使 $f(\xi_i)>M_i-\frac{\eps}{b-a}$，于是有
+    $$\sum_{i=1}^nf(\xi_i)\Delta x_i > \sum_{i=1}^nM_i\Delta x_i-\frac{\eps}{b-a}\sum_{i=1}^n\Delta x_i = S(T)-\eps$$
     即 $S(T)$ 是全体积分和的上确界。类似可证 $s(T)$ 是全体积分和的下确界。
 \end{proof}
 
@@ -118,8 +118,8 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
 \end{proposition}
 
 \begin{theorem}
-    函数 $f$ 在 $[a,b]$ 上可积的充要条件是：人格 $\varepsilon >0$，总存在相应的一个分割 $T$ 使得
-    $$S(T) - s(T) < \sum_{i=1}^n\omega_i\Delta x_i = \varepsilon$$
+    函数 $f$ 在 $[a,b]$ 上可积的充要条件是：人格 $\eps >0$，总存在相应的一个分割 $T$ 使得
+    $$S(T) - s(T) < \sum_{i=1}^n\omega_i\Delta x_i = \eps$$
 \end{theorem}
 
 其中 $\omega$ 称为 $f$ 在 $\Delta_i$ 上的振幅。
@@ -130,12 +130,12 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
     若 $f$ 为 $[a,b]$ 上的连续函数，则 $f$ 在 $[a,b]$ 上可积。
 \end{theorem}
 \begin{proof}
-    由于 $f$ 在闭区间 $[a,b]$ 上一致连续，即任给 $\varepsilon > 0$，存在 $\delta>0$，对 $[a,b]$ 中任意两点 $x_1,x_2$，只要 $|x_1-x_2|<\delta$，便有
-    $$|f(x_1)-f(x_2)| < \frac{\varepsilon}{b-a}$$
+    由于 $f$ 在闭区间 $[a,b]$ 上一致连续，即任给 $\eps > 0$，存在 $\delta>0$，对 $[a,b]$ 中任意两点 $x_1,x_2$，只要 $|x_1-x_2|<\delta$，便有
+    $$|f(x_1)-f(x_2)| < \frac{\eps}{b-a}$$
     所以对于在 $[a,b]$ 的分割 $T$ 满足 $\|T\| < \delta$，在 $T$ 所属的任一小区间 $\Delta_i$ 上，都有
-    $$\omega_i = M_i-m_i = \sup_{x_1,x_2\in\Delta_i}|f(x_1)-f(x_2)| \leqslant \frac{\varepsilon}{b-a}$$
+    $$\omega_i = M_i-m_i = \sup_{x_1,x_2\in\Delta_i}|f(x_1)-f(x_2)| \leqslant \frac{\eps}{b-a}$$
     从而
-    $$\sum_{T}\omega_i\Delta x_i \leqslant \frac{\varepsilon}{b-a}\sum_T\Delta x_i = \varepsilon$$
+    $$\sum_{T}\omega_i\Delta x_i \leqslant \frac{\eps}{b-a}\sum_T\Delta x_i = \eps$$
 \end{proof}
 
 

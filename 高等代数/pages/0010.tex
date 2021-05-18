@@ -1,0 +1,385 @@
+\chapter{具有度量的线性空间}
+
+\section{双线性函数}
+
+\begin{definition}[双线性函数]\index{shuangxianxinghanshu@双线性函数}
+    设域 $F$ 上的线性空间 $V$，映射 $f : V \times V \to F$ 如果对任意的 $k_1,k_2 \in F$ 和任意的 $\vbeta_1,\valpha_2,\vbeta_1,\vbeta_2,\valpha,\vbeta \in V$ 有
+
+    \num{1} $f(k_1\valpha_1 + k_2\alpha_2,\vbeta) = k_1 f(\valpha_1,\vbeta) + k_2f(\valpha_2,\vbeta)$
+
+    \num{2} $f(\valpha,k_1\vbeta_1 + k_2\beta_2) = k_1 f(\valpha,\vbeta_1) + k_2f(\valpha,\vbeta_2)$
+
+    那么称 $f$ 是 $V$ 上一个双线性函数，$f$ 也写成 $f(\valpha,\vbeta)$。
+\end{definition}
+
+即当 $\vbeta$ 固定时，映射 $\valpha \mapsto f(\valpha,\vbeta)$ 是 $V$ 上的一个线性函数，记作 $\vbeta_R$。
+
+即当 $\valpha$ 固定时，映射 $\vbeta \mapsto f(\valpha,\vbeta)$ 是 $V$ 上的一个线性函数，记作 $\valpha_L$。
+
+设域 $F$ 上 $n$ 维线性空间 $V$ 中取一个基 $\ji{\valpha}{n}$，设 $V$ 中向量 $\valpha,\vbeta$ 在此基下的坐标为
+\[ \vX = \transpose{(\ji{x}{n})}, \quad \vY = \transpose{(\ji{y}{n})} \]
+设 $f$ 是 $V$ 上的一个双线性函数，则
+\[ f(\valpha,\vbeta) = f\left( \sum_{i=1}^n x_i\valpha_i,\sum_{j=1}^ny_j\valpha_j \right) = \sum_{i=1}^n\sum_{j=1}^n x_iy_jf(\valpha_i,\valpha_j) \]
+令
+\[ A = \left(\begin{matrix}
+    f(\valpha_1,\valpha_1) & f(\valpha_1,\valpha_2) & \cdots & f(\valpha_1,\valpha_n)\\
+    f(\valpha_2,\valpha_1) & f(\valpha_2,\valpha_2) & \cdots & f(\valpha_2,\valpha_n)\\
+    \vdots                 & \vdots                 &        & \vdots                \\
+    f(\valpha_n,\valpha_1) & f(\valpha_n,\valpha_2) & \cdots & f(\valpha_n,\valpha_n)
+\end{matrix}\right) \]
+
+称 $A$ 是双线性函数 $f$ 在基 $\ji{\valpha}{n}$ 下的度量矩阵，它是由 $f$ 及基 $\ji{\valpha}{n}$ 唯一决定的。于是有
+\[ f(\valpha,\vbeta) = \transpose{\vX}A\vY \]
+反之，任给域 $F$ 上一个 $n$ 级矩阵 $A = (a_{ij})$，定义映射 $f : V \times V \to F$ 如下
+\[ f(\valpha,\vbeta) = \transpose{\vX}A\vY = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_iy_j \]
+则 $f$ 是 $V$ 上的一个双线性函数，且 $f$ 在基 $\ji{\valpha}{n}$ 下的度量矩阵为 $A$。
+
+因此若 $\transpose{\vX}A\vY = \transpose{\vX}B\vY$，则 $A = B$。
+
+称表达式 $\transpose{\vX}A\vY$ 为 $\vX$ 与 $\vY$ 的双线性形。
+
+\begin{theorem}
+    设域 $F$ 上 $n$ 维线性空间 $V$ 上的一个双线性函数，取 $V$ 中两个基 $\ji{\valpha}{n}$ 与 $\ji{\vbeta}{n}$，设
+    \[ (\ji{\vbeta}{n}) = (\ji{\valpha}{n})P \]
+    且 $f$ 在这两个基的度量矩阵分别为 $A,B$，则
+    \[ B = \transpose{P}AP \]
+\end{theorem}
+
+即 $f$ 在 $V$ 的不同基下的度量矩阵是合同的，他们有相同的秩，于是称度量矩阵的秩为 $f$ 的矩阵秩，记作 $\rank_m f$。
+
+设域 $F$ 上线性空间 $V$ 上双线性函数 $f$，则称 $V^*$ 的子空间
+\[ \langle \valpha_L,\vbeta_R \mid \valpha,\vbeta \in V \rangle \]
+称为 $f$ 的秩空间，把 $f$ 的秩空间的维数称为 $f$ 的秩，记作 $\rank f$。
+
+可以证明，$f$ 的矩阵秩不超过 $f$ 的秩。
+
+\begin{definition}
+    设域 $F$ 上线性空间 $V$ 上的双线性函数 $f$，则 $V$ 的子集
+    \[ \{ \valpha \in V \mid f(\valpha,\vbeta) = 0 \} \]
+    称为 $f$ 在 $V$ 中的做根，记作 $\rad_{L} V$，$V$ 的另一个子集
+    \[ \{ \vbeta \in V \mid f(\valpha,\vbeta) = 0 \} \]
+    称为 $f$ 在 $V$ 中的右根，记作 $\rad_{R} V$。
+\end{definition}
+
+容易验证，$f$ 在 $V$ 中的左根和右根都是 $V$ 的子空间。
+
+\begin{definition}
+    如果 $V$ 上双线性函数 $f$ 的做根和右根都是零子空间，那么称 $f$ 是非退化的。
+\end{definition}
+
+\begin{theorem}
+    域 $F$ 上 $n$ 维线性空间 $V$ 上的双线性函数 $f$ 是非退化的，当且仅当 $f$ 在 $V$ 的一个基下的度量矩阵是满秩矩阵。
+\end{theorem}
+
+\begin{definition}
+    设域 $F$ 上线性空间 $V$ 上的一个双线性函数，如果
+    \[ f(\valpha,\vbeta) = f(\vbeta,\valpha) \]
+    那么称 $f$ 是对称的，如果
+    \[ f(\valpha,\vbeta) = -f(\vbeta,\valpha) \]
+    那么称 $f$ 是反对称的（斜对称的）。
+\end{definition}
+
+\begin{theorem}
+    设特征不为 $2$ 的域 $F$ 上 $n$ 维线性空间 $V$ 上的对称双线性函数 $f$，则 $V$ 中存在一个基使得 $f$ 在此基下的度量矩阵为对角矩阵，
+\end{theorem}
+
+\begin{theorem}
+    设特征不为 $2$ 的域 $F$ 上 $n$ 维线性空间 $V$ 上的反对称双线性函数 $f$，则存在 $V$ 的一个基，把它记成 $\delta_{1},\delta_{-1},\cdots,\delta_{r},\delta_{-r},\veta_1,\cdots,\veta_s$（其中 $0 \leqslant 2r \leqslant n, s = n-2r$），使得 $f$ 在这个基下的度量矩阵具有形式
+    \[ \diag\left\{
+        \left(\begin{matrix} 0 & 1 \\ -1 & 0 \end{matrix}\right),
+        \cdots,
+        \left(\begin{matrix} 0 & 1 \\ -1 & 0 \end{matrix}\right),
+        0,\cdots,0
+    \right\} \]
+\end{theorem}
+
+\begin{definition}
+    设域 $F$ 上的线性空间 $V$，映射 $q : V \to F$ 称为 $V$ 上的二次函数，如果存在 $V$ 上的一个对称双线性函数 $f$，使得
+    \[ q(\valpha) = f(\valpha,\valpha) \]
+\end{definition}
+
+显然，对于一个对称双线性函数 $f$ 就有唯一的一个二次函数 $q$。
+
+\begin{theorem}
+    设特征不为 $2$ 的域 $F$ 上的线性空间 $V$，$q$ 是 $V$ 上的一个二次函数，则存在 $V$ 上唯一的对称双线性函数 $f$ 使得
+    \[ f(\valpha,\valpha) = q(\valpha) \]
+\end{theorem}
+
+于是设域 $F$ 上 $n$ 维线性空间 $V$ 上的对称双线性函数 $f$ 和其对应的二次函数 $q$。设 $f$ 在 $V$ 的一个基 $\ji{\valpha}{n}$ 下的度量矩阵 $A = (a_{ij})$，则对于 $\valpha = (\ji{\valpha}{n})\vX,\vbeta = (\ji{\valpha}{n})\vY$，有
+\[ f(\valpha,\vbeta) = \transpose{\vX}A\vY \]
+从而有
+\[ q(\valpha) = f(\valpha,\valpha) = \transpose{\vX}A\vX \]
+即 $q$ 在基 $\ji{\valpha}{n}$ 下的表达式是 $n$ 元二次型 $\transpose{\vX}A\vX$，称其中的对称矩阵 $A$ 为二次函数 $q$ 在基 $\ji{\valpha}{n}$ 下的矩阵。于是可以用二次型的理论研究双线性函数，也可以用对称双线性函数来研究二次型。
+
+\begin{theorem}[惯性定理]
+    实数域上任意一个 $n$ 元二次型都可以经过非退化线性替换化成规范形，并且规范形是唯一的 。
+\end{theorem}
+
+\begin{theorem}[Witt 消去律的推广]
+    设特征不为 $2$ 的域 $F$ 上的 $n$ 级对称矩阵 $A_1,A_2$，$m$ 级对称矩阵 $B_1,B_2$。如果
+    \[ \left(\begin{matrix}
+        A_1 & 0   \\
+        0   & B_1 \\
+    \end{matrix}\right) \simeq \left(\begin{matrix}
+        A_2 & 0   \\
+        0   & B_2 \\
+    \end{matrix}\right) \]
+    且 $A_1 \simeq A_2$，那么 $B_1 \simeq B_2$。
+\end{theorem}
+
+\paragraph{双线性函数空间}
+
+\begin{definition}
+    设域 $F$ 上的线性空间 $V$，我们把 $V$ 上所有双线性函数组成的集合记作 $T_2(V)$，容易验证 $T_2(V)$ 对域函数的加法和纯量乘法成为域 $F$ 上的一个线性空间，称为 $V$ 上的双线性函数空间。
+\end{definition}
+
+\begin{theorem}
+    设特征不为 $2$ 的域 $F$ 上的线性空间，则
+    \[ T_2(V) = S_2(V) \oplus A_2(V) \]
+\end{theorem}
+
+
+
+\section{欧几里得空间}
+
+\begin{definition}[正定的]\index{zhengdingde@正定的}
+    设实线性空间 $V$ 上的对称双线性函数，如果对任意 $\valpha \in V$ 有 $f(\valpha,\valpha) \geqslant 0$，等号成立当且仅当 $\valpha = 0$，那么称 $f$ 是正定的。
+\end{definition}
+
+\begin{definition}[内积] \index{neiji@内积}
+    设实数域 $\RR$ 上的一个线性空间 $V$，$V$ 上的一个正定的对称双线性函数称为 $V$ 上的一个内积。
+\end{definition}
+
+习惯上把内积 $f(\valpha,\vbeta)$ 记作 $(\valpha,\vbeta)$。
+
+\begin{definition}
+    设实数域 $\RR$ 上的一个线性空间 $V$，若给定了 $V$ 上的一个内积，那么称 $V$ 是一个实内积空间。有限维的实内积空间称为欧几里得 Euclid 空间，并且把线性空间 $V$ 的维数称为 Euclid 空间 $V$ 的维数。
+\end{definition}
+
+\paragraph{实内积空间中的度量概念}
+
+\begin{definition}
+    非负实数 $\sqrt{(\valpha,\valpha)}$ 称为向量 $\valpha$ 的长度，记作 $|\valpha|$。
+\end{definition}
+
+长度为 $1$ 的向量称为单位向量。如果 $\valpha \ne 0$，那么 $\mfrac{\valpha}{|\valpha|}$ 是一个单位向量。把 $\valpha$ 变成 $\mfrac{\valpha}{|\valpha|}$ 称为把 $\valpha$ 单位化。
+
+\begin{theorem}[Cauchy - Schwarz 不等式]\index{cauchyschwarzbudengshi@Cauchy - Schwarz 不等式}
+    在实内积空间 $V$ 对任意向量 $\valpha,\vbeta$ 有
+    \[ |(\valpha,\vbeta)| \leqslant |\valpha| |\vbeta| \]
+    等号成立当且仅当 $\valpha,\vbeta$ 线性相关。
+\end{theorem}
+
+\begin{proposition}[Cauchy 不等式]
+    对于任意的两组实数 $\ji{\valpha}{n}$ 与  $\ji{\beta}{n}$ 有
+    \[ |a_1b_1 + \cdots + a_nb_n| \leqslant \sqrt{a_1^2 + \cdots + a_n^2}\sqrt{b_1^2 + \cdots + b_n^2} \]
+    等号成立当且仅当 $(\ji{\valpha}{n})$ 与 $(\ji{\vbeta}{n})$ 线性相关。
+\end{proposition}
+
+\begin{proposition}[Schwarz 不等式]
+    对于任意的 $f,g \in C[a,b]$ 有
+    \[ \left| \int_a^b f(x)g(x) \dd x \right|^2 \leqslant \left| \int_a^b f^2(x) \dd x \right| \left| \int_a^b g^2(x) \dd x \right| \]
+    等号成立当且仅当 $(\ji{\valpha}{n})$ 与 $(\ji{\vbeta}{n})$ 线性相关。
+\end{proposition}
+
+\begin{definition}
+    实内积空间 $V$ 中，两个非零向量 $\valpha$ 与 $\vbeta$ 的夹角 $\langle\valpha,\vbeta\rangle$ 规定为
+    \[ \langle\valpha,\vbeta\rangle \coloneqq \arccos \frac{(\valpha,\vbeta)}{|\valpha||\vbeta|} \]
+\end{definition}
+
+\begin{definition}
+    在实内积空间 $V$ 中，若 $(\valpha,\vbeta) = 0$，那么称 $\valpha$ 与 $\vbeta$ 正交，记作 $\valpha \bot \vbeta$。
+\end{definition}
+
+\begin{proposition}
+    在实内积空间 $V$ 中，三角形不等式成立，即对于任意的 $\valpha,\vbeta \in V$ 有
+    \[ |\valpha+\vbeta| \leqslant |\valpha| + |\vbeta| \]
+\end{proposition}
+
+\begin{proposition}
+    在实内积空间 $V$ 中，勾股定理成立，即如果 $\valpha$ 与 $\vbeta$ 正交，则
+    \[ |\valpha + \vbeta|^2 = |\valpha|^2 + |\vbeta|^2 \]
+\end{proposition}
+
+\begin{proposition}
+    在实内积空间 $V$ 中，余弦定理成立，即对于三个非零向量 $\valpha,\vbeta,\vgamma$ 满足 $\vgamma = \vbeta - \valpha$，则
+    \[ |\vgamma|^2  = |\valpha|^2 + |\vbeta|^2 - 2 |\valpha| |\vbeta| \cos\langle\valpha,\vbeta\rangle \]
+\end{proposition}
+
+\begin{definition}
+    设 $E$ 是一个非空集合，若其上存在映射 $d : E \times E \to \RR$，如果对任意 $x,y,z\in E$ 都有
+    \num{1} 对称性：$d(x,y) = d(y,x)$。
+    \num{2} 正定性：$d(x,y) \geqslant $0，等号成立当且仅当 $x = y$。
+    \num{3} 三角形不等式：$d(x,z) \leqslant d(x,y) + d(y,z)$。
+    那么称 $d$ 是一个距离，称集合 $E$ 是一个度量空间，把 $d(x,y)$ 称为 $x$ 与 $y$ 之间的距离。
+\end{definition}
+
+\begin{definition}
+    在 $n$ 维 Euclid 空间 $V$ 中，由 $n$ 个两两正交的非零向量组成的基称为 $V$ 的一个正交基，若该基皆为单位向量，称为 $V$ 的一个标准正交基。
+\end{definition}
+
+由于内积是正定的对称双线性函数，因此 $V$ 中存在一个基 $\ji{\veta}{n}$ 使得内积在此基下的度量矩阵为单位矩阵 $I$。从而
+\[ (\veta_i,\veta_j) = \delta_{ij} \]
+因此 $\ji{\veta}{n}$ 是 $V$ 的一个标准正交基。
+
+更具体的，取 $V$ 的一个基 $\ji{\valpha}{n}$ 令 $\vbeta_1 = \valpha$，且
+\[ \vbeta_n = \valpha_n - \sum_{j=1}^{n-1} \frac{(\valpha_n,\vbeta_j)}{(\vbeta_j,\vbeta_j)} \vbeta \]
+则 $\ji{\vbeta}{n}$ 是 $V$ 的一个正交基。令
+\[ \veta_i = \frac{\vbeta}{|\vbeta|} \]
+则 $\ji{\veta}{n}$ 是 $V$ 的一个标准正交基。
+
+第一步称为 Schmitdt 正交化，第二步称为单位化。\index{schmitdtzhengjiaohua@Schmitdt 正交化}
+
+\begin{theorem}
+    设 $\ji{\veta}{n}$ 是 $n$ 维 Euclid 空间 $V$ 的一个标准正交基，则对于任意的 $\valpha \in V$ 有
+    \[ \valpha = \sum_{i=1}^n (\valpha,\veta_i)\veta_i \]
+\end{theorem}
+
+即 $\valpha$ 在标准正交基 $\ji{\veta}{n}$ 下的坐标的第 $i$ 个分量等于 $(\valpha,\veta_i)$。此式称为 $\valpha$ 的 Fourier 展开，其中每个系数 $(\valpha,\veta_i)$ 都称为 $\valpha$ 的 Fourier 系数。
+
+\begin{definition}
+    设实内积空间 $V,V'$，若存在双射 $\sigma : V \to V'$ 使得对于任意的 $\valpha,\vbeta \in V$ 和 $k \in \RR$ 有
+    \begin{equation*}
+        \begin{aligned}
+            \sigma(\valpha + \vbeta) &= \sigma(\valpha) + \sigma(\vbeta)\\
+            \sigma(k\valpha) &= k\sigma(\valpha)\\
+            (\valpha,\vbeta) &= (\sigma(\valpha),\sigma(\vbeta))
+        \end{aligned}
+    \end{equation*}
+    那么称 $\sigma$ 是 $V \to V'$ 的一个同构映射，此时称 $V$ 与 $V'$ 同构，记作 $V \cong V'$。
+\end{definition}
+
+若 $\sigma$ 保持加法和数量乘法，那么称为线性同构；若线性同构还保持内积，则称它为一个保距同构。
+
+\begin{theorem}
+    两个 Euclid 空间同构的充要条件是它们的维数相同。
+\end{theorem}
+
+\section{正交补，正交投影}
+
+\begin{definition}
+    设实内积空间 $V$ 的一个非空子集 $S$。把 $V$ 中与 $S$ 中每一个向量都正交的所有向量的全体称作 $S$ 的正交补，记作 $S^\bot$。即
+    \[ S^\bot \coloneqq \{ \valpha \in V \mid (\valpha,\vbeta) = 0 \} \]
+\end{definition}
+
+\begin{theorem}
+    设实内积空间 $V$ 的一个有限维子空间 $U$，则
+    \[ V = U \oplus U^\bot \]
+\end{theorem}
+
+设实内积空间 $V$ 的一个子空间，若 $V = U \oplus U^\bot$，那么有平行于 $U^\bot$ 在 $U$ 上的投影 $\bfP_U$。我们把这个投影 $\bfP_U$ 称作 $V$ 在 $U$ 上的正交投影；把  $\valpha$ 在 $\bfP_U$ 下的像 $\valpha_1$ 称为 $\valpha$ 在 $U$ 上的正交投影。此时 $\valpha = \valpha_1 + \valpha_2$。
+
+即
+\[ \bfP_U(\valpha) = \valpha_1 \Leftrightarrow \valpha - \valpha_1 \in U^\bot \]
+
+\begin{theorem}
+    设实内积空间 $V$ 的一个子空间 $U$，且 $V = U \oplus U^\bot$，则对于 $\valpha \in V$，则 $\valpha_1 = \bfP_U(\valpha) \in U$ 的充要条件是
+    \[ d(\valpha,\valpha_1) \leqslant d(\valpha,\vgamma) \]
+\end{theorem}
+
+\begin{definition}\index{zuijiabijinyuan@最佳逼近元}
+    设实内积空间 $V$ 的子空间 $U$，若对于 $\valpha \in V$ 存在 $\delta \in U$ 有
+    \[ d(\valpha,\delta) \leqslant d(\valpha,\vgamma) \]
+    那么称 $\delta$ 是 $\valpha$ 在 $U$ 上的最佳逼近元。
+\end{definition}
+
+设实内积空间 $V$ 的一个无限维子空间 $U$，如果 $\valpha \in V$ 在 $U$ 上的最佳逼近元存在（此时必唯一），那么称 $\delta$ 为 $\valpha$ 在 $U$ 上的正交投影。如果 $V$ 中每个向量 $\valpha$ 都有在 $U$ 上的正交投影 $\delta$，那么把 $\valpha$ 对应到 $\delta$ 的映射称为 $V$ 在 $U$ 上的正交投影。
+
+\section{正交变换与对称变换}
+
+\begin{definition}
+    设实内积空间 $V$ 到自身的满射 $\bfA$，如果保持向量的内积不变，即
+    \[ (\bfA\valpha,\bfA\vbeta) = (\valpha,\vbeta) \]
+    那么称 $\bfA$ 是 $V$ 上的一个正交变换。
+\end{definition}
+
+\begin{proposition}
+    正交变换 $\bfA$ 具有特性：
+
+    \num{1} 保持向量长度。
+
+    \num{2} 保持两个非零向量的夹角不变。
+
+    \num{3} 保持正交性。
+
+    \num{4} 一定是线性变换。
+
+    \num{5} 保持向量间的距离不变。
+
+    \num{6} 一定是单射，一定可逆。
+\end{proposition}
+
+\begin{theorem}
+    设 $n$ 为 Euclid 空间 $V$ 上的线性变换 $\bfA$，$\bfA$ 在 $V$ 的标准正交基下的矩阵为 $A$，则下列描述等价：
+
+    \num{1} $\bfA$ 是正交变换。
+
+    \num{2} $\bfA$ 把 $V$ 的标准正交基映成标准正交基。
+
+    \num{3} $A$ 是正交矩阵。
+\end{theorem}
+
+由于正交矩阵 $A$ 的行列式为 $\pm 1$，则把行列式为 $1$ 的矩阵称为第一类（或旋转），行列式等于 $-1$ 的称为第二类的。
+
+$n$ 维线性空间的任意一个 $n-1$ 维子空间称为一个超平面。
+
+\begin{definition}
+    设 $n$ 维 Euclid 空间 $V$ 中的一个单位向量，$\bfP$ 是 $V$ 在 $\langle \veta \rangle$ 上的正交投影，令
+    \[ \bfA = \bfI - 2 \bfP \]
+    则 $\bfA$ 称为关于超平面 $\langle \veta \rangle^\bot$ 的镜面反射。
+\end{definition}
+
+\begin{definition}
+    实内积空间 $V$ 上的变换 $\bfA$ 如果满足
+    \[ (\bfA\valpha,\vbeta) = (\valpha,\bfA\vbeta) \]
+    那么称 $\bfA$ 是 $V$ 上的对称变换。
+\end{definition}
+
+\section{*酉空间}
+
+在复数域中引入度量概念。若复线性空间 $V$ 上的双线性函数 $f$ 具有性质
+\[ f(\valpha,\vbeta) = \overline{f(\vbeta,\valpha)} \]
+这个性质称为 Hermite 性。
+
+\section{*正交空间与辛空间}
+
+\begin{definition}
+    设域 $F$ 上的线性空间 $V$ 上的一个对称双线性函数 $f$，那么称 $f$ 是 $V$ 上的一个内积（或度量），称 $V$ 是一个正交空间。用 $(V,f)$ 表示。
+\end{definition}
+
+如果 $f$ 是非退化的，则称 $(V,f)$ 是正则的，否则称为非正则的。
+
+\begin{definition}
+    在正交空间 $(V,f)$ 中，如果 $f(\valpha,\vbeta) = 0$，那么称 $\valpha$ 与 $\vbeta$ 正交，记作 $\valpha \bot \vbeta$。
+\end{definition}
+
+在正交空间 $(V,f)$ 中，一个非零向量 $\valpha$ 称为迷向的，如果 $f(\valpha,\valpha) = 0$，否则称为非迷向的。
+
+正交空间 $(V,f)$ 包含一个迷向向量，则 $(V,f)$ 称为迷向的，否则为非迷向的。若 $V$ 中所有非零向量都是迷向的，则称为全迷向的。
+
+\section{*正交群，酉群，辛群}
+
+\begin{definition}
+    设 $G$ 是一个非空集合，若 $G$ 上的乘法运算满足
+
+    \num{1} 结合律：$a(bc) = (ab)c$。
+
+    \num{2} 单位元：存在 $e \in G$ 使得 $ea = ae = a$。
+
+    \num{3} 逆元：任取 $a \in G$ 总存在 $b \in G$ 使得 $ab = ba = 1$。
+
+    那么称 $G$ 是一个群。
+\end{definition}
+
+如果群 $G$ 的运算还满足交换律，那么称 $G$ 为交换群，或 Abel 群。
+
+
+
+
+
+
+
+
+
+
+

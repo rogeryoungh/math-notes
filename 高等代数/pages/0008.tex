@@ -5,21 +5,21 @@
 \begin{definition}[线性空间]\index{xianxingkongjian@线性空间}
     设非空集合 $V$；设数域 $F$。在其上有向量的加法和纯量与向量的乘法。若满足以下公理
 
-    A1 加法结合律：$(\valpha+\vbeta) + \vgamma = \valpha +(\vbeta+\vgamma)$。
+    A1 加法结合律：$(\alpha+\beta) + \gamma = \alpha +(\beta+\gamma)$。
     
-    A2 加法交换律：$\valpha + \vbeta = \vbeta + \valpha$。
+    A2 加法交换律：$\alpha + \beta = \beta + \alpha$。
     
-    A3 加法存在单位元 $\vzero$：$\valpha + \vzero = \valpha$。
+    A3 加法存在单位元 $\vzero$：$\alpha + \vzero = \alpha$。
     
-    A4 加法逆元的存在性：对任意的 $\valpha \in V$ 总存在 $-\valpha\in V$，使得 $\valpha + (-\valpha) = \vzero$。
+    A4 加法逆元的存在性：对任意的 $\alpha \in V$ 总存在 $-\alpha\in V$，使得 $\alpha + (-\alpha) = \vzero$。
     
-    M1 乘法结合律：$\lambda(\mu \valpha) = (\lambda \mu) \valpha$。
+    M1 乘法结合律：$\lambda(\mu \alpha) = (\lambda \mu) \alpha$。
     
-    M2 乘法存在单位元 $\boldsymbol{1}$：$\boldsymbol{1} \valpha = \boldsymbol{1}$。
+    M2 乘法存在单位元 $\boldsymbol{1}$：$\boldsymbol{1} \alpha = \boldsymbol{1}$。
     
-    D1 分配律 1：$\lambda(\valpha+\vbeta) = \lambda \valpha + \lambda \vbeta$。
+    D1 分配律 1：$\lambda(\alpha+\beta) = \lambda \alpha + \lambda \beta$。
     
-    D2 分配律 2：$(\lambda + \mu)\valpha = \lambda \valpha + \mu \valpha$。
+    D2 分配律 2：$(\lambda + \mu)\alpha = \lambda \alpha + \mu \alpha$。
 
     那么称 $V$ 是域 $F$ 上的一个线性空间，$V$ 的元素称为向量，$F$ 的元素称为纯量。
 \end{definition}
@@ -30,31 +30,31 @@
     线性空间 $V$ 中零元素是唯一的。
 \end{theorem}
 
-对于 $V$ 中的一组向量，$\ji{\valpha}{s}$，域 $F$ 中的一组元素 $\ji{k}{s}$，作纯量乘法和加法可得
-\[ k_1\valpha_1+\cdots+k_s\valpha_s \]
-称该向量为 $\ji{\valpha}{s}$ 的一个线性组合。
+对于 $V$ 中的一组向量，$\ji{\alpha}{s}$，域 $F$ 中的一组元素 $\ji{k}{s}$，作纯量乘法和加法可得
+\[ k_1\alpha_1+\cdots+k_s\alpha_s \]
+称该向量为 $\ji{\alpha}{s}$ 的一个线性组合。
 
-像 $\ji{\valpha}{s}$ 这样有次序的有限多个向量称为 $V$ 的一个向量组。若 $V$ 中的一个向量 $\vbeta$ 可以表示成向量组 $\ji{\valpha}{s}$ 的一个线性组合，那么称 $\vbeta$ 可以由向量组 $\ji{\valpha}{s}$ 线性表出。
+像 $\ji{\alpha}{s}$ 这样有次序的有限多个向量称为 $V$ 的一个向量组。若 $V$ 中的一个向量 $\beta$ 可以表示成向量组 $\ji{\alpha}{s}$ 的一个线性组合，那么称 $\beta$ 可以由向量组 $\ji{\alpha}{s}$ 线性表出。
 
 \begin{definition}[线性相关]\index{xianxingxianguan@线性相关}
-    对于向量组 $\ji{\valpha}{s}$，若存在一组不全为 $0$ 的元素 $\ji{k}{s}$ 使得
-    \[ k_1\valpha_1 + \cdots + k_s\valpha_s = 0 \]
+    对于向量组 $\ji{\alpha}{s}$，若存在一组不全为 $0$ 的元素 $\ji{k}{s}$ 使得
+    \[ k_1\alpha_1 + \cdots + k_s\alpha_s = 0 \]
     则称该向量组线性相关。
 \end{definition}
 
 \begin{definition}\index{jidaxianxingwuguanzu@极大线性无关组}
-    在域 $F$ 上的线性空间 $V$ 中，向量组 $\ji{\valpha}{s}$ 的一个部分组称为一个极大线性无关组，若这个组本身是线性无关的，但是从这个向量组的其余向量（如果还有的话）中任取一个添加进去，得到的新的部分组都线性无关。
+    在域 $F$ 上的线性空间 $V$ 中，向量组 $\ji{\alpha}{s}$ 的一个部分组称为一个极大线性无关组，若这个组本身是线性无关的，但是从这个向量组的其余向量（如果还有的话）中任取一个添加进去，得到的新的部分组都线性无关。
 \end{definition}
 
 \begin{definition}
-    如果向量组 $\ji{\valpha}{s}$ 的每一个向量都可以由向量组 $\ji{\vbeta}{r}$ 线性表出，那么称向量组 $\ji{\valpha}{s}$ 可以由向量组 $\ji{\vbeta}{r}$ 线性表出。如果向量组 $\ji{\valpha}{s}$ 与 $\ji{\vbeta}{r}$ 可以互相线性表出，则称两个向量组等价，记作
-    \[ \{ \valpha_1, \cdots,\valpha_s \} \cong \{\ji{\vbeta}{r}\}\]
+    如果向量组 $\ji{\alpha}{s}$ 的每一个向量都可以由向量组 $\ji{\beta}{r}$ 线性表出，那么称向量组 $\ji{\alpha}{s}$ 可以由向量组 $\ji{\beta}{r}$ 线性表出。如果向量组 $\ji{\alpha}{s}$ 与 $\ji{\beta}{r}$ 可以互相线性表出，则称两个向量组等价，记作
+    \[ \{ \alpha_1, \cdots,\alpha_s \} \cong \{\ji{\beta}{r}\}\]
 \end{definition}
 
 显然一个向量组与其任意一个极大线性无关组等价。
 
 \begin{theorem}
-    设域 $F$ 上的线性空间 $V$ 中向量组 $\ji{\vbeta}{r}$ 可以由向量组 $\ji{\valpha}{s}$ 线性表出，如果 $r>s$，那么向量组 $\vbeta_1\cdots,\vbeta_r$ 线性相关。
+    设域 $F$ 上的线性空间 $V$ 中向量组 $\ji{\beta}{r}$ 可以由向量组 $\ji{\alpha}{s}$ 线性表出，如果 $r>s$，那么向量组 $\beta_1\cdots,\beta_r$ 线性相关。
 \end{theorem}
 
 容易据此推出，一个向量组的任意两个极大无关组所含的向量个数相等。
@@ -92,9 +92,9 @@
 \end{definition}
 
 设域 $F$ 上的线性空间 $V$，给定两个基
-\[ \ji{\valpha}{n}; \quad \vbeta_1,\cdots,\vbeta_n \]
-设 $V$ 中向量 $\valpha$ 在这两个基下的坐标分别为
-\[ \vX = \transpose{(\ji{x}{n})}, \vY = \transpose{(y_1,\cdots,y_n)} \]
+\[ \ji{\alpha}{n}; \quad \beta_1,\cdots,\beta_n \]
+设 $V$ 中向量 $\alpha$ 在这两个基下的坐标分别为
+\[ X = \transpose{(\ji{x}{n})}, Y = \transpose{(y_1,\cdots,y_n)} \]
 
 \section{子空间及其交与和，子空间的直和}
 
@@ -102,19 +102,19 @@
 
 不难验证 $\dim U \leqslant \dim V$。
 
-可以构造包含向量组 $\ji{\valpha}{s}$ 最小的子空间：
-\[ \langle \ji{\valpha}{s} \rangle \coloneqq \{ k_1\valpha_1+\cdots+k_s\valpha_s \mid k_i\in F \} \]
-也记作 $L(\ji{\valpha}{s})$，称作由 $\ji{\valpha}{s}$ 生成（张成）的线性子空间。
+可以构造包含向量组 $\ji{\alpha}{s}$ 最小的子空间：
+\[ \langle \ji{\alpha}{s} \rangle \coloneqq \{ k_1\alpha_1+\cdots+k_s\alpha_s \mid k_i\in F \} \]
+也记作 $L(\ji{\alpha}{s})$，称作由 $\ji{\alpha}{s}$ 生成（张成）的线性子空间。
 
-容易发现，向量组 $\ji{\valpha}{s}$ 的一个极大线性无关组就是 $\langle \ji{\valpha}{s} \rangle$ 的一个基，从而
-\[ \dim \langle \ji{\valpha}{s} \rangle = \rank \{ \ji{\valpha}{s} \}\]
+容易发现，向量组 $\ji{\alpha}{s}$ 的一个极大线性无关组就是 $\langle \ji{\alpha}{s} \rangle$ 的一个基，从而
+\[ \dim \langle \ji{\alpha}{s} \rangle = \rank \{ \ji{\alpha}{s} \}\]
 
 \begin{theorem}
     设 $V_1,V_2$ 都是域 $F$ 上线性空间 $V$ 的子空间，则 $V_1 \cap V_2$ 也是 $V$ 的子空间。
 \end{theorem}
 
 然而 $V_1 \cup V_2$ 并不是 $V$ 的一个线性子空间。构造包含 $V_1 \cup V_2$ 的一个子空间可以定义
-\[ V_1+V_2 \coloneqq \{ \valpha_1+\valpha_2 \mid \valpha_1\in V_1, \valpha_2\in V_2 \} \]
+\[ V_1+V_2 \coloneqq \{ \alpha_1+\alpha_2 \mid \alpha_1\in V_1, \alpha_2\in V_2 \} \]
 不难验证，$V_1+V_2$ 是 $V$ 的子空间。
 
 \begin{theorem}
@@ -124,7 +124,7 @@
 
 \begin{definition}[直和]\index{zhihe@直和}
     设域 $F$ 上线性空间 $V$ 的两个子空间 $V_1,V_2$，若 $V_1+V_2$ 中每个向量都能被唯一的表示为
-    \[ \valpha = \valpha_1 \valpha_2, \valpha_1 \in V_1, \valpha_2 \in V_2 \]
+    \[ \alpha = \alpha_1 \alpha_2, \alpha_1 \in V_1, \alpha_2 \in V_2 \]
     则和 $V_1+V_2$ 被称为直和，记作 $V_1 \oplus V_2$。称 $V_1,V_2$ 互为补空间。 
 \end{definition}
 
@@ -149,16 +149,16 @@
 \end{theorem}
 
 \begin{definition}
-    设域 $F$ 上线性空间 $V$ 的子空间 $V_1,\cdots,V_s$，如果和 $V_1+\cdots+V_s$ 中每个向量 $\valpha$ 都能唯一的表示为
-    \[ \valpha = \valpha_1 + \cdots + \valpha_s, \valpha_i \in V_i \]
+    设域 $F$ 上线性空间 $V$ 的子空间 $V_1,\cdots,V_s$，如果和 $V_1+\cdots+V_s$ 中每个向量 $\alpha$ 都能唯一的表示为
+    \[ \alpha = \alpha_1 + \cdots + \alpha_s, \alpha_i \in V_i \]
     那么和 $V_1 + \cdots + V_s$ 称为直和，记作 $V_1 \oplus \cdots \oplus V_s$ 或 $\displaystyle\bigoplus_{i=1}^s V_i$。
 \end{definition}
 
 \section{域上线性空间的同构}
 
 \begin{definition}[同构]\index{tonggou@同构}
-    设域 $F$ 上的线性空间 $V$ 与 $V'$，若存在双射 $\sigma : V \to V'$ 且保持加法与纯量加法两种运算，即对于任意 $\valpha,\vbeta \in V,k\in F$ 有
-    \[ \sigma(\valpha+\vbeta) = \sigma(\valpha) + \sigma(\vbeta), \quad \sigma(k\valpha) = k\sigma(\valpha) \]
+    设域 $F$ 上的线性空间 $V$ 与 $V'$，若存在双射 $\sigma : V \to V'$ 且保持加法与纯量加法两种运算，即对于任意 $\alpha,\beta \in V,k\in F$ 有
+    \[ \sigma(\alpha+\beta) = \sigma(\alpha) + \sigma(\beta), \quad \sigma(k\alpha) = k\sigma(\alpha) \]
     那么称 $\sigma$ 是 $V$ 到 $V'$ 的一个同构映射，此时称 $V$ 与 $V'$ 是同构的，记作 $V \cong V'$。
 \end{definition}
 
@@ -187,21 +187,21 @@
 \section{商空间}
 
 为了在线性空间 $V$ 上建立一个二元关系且使它是一个等价关系，可以先取 $V$ 的一个子空间 $W$，然后规定
-\[ \valpha \sim \vbeta \Leftrightarrow \valpha - \vbeta \in W \]
-这样就在 $V$ 上建立了一个二元关系 $\sim$，不难验证其就是等价关系。对于 $\valpha \in V$，$\valpha$ 的等价类 $\overline{\valpha}$ 为
-\[ \overline{\valpha} = \{ \vbeta \in V \mid \vbeta \sim \valpha \} = \{ \valpha + \vgamma \mid \vgamma \in W \} \]
-记 $\{ \valpha + \vgamma \mid \vgamma \in W \}$ 为 $\valpha + W$，称它为 $W$ 的一个陪集，$\valpha$ 称为这个陪集的代表。从而
-\[ \valpha + W = \vbeta + W \Leftrightarrow \overline{\valpha} = \overline{\vbeta} \Leftrightarrow \valpha \sim \vbeta \Leftrightarrow \valpha - \vbeta \in W \]
-因此一个陪集 $\valpha + W$ 的代表不唯一。
+\[ \alpha \sim \beta \Leftrightarrow \alpha - \beta \in W \]
+这样就在 $V$ 上建立了一个二元关系 $\sim$，不难验证其就是等价关系。对于 $\alpha \in V$，$\alpha$ 的等价类 $\overline{\alpha}$ 为
+\[ \overline{\alpha} = \{ \beta \in V \mid \beta \sim \alpha \} = \{ \alpha + \gamma \mid \gamma \in W \} \]
+记 $\{ \alpha + \gamma \mid \gamma \in W \}$ 为 $\alpha + W$，称它为 $W$ 的一个陪集，$\alpha$ 称为这个陪集的代表。从而
+\[ \alpha + W = \beta + W \Leftrightarrow \overline{\alpha} = \overline{\beta} \Leftrightarrow \alpha \sim \beta \Leftrightarrow \alpha - \beta \in W \]
+因此一个陪集 $\alpha + W$ 的代表不唯一。
 
 对于上述等价关系 $\sim$，商集 $V/\sim$ 记作 $V/W$，称它是 $V$ 对于子空间 $W$ 的商集。即
-\[ V/W = \{ \valpha + W \mid \valpha \in V \} \]
+\[ V/W = \{ \alpha + W \mid \alpha \in V \} \]
 
 尝试在 $V/W$ 中规定加法与纯量乘法运算
 \begin{equation*}
     \begin{aligned}
-        (\valpha + W) + (\vbeta + W) &\coloneqq (\valpha + \vbeta) + W\\
-        k(\valpha + W) &\coloneqq k\valpha + W
+        (\alpha + W) + (\beta + W) &\coloneqq (\alpha + \beta) + W\\
+        k(\alpha + W) &\coloneqq k\alpha + W
     \end{aligned}
 \end{equation*}
 不难验证，$V/W$ 是域 $F$ 上的一个线性空间，称作 $V$ 对于 $W$ 的商空间，其中的元素是 $V$ 的一个等价类而不是向量。\index{shangkongjian@商空间}
@@ -222,10 +222,10 @@
 \paragraph{标准映射}
 
 设域 $F$ 上的线性空间 $V$ 及其子空间 $W$，则有 $V$ 到商空间 $V/W$ 有一个很自然的映射
-\[ \pi : \valpha \mapsto \valpha + W \]
+\[ \pi : \alpha \mapsto \alpha + W \]
 称它为标准映射或典范映射。不难验证它是满射。
 
-当 $W$ 不是零子空间时，$\pi$ 不是单射，商空间 $V/W$ 的一个元素 $\valpha + W$ 在 $\pi$ 下的原像集是 $W$ 的一个陪集 $\valpha + W$。这表明 $\pi$ 保持加法和纯量乘法运算。
+当 $W$ 不是零子空间时，$\pi$ 不是单射，商空间 $V/W$ 的一个元素 $\alpha + W$ 在 $\pi$ 下的原像集是 $W$ 的一个陪集 $\alpha + W$。这表明 $\pi$ 保持加法和纯量乘法运算。
 
 \begin{theorem}
     域 $F$ 上线性空间 $V$ 的任意子空间 $W$ 的任意子空间 $W$ 都有补空间。

@@ -4,7 +4,9 @@
 
 自然数 $\NN$ 、正整数 $\NN^+$ 和整数 $\ZZ$ 我们是熟知的。
 
-\section{整数公理}
+\section{整除}
+
+\subsection{整数公理}
 
 整数的公理
 
@@ -78,7 +80,63 @@
 \end{proof}
 
 \begin{definition}[素数]
-	若一个大于 $1$ 的正整数，只能被 $1$ 和它本身整除，不能被其他正整数整除，这样的数叫做素数。
+    设整数 $p \ne 0,\pm 1$，若它除了 $\pm 1, \pm p$ 外没有其他的因数，则称 $p$ 是素数；否则称 $p$ 是合数。
 \end{definition}
 
-若能被其他正整数整除，则称为合数。因此一个正整数必然是素数、合数或 $1$。
+我们讲到素数时，一般指正的。把素数的集合记作 $\PP$。
+
+\begin{theorem}
+    若 $a$ 是合数，则必存在素数 $p$ 使得 $p \mid a$。
+\end{theorem}
+
+此时称该素数为 $a$ 的素因数。
+
+\begin{theorem}
+    设整数 $a \geqslant 2$，那么 $a$ 一定可以分解为素数的乘积，即
+    \[ a = p_1p_2\cdots p_s \]
+    其中 $p_j \in \PP$。
+\end{theorem}
+
+OI 中，经常会求符合命题 $P(k)$ 的数 $k$ 有多少个，此时我们有记号 $[P(k)]$，当命题成立时其值为 $1$，命题为假时值为 $0$。
+
+\subsection{公因数与公倍数}
+
+\begin{definition}[公因数]
+    设 $a_1,a_2$ 是两个整数，若 $d \mid a_1 $ 且 $ d \mid a_2$，则称 $d$ 是 $a_1,a_2$ 的公因数。一般的，若对于一组整数 $a_1,\cdots,a_k$，有 $d \mid a_i$，则称 $d$ 是 $a_1,\cdots,a_k$ 的公因数。
+\end{definition}
+
+把 $a_1,a_2$ 的正的公因数中最大的，称作最大公因数，记作 $(a_1,a_2)$ 或 $\gcd(a_1,a_2)$。
+
+由定义易知，若 $(a_1,a_2) = d$，则 $(a_1/d, a_2/d) = 1$。
+
+\begin{definition}[互素]
+    若 $(a_1,a_2) = 1$，则称 $a_1,a_2$ 是互素的。
+\end{definition}
+
+类似的，对于多个数也类似的有最大公因数和互素等概念。
+
+\begin{definition}[公倍数]
+    设 $a_1,a_2$ 是两个整数，多 $a_1 \mid l$ 且 $a_2 \mid l$，则称 $l$ 是 $a_1,a_2$ 的公倍数。一般的，若对于一组整数 $a_1,\cdots,a_k$，有 $a_j \mid l$，则称 $l$ 是 $a_1,\cdots,a_k$ 的公倍数。
+\end{definition}
+
+把 $a_1,a_2$ 的正的公倍数中最小的，称作最小公因数，记作 $[a_1,a_2]$ 或 $\lcm(a_1,a_2)$。
+
+由定义易知，对于 $m > 0$ 有 $[ma_1,ma_2] = m[a_1,a_2]$。
+
+\subsection{带余除法}
+
+\begin{theorem}
+    设整数 $a,b$ 且 $a \ne 0$，则一定存在唯一的一对整数 $q,r$ 使得
+    \[ b = qa + r, 0 \leqslant r < |a| \]
+\end{theorem}
+
+更一般的，对于任意的 $d$ 总存在一对 $q,r$ 使得
+\[ b = qa + r, d \leqslant r < |a| + d \]
+
+当 $d = 0$ 时，称 $r$ 为最小非负余数，$d = 1$ 时称 $r$ 为最小正余数。计算机一般是 $d = 0$。
+
+\begin{lemma}
+    设 $a > 0$，则任意整数被 $a$ 除后所得的最小非负余数只可能是 $0,\cdots,a-1$ 中的一个。 
+\end{lemma}
+
+于是我们可以按余数对整数进行分类。

@@ -91,18 +91,18 @@
 \end{definition}
 
 \begin{theorem}
-    非齐次线性方程组 $A\vX = \vbeta$ 有解的充分必要条件是
-    \[\vbeta = AA^-\vbeta\]
+    非齐次线性方程组 $AX = \beta$ 有解的充分必要条件是
+    \[\beta = AA^-\beta\]
 \end{theorem}
 
 \begin{theorem}
-    非齐次线性方程组 $A\vX = \vbeta$ 有解时，它的通解为
-    \[\vX  = A^-\vbeta\]
+    非齐次线性方程组 $AX = \beta$ 有解时，它的通解为
+    \[X  = A^-\beta\]
 \end{theorem}
 
 \begin{theorem}
-    数域 $K$ 上 $n$ 元齐次线性方程组 $A\vX = 0$ 的通解为
-    \[\vX  = (I_n - A^-A)\boldsymbol{Z}\]
+    数域 $K$ 上 $n$ 元齐次线性方程组 $AX = 0$ 的通解为
+    \[X  = (I_n - A^-A)\boldsymbol{Z}\]
     其中 $A^-$ 是 $A$ 的任意一个广义逆，$\boldsymbol{Z}$ 取遍 $K^n$ 中任意列向量。
 \end{theorem}
 
@@ -151,18 +151,18 @@
 如果 $n$ 级矩阵相似于一个对角矩阵，那么称 $A$ 可对角化。
 
 \begin{theorem}
-    数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是，$K^n$ 中有 $n$ 个线性无关的列向量 $\ji{\valpha}{n}$，以及 $K$ 中有 $n$ 个数 $\lambda_1,\cdots,\lambda_n$（它们之中有些可能相等），使得
-    \[A\valpha_i = \lambda_i \valpha_i, i=1,\cdots,n\]
-    这时，令 $P = (\ji{\valpha}{n})$，则
+    数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是，$K^n$ 中有 $n$ 个线性无关的列向量 $\ji{\alpha}{n}$，以及 $K$ 中有 $n$ 个数 $\lambda_1,\cdots,\lambda_n$（它们之中有些可能相等），使得
+    \[A\alpha_i = \lambda_i \alpha_i, i=1,\cdots,n\]
+    这时，令 $P = (\ji{\alpha}{n})$，则
     \[P^{-1}AP = \diag\{\lambda_1,\cdots,\lambda_n\}\]
 \end{theorem}
 
 \section{矩阵的特征值和特征向量}
 
 \begin{definition}
-    设 $A$ 是数域 $K$ 上的一个 $n$ 级矩阵，如果 $K^n$ 中有非零列向量 $\valpha$ 使得
-    \[A \valpha = \lambda_0\valpha,\text{且}\ \lambda_0\in K\]
-    那么称 $\lambda_0$ 是 $A$ 的一个特征值，称 $\valpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量。
+    设 $A$ 是数域 $K$ 上的一个 $n$ 级矩阵，如果 $K^n$ 中有非零列向量 $\alpha$ 使得
+    \[A \alpha = \lambda_0\alpha,\text{且}\ \lambda_0\in K\]
+    那么称 $\lambda_0$ 是 $A$ 的一个特征值，称 $\alpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量。
 \end{definition}
 
 注意零向量不是特征向量。
@@ -172,10 +172,10 @@
 
     \num{1} $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。\index{tezhengduoxiangshi@特征多项式}
 
-    \num{2} $\valpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\valpha$ 是齐次线性方程组 $(\lambda_0E-A)\vX = \vzero$  的一个解。
+    \num{2} $\alpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\alpha$ 是齐次线性方程组 $(\lambda_0E-A)X = \vzero$  的一个解。
 \end{theorem}
 
-设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)\vX = \vzero$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
+设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)X = \vzero$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
 
 \begin{theorem}
     相似的矩阵有相等的特征多项式。
@@ -196,20 +196,20 @@
 \section{矩阵可对角化的条件}
 
 \begin{theorem}
-    数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是 $A$ 有 $n$ 个线性无关的特征向量 $\ji{\valpha}{n}$，此时令
-    \[P=(\ji{\valpha}{n})\]
+    数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是 $A$ 有 $n$ 个线性无关的特征向量 $\ji{\alpha}{n}$，此时令
+    \[P=(\ji{\alpha}{n})\]
     则
     \[P^{-1}AP = \diag\{\lambda_1,\cdots,\lambda_n\}\]
-    其中 $\lambda_i$ 是 $\valpha_i$ 所属的特征值。上述对角矩阵称为 $A$ 的相似标准形。
+    其中 $\lambda_i$ 是 $\alpha_i$ 所属的特征值。上述对角矩阵称为 $A$ 的相似标准形。
 \end{theorem}
 
 \begin{theorem}
-    设 $\lambda_1,\lambda_2$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\ji{\valpha}{s}$ 与 $\ji{\vbeta}{r}$ 分别是 $A$ 的属于 $\lambda_1,\lambda_2$ 的线性无关的特征向量，则 $\ji{\valpha}{s},\ji{\vbeta}{r}$ 线性无关。
+    设 $\lambda_1,\lambda_2$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\ji{\alpha}{s}$ 与 $\ji{\beta}{r}$ 分别是 $A$ 的属于 $\lambda_1,\lambda_2$ 的线性无关的特征向量，则 $\ji{\alpha}{s},\ji{\beta}{r}$ 线性无关。
 \end{theorem}
 
 \begin{theorem}
-    设 $\lambda_1,\cdots,\lambda_m$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\valpha_{j1},\cdots,\valpha_{jr_j}$ 是 $A$ 的属于 $\lambda_j$ 的线性无关的特征向量，$j=1,\cdots,m$，则向量组
-    \[\valpha_{11},\cdots,\valpha_{1r_1},\cdots,\valpha_{m1},\cdots,\valpha_{1r_m}\]
+    设 $\lambda_1,\cdots,\lambda_m$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\alpha_{j1},\cdots,\alpha_{jr_j}$ 是 $A$ 的属于 $\lambda_j$ 的线性无关的特征向量，$j=1,\cdots,m$，则向量组
+    \[\alpha_{11},\cdots,\alpha_{1r_1},\cdots,\alpha_{m1},\cdots,\alpha_{1r_m}\]
     线性无关。
 \end{theorem}
 
@@ -237,9 +237,9 @@
 
 1. 计算 $|\lambda I- A|$，求出它的全部不同的根：$\lambda_1,\cdots,\lambda_m$，它们是 $A$ 的特征值。
 
-2. 对于每一个特征值 $\lambda_j$，求 $(\lambda_jI-A)\vX = \vzero$ 的一个基础解系 $\valpha_{j1},\cdots,\valpha_{jr_j}$；然后把它们施密特正交化和单位化，得到 $\veta_{j1},\cdots,\veta_{jr_j}$。它们也是 $A$ 的属于 $\lambda_j$ 的一个特征向量。
+2. 对于每一个特征值 $\lambda_j$，求 $(\lambda_jI-A)X = \vzero$ 的一个基础解系 $\alpha_{j1},\cdots,\alpha_{jr_j}$；然后把它们施密特正交化和单位化，得到 $\eta_{j1},\cdots,\eta_{jr_j}$。它们也是 $A$ 的属于 $\lambda_j$ 的一个特征向量。
 
 3. 令
-\[T=(\veta_{11},\cdots,\veta_{1r_1},\cdots,\veta_{m1},\cdots,\veta_{mr_m})\]
+\[T=(\eta_{11},\cdots,\eta_{1r_1},\cdots,\eta_{m1},\cdots,\eta_{mr_m})\]
 则 $T$ 是 $n$ 级正交矩阵，且
 \[T^{-1}AT = \diag\{\lambda_{1},\cdots,\lambda_{1},\cdots,\lambda_{m},\cdots,\lambda_{m}\}\]

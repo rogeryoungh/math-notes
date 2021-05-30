@@ -4,5 +4,4 @@ while (l < r) {
         l = mid;
     else
         r = mid - 1;
-}
-return l;
+}  return l;

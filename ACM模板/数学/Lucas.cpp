@@ -1,3 +1,4 @@
 ll Lucas(ll n, ll m, int p){
-    return m ? Lucas(n/p, m/p, p) * comb(n%p, m%p, p) % p : 1;
+    if (!m)  return 1;
+    return Lucas(n/p, m/p, p) * comb(n%p, m%p, p) % p;
 }

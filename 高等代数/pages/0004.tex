@@ -5,29 +5,29 @@
 数域上 $K$ 两个矩阵的行数、列数都相等，且所有元素对应相等，那么称两个矩阵相等。
 
 \begin{definition}
-    设数域 $K$ 上的 $s\times n$ 矩阵 $A=(a_{ij}),B=(b_{ij})$，令 $A,B$ 的和为
-    \[A+B \coloneqq  (a_{ij}+b_{ij})_{s\times n}\]
+    设数域 $K$ 上的 $s \times n$ 矩阵 $A=(a_{ij}),B=(b_{ij})$，令 $A,B$ 的和为
+    \[A + B \coloneqq  (a_{ij}+b_{ij})_{s \times n}\]
 \end{definition}
 
 \begin{definition}
-    设数域 $K$ 上的 $s\times n$ 矩阵 $A=(a_{ij})$，令 $k\in K$ 与 $A$ 的数量乘积为
-    \[kA \coloneqq  (ka_{ij})_{s\times n}\]
+    设数域 $K$ 上的 $s \times n$ 矩阵 $A=(a_{ij})$，令 $k\in K$ 与 $A$ 的数量乘积为
+    \[kA \coloneqq  (ka_{ij})_{s \times n}\]
 \end{definition}
 
 不难验证，矩阵的加法和数量乘法满足类似于 $n$ 维向量的 8 条运算法则。
 
 同样定义矩阵的减法
-\[A-B \coloneqq  A+(-B)\]
+\[A - B \coloneqq  A + (-B)\]
 
 \begin{definition}
-    设 $A=(a_{ij})_{s\times n},B=(a_{ij})_{n\times m}$，令 $A,B$ 的乘积为
-    \[AB = \left(\sum_{k=1}^na_{ik}b_{kj}\right)_{s\times m}\]
+    设 $A=(a_{ij})_{s \times n},B=(a_{ij})_{n \times m}$，令 $A,B$ 的乘积为
+    \[AB = \left(\sum_{k=1}^na_{ik}b_{kj}\right)_{s \times m}\]
 \end{definition}
 
 同样，若 $AB$ 和 $BA$ 几乎都不相等，甚至不一定能够运算。
 
 \begin{theorem}
-    设 $A=(a_{ij})_{s\times n},B=(b_{ij})_{n\times m},C=(c_{ij})_{m\times r}$，则
+    设 $A = (a_{ij})_{s \times n},  B = (b_{ij})_{n \times m},C = (c_{ij})_{m \times r}$，则
     \[(AB)C = A(BC)\]
 \end{theorem}
 
@@ -54,7 +54,7 @@
 主对角线上元素都是 $1$，其余元素都是 $0$ 的 $n$ 级矩阵称为 $n$ 级单位矩阵，记作 $E_n$ 或者简记作 $E$（有些书上记作 $I$）。主对角线上元素是同一个数 $k$，其余元素全为 $0$ 的 $n$ 级矩阵称为数量矩阵，可以记作 $kE$。
 
 因此有
-\[E_s A_{s\times n} = A_{s\times n}, A_{s\times n} E_n= A_{s\times n}\]
+\[E_s A_{s \times n} = A_{s \times n}, A_{s \times n} E_n= A_{s \times n}\]
 若 $A$ 是 $n$ 级矩阵，则
 \[EA = AE = A\]
 矩阵的乘法与数量乘法满足下述关系式
@@ -85,9 +85,9 @@
     \num{3} $\transpose{(AB)} = \transpose{B}\transpose{A}$
 \end{theorem}
 
-如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $\vbeta$，未知量 $\ji{x}{n}$ 组成的列向量为 $\vX$，那么 $n$ 元线性方程组可以写成
-\[A\vX = \vbeta\]
-于是列向量 $\veta$ 是方程组的 $A\vX = \vbeta$ 的解当且仅当 $A\veta = \vbeta$。
+如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $\beta$，未知量 $\ji{x}{n}$ 组成的列向量为 $X$，那么 $n$ 元线性方程组可以写成
+\[AX = \beta\]
+于是列向量 $\eta$ 是方程组的 $AX = \beta$ 的解当且仅当 $A\eta = \beta$。
 
 \section{特殊矩阵}
 
@@ -134,22 +134,22 @@
 \section{矩阵乘积的秩与行列式}
 
 \begin{theorem}
-    设 $A = (a_{ij})_{s\times n},B = (b_{ij})_{n\times m}$，则
+    设 $A = (a_{ij})_{s \times n},B = (b_{ij})_{n \times m}$，则
     \[\rank(AB) \leqslant \min\{\rank(A),\rank(B)\}\]
 \end{theorem}
 
 \begin{theorem}
-    设 $A = (a_{ij})_{s\times n},B = (b_{ij})_{n\times m}$，则
+    设 $A = (a_{ij})_{s \times n},B = (b_{ij})_{n \times m}$，则
     \[|AB| = |A||B| = |B||A| = |BA|\]
 \end{theorem}
 
 \begin{theorem}[Binet $-$ Cauchy 公式]
-    设 $A = (a_{ij})_{s\times n},B = (b_{ij})_{n\times m}$，则
+    设 $A = (a_{ij})_{s \times n},B = (b_{ij})_{n \times m}$，则
 
     1. 如果 $s>n$，那么 $|AB| = 0$；
 
     2. 如果 $s\leqslant n$，那么  $|AB|$ 等于 $A$ 的所有 $s$ 阶子式的与相应 $s$ 阶子式的乘积之和，即
-    \[|AB|=\sum_{1\leqslant v_1<\cdots< v_s\leqslant n}A \dbinom{1,\cdots,s}{v_1,\cdots,v_s} \cdot B \dbinom{v_1,\cdots,v_s}{1,\cdots,s}\]
+    \[|AB|=\sum_{1 \leqslant v_1<\cdots< v_s \leqslant n}A \dbinom{1,\cdots,s}{v_1,\cdots,v_s} \cdot B \dbinom{v_1,\cdots,v_s}{1,\cdots,s}\]
 \end{theorem}
 
 \begin{definition}
@@ -218,44 +218,44 @@
 
 引用 Kronecker 记号 $\delta_{ij}$，它的含义是
 \[\delta_{ij}=\begin{cases}
-    1,\quad \text{当}\ i=j\\
-    0,\quad \text{当}\ i\ne j
+    1,\quad \text{当}\ i = j\\
+    0,\quad \text{当}\ i \ne j
 \end{cases}\]
 
 \begin{theorem}
-    设实数域上 $n$ 级矩阵 $A$ 的行向量组为 $\ji{\vgamma}{n}$，列向量组为 $\ji{\valpha}{n}$，则
-    \[\vgamma_i\vgamma_j'=\delta_{ij},\valpha_i'\valpha_j=\delta_{ij},1 \leqslant i,j \leqslant n\]
+    设实数域上 $n$ 级矩阵 $A$ 的行向量组为 $\ji{\gamma}{n}$，列向量组为 $\ji{\alpha}{n}$，则
+    \[\gamma_i\gamma_j'=\delta_{ij},\alpha_i'\alpha_j=\delta_{ij},1 \leqslant i,j \leqslant n\]
 \end{theorem}
 
 \begin{definition}
-    在 $\RR^n$ 中，任给 $\valpha = (\ji{a}{n}),\vbeta=(b_1,\cdots,b_n)$，规定
-    \[(\valpha,\vbeta) \coloneqq  \sum a_nb_n = \valpha\transpose{\vbeta}\]
-    这个二元实值函数 $(\valpha,\vbeta)$ 称为 $\RR^n$ 的一个内积（通常称为标准内积）。
+    在 $\RR^n$ 中，任给 $\alpha = (\ji{a}{n}),\beta=(b_1,\cdots,b_n)$，规定
+    \[(\alpha,\beta) \coloneqq  \sum a_nb_n = \alpha\transpose{\beta}\]
+    这个二元实值函数 $(\alpha,\beta)$ 称为 $\RR^n$ 的一个内积（通常称为标准内积）。
 \end{definition}
 
 可以验证 $\RR^n$ 的标准内积有下列性质：
 
-1. 对称性 $(\valpha,\vbeta) = (\vbeta,\valpha)$。
+1. 对称性 $(\alpha,\beta) = (\beta,\alpha)$。
 
-2. 线性性之一 $(\valpha+\vgamma,\vbeta) = (\valpha,\vbeta) + (\vgamma,\vbeta)$。
+2. 线性性之一 $(\alpha+\gamma,\beta) = (\alpha,\beta) + (\gamma,\beta)$。
 
-3. 线性性之二 $(k\valpha,\vbeta) = k(\valpha,\vbeta)$。
+3. 线性性之二 $(k\alpha,\beta) = k(\alpha,\beta)$。
 
-4. 正定性 $(\valpha,\valpha)\geqslant 0$，当且仅当 $\valpha=\vzero$ 时等号成立。
+4. 正定性 $(\alpha,\alpha) \geqslant 0$，当且仅当 $\alpha=\vzero$ 时等号成立。
 
 可以验证
-\[(k_1\valpha_1+k_2\valpha_2,\vbeta) = k_1(\valpha_1,\vbeta) + k_2(\valpha_2,\vbeta)\]
-\[(\valpha,k_1\vbeta_1+k_2\vbeta_2) = k_1(\valpha,\vbeta_1) + k_2(\valpha,\vbeta_2)\]
+\[(k_1\alpha_1+k_2\alpha_2, \beta) = k_1(\alpha_1,\beta) + k_2(\alpha_2,\beta)\]
+\[(\alpha, k_1\beta_1+k_2\beta_2) = k_1(\alpha,\beta_1) + k_2(\alpha,\beta_2)\]
 
-$n$ 维向量空间 $\RR^n$ 有了标准内积后，就称 $\RR^n$ 为一个欧几里得空间。其中，向量 $\valpha$ 的长度 $|\valpha|$ 规定为
-\[|\valpha| \coloneqq  \sqrt{(\valpha,\valpha)}\]
+$n$ 维向量空间 $\RR^n$ 有了标准内积后，就称 $\RR^n$ 为一个欧几里得空间。其中，向量 $\alpha$ 的长度 $|\alpha|$ 规定为
+\[|\alpha| \coloneqq  \sqrt{(\alpha,\alpha)}\]
 
 不难验证
-\[|k\valpha| = |k||\valpha|\]
+\[|k\alpha| = |k||\alpha|\]
 
-长度为 $1$ 的向量称为单位向量，把非零向量 $\valpha$ 除以 $|\valpha|$ 称为把 $\valpha$ 单位化。
+长度为 $1$ 的向量称为单位向量，把非零向量 $\alpha$ 除以 $|\alpha|$ 称为把 $\alpha$ 单位化。
 
-在欧几里得空间 $\RR^n$ 中，如果 $(\valpha,\vbeta)=0$，那么称 $\valpha$ 与 $\vbeta$ 是正交的，记作 $\valpha \bot \vbeta$。由非零向量组成的向量组如果其中每两个不同的向量都正交，那么称它们为正交向量组。如果其每个向量都是单位向量，那么称它为正交单位向量组。
+在欧几里得空间 $\RR^n$ 中，如果 $(\alpha,\beta)=0$，那么称 $\alpha$ 与 $\beta$ 是正交的，记作 $\alpha \bot \beta$。由非零向量组成的向量组如果其中每两个不同的向量都正交，那么称它们为正交向量组。如果其每个向量都是单位向量，那么称它为正交单位向量组。
 
 特殊的，零向量与任何向量正交，仅由一个非零向量组成的向量组也是正交向量组。
 
@@ -266,52 +266,52 @@ $n$ 维向量空间 $\RR^n$ 有了标准内积后，就称 $\RR^n$ 为一个欧�
 \end{theorem}
 
 \begin{theorem}
-    设 $\ji{\valpha}{s}$ 是欧几里得空间 $\RR^n$ 中一个线性无关的向量组，令
+    设 $\ji{\alpha}{s}$ 是欧几里得空间 $\RR^n$ 中一个线性无关的向量组，令
     \begin{equation*}
         \begin{aligned}
-            \vbeta_1&=\valpha_1\\
-            \vbeta_2&=\valpha_2 - \frac{\valpha_2,\vbeta_1}{\vbeta_1,\vbeta_1}\vbeta_1\\
+            \beta_1&=\alpha_1\\
+            \beta_2&=\alpha_2 - \frac{\alpha_2,\beta_1}{\beta_1,\beta_1}\beta_1\\
             &\cdots \\
-            \vbeta_s &= \valpha_s-\sum_{j=1}^{s-1}\frac{\valpha_s,\vbeta_j}{\vbeta_j,\vbeta_j}\vbeta_j
+            \beta_s &= \alpha_s-\sum_{j=1}^{s-1}\frac{\alpha_s,\beta_j}{\beta_j,\beta_j}\beta_j
         \end{aligned}
     \end{equation*}
-    则 $\vbeta_1,\cdots,\vbeta_s$ 是正交向量组，并且与 $\ji{\valpha}{s}$ 等价。
+    则 $\beta_1,\cdots,\beta_s$ 是正交向量组，并且与 $\ji{\alpha}{s}$ 等价。
 \end{theorem}
 
-这给出了在欧几里得空间 $\RR^n$ 中从一个线性无关的向量组 $\ji{\valpha}{s}$ 出发，够造出与它等价的一个正交向量组的方法，这种方法称为 施密特 Schmidt 正交化过程，只要再将 $\vbeta_1,\cdots,\vbeta_s$ 中每个向量单位化，则其就是与原向量组等价的正交单位向量组，就是 $\RR^n$ 的一个标准正交基。
+这给出了在欧几里得空间 $\RR^n$ 中从一个线性无关的向量组 $\ji{\alpha}{s}$ 出发，够造出与它等价的一个正交向量组的方法，这种方法称为 施密特 Schmidt 正交化过程，只要再将 $\beta_1,\cdots,\beta_s$ 中每个向量单位化，则其就是与原向量组等价的正交单位向量组，就是 $\RR^n$ 的一个标准正交基。
 
 \section{\texorpdfstring{$K^n$ 到 $K^s$ 的线性映射}{Kn 到 Ks 的线性映射}}
 
 映射视作熟知的。设 $f$ 是集合 $S$ 到集合 $S'$，$S$ 所有元素在 $f$ 下的象组成的集合叫做 $f$ 的值域或者 $f$ 的象，记作 $f(S)$ 或 $\Im f$。
 
 \begin{definition}
-    数域 $K$ 上的向量空间 $K^n$ 到 $K^s$ 的一个映射 $\sigma$ 如果保持加法和数量乘法，即 $\forall \valpha,\vbeta \in K^n,k\in K$ 有
-    \[\sigma (\valpha+\vbeta) = \sigma(\valpha) + \sigma(\vbeta)\]
-    \[\sigma(k\valpha) = k\sigma(\valpha)\]
+    数域 $K$ 上的向量空间 $K^n$ 到 $K^s$ 的一个映射 $\sigma$ 如果保持加法和数量乘法，即 $\forall \alpha,\beta \in K^n,k\in K$ 有
+    \[\sigma (\alpha+\beta) = \sigma(\alpha) + \sigma(\beta)\]
+    \[\sigma(k\alpha) = k\sigma(\alpha)\]
     那么称 $\sigma$ 是 $K^n$ 到 $K^s$ 上的一个线性映射。
 \end{definition}
 
-设 $A$ 是数域 $K$ 上 $s\times n$ 矩阵，令
+设 $A$ 是数域 $K$ 上 $s \times n$ 矩阵，令
 \begin{equation*}
     \begin{aligned}
-        \bfA : K^n &\longrightarrow K^s\\
-        \valpha &\longmapsto A\valpha
+        \bfA : K^n & \rightarrow K^s \\
+        \alpha &\mapsto A\alpha
     \end{aligned}
 \end{equation*}
 
 
 \begin{definition}
     设 $\sigma$ 是 $K^n$ 到 $K^s$ 的一个映射，$K^n$ 的一个子集
-    \[\{\valpha \in K^n \mid \sigma(\valpha) = \vzero\}\]
+    \[ \{ \alpha \in K^n \mid \sigma(\alpha) = \vzero \} \]
     称为映射 $\sigma$ 的核，记作 $\Ker \sigma$
 \end{definition}
 
 不难验证，如果 $\sigma$ 是 $K^n$ 到 $K^s$ 的一个线性映射，那么 $\Ker \sigma$ 是 $K^n$ 的一个子空间。
 
 \begin{theorem}
-    设数域上 $K$ 上齐次线性方程组 $A\vX = \vzero$ 的解空间是 $W$，$A$ 对应的线性映射为 $\bfA$ 则
-    \[\Ker \bfA = W\]
+    设数域上 $K$ 上齐次线性方程组 $AX = \vzero$ 的解空间是 $W$，$A$ 对应的线性映射为 $\bfA$ 则
+    \[ \Ker \bfA = W \]
 \end{theorem}
 
 因此
-\[\dim \Ker \bfA + \dim \Im \bfA = \dim K^n\]
+\[ \dim \Ker \bfA + \dim \Im \bfA = \dim K^n \]

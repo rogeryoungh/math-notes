@@ -4,37 +4,37 @@
 
 \begin{definition}[线性映射]\index{xianxingyingshe@线性映射}
     设域 $F$ 上两个线性空间 $V,V'$，若映射 $\bfA : V \to V'$ 保持加法运算和纯量乘法运算，即
-    \[ \bfA(\valpha + \vbeta) = \bfA(\valpha) + \bfA(\vbeta), \quad \bfA(k\valpha) = k \bfA(\valpha) \]
+    \[ \bfA(\alpha + \beta) = \bfA(\alpha) + \bfA(\beta), \quad \bfA(k\alpha) = k \bfA(\alpha) \]
     则称 $\bfA$ 是 $V$ 到 $V'$ 的一个线性映射。
 \end{definition}
 
 线性空间 $V$ 到自身的线性映射通常称为 $V$ 上的线性变换，域 $F$ 上线性空间 $V$ 到 $F$ 的线性映射称为 $V$ 上的线性函数。\index{xianxingbianhuan@线性变换}
 
-$\bfA(\valpha)$ 也可写成 $\bfA\valpha$。
+$\bfA(\alpha)$ 也可写成 $\bfA\alpha$。
 
-特殊的，从 $V$ 映射到 $V'$ 的零向量是零映射，记作 $\vzero$；$V$ 上映射到自身的变换叫做恒等变换，记作 $\bfI$；映射 $\valpha$ 到 $k\valpha$ 的变换叫由 $k$ 决定的数乘变换，记作 $\boldsymbol{k}$。
+特殊的，从 $V$ 映射到 $V'$ 的零向量是零映射，记作 $\vzero$；$V$ 上映射到自身的变换叫做恒等变换，记作 $\bfI$；映射 $\alpha$ 到 $k\alpha$ 的变换叫由 $k$ 决定的数乘变换，记作 $\boldsymbol{k}$。
 
 定积分 $\displaystyle \boldsymbol{J}(f(x)) = \int_a^b f(x) \dd x$ 也是 $C[a,b]$ 到 $\RR$ 的一个线性映射。
 
 \paragraph{线性映射的存在性}
 
 \begin{theorem}
-    设域 $F$ 上的线性空间 $V,V'$，且 $V$ 是有限维的。从 $V$ 中取一个基 $\ji{\valpha}{n}$，从 $V'$ 任意取定 $n$ 个向量 $\ji{\vgamma}{n}$（可以有相同），令
-    \[ \bfA : V \to V', \valpha = \sum_{i=1}^n \valpha_i\valpha_i \mapsto \sum_{i=1}^n \valpha_i\vgamma_i \]
-    则 $\bfA$ 是 $V$ 到 $V'$ 的一个线性映射，且 $\bfA(\valpha_i) = \vgamma_i$。
+    设域 $F$ 上的线性空间 $V,V'$，且 $V$ 是有限维的。从 $V$ 中取一个基 $\ji{\alpha}{n}$，从 $V'$ 任意取定 $n$ 个向量 $\ji{\gamma}{n}$（可以有相同），令
+    \[ \bfA : V \to V', \alpha = \sum_{i=1}^n \alpha_i\alpha_i \mapsto \sum_{i=1}^n \alpha_i\gamma_i \]
+    则 $\bfA$ 是 $V$ 到 $V'$ 的一个线性映射，且 $\bfA(\alpha_i) = \gamma_i$。
 \end{theorem}
 
-设域 $F$ 上的线性空间 $V$ 有两个子空间 $U,W$，且 $V = U \oplus W$。任取 $\valpha \in V$，设 $\valpha = \valpha_1 + \valpha_2, \valpha_1 \in U, \valpha_2\in W$。令
-\[ \bfP_U : V \to V, \valpha \mapsto \valpha_1 \]
+设域 $F$ 上的线性空间 $V$ 有两个子空间 $U,W$，且 $V = U \oplus W$。任取 $\alpha \in V$，设 $\alpha = \alpha_1 + \alpha_2, \alpha_1 \in U, \alpha_2\in W$。令
+\[ \bfP_U : V \to V, \alpha \mapsto \alpha_1 \]
 则 $\bfP_U$ 是 $V$ 上的一个线性变换。称 $\bfP_U$ 是平行于 $W$ 在 $U$ 上的投影，它满足
-\[ \bfP_U(\valpha) =
+\[ \bfP_U(\alpha) =
 \begin{cases}
-    \valpha,& \valpha \in U\\
-    0 , & \valpha \in W
+    \alpha,& \alpha \in U\\
+    0 , & \alpha \in W
 \end{cases} \]
 可以证明，满足该式的投影变换是唯一的。
 
-类似的，定义 $\bfP_W(\valpha) = \valpha_2$，称它为平行于 $U$ 在 $W$ 的投影。
+类似的，定义 $\bfP_W(\alpha) = \alpha_2$，称它为平行于 $U$ 在 $W$ 的投影。
 
 \begin{definition}[幂等变换]\index{midengibanhuan@幂等变换}
     线性空间 $V$ 上的线性变换 $\bfA$ 如果满足 $\bfA^2 = \bfA$，则称 $\bfA$ 是幂等变换。
@@ -44,15 +44,15 @@ $\bfA(\valpha)$ 也可写成 $\bfA\valpha$。
     线性空间 $V$ 上的两个线性变换 $\bfA, \bfB$ 如果满足 $\bfA\bfB = \bfB\bfA = 0$，则称 $\bfA$ 与 $\bfB$ 正交。
 \end{definition}
 
-任取 $\valpha\in V$，设 $\valpha = \valpha_1 + \valpha_2, \valpha_1 \in U, \valpha_2 \in W$，则
+任取 $\alpha\in V$，设 $\alpha = \alpha_1 + \alpha_2, \alpha_1 \in U, \alpha_2 \in W$，则
 \begin{equation*}
     \begin{aligned}
-        \bfP_U^2(\valpha) = \bfP_U(\bfP_U(\valpha)) = \valpha_1 = \bfP_U(\valpha)\\
-        \bfP_W^2(\valpha) = \bfP_W(\bfP_W(\valpha)) = \valpha_1 = \bfP_W(\valpha)
+        \bfP_U^2(\alpha) = \bfP_U(\bfP_U(\alpha)) = \alpha_1 = \bfP_U(\alpha)\\
+        \bfP_W^2(\alpha) = \bfP_W(\bfP_W(\alpha)) = \alpha_1 = \bfP_W(\alpha)
     \end{aligned}
 \end{equation*}
 且
-\[ \bfP_U\bfP_W(\valpha) = \bfP_U(\valpha_2) = 0 = \bfP_W(\valpha_1) = \bfP_W\bfP_U(\valpha) \]
+\[ \bfP_U\bfP_W(\alpha) = \bfP_U(\alpha_2) = 0 = \bfP_W(\alpha_1) = \bfP_W\bfP_U(\alpha) \]
 由此得出
 \[ \bfP_U^2 = \bfP_U, \bfP_W^2 = \bfP_W, \bfP_U \]
 
@@ -65,7 +65,7 @@ $\bfA(\valpha)$ 也可写成 $\bfA\valpha$。
 若 $\bfA\in \Hom(V,V')$ 可逆，则 $\bfA$ 是 $V \to V'$ 的一同构映射，从而 $\bfA^{-1}$ 是 $V' \to V$ 的同步映射。于是 $\bfA^{-1} \in \Hom(V',V)$。
 
 设 $\bfA,\bfB \in \Hom (V,V')$，由于陪域 $V'$ 是线性空间，因此可以定义加法和纯量乘法如下
-\[ (\bfA + \bfB) \valpha \coloneqq \bfA\valpha + \bfB\valpha, (k\bfA)\valpha \coloneqq k(\bfA \valpha) \]
+\[ (\bfA + \bfB) \alpha \coloneqq \bfA\alpha + \bfB\alpha, (k\bfA)\alpha \coloneqq k(\bfA \alpha) \]
 显然其运算结果都是线性映射，称 $\bfA + \bfB$ 是 $\bfA$ 与 $\bfB$ 的和，$k\bfA$ 是 $k$ 与 $\bfA$ 的纯量乘积。
 
 不难验证，$\Hom(V,V')$ 是域 $F$ 上的线性空间。特别的，$\Hom(V,V)$ 是一个有单位元的环，还可证明其上变换的乘法与纯量加法满足
@@ -75,7 +75,7 @@ $\bfA(\valpha)$ 也可写成 $\bfA\valpha$。
 
 \begin{definition}[代数]\index{daishu@代数}
     设域 $F$ 上的线性空间 $A$ 对于其上的加法和纯量乘法是一个有单位元的交换环，且
-    \[ k(\valpha \vbeta) = (k\valpha)\vbeta = \valpha(k\vbeta), \forall k \in F,\valpha,\vbeta \in A \]
+    \[ k(\alpha \beta) = (k\alpha)\beta = \alpha(k\beta), \forall k \in F,\alpha,\beta \in A \]
     那么称 $A$ 是一个（结合）代数，把线性空间 $A$ 的维数称为代数 $A$ 的维数。
 \end{definition}
 
@@ -112,7 +112,7 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 
 \begin{definition}[核] \index{he@核}
     设域 $F$ 上的线性空间 $V,V'$，其中 $\bfA : V \to V'$，令 $V'$ 的零向量在 $\bfA$ 下的原象集称为 $\bfA$ 的和，记作 $\Ker \bfA$，即
-    \[ \Ker \bfA \coloneqq \{ \valpha \in V \mid \bfA\valpha = 0 \} \]
+    \[ \Ker \bfA \coloneqq \{ \alpha \in V \mid \bfA\alpha = 0 \} \]
     $\bfA$ 的象（值域）记作 $\Im A$ 或 $\bfA V$。
 \end{definition}
 
@@ -138,10 +138,10 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 
 \section{线性映射和线性变换的矩阵表示}
 
-设域 $F$ 上的有限维线性空间 $V,V'$，其上的线性映射 $\bfA : V \to V'$。设 $\dim V = n,\dim V' = s$。我们知道 $\bfA$ 被其在 $V$ 上的一个基所确定，不妨取 $V$ 上的一个基 $\ji{\valpha}{n}$，$\bfA$ 完全被 $\bfA \valpha_1,\cdots,\bfA \valpha_n$ 决定。由于 $\bfA \valpha_i \in V'$，因此在 $V'$ 中取一个基 $\ji{\veta}{s}$，$\bfA \valpha_i$ 被它在基 $\ji{\veta}{s}$ 下的坐标所决定，形式的记作
+设域 $F$ 上的有限维线性空间 $V,V'$，其上的线性映射 $\bfA : V \to V'$。设 $\dim V = n,\dim V' = s$。我们知道 $\bfA$ 被其在 $V$ 上的一个基所确定，不妨取 $V$ 上的一个基 $\ji{\alpha}{n}$，$\bfA$ 完全被 $\bfA \alpha_1,\cdots,\bfA \alpha_n$ 决定。由于 $\bfA \alpha_i \in V'$，因此在 $V'$ 中取一个基 $\ji{\eta}{s}$，$\bfA \alpha_i$ 被它在基 $\ji{\eta}{s}$ 下的坐标所决定，形式的记作
 \[ 
-    \left( \bfA \valpha_1 , \bfA \valpha_2 , \cdots , \bfA \valpha_n \right) = 
-    \left( \veta_1 , \veta_2 , \cdots , \veta_n \right)
+    \left( \bfA \alpha_1 , \bfA \alpha_2 , \cdots , \bfA \alpha_n \right) = 
+    \left( \eta_1 , \eta_2 , \cdots , \eta_n \right)
     \left( \begin{matrix}
         a_{11} & a_{11} & \cdots & a_{1n}\\
         a_{21} & a_{22} & \cdots & a_{2n}\\
@@ -149,15 +149,15 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
         a_{s1} & a_{s1} & \cdots & a_{sn}
     \end{matrix} \right)
 \]
-把 $s\times n$ 矩阵记作 $A$，它的第 $j$ 列就是 $\bfA \valpha_j$ 在 $\ji{\veta}{s}$ 下的坐标。称 $A$ 是线性映射 $\bfA$ 在 $V$ 的基 $\ji{\valpha}{n}$ 和 $V'$ 的基 $\ji{\veta}{s}$ 下的矩阵。于是线性映射 $\bfA$ 有了矩阵表示。
+把 $s\times n$ 矩阵记作 $A$，它的第 $j$ 列就是 $\bfA \alpha_j$ 在 $\ji{\eta}{s}$ 下的坐标。称 $A$ 是线性映射 $\bfA$ 在 $V$ 的基 $\ji{\alpha}{n}$ 和 $V'$ 的基 $\ji{\eta}{s}$ 下的矩阵。于是线性映射 $\bfA$ 有了矩阵表示。
 
-通常把 $(\bfA \valpha_1,\cdots,\bfA \valpha_n)$ 记成 $\bfA(\ji{\valpha}{n})$ 于是上式可以记成
-\[ \bfA(\ji{\valpha}{n}) = (\ji{\valpha}{n}) A\]
+通常把 $(\bfA \alpha_1,\cdots,\bfA \alpha_n)$ 记成 $\bfA(\ji{\alpha}{n})$ 于是上式可以记成
+\[ \bfA(\ji{\alpha}{n}) = (\ji{\alpha}{n}) A\]
 
-对于 $V$ 上的线性变换 $\bfA$，由于 $\bfA \valpha_i \in V$，因此 $\bfA \valpha_i$ 可以用 $V$ 的基 $\ji{\valpha}{n}$ 线性表出，于是有
+对于 $V$ 上的线性变换 $\bfA$，由于 $\bfA \alpha_i \in V$，因此 $\bfA \alpha_i$ 可以用 $V$ 的基 $\ji{\alpha}{n}$ 线性表出，于是有
 \[ 
-    \left( \bfA \valpha_1 , \bfA \valpha_2 , \cdots , \bfA \valpha_n \right) = 
-    \left( \valpha_1 , \valpha_2 , \cdots , \valpha_n \right)
+    \left( \bfA \alpha_1 , \bfA \alpha_2 , \cdots , \bfA \alpha_n \right) = 
+    \left( \alpha_1 , \alpha_2 , \cdots , \alpha_n \right)
     \left( \begin{matrix}
         a_{11} & a_{11} & \cdots & a_{1n}\\
         a_{21} & a_{22} & \cdots & a_{2n}\\
@@ -165,14 +165,14 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
         a_{n1} & a_{n1} & \cdots & a_{nn}
     \end{matrix} \right)
 \]
-把右端的 $n$ 级矩阵记作 $A$，它的第 $j$ 列就是 $\bfA \valpha_j$ 在 $\ji{\valpha}{n}$ 下的坐标。称 $A$ 是线性映射 $\bfA$ 在 $V$ 的基 $\ji{\valpha}{n}$ 下的矩阵。于是线性映射 $\bfA$ 有了矩阵表示。
-\[ \bfA(\ji{\valpha}{n}) = (\ji{\valpha}{n}) A\]
+把右端的 $n$ 级矩阵记作 $A$，它的第 $j$ 列就是 $\bfA \alpha_j$ 在 $\ji{\alpha}{n}$ 下的坐标。称 $A$ 是线性映射 $\bfA$ 在 $V$ 的基 $\ji{\alpha}{n}$ 下的矩阵。于是线性映射 $\bfA$ 有了矩阵表示。
+\[ \bfA(\ji{\alpha}{n}) = (\ji{\alpha}{n}) A\]
 
 设域 $F$ 上 $n$ 维线性空间 $V$ 上的幂等变换，有
 \[ V = \Im \bfA \oplus \Ker \bfA \]
-且 $\bfA$ 是平行于 $\Ker \bfA$ 在 $\Im \bfA$ 上的投影。在 $\Im \bfA$ 中取一个基 $\ji{\valpha}{r}$；在 $\Ker \bfA$ 中取一个基 $\ji{\vbeta}{{n-r}}$，则 $\ji{\valpha}{r},\ji{\vbeta}{{n-r}}$ 是 $V$ 的一个基，由于 $\bfA$ 是平行于 $\Ker \bfA$ 在 $\Im A$ 上的投影，因此
-\[ \bfA \valpha_i = \valpha_i, \bfA \vbeta_j = 0 \]
-从而幂等变换 $\bfA$ 在基 $\ji{\valpha}{r},\ji{\vbeta}{{n-r}}$ 下的矩阵 $\bfA$ 为
+且 $\bfA$ 是平行于 $\Ker \bfA$ 在 $\Im \bfA$ 上的投影。在 $\Im \bfA$ 中取一个基 $\ji{\alpha}{r}$；在 $\Ker \bfA$ 中取一个基 $\ji{\beta}{{n-r}}$，则 $\ji{\alpha}{r},\ji{\beta}{{n-r}}$ 是 $V$ 的一个基，由于 $\bfA$ 是平行于 $\Ker \bfA$ 在 $\Im A$ 上的投影，因此
+\[ \bfA \alpha_i = \alpha_i, \bfA \beta_j = 0 \]
+从而幂等变换 $\bfA$ 在基 $\ji{\alpha}{r},\ji{\beta}{{n-r}}$ 下的矩阵 $\bfA$ 为
 \[ A = \left(\begin{matrix}
     E_r & 0\\
     0   & 0
@@ -205,21 +205,21 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 
 \paragraph{向量在线性映射（或线性变换）下的象的坐标}。
 
-设域 $F$ 上的 $n$ 维线性空间和 $s$ 维线性空间，线性映射 $\bfA : V \to V'$ 在 $V$ 的一个基 $\ji{\valpha}{n}$ 和 $V'$ 的一个基 $\ji{\veta}{s}$ 下的矩阵为 $A$。设 $V$ 中向量 $\valpha$ 在基 $\ji{\valpha}{n}$ 下的坐标为 $\vX$，有
-\[ \bfA \valpha = (\ji{\veta}{n})A\vX \]
-则 $\bfA \valpha$ 在基 $\ji{\veta}{s}$ 下的坐标为 $A\vX$。
+设域 $F$ 上的 $n$ 维线性空间和 $s$ 维线性空间，线性映射 $\bfA : V \to V'$ 在 $V$ 的一个基 $\ji{\alpha}{n}$ 和 $V'$ 的一个基 $\ji{\eta}{s}$ 下的矩阵为 $A$。设 $V$ 中向量 $\alpha$ 在基 $\ji{\alpha}{n}$ 下的坐标为 $X$，有
+\[ \bfA \alpha = (\ji{\eta}{n})AX \]
+则 $\bfA \alpha$ 在基 $\ji{\eta}{s}$ 下的坐标为 $AX$。
 
-特别的，设线性空间 $V$ 中的一组基 $\ji{\valpha}{n}$，其上的线性变换 $\bfA$ 在此基下的矩阵为 $A$。把向量 $\valpha$ 在此基下的坐标记作 $\vX$，有
-\[ \bfA \alpha = (\ji{\valpha}{n})A\vX \]
-即向量 $\bfA$ 在此基下的坐标是 $A\vX$。
+特别的，设线性空间 $V$ 中的一组基 $\ji{\alpha}{n}$，其上的线性变换 $\bfA$ 在此基下的矩阵为 $A$。把向量 $\alpha$ 在此基下的坐标记作 $X$，有
+\[ \bfA \alpha = (\ji{\alpha}{n})AX \]
+即向量 $\bfA$ 在此基下的坐标是 $AX$。
 
-若向量 $\vgamma$ 在基 $\ji{\valpha}{n}$ 下的坐标为 $\vY$，则
-\[ \bfA\valpha = \vgamma \Leftrightarrow A\vX = \vY \]
+若向量 $\gamma$ 在基 $\ji{\alpha}{n}$ 下的坐标为 $Y$，则
+\[ \bfA\alpha = \gamma \Leftrightarrow AX = Y \]
 
 \paragraph{线性变换在不同基下的矩阵之间的关系}
 
 \begin{theorem}
-    设域 $F$ 上的 $n$ 维线性空间，线性变换 $\bfA$ 在基 $\ji{\valpha}{n}$ 下的矩阵为 $A$，在基 $\ji{\veta}{s}$ 下的矩阵为 $B$，从基 $\ji{\valpha}{n}$ 到基 $\ji{\veta}{s}$ 的过度矩阵为 $S$，则
+    设域 $F$ 上的 $n$ 维线性空间，线性变换 $\bfA$ 在基 $\ji{\alpha}{n}$ 下的矩阵为 $A$，在基 $\ji{\eta}{s}$ 下的矩阵为 $B$，从基 $\ji{\alpha}{n}$ 到基 $\ji{\eta}{s}$ 的过度矩阵为 $S$，则
     \[ B = S^{-1}AS \]
 \end{theorem}
 
@@ -230,21 +230,21 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 \section{线性变换的特征值和特征向量，线性变换可对角化的条件}
 
 \begin{definition}
-    设域 $F$ 上的线性空间 $V$ 上的一个线性变换 $\bfA$，若 $V$ 中存在一个非零向量 $\vxi$，存在 $\lambda_0 \in F$ 使得
-    \[ \bfA \vxi = \lambda_0\vxi \]
-    则称 $\lambda_0$ 是线性变换 $\bfA$ 的一个特征值，称 $\vxi$ 是 $\bfA$ 的属于特征值 $\lambda_0$ 的一个特征向量。
+    设域 $F$ 上的线性空间 $V$ 上的一个线性变换 $\bfA$，若 $V$ 中存在一个非零向量 $\xi$，存在 $\lambda_0 \in F$ 使得
+    \[ \bfA \xi = \lambda_0\xi \]
+    则称 $\lambda_0$ 是线性变换 $\bfA$ 的一个特征值，称 $\xi$ 是 $\bfA$ 的属于特征值 $\lambda_0$ 的一个特征向量。
 \end{definition}
 
-对于几何空间 $V$，那么 $\bfA$ 对 $\vxi$ 的作用是把 $\xi$ 拉伸或压缩 $\lambda_0$ 倍。
+对于几何空间 $V$，那么 $\bfA$ 对 $\xi$ 的作用是把 $\xi$ 拉伸或压缩 $\lambda_0$ 倍。
 
 \begin{theorem}
-    设域 $F$ 上 $n$ 为线性空间 $V$ 上的线性变换 $\bfA$ 可对角化当且仅当 $\bfA$ 有 $n$ 个线性无关的特征向量 $\ji{\vxi}{n}$，此时 $\bfA$ 在 $\ji{\vxi}{n}$ 下的矩阵为
+    设域 $F$ 上 $n$ 为线性空间 $V$ 上的线性变换 $\bfA$ 可对角化当且仅当 $\bfA$ 有 $n$ 个线性无关的特征向量 $\ji{\xi}{n}$，此时 $\bfA$ 在 $\ji{\xi}{n}$ 下的矩阵为
     \[ \diag\{\ji{\lambda}{n}\} \]
-    其中 $\lambda_i$ 是 $\vxi_i$ 所属的特征值。该矩阵称为 $\bfA$ 的标准型。除了主对角线上元素的排列次序外，$\bfA$ 的标准型是由 $\bfA$ 唯一决定的。
+    其中 $\lambda_i$ 是 $\xi_i$ 所属的特征值。该矩阵称为 $\bfA$ 的标准型。除了主对角线上元素的排列次序外，$\bfA$ 的标准型是由 $\bfA$ 唯一决定的。
 \end{theorem}
 
 设域 $F$ 上线性空间 $V$ 上的线性变换 $\bfA$，$\lambda_0$ 是 $\bfA$ 的一个特征值，令
-\[ V_{\lambda_0} \coloneqq \{ \valpha \in V \mid \bfA\valpha = \lambda_0\valpha \} \]
+\[ V_{\lambda_0} \coloneqq \{ \alpha \in V \mid \bfA\alpha = \lambda_0\alpha \} \]
 易验证 $V_{\lambda_0}$ 是 $V$ 的一个子空间，称 $V_{\lambda_0}$ 是数域特征值 $\lambda_0$ 的特征子空间。且
 \[ V_{\lambda_0} = \Ker(\lambda_0\bfI - \bfA) \]
 
@@ -268,7 +268,7 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 \section{线性变换的不变子空间}
 
 \begin{definition}[不变子空间] \index{bubianzikongjian@不变子空间}
-    设域 $F$ 上的线性空间 $V$ 上的线性变换 $\bfA$，若 $V$ 的子空间 $W$ 如果满足对任意 $\valpha \in W$ 都有 $\bfA \valpha \in W$ 那么称 $W$ 是 $\bfA$ 的不变子空间，简称为 $\bfA$- 子空间。
+    设域 $F$ 上的线性空间 $V$ 上的线性变换 $\bfA$，若 $V$ 的子空间 $W$ 如果满足对任意 $\alpha \in W$ 都有 $\bfA \alpha \in W$ 那么称 $W$ 是 $\bfA$ 的不变子空间，简称为 $\bfA$- 子空间。
 \end{definition}
 
 设线性空间 $V$ 上的可交换线性变换 $\bfA,\bfB$，容易验证 $\Ker \bfB,\Im \bfB,\bfB$ 的特征子空间都是 $\bfA$- 子空间
@@ -322,7 +322,7 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 \section{幂零变换的 Jordan 标准型}
 
 \begin{definition}
-    若 $\veta \in W$，且存在一个正整数 $t$ 使得 $\bfB^{t-1}\veta \ne 0, \bfB^t\veta = 0$，则称子空间 $\langle \bfB^{t-1}\veta,\bfB\veta,\veta \rangle$ 是由 $\veta$ 生成的 $\bfB$- 强循环子空间。 
+    若 $\eta \in W$，且存在一个正整数 $t$ 使得 $\bfB^{t-1}\eta \ne 0, \bfB^t\eta = 0$，则称子空间 $\langle \bfB^{t-1}\eta,\bfB\eta,\eta \rangle$ 是由 $\eta$ 生成的 $\bfB$- 强循环子空间。 
 \end{definition}
 
 \begin{theorem}
@@ -340,11 +340,11 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 \section{线性函数与对偶空间}
 
 \begin{definition}[线性函数]\index{xianxinghanshu@线性函数}
-    设域 $F$ 上的线性空间 $V$，映射 $f : V \to F$ 若对任意的 $k \in F, \valpha,\vbeta \in V$ 满足
+    设域 $F$ 上的线性空间 $V$，映射 $f : V \to F$ 若对任意的 $k \in F, \alpha,\beta \in V$ 满足
     \begin{equation*}
         \begin{aligned}
-            f(\valpha+\vbeta) &= f(\valpha) + f(\vbeta) \\
-            f(k\valpha) &= kf(\valpha)
+            f(\alpha+\beta) &= f(\alpha) + f(\beta) \\
+            f(k\alpha) &= kf(\alpha)
         \end{aligned}
     \end{equation*}
     那么称 $f$ 是 $V$ 上的线性函数。
@@ -356,36 +356,36 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 
 设 $V$ 是域 $F$ 上的线性空间，由于 $V$ 上的线性函数可看成 $V \to F$ 的映射，因此可以把 $V$ 上所有线性函数的全集记作 $\Hom(V,F)$。它是域 $F$ 上的一个线性空间，称它为 $V$ 上的线性函数空间。
 
-容易看出 $\Hom(V,f) \cong V$，任取 $f \in \Hom(V,F)$ 由于 $f$ 完全被它在 $V$ 上的一个基 $\ji{\valpha}{n}$ 决定，因此对应法则
-\[ \sigma : \Hom(V,F) \to F^n, \quad f \mapsto (f(\valpha_1),\cdots,f(\valpha_n)) \]
+容易看出 $\Hom(V,f) \cong V$，任取 $f \in \Hom(V,F)$ 由于 $f$ 完全被它在 $V$ 上的一个基 $\ji{\alpha}{n}$ 决定，因此对应法则
+\[ \sigma : \Hom(V,F) \to F^n, \quad f \mapsto (f(\alpha_1),\cdots,f(\alpha_n)) \]
 是一个映射，显然 $\sigma$ 是满射、单射，且保持加法和纯量运算，因此 $\sigma$ 是 $\Hom(V,F) \to F^n$ 上的同构映射，从而 $\sigma^{-1}$ 是 $\Hom(V,F) \to F^n$ 的同构映射。在 $F^n$ 中取标准基 $\ji{\bfeps}{n}$ 则 $\sigma^{-1}(\bfeps_1),\cdots,\sigma^{-1}(\bfeps_1)$ 是 $\Hom(V,F)$ 的一个基。
 
-记 $f_i = \sigma^{_1}(\bfeps_i)$，则 $\sigma(f_i) = \bfeps$。于是有 $f_i(\valpha_j) = \delta_{ij}$。
+记 $f_i = \sigma^{_1}(\bfeps_i)$，则 $\sigma(f_i) = \bfeps$。于是有 $f_i(\alpha_j) = \delta_{ij}$。
 
-$\Hom(V,F)$ 的这个基 $\ji{f}{n}$ 称为 $V$ 的基 $\ji{\valpha}{n}$ 的对偶基，把 $\Hom(V,F)$ 称为 $V$ 的对偶空间，记作 $V^*$。
+$\Hom(V,F)$ 的这个基 $\ji{f}{n}$ 称为 $V$ 的基 $\ji{\alpha}{n}$ 的对偶基，把 $\Hom(V,F)$ 称为 $V$ 的对偶空间，记作 $V^*$。
 
 \begin{theorem}
-    设域 $F$ 上 $n$ 维线性空间 $V$，在 $V$ 中取两个基：$\ji{\valpha}{n}$ 与 $\ji{\vbeta}{n}$；$V^*$ 中相对应的对偶基分别为 $\ji{f}{n}$ 与 $\ji{g}{n}$。如果 $V$ 中基 $\ji{\valpha}{n}$ 到基 $\ji{\vbeta}{n}$ 的过渡矩阵是 $A$，那么 $V^*$ 中基 $\ji{f}{n}$ 到基 $\ji{g}{n}$ 的过渡矩阵 $B$ 为
+    设域 $F$ 上 $n$ 维线性空间 $V$，在 $V$ 中取两个基：$\ji{\alpha}{n}$ 与 $\ji{\beta}{n}$；$V^*$ 中相对应的对偶基分别为 $\ji{f}{n}$ 与 $\ji{g}{n}$。如果 $V$ 中基 $\ji{\alpha}{n}$ 到基 $\ji{\beta}{n}$ 的过渡矩阵是 $A$，那么 $V^*$ 中基 $\ji{f}{n}$ 到基 $\ji{g}{n}$ 的过渡矩阵 $B$ 为
     \[ B = \transpose{(A^{-1})} \]
 \end{theorem}
 
-设域 $F$ 上 $n$ 维线性空间 $V$，取 $V$ 一个基 $\ji{\valpha}{n}$，在 $V^*$ 中取相应的对偶基 $\ji{f}{n}$。映射
-\[ \sigma : V \to V^*, \quad \valpha = \sum_{i=1}^n x_i\valpha_i \mapsto \sum_{i=1}^n x_if_i \]
-是一个同构映射，把 $\valpha$ 在 $\sigma$ 下的像记作 $f_\valpha$ 或 $\valpha^*$。对 $V$ 中任意向量 $\vbeta = \sum_{i=1}^n y_i\valpha_i$，由于 $f_i(\vbeta) = y_i$，因此有
-\[ f_\valpha(\vbeta) = \left( \sum_{i=1}^n x_if_i \right) = \sum_{i=1}^n x_if_i(\vbeta) = \sum_{i=1}^n x_iy_i \]
-这表明 $\valpha$ 在 $\sigma$ 下的像 $f_\valpha$ 在 $\vbeta$ 处的函数值等于 $\valpha$ 与 $\vbeta$ 的坐标的对应分量乘积之和。
+设域 $F$ 上 $n$ 维线性空间 $V$，取 $V$ 一个基 $\ji{\alpha}{n}$，在 $V^*$ 中取相应的对偶基 $\ji{f}{n}$。映射
+\[ \sigma : V \to V^*, \quad \alpha = \sum_{i=1}^n x_i\alpha_i \mapsto \sum_{i=1}^n x_if_i \]
+是一个同构映射，把 $\alpha$ 在 $\sigma$ 下的像记作 $f_\alpha$ 或 $\alpha^*$。对 $V$ 中任意向量 $\beta = \sum_{i=1}^n y_i\alpha_i$，由于 $f_i(\beta) = y_i$，因此有
+\[ f_\alpha(\beta) = \left( \sum_{i=1}^n x_if_i \right) = \sum_{i=1}^n x_if_i(\beta) = \sum_{i=1}^n x_iy_i \]
+这表明 $\alpha$ 在 $\sigma$ 下的像 $f_\alpha$ 在 $\beta$ 处的函数值等于 $\alpha$ 与 $\beta$ 的坐标的对应分量乘积之和。
 
 进一步地，我们可以考虑对偶空间 $V^*$ 的对偶空间 $(V^*)^*$，简记为 $V^{**}$，称 $V^{**}$ 是 $V$ 的双重对偶空间，有
 \[ V \cong V^{*} \cong V^{**} \]
 
-设 $\ji{\valpha}{n}$ 是 $V$ 的一个基，$V^*$ 中相应的对偶基为 $\ji{f}{n}$。设同构映射 
-\[ \sigma : V \to V^*, \quad \valpha \mapsto f_\valpha \]
+设 $\ji{\alpha}{n}$ 是 $V$ 的一个基，$V^*$ 中相应的对偶基为 $\ji{f}{n}$。设同构映射 
+\[ \sigma : V \to V^*, \quad \alpha \mapsto f_\alpha \]
 同理，有同构映射
-\[ \tau : V^* \to V^{**}, \quad f_\valpha \mapsto \valpha^{**} \]
+\[ \tau : V^* \to V^{**}, \quad f_\alpha \mapsto \alpha^{**} \]
 任取 $f \in V$，有
-\[ f_\valpha = \sum_{i=1}^n x_if_i, \quad f = \sum_{i=1}^n f(\valpha_i) f_i \]
+\[ f_\alpha = \sum_{i=1}^n x_if_i, \quad f = \sum_{i=1}^n f(\alpha_i) f_i \]
 从而
-\[ \valpha^{**}(f) = \sum_{i=1}^n x_if(\valpha_i) = f\left( \sum_{i=1}^n x_i\valpha_i \right) = f(\valpha) \]
-由于  $(\tau\sigma)\valpha = \tau(\sigma\valpha) = \tau(f_\valpha) = \valpha^{**}$，因此 $\valpha^{**}(f)$ 的值不依赖于 $V$ 中基的选择。我们称这种不依赖于基的选择的同构映射为标准同构或自然同构。即 $\tau\sigma : V \to V^{**}$ 是自然同构。\index{zirantonggou@自然同构}
+\[ \alpha^{**}(f) = \sum_{i=1}^n x_if(\alpha_i) = f\left( \sum_{i=1}^n x_i\alpha_i \right) = f(\alpha) \]
+由于  $(\tau\sigma)\alpha = \tau(\sigma\alpha) = \tau(f_\alpha) = \alpha^{**}$，因此 $\alpha^{**}(f)$ 的值不依赖于 $V$ 中基的选择。我们称这种不依赖于基的选择的同构映射为标准同构或自然同构。即 $\tau\sigma : V \to V^{**}$ 是自然同构。\index{zirantonggou@自然同构}
 
 于是 $V$ 与 $V^{*}$ 互为对偶空间。

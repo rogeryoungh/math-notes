@@ -5,9 +5,9 @@ struct QMtx {
     }
     QMtx operator * (QMtx& mtx) {
         QMtx c(p);
-        _fora(i, 1, p) { _fora(k, 1, p) {
+        _fora (i, 1, p) { _fora(k, 1, p) {
             ll t = m[i][k];
-            _fora(j,1,p) {
+            _fora (j, 1, p) {
                 c.m[i][j] += t * mtx.m[k][j];
                 c.m[i][j] %= MOD;
             }
@@ -17,7 +17,7 @@ struct QMtx {
 };
 QMtx base(ll p) {
     QMtx rst(p);
-    _fora(i, 1, p)
+    _fora (i, 1, p)
         rst.m[i][i] = 1;
     return rst;
 }

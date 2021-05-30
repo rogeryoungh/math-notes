@@ -1,2 +1,2 @@
-ll s = lg2[y-x+1];
-return max(ST[x][s], ST[y-(1<<s)+1][s]);
+ll p = lg2[y - x + 1], q = y - (1<<s) + 1;
+return max(ST[x][p], ST[q][p]);

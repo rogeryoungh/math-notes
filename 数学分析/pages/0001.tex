@@ -64,17 +64,17 @@ $$g\circ f: A \to C, a \mapsto g(f(a))$$
 若 $f$ 为双射，我们定义它的逆映射 $f^{-1}$ 为
 $$f^{-1}(b) =  a \Leftrightarrow f(a) = b$$
 
-映射 $\diamond$：$X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\diamond(x,y)$ 记做 $x \diamond y$。对 $X$ 中的非空子集定义
-$$A \diamond B \coloneqq  \diamond(a\times B) = \{A \diamond b \mid a \in A, b\in B\}$$
+映射 $\ast$：$X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\ast(x,y)$ 记做 $x \ast y$。对 $X$ 中的非空子集定义
+$$A \ast B \coloneqq  \ast(a\times B) = \{A \ast b \mid a \in A, b\in B\}$$
 
 \begin{definition}
-	\num{1} 若 $A \diamond A \subseteq A$，则称 $A$ 在运算 $\diamond$ 下封闭。
+	\num{1} 若 $A \ast A \subseteq A$，则称 $A$ 在运算 $\ast$ 下封闭。
 
-	\num{2} 若 $x \diamond (y \diamond z) = (x \diamond y) \diamond z$，则称运算 $\diamond$ 是结合的。
+	\num{2} 若 $x \ast (y \ast z) = (x \ast y) \ast z$，则称运算 $\ast$ 是结合的。
 
-	\num{3} 若 $x \diamond y = y \diamond x$，则称运算 $\diamond$ 是交换的。
+	\num{3} 若 $x \ast y = y \ast x$，则称运算 $\ast$ 是交换的。
 
-	\num{4} 若存在 $e \in X$ 使得 $e \diamond x = x \diamond e = x$，则称 $e$ 为 $X$ 上的单位元。
+	\num{4} 若存在 $e \in X$ 使得 $e \ast x = x \ast e = x$，则称 $e$ 为 $X$ 上的单位元。
 \end{definition}
 
 如果映射定义中的 $B$ 是一个数域，则把映射称为函数。
@@ -580,7 +580,7 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 %\begin{definition}
 %	设 $f$ 为定义在 $D$ 上的函数。若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\leqslant M(f(x) \ge L)$，则称 $f$ 为 $D$ 上的有上（下）界函数，$M(L)$ 称为 $f$ 在 $D$ 上的一个上（下）界。
 %
-%	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x)\geqslant M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
+%	反之，若存在数 $M(L)$，使得对每一个 $x\in D$，有 $f(x) \geqslant M(f(x) \leqslant L)$，则称 $f$ 为 $D$ 上的有无上（下）界函数。
 %\end{definition}
 %
 %\begin{definition}

@@ -7,5 +7,5 @@ void quick_sort(ll* nn, ll l, ll r) {
         while (nn[i] < x)  i++;
         if(i <= j)  swap(nn[i++], nn[j--]);
     }
-    quick_sort(l, j); quick_sort(i, r);
+    quick_sort(nn, l, j); quick_sort(nn, i, r);
 }

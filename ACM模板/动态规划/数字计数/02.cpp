@@ -16,7 +16,6 @@ ll addup(ll n, ll x) {
             break;
         } else if (t > x) {
             ans += - dp[i] + m;
-        }
-        i--, m /= 10;
+        }  i--, m /= 10;
     }  return ans;
 }

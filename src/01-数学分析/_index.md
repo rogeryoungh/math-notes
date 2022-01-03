@@ -1,0 +1,3 @@
+# 数学分析笔记
+
+2020 年的时候发现了 `mdBook`，觉得恰好能够满足我的需求，就是公式需要转义太不方便了。最近发现插件 [mdbook-katex](https://github.com/lzanini/mdbook-katex) 能够解决这个问题，尝试ing……

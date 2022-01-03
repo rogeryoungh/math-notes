@@ -1,0 +1,13 @@
+[book]
+authors = ["rogeryoungh"]
+language = "en"
+multilingual = false
+src = "src"
+title = "rogeryoungh 的笔记"
+
+
+[output.html]
+theme = "theme"
+
+[output.katex]
+[preprocessor.katex]

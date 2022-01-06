@@ -16,7 +16,7 @@ jobs:
         with:
           mdbook-version: 'latest'
 
-      - run: cargo install --git https://github.com/rogeryoungh/mdbook-katex
+      - run: wget https://github.com/rogeryoungh/preprocessor-md-tex/releases/latest/download/preprocessor-md-tex && chmod +x preprocessor-md-tex && ./preprocessor-md-tex src
 
       - run: mdbook build
 

@@ -1,14 +1,47 @@
 import sys
 
+in_doc = False
+begin_doc = False
+root_dir = './gaodai/'
+in_begin = 0
+
+
 def get_file(path) -> str:
     data = ''
-    with open(path, 'r') as f:
+    with open(root_dir + path, 'r') as f:
         data = f.read()
     return data
 
+
+newcommand = r'''
+$$
+\newcommand{\transpose}[1]{{#1}^\mathsf{T}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\diag}{\operatorname{diag}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\tr}{\operatorname{tr}}
+\renewcommand{\char}{\operatorname{char}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\bfA}{\boldsymbol{A}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bfB}{\boldsymbol{B}}
+\newcommand{\bfI}{\boldsymbol{I}}
+\newcommand{\bfP}{\boldsymbol{P}}
+\newcommand{\bfeps}{\boldsymbol{\eps}}
+\newcommand{\vzero}{\boldsymbol{0}}
+\newcommand{\num}[1]{{\fzfs{（}}{\rm{#1}}{\fzfs{）}}}
+\newcommand{\ji}[2]{#1_1,\cdots,#1_#2}
+$$
+'''
+
 def dfs(path):
+    global in_doc
+    global begin_doc
+    global in_begin
     ret = ''
-    newcommand = ''
     data = get_file(path)
     data = data.replace('\t', '').replace('    ', '')
     data = data.replace('\\begin{equation*}', '$$')
@@ -32,10 +65,24 @@ def dfs(path):
                 return ''
             return line[i1:i2]
 
-        if match('%% \\'):
-            newcommand += line[3:] + '\n'
+        if not in_doc:
+            if match('\\begin{document}'):
+                in_doc = True
+            continue
+        if not begin_doc:
+            if match('\\mainmatter'):
+                begin_doc = True
+            continue
 
-        if match('%'):
+        if match('%') or match('\\backmatter') or match('\\printindex'):
+            continue
+
+        if match('\\end{document}'):
+            in_doc = False
+            break
+        if match('\\include'):
+            s = get_in_brace('{', '}')
+            ret += dfs(s + '.tex') + '\n'
             continue
 
         if match('\\begin{definition}'):
@@ -94,20 +141,6 @@ def dfs(path):
             ret += tmp + '\n'
             continue
 
-        if match('\\begin{lemma}'):
-            info = get_in_brace('\\[', '\\]')
-            tmp = '> **引理**\n>\n'
-            if len(info) > 0:
-                tmp = '> **引理【%s】**\n>\n' % info
-            while True:
-                line = data[index]
-                index += 1
-                if match('\\end{lemma}'):
-                    break
-                tmp += '> %s\n' % line
-            ret += tmp + '\n'
-            continue
-
         if match('\\begin{proof}'):
             tmp = '> **证明**\n>\n'
             while True:
@@ -132,18 +165,26 @@ def dfs(path):
             ret += '#### ' + get_in_brace('{', '}') + '\n'
             continue
         ret += line + '\n'
-    if newcommand != '':
-        return '$\n' + newcommand + '$\n\n' + ret
+
     return ret
 
 
-def convert(indir, outdir):
+def convert(root, indir, outdir):
+    global in_doc
+    global begin_doc
+    global root_dir
+    global in_begin
+    in_doc = False
+    begin_doc = False
+    root_dir = root
+    in_begin = 0
+
     ret = dfs(indir)
     with open(outdir, 'w') as f:
-        f.write(ret)
+        f.write(newcommand + ret)
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print('option: <file> <out>')
+    if len(sys.argv) < 4:
+        print('option: <root> <file> <out>')
     else:
-        convert(sys.argv[1], sys.argv[2])
+        convert(sys.argv[1], sys.argv[2], sys.argv[3])

@@ -6,5 +6,7 @@ src = "docs"
 title = "rogeryoungh 的笔记"
 
 
+[preprocessor.katex]
+
 [output.html]
 theme = "theme"

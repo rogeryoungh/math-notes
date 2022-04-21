@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.9'
 
-      - run: python ./scripts/convert.py
+      - run: cd scripts && bash convert.sh
 
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1

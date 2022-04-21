@@ -18,9 +18,9 @@
 \begin{definition}[无穷大数列]
 	若数列 $\{a_n\}$ 满足：对任意正数 $M>0$，存在正整数 $N$，使得当 $n>N$ 时，
 
-	\num{1} $a_n>M$，则称数列 $\{a_n\}$ 发散于正无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = +\infty$，或 $a_n \to +\infty$。
+	（1） $a_n>M$，则称数列 $\{a_n\}$ 发散于正无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = +\infty$，或 $a_n \to +\infty$。
 
-	\num{2} 有 $a_n<M$，则称数列 $\{a_n\}$ 发散于负无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = -\infty$，或 $a_n \to -\infty$。
+	（2） 有 $a_n<M$，则称数列 $\{a_n\}$ 发散于负无穷大，记作 $\displaystyle\lim_{n\to \infty} a_n = -\infty$，或 $a_n \to -\infty$。
 \end{definition}
 
 \section{收敛数列的性质}
@@ -52,18 +52,18 @@
 \begin{theorem}[保不等式性，保序性]
 	设 $\displaystyle\lim_{n\to \infty} a_n = A,\displaystyle\lim_{n\to \infty} b_n = B$，则有
 
-	\num{1} 如果存在 $n>N$ 使得 $a_n\geqslant b_n$ 恒成立，则 $A\geqslant B$。
+	（1） 如果存在 $n>N$ 使得 $a_n\geqslant b_n$ 恒成立，则 $A\geqslant B$。
 
-	\num{2} 反之，如果 $A>B$，则存在 $n>N_1$ 使得 $a_n>b_n$ 恒成立。
+	（2） 反之，如果 $A>B$，则存在 $n>N_1$ 使得 $a_n>b_n$ 恒成立。
 \end{theorem}
 \begin{proof}
-	\num{1} 如果设 $B-A=2\delta>0$，那么存在 $N_2,N_3>N$
+	（1） 如果设 $B-A=2\delta>0$，那么存在 $N_2,N_3>N$
 	$$|a_n-A|<\delta,n>N_2;\qquad |b_n-B|<\delta,n>N_3$$
 	于是当 $n>\max\{N_2,N_3\}$ 时有
 	$$a_n<A+\delta=B-\delta<b_n$$
 	因此矛盾，故 $A\geqslant B$。
 
-	\num{2} 设 $A-B=2\delta>0$，那么存在 $N_2,N_3$
+	（2） 设 $A-B=2\delta>0$，那么存在 $N_2,N_3$
 	$$|a_n-A|<\delta,n>N_2;\qquad |b_n-B|<\delta,n>N_3$$
 	于是存在 $N_1=\max\{N_2,N_3\}$，当 $n>N_1$ 时有
 	$$a_n>A-\delta=B+\delta>b_n$$
@@ -89,14 +89,14 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 \begin{theorem}[四则运算]
 	设 $\displaystyle\lim_{n\to \infty} a_n = A,\displaystyle\lim_{n\to \infty} b_n = B$，则有
 
-	\num{1} $\{\alpha a_n+\beta b_n\}$ 收敛到 $\alpha A+\beta B$，其中 $\alpha,\beta$ 为常数。
+	（1） $\{\alpha a_n+\beta b_n\}$ 收敛到 $\alpha A+\beta B$，其中 $\alpha,\beta$ 为常数。
 
-	\num{2} $\{a_nb_n\}$ 收敛到 $AB$。
+	（2） $\{a_nb_n\}$ 收敛到 $AB$。
 
-	\num{3} 当 $B\ne 0$ 时，$\{a_n/b_n\}$ 收敛到 $A/B$。
+	（3） 当 $B\ne 0$ 时，$\{a_n/b_n\}$ 收敛到 $A/B$。
 \end{theorem}
 \begin{proof}
-	\num{1} 任给 $\eps >0$，存在 $N_1,N_2$ 使得
+	（1） 任给 $\eps >0$，存在 $N_1,N_2$ 使得
 	$$|a_n-A|<\frac{\eps}{2|\alpha|+1},n>N_1;\qquad |b_n-B|<\frac{\eps}{2|\beta|+1},n>N_2$$
 	则当 $n>\max\{N_1,N_2\}$ 时有
 	\begin{equation*}
@@ -107,11 +107,11 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 		\end{aligned}
 	\end{equation*}
 
-	\num{2} 由收敛数列的有界性，存在 $M$ 使得 $|a_n|\leqslant M$，那么
+	（2） 由收敛数列的有界性，存在 $M$ 使得 $|a_n|\leqslant M$，那么
 	$$0\leqslant |a_nb_n-AB|=|(a_n-A)b_n+A(b_n-B)|\leqslant M|a_n-A|+|A||b_n-B|$$
 	由迫敛性知 $\displaystyle\lim_{n\to \infty}|a_nb_n-AB| =0$。
 
-	\num{3} 由保号性的推论，存在 $N$ 使得当 $n>N$ 时有 $|b_n|>\dfrac{|B|}{2}$，那么
+	（3） 由保号性的推论，存在 $N$ 使得当 $n>N$ 时有 $|b_n|>\dfrac{|B|}{2}$，那么
 	$$0 \leqslant \left|\frac{1}{b_n}-\frac{1}{B}\right| = \frac{|b_n-B|}{|b_n||B|} \leqslant \frac{2}{|B|^2}{|b_n-B|}$$
 	由迫敛性知 $\displaystyle\lim_{n\to \infty}\left|\frac{1}{b_n}-\frac{1}{B}\right| =0$。
 \end{proof}
@@ -163,13 +163,13 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	$\{a_n\}$ 为 Cauchy 数列当且仅当它是收敛的。
 \end{theorem}
 \begin{proof}
-	\num{1} 充分性：设 $\{a_n\}$ 收敛到 $A$，则任给 $\eps >0$ 存在 $N$，当 $n>N$ 时有
+	（1） 充分性：设 $\{a_n\}$ 收敛到 $A$，则任给 $\eps >0$ 存在 $N$，当 $n>N$ 时有
 	$$|a_n-A|\leqslant \frac{\eps}{2}$$
 	因此当 $m,n>N$ 时有
 	$$|a_m-a_n| \leqslant |a_m-A| + |A-a_n| < \frac{\eps}{2}+\frac{\eps}{2}=\eps$$
 	这说明 $a_n$ 为 Cauchy 数列。
 	
-	\num{2} 必要性：Todo ……
+	（2） 必要性：Todo ……
 \end{proof}
 
 Cauchy 收敛准则的条件称为 Cauchy 条件。

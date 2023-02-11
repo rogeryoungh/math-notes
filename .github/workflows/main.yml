@@ -13,25 +13,51 @@ jobs:
         with:
           ref: main
 
-      - uses: actions/setup-python@v3
-        with:
-          python-version: '3.9'
+      # - uses: actions/setup-python@v3
+      #   with:
+      #     python-version: '3.9'
 
-      - run: cd scripts && bash build.sh
+      # - run: cd scripts && bash build.sh
 
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
-        with:
-          mdbook-version: 'latest'
+      # - name: Setup mdBook
+      #   uses: peaceiris/actions-mdbook@v1
+      #   with:
+      #     mdbook-version: 'latest'
 
-      - run: wget https://github.com/rogeryoungh/preprocessor-md-tex/releases/latest/download/preprocessor-md-tex && chmod +x preprocessor-md-tex && ./preprocessor-md-tex ./mdbook/docs/
+      # - run: wget https://github.com/rogeryoungh/preprocessor-md-tex/releases/latest/download/preprocessor-md-tex && chmod +x preprocessor-md-tex && ./preprocessor-md-tex ./mdbook/docs/
 
-      - run: cd mdbook && mdbook build
+      # - run: cd mdbook && mdbook build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force_orphan: true
-          publish_dir: ./mdbook/book
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force_orphan: true
+      #     publish_dir: ./mdbook/book
+
+      - run: apt install fonts-noto-cjk fonts-noto-cjk-extra fonts-lxgw-wenkai
           
+      - uses: xu-cheng/latex-action@v2
+        with:
+          root_file: src/数学分析/main.tex
+          extra_fonts: |
+            /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc
+            /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc
+            /usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc
+            /usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc
+            /usr/share/fonts/truetype/lxgw-wenkai/LXGWWenKai-Bold.ttf
+            /usr/share/fonts/truetype/lxgw-wenkai/LXGWWenKai-Light.ttf
+            /usr/share/fonts/truetype/lxgw-wenkai/LXGWWenKai-Regular.ttf
+            /usr/share/fonts/truetype/lxgw-wenkai/LXGWWenKaiMono-Bold.ttf
+            /usr/share/fonts/truetype/lxgw-wenkai/LXGWWenKaiMono-Light.ttf
+            /usr/share/fonts/truetype/lxgw-wenkai/LXGWWenKaiMono-Regular.ttf
+        env:
+          TEXINPUTS: ".:./style/:"
+
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: src/数学分析/main.pdf

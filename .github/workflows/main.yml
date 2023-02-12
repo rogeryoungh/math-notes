@@ -13,7 +13,8 @@ jobs:
         with:
           ref: main
 
-      - run: |
+      - name: copy cls to walk directory
+        run: |
           cp ./style/probook.cls ./src/数学分析/probook.cls
           cp ./style/probook.cls ./src/抽象代数/probook.cls
           cp ./style/probook.cls ./src/高等代数/probook.cls
@@ -43,10 +44,11 @@ jobs:
             cp -r notosans notoserif notosanscjk notoserifcjk lxgw-wenkai cm-unicode/fonts/otf/* /usr/share/fonts
             fc-cache
 
-      - run: |
-          cp ./src/数学分析/main.pdf ./src/数学分析/数学分析.pdf
-          cp ./src/抽象代数/main.pdf ./src/抽象代数/抽象代数.pdf
-          cp ./src/高等代数/main.pdf ./src/高等代数/高等代数.pdf
+      - name: rename
+        run: |
+          cp ./src/数学分析/main.pdf ./src/数学分析/calculus.pdf
+          cp ./src/抽象代数/main.pdf ./src/抽象代数/abstract-algebra.pdf
+          cp ./src/高等代数/main.pdf ./src/高等代数/linear-algebra.pdf
 
       - uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -55,6 +57,6 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            ./src/数学分析/数学分析.pdf
-            ./src/抽象代数/抽象代数.pdf
-            ./src/高等代数/高等代数.pdf
+            ./src/数学分析/calculus.pdf
+            ./src/抽象代数/abstract-algebra.pdf
+            ./src/高等代数/linear-algebra.pdf

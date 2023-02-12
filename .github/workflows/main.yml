@@ -21,7 +21,10 @@ jobs:
       # https://github.com/OI-wiki/OI-Wiki-export/blob/master/.github/workflows/auto-release.yml
       - uses: xu-cheng/latex-action@v2
         with:
-          root_file: src/数学分析/main.tex
+          root_file: |
+            src/数学分析/main.tex
+            src/高等代数/main.tex
+            src/抽象代数/main.tex
           latexmk_use_xelatex: true
           work_in_root_file_dir: true
           pre_compile: |
@@ -40,10 +43,18 @@ jobs:
             cp -r notosans notoserif notosanscjk notoserifcjk lxgw-wenkai cm-unicode/fonts/otf/* /usr/share/fonts
             fc-cache
 
+      - run: |
+          cp ./src/数学分析/main.pdf ./src/数学分析/数学分析.pdf
+          cp ./src/抽象代数/main.pdf ./src/抽象代数/抽象代数.pdf
+          cp ./src/高等代数/main.pdf ./src/高等代数/高等代数.pdf
+
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
-          files: src/数学分析/main.pdf
+          files: |
+            ./src/数学分析/数学分析.pdf
+            ./src/抽象代数/抽象代数.pdf
+            ./src/高等代数/高等代数.pdf

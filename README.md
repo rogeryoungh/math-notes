@@ -10,7 +10,7 @@ LaTeX 初学者，这些是我学习数学的笔记。
 
 ## PDF
 
-见 [Release](https://github.com/rogeryoungh/math-notes/releases/tag/latest)。
+您可以 [在线查看](https://rogeryoungh.github.io/math-notes)，也可以去 [Release](https://github.com/rogeryoungh/math-notes/releases/tag/latest) 下载。
 
 LaTeX 代码在 src 目录下。
 

@@ -1,6 +1,7 @@
 # **/pro*.cls
 mdbook/book/
 mdbook/docs/**/0*.md
+*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

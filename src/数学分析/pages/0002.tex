@@ -202,20 +202,3 @@ Cauchy 收敛准则的条件称为 Cauchy 条件。
 \begin{proof}
 	分类讨论 Todo……
 \end{proof}
-
-\section{例题}
-
-\begin{problem}
-	设 $\displaystyle\lim_{n\to\infty}a_n=A$，求证：$\displaystyle\lim_{n\to\infty}\frac{\sum a_n}{n}=A$。
-\end{problem}
-
-\begin{solution}
-	即对于任给的 $\eps>0$，存在 $n>N_1$ 使得
-	$$|a_n-A|<\dfrac{\eps}{2}$$
-	那么变形有
-	$$\left|\frac{\sum a_n}{n}-A\right| \leqslant \frac{\sum |a_n-A|}{n} = \frac{\sum_{k=1}^{N_1} |a_k-A|}{n} + \frac{\sum_{k=N_1+1}^{n} |a_k-A|}{n}$$
-	注意到 $\sum_{k=1}^{N_1} |a_k-A|$ 已经为定值，从而存在 $n>N_2$ 使得
-	$$\frac{\sum_{k=1}^{N_1}|x_k-A|}{n}<\frac{\eps}{2}$$
-	因此当 $n>\max\{N_1,N_2\}$ 时有
-	$$LHS < \frac{\eps}{2}+\frac{n-N_1}{n}\times \frac{\eps}{2} < \frac{\eps}{2}+\frac{\eps}{2} = \eps$$
-\end{solution}

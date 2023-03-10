@@ -10,10 +10,10 @@
 
 \newtheoremstyle{thmstyle}
   {3pt}{3pt}{\zhkai}{-3pt}{\bfseries}{}{0.5em}
-  {\thmname{#1} \thmnumber{#2} \thmnote{【{#3}】}}
+  {\thmname{#1} \thmnumber{#2} \thmnote{ \splitsymbol {#3}}}
 \newtheoremstyle{solvestyle}
   {3pt}{3pt}{\zhkai}{-3pt}{\bfseries}{}{0.5em}
-  {\thmname{#1} \thmnote{【{#3}】}}
+  {\thmname{#1} \thmnote{ \splitsymbol {#3}}}
 
 \RequirePackage{pifont,manfnt,bbding}
 \RequirePackage[many]{tcolorbox}
@@ -55,57 +55,59 @@
 
 \newtcolorbox[auto counter, number within=section]{thmcounter}{}
 
+\newcommand{\splitsymbol}{ $\diamond$ }
+
 \DeclareTColorBox[use counter from=thmcounter]{definition}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={定义 \thetcbcounter【#1】}}{title=定义 \thetcbcounter},
+  IfValueTF={#1}{title={定义 \thetcbcounter \splitsymbol #1}}{title=定义 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{theorem}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={定理 \thetcbcounter【#1】}}{title=定理 \thetcbcounter},
+  IfValueTF={#1}{title={定理 \thetcbcounter \splitsymbol #1}}{title=定理 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{lemma}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={引理 \thetcbcounter【#1】}}{title=引理 \thetcbcounter},
+  IfValueTF={#1}{title={引理 \thetcbcounter \splitsymbol #1}}{title=引理 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{corollary}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={推论 \thetcbcounter【#1】}}{title=推论 \thetcbcounter},
+  IfValueTF={#1}{title={推论 \thetcbcounter \splitsymbol #1}}{title=推论 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{postulate}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={公设 \thetcbcounter【#1】}}{title=公设 \thetcbcounter},
+  IfValueTF={#1}{title={公设 \thetcbcounter \splitsymbol #1}}{title=公设 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{axiom}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={公理 \thetcbcounter【#1】}}{title=公理 \thetcbcounter},
+  IfValueTF={#1}{title={公理 \thetcbcounter \splitsymbol #1}}{title=公理 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{example}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={例 \thetcbcounter【#1】}}{title=例 \thetcbcounter},
+  IfValueTF={#1}{title={例 \thetcbcounter \splitsymbol #1}}{title=例 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \DeclareTColorBox[use counter from=thmcounter]{problem}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={问题【#1】}}{title=问题},
+  IfValueTF={#1}{title={问题\splitsymbol #1}}{title=问题},
   IfBooleanTF={#2}{label=#3}{}
 }
   
 \DeclareTColorBox[use counter from=thmcounter]{proposition}{ o t\label g }{
   common,
-  IfValueTF={#1}{title={命题 \thetcbcounter【#1】}}{title=命题 \thetcbcounter},
+  IfValueTF={#1}{title={命题 \thetcbcounter \splitsymbol #1}}{title=命题 \thetcbcounter},
   IfBooleanTF={#2}{label=#3}{}
 }
 
@@ -113,16 +115,16 @@
   
 \DeclareTColorBox[no counter]{note}{ o t\label g }{
   claim,
-  IfValueTF={#1}{title={笔记【#1】$\quad$}}{title=笔记$\quad$},
+  IfValueTF={#1}{title={笔记 \splitsymbol #1$\quad$}}{title=笔记$\quad$},
   IfBooleanTF={#2}{label=#3}{}
 }
 
 \newtheoremstyle{thmstyle}
   {3pt}{3pt}{\zhkai}{-3pt}{\bfseries}{}{0.5em}
-  {\thmname{#1} \thmnumber{#2} \thmnote{【{#3}】}}
+  {\thmname{#1} \thmnumber{#2} \thmnote{ \splitsymbol {#3}}}
 \newtheoremstyle{solvestyle}
   {3pt}{3pt}{\zhkai}{-3pt}{\bfseries}{}{0.5em}
-  {\thmname{#1} \thmnote{【{#3}】}}
+  {\thmname{#1} \thmnote{ \splitsymbol {#3}}}
 
 \theoremstyle{solvestyle}
 \newtheorem{solution}{解}

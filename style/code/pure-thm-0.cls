@@ -10,10 +10,10 @@
 
 \newtheoremstyle{thmstyle}
   {3pt}{3pt}{\zhkai}{-3pt}{\bfseries}{}{0.5em}
-  {\thmname{#1} \thmnumber{#2} \thmnote{【{#3}】}}
+  {\thmname{#1} \thmnumber{#2} \thmnote{「{#3}」}}
 \newtheoremstyle{solvestyle}
   {3pt}{3pt}{\zhkai}{-3pt}{\bfseries}{}{0.5em}
-  {\thmname{#1} \thmnote{【{#3}】}}
+  {\thmname{#1} \thmnote{「{#3}」}}
 
 \RequirePackage{pifont,manfnt,bbding}
 \RequirePackage[many]{tcolorbox}

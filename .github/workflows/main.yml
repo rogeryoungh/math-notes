@@ -14,10 +14,7 @@ jobs:
           ref: main
 
       - name: copy cls to walk directory
-        run: |
-          cp ./style/probook.cls ./src/数学分析/probook.cls
-          cp ./style/probook.cls ./src/抽象代数/probook.cls
-          cp ./style/probook.cls ./src/高等代数/probook.cls
+        run: bash scripts/gen-book.sh --copy
 
       # https://github.com/OI-wiki/OI-Wiki-export/blob/master/.github/workflows/auto-release.yml
       - uses: xu-cheng/latex-action@v2
@@ -47,7 +44,7 @@ jobs:
       - name: rename
         run: |
           shopt -s expand_aliases
-          alias pdf2htmlEX='docker run --rm -v `pwd`:/pdf bwits/pdf2htmlex pdf2htmlEX'
+          alias pdf2htmlEX='docker run --rm -v `pwd`:/pdf -w /pdf pdf2htmlex/pdf2htmlex'
           cp ./src/数学分析/main.pdf ./output/calculus.pdf
           cp ./src/抽象代数/main.pdf ./output/abstract-algebra.pdf
           cp ./src/高等代数/main.pdf ./output/linear-algebra.pdf

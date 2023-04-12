@@ -111,12 +111,76 @@
 	$$LHS < \frac{\eps}{2}+\frac{n-N_1}{n}\times \frac{\eps}{2} < \frac{\eps}{2}+\frac{\eps}{2} = \eps$$
 \end{solution}
 
+\begin{problem}[000009]
+	设 $f(z)$ 在 $[0,1]$ 上具有一阶连续导数，$f(0) = 0$，证明:存在$\xi \in [0,1]$，使得
+	\[ f'(\xi) = 2\int_0^1f(x) \d x \]
+\end{problem}
+
+\begin{solution}
+	TODO。设上下界 $m, M$，中值定理。
+\end{solution}
+
+\begin{problem}[000010]
+	设 $f(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导，且 $f(0) = 0, f(1) = 1$，证明存在不同的 $\xi_1, \xi_2 \in (0, 1)$，使得
+	\[ \frac{1}{f'(\xi_1)} + \frac{1}{f'(\xi_2)} = 2 \]
+\end{problem}
+
+\begin{solution}
+	TODO。
+\end{solution}
+
+\begin{problem}[000011]
+	设 $f(x)$ 在 $[0, 3]$ 上连续，在 $(0, 3)$ 内可导，且 $f(0) + f(1) + f(2) = 3, f(3) = 1$，证明存在 $\xi \in (0, 3)$，使得 $f'(\xi) = 0$。
+\end{problem}
+
+\begin{solution}
+	TODO。设 $f(c) = f(3) = 1, c \in (0, 2)$。套中值定理。
+\end{solution}
+
+\begin{problem}[000012]
+	设 $f(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导，且
+	\[ f(1) = k \int_{0}^{\frac{1}{k}} x \ee^{1-x} f(x) \d x (k > 1) \]
+	证明至少存在一点 $\xi \in (0, 1)$，使得 $f'(\xi) = (1 - \xi^{-1})f(\xi)$。
+\end{problem}
+
+\begin{solution}
+	TODO。构造 $F(x) = x \ee^{1-x} f(x)$。套中值定理。
+\end{solution}
+
+\begin{problem}[000013]
+	设 $f(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内二阶可导，过点 $A(0, f(0))$ 与 $B(1, f(1))$ 的直线与曲线 $y=f(x)$ 相交于点 $C(c, f(c))$，其中 $0 < c < 1$，证明存在 $\xi \in (0, 1)$，使得 $f''(\xi) = 0$。
+\end{problem}
+
+\begin{solution}
+	TODO。构造 $F(x) = (1-x)f(0) + xf(1) - f(x)$，有 $F(0) = F(1) = F(c) = 0$。套中值定理。
+\end{solution}
+
 \section{积分}
 
 \begin{problem}[000008]
 	求
-	\[ \int_{-\infty}^{+\infty} \ee^{-x^2}\dd x \]
+	\[ \int_{-\infty}^{+\infty} \ee^{-x^2}\d x \]
 \end{problem}
 \begin{solution}
-	\[ \int_{-\infty}^{+\infty} \ee^{-x^2}\dd x = \sqrt{\uppi} \]
+	\[ \int_{-\infty}^{+\infty} \ee^{-x^2}\d x = \sqrt{\uppi} \]
+\end{solution}
+
+\begin{problem}[000014]
+	求
+	\[ \int \frac{1}{(x^2+a^2)^2} \d x \]
+\end{problem}
+\begin{solution}
+	令 $x = a \tan t$，则
+	\[ x^2 + a^2 = a^2 \sec^2 t, \quad \d x = a \sec^2 t \d t \]
+	有
+	\[ LHS =  \frac{1}{a^3}\int \cos^2 t \d t = \frac{1}{2a^3} \left( \arctan \frac{x}{a} + \frac{ax}{x^2+a^2} \right) \]
+\end{solution}
+
+
+\begin{problem}[000015]
+	求
+	\[ \int \frac{\d x}{\sqrt{x^2 + a}} \d x \]
+\end{problem}
+\begin{solution}
+	\[ LHS =  \ln |x + \sqrt{x^2+a}| + C \]
 \end{solution}

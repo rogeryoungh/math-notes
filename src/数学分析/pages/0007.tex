@@ -1,8 +1,6 @@
 %% \newcommand{\mfrac}[2]{\frac{#1}{#2}}
 
-\chapter{积分的方法与技巧}
-
-这部分我的参考书是《积分的方法与技巧》（金玉明等）。
+\chapter{积分}
 
 \section{积分的存在性}
 
@@ -31,10 +29,10 @@
 
 \begin{definition}
     函数 $f$ 在区间 $I$ 上的全体原函数称为 $f$ 在 $I$ 上的不定积分，记作
-    $$\int f(x) \dd x = F(x) + C$$
+    $$\int f(x) \d x = F(x) + C$$
 \end{definition}
 
-其中 $\displaystyle\int$ 称为积分号，$f(x)$ 为被积函数，$f(x)\dd x$ 为被积表达式，$x$ 称为积分变量。
+其中 $\displaystyle\int$ 称为积分号，$f(x)$ 为被积函数，$f(x)\d x$ 为被积表达式，$x$ 称为积分变量。
 
 \subsection{定积分}
 
@@ -58,14 +56,14 @@ $$\| T \| = \max_{1 \leqslant i \leqslant n}\{\Delta x_i\}$$
     设 $f$ 是定义在 $[a,b]$ 上的一个函数，$J$ 是一个确定的实数。若对任给的正数 $\epsilon$，总存在某一正数 $\delta$，使得对 $[a,b]$ 的任何分割 $T$，以及在其上任意选取的点集 $\{\xi_i\}$，只要 $\| T \| < \delta$，就有
     $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - J \right| < \eps$$
     则称函数 $f$ 在区间 $[a,b]$ 上可积或黎曼可积；数 $J$ 称为 $f$ 在 $[a,b]$ 上的定积分或黎曼积分，记作
-    $$J = \int_a^b f(x) \dd x = \lim_{\| T \| \to 0} \sum_{i=1}^nf(\xi_i)\Delta x_i$$
+    $$J = \int_a^b f(x) \d x = \lim_{\| T \| \to 0} \sum_{i=1}^nf(\xi_i)\Delta x_i$$
 \end{definition}
 
 其中 $f$ 称为被积函数，$x$ 称为积分变量，$[a,b]$ 称为积分区间，$a,b$ 分别称为这个定积分的下限和上限。
 
 \begin{theorem}[Newton - Leibniz 公式]
     若函数 $f$ 在 $[a,b]$ 上连续，且存在原函数 $F$，即 $F'(x) = f(x), x\in[a,b]$，则 $f$ 在 $[a,b]$ 上可积，且
-    $$\int_a^bf(x)\dd x = F(b) - F(a)$$
+    $$\int_a^bf(x)\d x = F(b) - F(a)$$
 \end{theorem}
 
 \begin{proof}
@@ -142,30 +140,36 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
 
 
 
-\section{分项积分法}
+\section{不定积分}
+
+这部分我的参考书是《积分的方法与技巧》（金玉明等）。
+
+\subsection{分项积分法}
 
 若干微分式的和或差的不定积分，等于每个微分式的各自积分的和或差。
-$$\int\left( f(x)+g(x)-h(x) \right)\dd x = \int f(x)\dd x + \int g(x)\dd x - \int h(x)\dd x$$
+$$\int\left( f(x)+g(x)-h(x) \right)\d x = \int f(x)\d x + \int g(x)\d x - \int h(x)\d x$$
 因此多项式的积分可以简单的通过积分各个单项式得到。
+
+当分母可以被拆成低次式时，可以考虑使用分项积分法。
 
 如果一个分式的分母为多项式，则可把它化成最简单的分式再积分。如
 $$\frac{1}{x^2-a^2} = \frac{1}{2a}\left( \frac{1}{x-a}-\frac{1}{x+a} \right)$$
 这里可以通过通分后待定系数得到。于是其积分为
-$$\int \frac{\dd x}{x^2-a^2} = \frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C$$
+$$\int \frac{\d x}{x^2-a^2} = \frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C$$
 对于更复杂的真分式的情况，若要计算的是
-$$\int \frac{mx+n}{x^2+px+q} \dd x$$
+$$\int \frac{mx+n}{x^2+px+q} \d x$$
 分母不一定能直接分解，但总能进行配方
 $$x^2+px+q = \left(x+\frac{p}{2}\right)^2+q-\frac{p^2}{4} = t^2 \pm a^2$$
 再令 $A=m,B=n-\mfrac12mp$，可得
-$$\int \frac{mx+n}{x^2+px+q} \dd x = \int \frac{At+B}{t^2 \pm a^2} \dd t 
-= A\int \frac{t\dd t}{t^2 \pm a^2} + B\int \frac{\dd t}{t^2 \pm a^2}$$
+$$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t 
+= A\int \frac{t\d t}{t^2 \pm a^2} + B\int \frac{\d t}{t^2 \pm a^2}$$
 其中
 
 \begin{equation*}
     \begin{aligned}
-        A\int \frac{t \dd t}{t^2 \pm a^2} &= \frac{A}{2}\int \frac{\dd(t^2 \pm a^2)}{t^2 \pm a^2} = \frac{A}{2} \ln|t^2 \pm a^2| +C \\
-        B\int \frac{\dd t}{t^2 + a^2} &= \frac{B}{a}\arctan\frac{t}{a}+C \\
-        B\int \frac{t \dd t}{t^2 - a^2} &= \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C
+        A\int \frac{t \d t}{t^2 \pm a^2} &= \frac{A}{2}\int \frac{\d(t^2 \pm a^2)}{t^2 \pm a^2} = \frac{A}{2} \ln|t^2 \pm a^2| +C \\
+        B\int \frac{\d t}{t^2 + a^2} &= \frac{B}{a}\arctan\frac{t}{a}+C \\
+        B\int \frac{t \d t}{t^2 - a^2} &= \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C
     \end{aligned}
 \end{equation*}
 
@@ -186,3 +190,66 @@ $$\int \frac{mx+n}{x^2+px+q} \dd x = \int \frac{At+B}{t^2 \pm a^2} \dd t
         &=\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{2\sqrt{4q-p^2}}\ln\left| \frac{2x+p-\sqrt{p^2-4q}}{2x+p+\sqrt{p^2-4q}} \right| + C
     \end{aligned}
 \end{equation*}
+
+\subsection{分部积分法}
+
+根据乘积的微分法则
+\[ \d(uv) = u \d v + v \d u \]
+显然有
+\[ \int u \d v = uv - \int v \d u \]
+
+更进一步的，假设
+\[ \begin{aligned}
+  \int u v^{(n+1)} \d x &= \int u \d v^{(n)} = uv^{(n)} - \int u' v(n) \d x \\
+  &= u v^{(n)} - u^{(1)} v^{(n-1)} + u^{(2)} v^{(n-2)} + \cdots + (-1)^n u^{(n)} v + (-1)^{n+1} \int u^{(n+1)} \d v x
+\end{aligned} \]
+
+例如当 $P(x)$ 是关于 $x$ 的多项式时，假设计算
+\[ \int P(x) \ee^{ax} \d x = \ee^{ax} \left( \frac{P}{a} - \frac{P'}{a^2} + \frac{P''}{a^3} + cdots \right) \]
+另一个形式是
+\[ \int P(x) \sin ax \d x = \sin ax \left( \frac{P'}{a^2} - \frac{P^{(3)}}{a^4} + \cdots  \right) - \cos ax \left( \frac{P}{a} - \frac{P''}{a^3} + \cdots \right) \]
+对于 $\cos ax$，类似的有
+\[ \int P(x) \cos ax \d x = \sin ax \left( \frac{P'}{a^2} - \frac{P^{(3)}}{a^4} + \cdots  \right) + \cos ax \left( \frac{P}{a} - \frac{P''}{a^3} + \cdots \right) \]
+
+这种一般答案比被积函数高一阶，试一试系数就行。有时候会两种形式交错，比如
+\[ \int \ee^{ax} \sin bx \d x = \frac{\ee^{ax}}{a^2+b^2} (a \sin bx - b \cos bx) + C\]
+
+
+\subsection{三角换元积分法}
+
+这种题需要灵感并积累一些套路。
+
+三角换元一般隐藏这一些直角三角形，建议草稿纸上画出来，分析的清楚一点。
+
+\paragraph{形式一} 如果没有特殊形式，可以尝试齐次化（或者硬代万能公式），强行化有理式。
+
+例如
+\[ \int \frac{\d x}{a^2 \sin^2 x + b^2 \cos^2 x} \]
+尝试 $\tan x = t$，有
+\[ \d t = \frac{\d x}{\cos^2 x} = (1 + t^2) \d x \]
+因此
+\[ LHS = \int \frac{\d t}{a^2 t^2 + b^2} = \frac{1}{ab} \arctan \left( \frac{a}{b} \tan x \right) + C \]
+
+
+假如计算
+\[ \int \frac{\d x}{\sin 2x} = \int \frac{t^2+1}{2t} \d x = \frac{1}{2} \ln | \tan x| + C \]
+
+
+\paragraph{形式二} 形如 $\sqrt{a^2 - x^2}$ 的积分，设 $x = a \sin \theta$，则
+\[ \d x = a \cos \theta \d \theta, \quad \sqrt{a^2 - x^2} = a \cos \theta \]
+
+例如
+\[ \int \sqrt{a^2 - x^2} \d x = a^2 \int \cos^2 \theta \d \theta = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2} \arcsin \frac{x}{a} + C \]
+
+\paragraph{形式三} 形如 $\sqrt{a^2 + x^2}$ 的积分，设 $x = a \tan \theta$，则
+\[ \d x = a \sec^2 \theta \d \theta, \quad \sqrt{a^2+x^2} = a \sec \theta \]
+
+
+\subsection{欧拉替换法}
+
+对于二次根式 $\sqrt{a x^2 + b x + c}$。
+
+\paragraph{形式一} 令
+\[ \sqrt{a^2x^2+bx+c} = t - ax \]
+两边平方可得
+\[ x = \frac{t^2 - c}{2at + b}, \quad 2\frac{at^2 + bt + ca}{(2at+b)^2} \d t \]

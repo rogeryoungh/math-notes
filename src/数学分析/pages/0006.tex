@@ -6,10 +6,28 @@
     若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，且 $f(a)=f(b)$。则存在 $\xi\in(a,b)$，使得 $f'(\xi)=0$。
 \end{theorem}
 
+\begin{proof}
+    因为 $f(x)$ 在 $[a,b]$ 上连续，所以有最大值 $M$ 和最小值 $m$。
+
+    1. 若 $m=M$，显然成立。
+
+    2. 若 $m < M$，又 $f(a) = f(b)$，故最值必然在 $\xi \in (a, b)$ 中取到，从而 $x=\xi$ 是其极值点，由费马定理知 $f'(\xi) = 0$。
+\end{proof}
+
 \begin{theorem}
     若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，则存在 $\xi\in(a,b)$，使得
     $$f'(\xi)=\frac{f(b)-f(a)}{b-a}$$
 \end{theorem}
+
+
+
+\begin{proof}
+    做辅助函数
+    \[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b - a}(x - a) \]
+    显然 $F(a) = F(b) = 0$，且满足 Rolle 定理的其他两个条件，故存在 $\xi \in (a, b)$ 使得
+    \[ F'(\xi) = f'(\xi) - \frac{f(b) - f(a)}{b - a} = 0 \]
+    移项即证。
+\end{proof}
 
 Lagrange 公式还有下面几种等价形式
 

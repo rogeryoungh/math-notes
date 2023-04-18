@@ -1,0 +1,48 @@
+\chapter{级数}
+
+\section{数项级数的敛散性}
+
+给定一个无穷数列 $\{a_n\}$，称形式和
+\[ \sum_{i=1}^\infty a_i = a_1 + a_2 + a_3 + \cdots \]
+为无穷级数，其中 $a_i$ 记作通项或一般项。对于前 $n$ 项和，我们称为第 $n$ 个部分和。
+
+若 $\lim_{n \to \infty} S_n = S$ 存在且有限，则称级数级数 $\sum a_i$ 收敛，否则就称级数发散。
+
+显然若级数 $\sum a_i$ 收敛，则通项
+\[ a_n = S_n - S_{n-1} \to S - S = 0 \quad(n \to \infty) \]
+
+\begin{theorem}[Cauchy 准则]
+	给定级数 $\sum a_i$，存在 $N = N(\varepsilon)$ 使得当 $n > N$ 时有
+	\[ |S_{n+p} - S_{n}| = |a_{n+p} + \cdots + a_{n+1}| < \varepsilon \]
+\end{theorem}
+
+显然级数的有限项不影响级数的敛散性，以下讨论均舍弃。
+
+\section{正项级数的敛散性}
+
+若级数各项的符号都相同，则称为同号级数；进一步的，若皆为正号，则称为正项级数。由于 $0$ 并不影响收敛性，故以下讨论的正项级数可含 $0$。
+
+\begin{theorem}[基本判别法]
+	正项级数 $\sum a_i$ 收敛的充要条件是：部分和数列 $\{S_n\}$ 有界。
+\end{theorem}
+
+\begin{theorem}[比较原则]
+	设正项级数 $\sum a_i, \sum b_i$，若存在正数 $N$，使得
+	\[ a_i \leqslant b_i, \quad \forall n \geqslant N \]
+	那么
+	
+	（1） 若级数 $\sum b_i$ 收敛，则级数 $\sum a_i$ 收敛。
+
+	（2） 若级数 $\sum a_i$ 发散，则级数 $\sum b_i$ 发散。
+\end{theorem}
+
+\begin{proof}
+	设其部分和分别为 $A_i, B_i$。不妨假设 $N=1$，即对数列的每项都成立。
+
+	（1） 显然有
+	\[ A_i \leqslant B_i \leqslant B \]
+	即 $A_i$ 为单调有界数列，故必有极限 $A$，因此级数 $\sum a_i$ 收敛。
+
+	（2） 其为（1）的逆否命题，也成立。
+\end{proof}
+

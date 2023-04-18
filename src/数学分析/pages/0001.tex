@@ -5,15 +5,28 @@
 
 \chapter{实数集与函数}
 
-我初次用的书是华师的数分，现在发觉基础部分有相当多的细节。仍待调整。
+我初次用的书是华师的数分，现在发觉基础部分有相当多的细节。后参考自李逸的《基本分析讲义》。
 
-若无额外说明，皆在 $\RR$ 下。
+若无额外说明，皆在 $\RR$ 下。仍有很多术语不曾了解。
 
-实数集与函数的基础是集合和映射，仍有很多术语不曾了解。
+\section{前言}
 
-参考自李逸的《基本分析讲义》。
+实数理论确实很难以理解。
 
-\section{集合}
+我初次接触华师数分时，实数看的云里雾里，不知道为什么要罗列一大堆定理，索性直接跳过，读的倒也算通顺。初入门径后，又读了几本其他的书，才感觉到实数理论的意义；但是感觉公理又多又乱，在脑子里缠起来了。继续读下去，观点再高了一点，终于敢说懂了一点。
+
+我尝试讲一讲。按照 Bourbaki 的观点，序结构连同拓扑和代数结构一道组成了数学结构的三大母体。具体的说，如果只有一个光秃秃的集合，我们做不了太多事情。为了在这个集合上展开进一步的讨论，我们需要对它装备一些结构：
+\footnote{\href{https://www.zhihu.com/question/47999353/answer/1012530744}{知乎：如何理解数学中的序结构,代数结构和拓扑结构？}}
+
+1. 序结构：元素和元素的排序，比如实数上的大小关系、集合的包含关系。
+
+2. 代数结构：元素和元素的运算，比如加法和乘法。
+
+3. 拓扑结构：子集和子集之间的关系，比如点集的邻近性、敛散性、连续性。
+
+学习实数，主要是抓住这三个方面的性质。接触了更多具体的例子，会对抽象的定义有更多的感悟。
+
+\section{集合和映射}
 
 集合的交并补是熟知的。
 
@@ -27,8 +40,6 @@ $$\prod X_i \coloneqq  X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cd
 $$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
 称 $x_i \coloneqq  \mathrm{pr}_i(x)$ 为 $x$ 的第 $i$ 个分量，$\mathrm{pr}$ 是投影映射。当所有 $X_i$ 都等于 $X$ 时，上述乘积记为 $X^n$。
 
-\section{映射}
-
 设 $C$ 和 $D$ 为两个给定的集合。
 
 \begin{definition}[赋值法则]
@@ -38,8 +49,8 @@ $$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
 赋值法则的定义域 Domain 和像域 Image Set 约定如下
 \begin{equation*}
 	\begin{aligned}
-		\dom(R) \coloneqq  \{c\in C \mid \exists d \in D, (c,d) \in R\}\\
-		\im(R) \coloneqq  \{d\in D \mid \exists c \in C, (c,d) \in R\}\\
+		\dom(R) \coloneqq  \{c\in C \mid \exists d \in D, (c,d) \in R\} \\
+		\im(R) \coloneqq  \{d\in D \mid \exists c \in C, (c,d) \in R\}  \\
 	\end{aligned}
 \end{equation*}
 
@@ -72,75 +83,60 @@ $$f^{-1}(b) =  a \Leftrightarrow f(a) = b$$
 映射 $\ast$：$X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\ast(x,y)$ 记做 $x \ast y$。对 $X$ 中的非空子集定义
 $$A \ast B \coloneqq  \ast(a\times B) = \{A \ast b \mid a \in A, b\in B\}$$
 
-\begin{definition}
-	（1） 若 $A \ast A \subseteq A$，则称 $A$ 在运算 $\ast$ 下封闭。
-
-	（2） 若 $x \ast (y \ast z) = (x \ast y) \ast z$，则称运算 $\ast$ 是结合的。
-
-	（3） 若 $x \ast y = y \ast x$，则称运算 $\ast$ 是交换的。
-
-	（4） 若存在 $e \in X$ 使得 $e \ast x = x \ast e = x$，则称 $e$ 为 $X$ 上的单位元。
-\end{definition}
-
 如果映射定义中的 $B$ 是一个数域，则把映射称为函数。
 
-\section{关系}
-
-简要提及一下关系的部分知识。称集合 $S\times S$ 的子集 $C$ 为关系。把 $(x,y)\in C$ 记作 $xCy$。
+简要提及一下关系的部分知识。称集合 $S\times S$ 的子集 $\odot$ 为关系。把 $(x,y) \in C$ 记作 $x \odot y$。
 
 \begin{definition}[等价关系]
-	若集合 $S$ 上的关系 $C$ 满足
+	若集合 $S$ 上的关系 $\simeq$ 满足
 
-	（1） 自反性：对任意的 $x\in S$ 有 $xCx$。
-	
-	（2） 对称性：若 $xCy$ 则 $yCx$。
+	（1） 自反性：对任意的 $x\in S$ 有 $x \simeq x$。
 
-	（3） 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
+	（2） 对称性：若 $x \simeq y$ 则 $y \simeq x$。
 
-	则称 $C$ 为等价关系，一般用 $\sim$ 来表示等价关系。
+	（3） 传递性：若 $x \simeq y$ 且 $y \simeq z$ 则 $x \simeq z$。
+
+	则称 $\simeq$ 为等价关系，一般记作 $\sim$ 或 $=$。
 \end{definition}
 
 记 $x\in A$ 的等价类：
-$$[x] \coloneqq  \{y \in A \mid y \sim x\}$$ 
+$$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 
-\begin{definition}[序关系]
-	若集合 $S$ 上的关系 $C$ 满足
+\section{序关系}
 
-	（1） 相容性：对任意的 $x,y\in S$ 且 $x\ne y$ 满足要么 $xCy$ 要么 $yCx$。
-	
-	（2） 非自反性：不存在 $x\in S$ 使得 $xCx$。
+\begin{definition}[全序关系]
+	若集合 $S$ 上的关系 $\preceq$ 满足
 
-	（3） 传递性：若 $xCy$ 且 $yCz$ 则 $xCz$。
+	（1） 反对称性：若 $x \preceq y$ 且 $y \preceq x$ 则 $x = y$。
 
-	则称 $C$ 为序关系，一般用 $<$ 来表示序关系，称 $(S,C)$ 为有序集。
+	（2） 传递性：若 $x \preceq y$ 且 $y \preceq z$ 则 $x \preceq z$。
+
+	（3） 完全性：对任意的 $x,y\in S$ 要么 $x \preceq y$ 要么 $y \preceq x$。（注意蕴含了自反性 $x \preceq x$）。
+
+	则称 $\preceq$ 为全序关系， $(S,\preceq)$ 为全序集。一般用 $\leqslant$ 来表示全序关系.
 \end{definition}
 
-$x<y$ 也可以记作 $y>x$。记号 $x\leqslant y$ 指的是 $x<y$ 或 $x=y$，即是 $x>y$ 的否定。
+对于每一非严格的全序关系 $\leqslant$，定义其对应的严格全序关系 $<$ 为：$a < b$ 等价于 $a \leqslant b$ 且 $a \neq b$。我们对四个关系 $<, \leqslant, >, \geqslant$ 都可以定义全序集。
 
-若在 $S$ 内定义了一种序，便是有序集。
+\begin{definition}
+	设全序集 $S' \subseteq S$，若 $x \in S$ 是：
 
-\begin{definition}[上界]
-	设有序集 $S$ 的非空子集 $E$，若存在 $a \in S$ 使得任取 $x\in E$ 满足 $x \leqslant a$，我们称 $E$ 有上界，$a$ 称为 $E$ 的一个上界。 
+	1. $S$ 的最大元：若不存在 $y \in S$ 使得 $x < y$，则称 $x$ 是最大元。
+
+	2. $S'$ 的上界：若对于任取的 $x' \in S'$ 满足 $x' \leqslant x$，则称 $x$ 是 $S'$ 的上界。
+
+	3. $S'$ 的上确界：对于任取的 $S'$ 的上界 $y$ 都有 $x \leqslant y$，且 $x$ 是 $S'$ 的上界，则称 $x$ 是 $S'$ 的上确界。
 \end{definition}
 
-同样可以得到下界。
-
-\begin{definition}[上确界]
-	设有序集 $S$ 的非空子集 $E$，且 $E$ 有上界。若存在一个数 $a \in S$ 满足：
-	
-	（1） $a$ 是 $E$ 的上界：$\forall x\in E$，有 $x\leqslant a$。
-	
-	（2） 任何小于 $a$ 的数不是数集 $E$ 的上界：$\forall \mu<a, \exists x_0\in E$ 使得 $x_0>\mu$。
-	
-	则称数 $a$ 为数集 $E$ 的上确界，记作 $\sup E$。
-\end{definition}
-
-类似的可定义有界集的下确界 $a=\inf E$。
+类似的可定义全序集的最小元、下界、下确界。上、下确界分别记作 $\sup S'$ 和 $\inf S'$。比如取 $A = A' = (0, 1)$，其上下确界都不存在。若取 $A = \RR$，上下确界存在也不一定在 $A'$ 里面。
 
 \begin{definition}[最小上界性]
-	如果有序集 S'的任何非空有上界子集 $E$ 有最小上界，则称 $S$有最小上界性。
-	设 $E$ 是有序集 $S$ 的子集，若对任意的有上界的 $E$ 都有 $\sup E \in S$，那么称 $S$ 有最小上界性。
+	如果集合 $S$ 的任何非空有上界子集 $S'$ 有最小上界，则称 $S$ 有最小上界性。
+
+	换句话说，若任取有上界的 $S' \subseteq S$ 都有 $\sup S' \in S$，那么称 $S$ 有最小上界性。
 \end{definition}
+
+
 
 例如 $\QQ \cap (0,\sqrt2)$ 是 $\QQ$ 的非空子集，其上界 $\sqrt2$ 并不在 $\QQ$ 内。
 
@@ -154,7 +150,7 @@ $x<y$ 也可以记作 $y>x$。记号 $x\leqslant y$ 指的是 $x<y$ 或 $x=y$，
 	对于每个 $B$，构造 $L$ 为 $B$ 的下界组成的集合，显然每个 $B$ 中的元素都是 $L$ 的上界。由最小上界性知，存在 $\sup L \in S$。
 
 	尝试证明 $\inf B=\sup L$。
-	
+
 	对于任意的 $x\in B$，若 $x<\sup L$，则存在比 $\sup L$ 小的 $L$ 的上界 $x$，矛盾。故 $x \geqslant \sup L$，即 $\sup L$ 是 $B$ 的下界。
 
 	设 $B$ 的下界 $x$ 有 $x>\sup L$，那么 $x\in L$，则存在比 $\sup L$ 大的 $L$ 元素，矛盾。故不存在比 $\sup L$ 大的 $B$ 的下界。
@@ -162,31 +158,120 @@ $x<y$ 也可以记作 $y>x$。记号 $x\leqslant y$ 指的是 $x<y$ 或 $x=y$，
 	综上，$B$ 的下界存在且 $\inf B=\sup L \in S$。
 \end{proof}
 
-\section{域公理}
+\section{代数初步}
 
-集合 $F$ 上定义的加法 $+$ 和 乘法 $\cdot$ 若满足 $(x,y,z\in F)$
+首先给出一些性质。
 
-F1 加法结合率：$x+(y+z) = (x+y)+z$。
+\begin{definition}
+	给定集合 $A$，设元素 $x, y, z \in A$，定义如下性质
 
-F2 加法交换律：$x+y = y+x$。
+	（1） 封闭性：若 $A \ast A \subseteq A$，则称 $A$ 在运算 $\ast$ 下封闭。
 
-F3 存在加法单位元：存在 $0\in F$，使得对任意 $x\in F$ 有 $0+x=x$。
+	（2） 结合性：若 $x \ast (y \ast z) = (x \ast y) \ast z$，则称运算 $\ast$ 是结合的。
 
-F4 加法逆元的存在性：对任意 $x\in F$，总存在 $-x\in F$，使得 $x+(-x)=0$。
+	（3） 交换性：若 $x \ast y = y \ast x$，则称运算 $\ast$ 是交换的。
 
-F5 乘法结合率：$x\cdot (y\cdot z) = (x\cdot y)\cdot z$。
+	（4） 单位元（幺元）：若存在 $e \in A$ 使得 $e \ast x = x \ast e = x$，则称 $e$ 为 $A$ 上的单位元。
 
-F6 乘法交换律：$x\cdot y = y\cdot x$。
+	（5） 逆元（么元）：若存在 $x^{-1} \in A$ 使得 $x \ast x^{-1} = x^{-1} \ast x = e$，则称 $x^{-1}$ 为 $x$ 在 $A$ 上的逆元。
+\end{definition}
 
-F7 存在乘法单位元：存在 $1\in F$，使得 $1\ne 0$ 且对任意 $x\in F$ 有 $1\cdot x=x$。
+注意 $-x$ 和 $x^{-1}$ 只是记号，不代表我们定义出了减法和除法运算。
 
-F8 乘法逆元的存在性：对任意 $x\in F-\{0\}$，总存在 $x^{-1}\in F$，使得 $x\cdot x^{-1} =0$。
+\begin{definition}[群，半群]
+	给定集合 $G$ 和其上的二元运算 $\ast: G \times G \to G$，若：
 
-F9 乘法分配律：$x \cdot (y+z) = x\cdot y + x\cdot z$。
+	1. 满足结合律，称为半群。
 
-则称 $(F,+,\cdot)$ 为一个域。
+	2. 满足单位元、交换性的半群，称为幺半群、交换半群。
 
-注意 $-x$ 只是一个记号。同样的，$x^{-1}$ 也只是一个记号。
+	3. 每个元素都可逆的幺半群，称为群。
+
+	4. 满足交换律的群，称为交换群（Abelian 群）。
+\end{definition}
+
+\begin{example}
+	群中单位元和逆元唯一。
+\end{example}
+
+\begin{proof}
+	设 $x$ 存在两个逆元 $y_1, y_2$，有
+	\[ y_1 = y_1 \ast e = y_1 \ast x \ast y_2 = e \ast y_2 = y_2 \]
+	类似的，设存在两个单位元 $e_1, e_2$，有
+	\[ e_1 = e_1 \ast e_2 = e_2 \]
+\end{proof}
+
+\begin{definition}[环，域]
+	给定集合 $R$ 和其上的二元运算 $(R, +, \ast)$，若：
+
+	1. 满足 $(R, +)$ 是交换群，$(R, \ast)$ 是幺半群，且乘法关于加法满足分配率，称为环。
+
+	2. 环 $R$ 中 $(R, \ast)$ 可交换，称为交换环。
+
+	3. 除零元外皆可逆的环，称为除环。
+
+	4. 交换除环称为域。
+\end{definition}
+
+\section{拓扑初步}
+
+可以想象开集的基为开区间，闭集的基为闭区间。
+
+\begin{definition}[拓扑空间]
+	设 $\mathcal{T}$ 是集合 $X$ 子集的集族：
+
+	(O1) 若 $\varnothing \in \mathcal{T}$ 且 $X \in \mathcal{T}$。
+
+	(O2) 若有限个 $U_i \in \mathcal{T}$，则 $\bigcap U_i \in \mathcal{T}$。
+
+	(O3) 若任意个 $U_\alpha \in \mathcal{T}$，则 $\bigcup {U_\alpha} \in \mathcal{T}$。
+
+	则称 $(X, \mathcal{T})$ 为拓扑空间，其中 $\mathcal{T}$ 是此空间的拓扑，$\mathcal{T}$ 的元素称为开集。在无歧义的情况下，也称 $X$ 是拓扑空间。
+\end{definition}
+
+\begin{definition}[邻域]
+	对于空间 $X$ 和空间内一点 $x \in X$
+	
+	1. 若子集 $U$ 包含着某一开集且开集包含着 $x$，则称 $U$ 为 $x$ 的邻域。
+	
+	2. 若子集 $U$ 是开集且 $x \in U$，则称 $U$ 为 $x$ 的开邻域。
+\end{definition}
+
+\begin{definition}[闭集]
+	对于空间 $X$，若其子集 $F$ 满足 $X-F$ 是开集，则称 $F$ 是闭集。
+\end{definition}
+
+\begin{example}
+	换句话说：
+
+	1. 任意多开集的交集还是开集，有限个开集的并集还是开集。
+
+	2. 任意多闭集的交集还是闭集，有限个闭集的并集还是闭集。
+\end{example}
+
+\begin{definition}[闭包，内核]
+	设空间 $X$ 和其子集 $A$，记
+	
+	1. 所有包含 $A$ 的闭集的交为 $A$ 的闭包 $\overline{A}$，即包含 $A$ 的最小闭集，其中的元素称为 $A$ 的接触点。
+
+	2. 所有包含 $A$ 的开集的并为 $A$ 的内核 $A^{\circ}$，即包含 $A$ 的最大开集。
+\end{definition}
+
+\begin{definition}
+	对于空间 $X$ 和其子集 $A$，若
+
+	1. $\overline{A} = X$ 则称集合 $A$ 稠密于空间 $X$。
+	
+	2. $(\overline{A})^{\circ} = \varnothing$ 则称集合 $A$ 疏（无处稠密）于空间 $X$。
+\end{definition}
+
+显然 $\NN$ 和 $\ZZ$ 疏于 $\RR$，$\QQ$ 和 $\RR - \QQ$ 稠密于 $\RR$。
+
+\begin{definition}[连通]
+	若拓扑空间 $X$ 不能表示为两个不相交闭集的并，则称 $X$ 是连通空间。其子集 $X'$ 若是连通空间，则称 $X'$ 是连通的。
+\end{definition}
+
+可以得到 $\RR$ 是连通的，$\QQ$ 是不连通的。
 
 \begin{definition}[有序域]
 	若域 $F$ 是满足如下条件的有序集
@@ -211,7 +296,7 @@ F9 乘法分配律：$x \cdot (y+z) = x\cdot y + x\cdot z$。
 \end{theorem}
 \begin{proof}
 	设 $A = \{nx \mid n \in \NN^+ \}$，若不存在 $n$ 则 $y$ 将是 $A$ 的一个上界，由最小上界性可知 $A$ 的上确界存在。
-	
+
 	又因为小于上确界的数 $\sup A-x$ 不是上确界，即存在 $m\in \NN^+$ 使得 $\sup A -x <mx$，即 $\sup A < (m+1)x$，矛盾。
 
 	故必定存在 $n$ 使得 $nx>y$。
@@ -244,7 +329,7 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 \end{example}
 \begin{proof}
 	由 Achimedes 原理，可设存在 $n\in \NN^+$ 使得 $n(y-x)>1$。
-	
+
 	再设存在 $m_1,m_2\in \NN^+$，使得 $m_1>nx,m_2>-nx$。于是
 	$$-m_2<nx<m_1$$
 	因此存在 $m\in \NN^+$ 有 $-m_2\leqslant m \leqslant m_1$ 使得
@@ -282,8 +367,8 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 设 $m,n\in \NN$，定义 $\NN$ 上的加法 $+$ 和乘法 $\cdot$ 为
 \begin{equation*}
 	\begin{aligned}
-		0+m\coloneqq m&,\quad v(n)+m\coloneqq v(n+m)\\
-		0\cdot m\coloneqq m&,\quad v(n)\cdot m\coloneqq n \cdot m + m
+		0+m\coloneqq m      & ,\quad v(n)+m\coloneqq v(n+m)             \\
+		0\cdot m\coloneqq m & ,\quad v(n)\cdot m\coloneqq n \cdot m + m
 	\end{aligned}
 \end{equation*}
 
@@ -324,8 +409,8 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
 然后是定义 $N$ 上的加法和乘法
 \begin{equation*}
 	\begin{aligned}
-		(a,b) + (c,d) &\coloneqq  (a+c,b+d)\\
-		(a,b) \cdot (c,d) &\coloneqq  (a c,b d)
+		(a,b) + (c,d)     & \coloneqq  (a+c,b+d) \\
+		(a,b) \cdot (c,d) & \coloneqq  (a c,b d)
 	\end{aligned}
 \end{equation*}
 
@@ -365,8 +450,8 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
 于是定义 $Q$ 上的加法和乘法
 \begin{equation*}
 	\begin{aligned}
-		(a,b) + (c,d) &\coloneqq  (ad+bc,b+d)\\
-		(a,b) \cdot (c,d) &\coloneqq  (a \cdot c,b \cdot d)\\
+		(a,b) + (c,d)     & \coloneqq  (ad+bc,b+d)           \\
+		(a,b) \cdot (c,d) & \coloneqq  (a \cdot c,b \cdot d) \\
 	\end{aligned}
 \end{equation*}
 定义加法逆元为 $-(a,b) \coloneqq  (-a,b)$。可以验证，$(a,1)$ 与 $a$ 有相同的性状，我们可以令其相等，从而把整数嵌入到有理数内。
@@ -428,9 +513,9 @@ $$A \cdot B \coloneqq  \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}
 同时
 \begin{equation*}
 	A \cdot B \coloneqq \begin{cases}
-		-((-A) \cdot B), &A<0^*, B\geqslant 0^*\\
-		-(A \cdot (-B)), &A\geqslant 0^*, B<0^*\\
-		-((-A) \cdot (-B)), &A<0^*, B<0^*\\
+		-((-A) \cdot B),    & A<0^*, B\geqslant 0^* \\
+		-(A \cdot (-B)),    & A\geqslant 0^*, B<0^* \\
+		-((-A) \cdot (-B)), & A<0^*, B<0^*          \\
 	\end{cases}
 \end{equation*}
 
@@ -483,7 +568,7 @@ $$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}
 
 一个有理数上的序列 $\{a_n\}$，是一个从集合 $\NN$ 到 $\QQ$ 的一个映射，即我们以前说的数列。
 
-对于 $\QQ$ 上的无限序列 $\{a_n\}$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
+对于 $\QQ$ 上的无限序列 $\{a_n\}$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
 $$d(a_j,a_k) < \eps$$
 则称序列 $\{a_n\}$ 为 Cauchy 序列，记作 $\LIM(a_n)$。记 Cauchy 序列的全体为集合 $R$。
 
@@ -496,8 +581,8 @@ $$d(a_n,b_n) < \eps$$
 于是定义 $R$ 上的加法和乘法
 \begin{equation*}
 	\begin{aligned}
-		\LIM(a_n) + \LIM(b_n) &\coloneqq  \LIM(a_n+b_n)&\\
-		\LIM(a_n) \cdot \LIM(b_n) &\coloneqq  \LIM(a_nb_n)\\
+		\LIM(a_n) + \LIM(b_n)     & \coloneqq  \LIM(a_n+b_n) & \\
+		\LIM(a_n) \cdot \LIM(b_n) & \coloneqq  \LIM(a_nb_n)    \\
 	\end{aligned}
 \end{equation*}
 定义负运算 $-\LIM(a_n) \coloneqq  \LIM(-a_n)$。
@@ -511,7 +596,7 @@ $$x^{-1} \coloneqq  \LIM(a_n^{-1})$$
 
 至此，我们可以着手验证实数是否满足我们预想的性质，在 Dedekind 分割中提过了，这里不再重复。
 
-另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有 
+另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
 $$d(a_j,a_k) \leqslant \eps$$
 
 可以证明，$R$ 上的 Cauchy 序列与 $\QQ$ 上的 Cauchy 序列等价。
@@ -528,9 +613,9 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 \[(a,b) = (c,d) \Leftrightarrow a=b \land  c=d\]
 复数没有序关系。定义 $C$ 上的加法和乘法
 \[\begin{aligned}
-		(a,b) + (c,d) &\coloneqq  (a+c,b+d)\\
-		(a,b) \cdot (c,d) &\coloneqq  (ac-bd,ad+bc)
-\end{aligned}\]
+		(a,b) + (c,d)     & \coloneqq  (a+c,b+d)     \\
+		(a,b) \cdot (c,d) & \coloneqq  (ac-bd,ad+bc)
+	\end{aligned}\]
 
 定义加法逆元为 $-(a,b) \coloneqq  (-a,-b)$。可以验证，$(a,0)$ 与 $a$ 具相同的性状，我们可以令其相等，从而把实数嵌入到复数域内。
 

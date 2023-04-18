@@ -78,9 +78,9 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	则 $\displaystyle\lim_{n\to \infty}b_n = A$。
 \end{theorem}
 \begin{proof}
-	即对于任给的 $\eps>0$，存在 $N_1,N_2$，使得当 $n>N_1$ 有 
+	即对于任给的 $\eps>0$，存在 $N_1,N_2$，使得当 $n>N_1$ 有
 	$$A-\eps<a_n<A+\eps$$
-	当 $n>N_2$ 有 
+	当 $n>N_2$ 有
 	$$A-\eps<c_n<A+\eps$$
 	因此当 $n>\max\{N_0,N_1,N_2\}$ 时，有
 	$$A-\eps < a_n \leqslant b_n \leqslant c_n < A+\eps$$
@@ -101,9 +101,9 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	则当 $n>\max\{N_1,N_2\}$ 时有
 	\begin{equation*}
 		\begin{aligned}
-			|(\alpha a_n+\beta b_n)-(\alpha A+\beta B)|&\leqslant |\alpha||a_n-A|+|\beta||b_n-B|\\
-			&< \frac{\eps|\alpha|}{2|\alpha|+1}+\frac{\eps|\beta|}{2|\beta|+1}\\
-			&< \frac{\eps}2+\frac{\eps}2=\eps
+			|(\alpha a_n+\beta b_n)-(\alpha A+\beta B)| & \leqslant |\alpha||a_n-A|+|\beta||b_n-B|                          \\
+			                                            & < \frac{\eps|\alpha|}{2|\alpha|+1}+\frac{\eps|\beta|}{2|\beta|+1} \\
+			                                            & < \frac{\eps}2+\frac{\eps}2=\eps
 		\end{aligned}
 	\end{equation*}
 
@@ -128,13 +128,15 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 
 \section{数列极限存在的条件}
 
-\begin{definition}
-	若数列 $\{a_n\}$ 各项满足关系式 $a_n \leqslant a_{n+1}(a_n \geqslant a_{n+1})$，则称 $\{a_n\}$ 为递增（递减）数列，统称为单调数列。
-\end{definition}
+若数列 $\{a_n\}$ 各项满足关系式 $a_n \leqslant a_{n+1}(a_n \geqslant a_{n+1})$，则称 $\{a_n\}$ 为递增（递减）数列，统称为单调数列。
 
 \begin{theorem}[单调有界定理]
 	单调有界数列必有极限。
 \end{theorem}
+
+\begin{proof}
+	不妨设 $\{a_i\}$ 为有上界的单调递增序列，
+\end{proof}
 
 \begin{theorem}[致密性定理]
 	任何有界数列必定有收敛的子列。
@@ -168,7 +170,7 @@ $$\frac{1}{2}|A| < |a_n| < \frac{3}{2}|A|$$
 	因此当 $m,n>N$ 时有
 	$$|a_m-a_n| \leqslant |a_m-A| + |A-a_n| < \frac{\eps}{2}+\frac{\eps}{2}=\eps$$
 	这说明 $a_n$ 为 Cauchy 数列。
-	
+
 	（2） 必要性：Todo ……
 \end{proof}
 

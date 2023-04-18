@@ -55,3 +55,11 @@
 }
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
+
+%% 列表缩进
+
+\RequirePackage{enumitem}
+
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1em,itemindent=1em}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1em,itemindent=1em}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1em,itemindent=1em}

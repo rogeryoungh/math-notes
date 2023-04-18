@@ -133,7 +133,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 \begin{definition}[最小上界性]
 	如果集合 $S$ 的任何非空有上界子集 $S'$ 有最小上界，则称 $S$ 有最小上界性。
 
-	换句话说，若任取有上界的 $S' \subseteq S$ 都有 $\sup S' \in S$，那么称 $S$ 有最小上界性。
+	换句话说，若任取非空子集 $S' \subseteq S$，若 $S'$ 在 $S$ 内存在上界，那么 $S'$ 在 $S$ 内存在上确界。
 \end{definition}
 
 
@@ -231,9 +231,9 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 
 \begin{definition}[邻域]
 	对于空间 $X$ 和空间内一点 $x \in X$
-	
+
 	1. 若子集 $U$ 包含着某一开集且开集包含着 $x$，则称 $U$ 为 $x$ 的邻域。
-	
+
 	2. 若子集 $U$ 是开集且 $x \in U$，则称 $U$ 为 $x$ 的开邻域。
 \end{definition}
 
@@ -251,7 +251,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 
 \begin{definition}[闭包，内核]
 	设空间 $X$ 和其子集 $A$，记
-	
+
 	1. 所有包含 $A$ 的闭集的交为 $A$ 的闭包 $\overline{A}$，即包含 $A$ 的最小闭集，其中的元素称为 $A$ 的接触点。
 
 	2. 所有包含 $A$ 的开集的并为 $A$ 的内核 $A^{\circ}$，即包含 $A$ 的最大开集。
@@ -261,17 +261,32 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 	对于空间 $X$ 和其子集 $A$，若
 
 	1. $\overline{A} = X$ 则称集合 $A$ 稠密于空间 $X$。
-	
+
 	2. $(\overline{A})^{\circ} = \varnothing$ 则称集合 $A$ 疏（无处稠密）于空间 $X$。
 \end{definition}
 
 显然 $\NN$ 和 $\ZZ$ 疏于 $\RR$，$\QQ$ 和 $\RR - \QQ$ 稠密于 $\RR$。
+
+虽然我们在小学二年级学过无理数的存在性，但我们仍对 $\QQ$ 和 $\RR$ 性状上的具体区别知之甚少。
 
 \begin{definition}[连通]
 	若拓扑空间 $X$ 不能表示为两个不相交闭集的并，则称 $X$ 是连通空间。其子集 $X'$ 若是连通空间，则称 $X'$ 是连通的。
 \end{definition}
 
 可以得到 $\RR$ 是连通的，$\QQ$ 是不连通的。
+
+依定义，闭区间是 $\RR$ 内的开集，其任意数量的交都是闭集。假想一个不断变小的区间列，一层套一层。
+
+\begin{definition}[闭区间套]
+	给定有限的一列闭区间 $\{ I_i = [a_i, b_i] \}$，若
+	
+	（1） 其是下降的
+	\[ I_1 \supseteq I_2  \supseteq I_3  \supset \cdots \]；
+
+	（2） 区间长度 $\lim_{n \to \infty} (b_i - a_i) = 0$；
+
+	那么称这一列区间是闭缩区间套，简称区间套。
+\end{definition}
 
 \begin{definition}[有序域]
 	若域 $F$ 是满足如下条件的有序集
@@ -488,7 +503,7 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 
 
 \begin{definition}[Dedekind 分割]
-	设 $A \subset \QQ, A' = \complement_\QQ A$，若满足以下三个条件
+	对于给定的空间 $S$， $A \subset S, A' = \complement_S A$，若满足以下三个条件
 
 	（1） $A \ne \varnothing,A' \ne \varnothing$；
 
@@ -496,16 +511,20 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 
 	（3） 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
 
-	则称 $A$ 为 $\QQ$ 的一个分割，记分割的全体为 $R$。
+	则称 $A$ 为 $S$ 的一个分割。
 \end{definition}
 
-集合的相等即是 $R$ 上的等价关系。$R$ 上的序关系定义是
-$$A \subseteq B \Leftrightarrow A\leqslant B$$
+直观的来说，我们把整个 $S$ 划分成了下组 $A$ 和上组 $A'$。
+
+记 $\QQ$ 上 Dedekind 分割的全体为 $R$，集合的相等即是 $R$ 上的等价关系，$R$ 上的序关系定义是
+\[ A \subseteq B \Leftrightarrow A\leqslant B \]
 定义加法
-$$A+B \coloneqq  \{ a+b \mid a\in A,b\in B\}$$
+\[ A+B \coloneqq  \{ a+b \mid a\in A,b\in B\} \]
 于是可以定义负运算
-$$-A \coloneqq  \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\}$$
-$$-A \coloneqq  \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}$$
+\[ \begin{aligned}
+	-A &\coloneqq  \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\} \\
+	-A &\coloneqq  \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}
+\end{aligned} \]
 
 
 然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \QQ \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
@@ -579,12 +598,10 @@ $$d(a_n,b_n) < \eps$$
 定义 $R$ 的序关系，对于实数 $x,y$，若存在 Cauchy 序列满足 $x=\LIM(a_n),y=\LIM(b_n)$，对于 $n\geqslant 1$ 有 $a_n \leqslant b_n$，则 $\LIM(a_n) \leqslant \LIM(b_n)$。
 
 于是定义 $R$ 上的加法和乘法
-\begin{equation*}
-	\begin{aligned}
-		\LIM(a_n) + \LIM(b_n)     & \coloneqq  \LIM(a_n+b_n) & \\
-		\LIM(a_n) \cdot \LIM(b_n) & \coloneqq  \LIM(a_nb_n)    \\
-	\end{aligned}
-\end{equation*}
+\[ \begin{aligned}
+	\LIM(a_n) + \LIM(b_n)     & \coloneqq  \LIM(a_n+b_n) & \\
+	\LIM(a_n) \cdot \LIM(b_n) & \coloneqq  \LIM(a_nb_n)    \\
+\end{aligned} \]
 定义负运算 $-\LIM(a_n) \coloneqq  \LIM(-a_n)$。
 
 定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \QQ$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
@@ -621,7 +638,37 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 
 定义非零数的乘法逆元 $(a,b)^{-1} \coloneqq  \left(\frac{a}{a^2+b^2},-\frac{b}{a^2+b^2}\right)$。
 
+\section{实数的完备性}
 
+如上所见，实数可以有多种完全不同的定义。换句话说我们可以承认一些公理，使得些都是等价的公理，以下举出几个例子。
+
+\begin{itemize}
+	\item R0 Dedekind 原理；
+	\item R1 确界原理；
+	\item R2 单调有界原理;
+	\item R3 区间套原理；
+	\item R4 有限覆盖原理；
+	\item R5 聚点原理；
+	\item R6 致密性原理；
+	\item R7 柯西收敛原理；
+	\item R8 介值定理；
+	\item R9 连通性原理；
+	\item R10 Achimedes 原理；
+\end{itemize}
+
+这些定理是彼此等价的，其逻辑关系是
+\[ \mathrm{R0} \Leftrightarrow \mathrm{R1} \Leftrightarrow\mathrm{R2} \Leftrightarrow\mathrm{R3} + \mathrm{R10} \Leftrightarrow\mathrm{R4} \Leftrightarrow\mathrm{R5} \Leftrightarrow\mathrm{R6} \Leftrightarrow\mathrm{R7}+\mathrm{R10} \Leftrightarrow\mathrm{R8} \Leftrightarrow\text{R9}  \]
+因此都可以选作实数的完备性（连续性）公理。互相推导很适合作为课后练习。
+
+\begin{axiom}[Dedekind 原理]
+	设 $A$ 为 $\RR$ 上的 Dedekind 分割，$A' = \complement_\RR A$，对于任给的 $p\in A,q \in A'$，那么存在 $r \in \RR$ 使得 $p \leqslant r \leqslant q$。
+\end{axiom}
+
+\begin{axiom}[确界原理]
+	$\RR$ 具有最小上界性。即对于 $\RR$ 的任何子集 $S$，若 $S$ 在 $\RR$ 内存在上界，那么 $S$ 在 $\RR$ 内存在上确界。
+\end{axiom}
+
+确界原理由于其简明的性质，我们将在其上构建极限与收敛的体系。
 
 
 

@@ -279,7 +279,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 
 \begin{definition}[闭区间套]
 	给定有限的一列闭区间 $\{ I_i = [a_i, b_i] \}$，若
-	
+
 	（1） 其是下降的
 	\[ I_1 \supseteq I_2  \supseteq I_3  \supset \cdots \]；
 
@@ -505,11 +505,11 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 \begin{definition}[Dedekind 分割]
 	对于给定的空间 $S$， $A \subset S, A' = \complement_S A$，若满足以下三个条件
 
-	（1） $A \ne \varnothing,A' \ne \varnothing$；
+	(D1) $A \ne \varnothing, A \neq S(A' \ne \varnothing)$；
 
-	（2） 当 $p\in A,q \in A'$ 时，$p<q$；
+	(D2) 当 $p\in A,q \in A'$ 时，$p<q$；
 
-	（3） 任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
+	(D3) 不存在最大数：任给 $p \in A$，存在 $q \in A$，使得 $p<q$；
 
 	则称 $A$ 为 $S$ 的一个分割。
 \end{definition}
@@ -522,9 +522,9 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 \[ A+B \coloneqq  \{ a+b \mid a\in A,b\in B\} \]
 于是可以定义负运算
 \[ \begin{aligned}
-	-A &\coloneqq  \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\} \\
-	-A &\coloneqq  \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}
-\end{aligned} \]
+		-A & \coloneqq  \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\} \\
+		-A & \coloneqq  \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}
+	\end{aligned} \]
 
 
 然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \QQ \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
@@ -564,21 +564,40 @@ $$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}
 
 我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \RR$。
 
+\begin{theorem}[Dedekind 原理]
+	设 $A$ 为 $\RR$ 上的 Dedekind 分割，$A' = \complement_\RR A$，对于任给的 $a\in A,a' \in A'$，存在 $r \in \RR$ 使得 $a < r \leqslant a'$。
+\end{theorem}
+
+\begin{proof}
+	由于 $a, a'$ 也是 $\QQ$ 上的分割，下面使用集合的语言。显然 $a' \in A'$ 是 $A$ 的一个上界。构造
+	\[ b = \bigcup_{a \in A} a \]
+	下证 $a \subset b \subseteq a'$。
+
+	首先证明 $b$ 是 $\QQ$ 上分割。
+
+	\begin{itemize}
+		\item D1：显然 $b$ 非空，又因为对于任意的 $a \in A, a' \in A'$ 都有 $a \subset a'$，故 $b \subseteq a'$（注意可取等），即 $b \neq \QQ$。
+		\item D2：接下来取 $\beta \in b, \beta' \in \complement_\QQ b$，于是存在 $a_0 \in A$ 使得 $\beta \in a_0$，此时 $\beta' \notin a_0$ 即 $\beta' \in a_0'$，故 $\beta < \beta'$。
+		\item D3：对于任意的 $\beta_1 \in b$，存在 $a_0 \in b$ 使得 $\beta_1 \in a_0$，此时存在 $\alpha_1 \in a_0$ 使得 $\beta_1 < \alpha_1$ 且 $\alpha_1 \in b$。
+	\end{itemize}
+
+
+	接下来证明 $b \notin A$。假设 $b \in A$ 即存在 $a_0$ 使得 $b = a_0$，但由 D3 总是存在 $b = a_0 \subset a_1$，与 $b$ 是全体并集矛盾。
+
+	因此 $b \in A'$，故 $a \subset b \subseteq a'$。
+\end{proof}
+
 实数和有理数的最基本的一个区别就是有最小上界性。
 
-\begin{theorem}
-	$\RR$ 有最小上界性。
+\begin{theorem}[确界原理]
+	$\RR$ 具有最小上界性。即对于 $\RR$ 的任何子集 $S$，若 $S$ 在 $\RR$ 内存在上界，那么 $S$ 在 $\RR$ 内存在上确界。
 \end{theorem}
 \begin{proof}
-	设 $\alpha$ 是 $R$ 的非空子集，设 $\alpha$ 存在上界 $B$。令
-	$$S = \bigcup_{A \in \alpha} A$$
-	下证 $S = \sup A$。
+	设 $B'$ 是 $S$ 全体上界组成的集合，即 $B' = \{x \mid\forall s \in S, x \geqslant s \}$，令
+	\[ B = \complement_\RR B' = \{ x \mid \exists s \in S, x < s\} \]
+	试证 $B$ 是 $\RR$ 的一个分割。D1 和 D2 比较显然。显然对于任意的 $b \in B$ 存在 $s \in S$ 使得 $x < s$，那么总是可以取 $b_2 = \frac{b+s}{2} \in B$ 使 $x < b_2$。
 
-	首先证明 $S$ 是分割。显然 $S$ 非空，又因为对任意的 $A\in \alpha$ 都有 $A \subset B$，故 $S \subset B$，因此 $S \ne \QQ$。取 $p \in S,q\notin S$，于是存在 $A_0 \in \alpha$ 使得 $p \in A_0$，此时 $q \notin A_0$，故 $p<q$。设 $p \in S$，于是存在 $A_0 \in \alpha$ 使得 $p \in A_0$，此时存在 $q\in A_0$ 使得 $p < q$，且 $q \in S$。
-
-	其次，对任意的 $A \in \alpha$ 必然 $A \leqslant S$，故 $S$ 是 $A$ 的一个上界。若 $S' < S$，则有 $s \in S, s \notin S'$，同时存在 $A_0 \in \alpha$ 使得 $s \in A_0$，故 $S' < A_0$，故 $S'$ 不是 $A$ 的上界。
-
-	因此 $S = \sup A$。
+	由上文所证的 Dedekind 原理知，总存在 $u \in \RR(B')$ 使得任取上确界 $b' \in B'$ 使得 $u \leqslant b'$，故 $u$ 是上确界。
 \end{proof}
 
 \subsection{实数\ ·\ Cauchy 序列}
@@ -599,9 +618,9 @@ $$d(a_n,b_n) < \eps$$
 
 于是定义 $R$ 上的加法和乘法
 \[ \begin{aligned}
-	\LIM(a_n) + \LIM(b_n)     & \coloneqq  \LIM(a_n+b_n) & \\
-	\LIM(a_n) \cdot \LIM(b_n) & \coloneqq  \LIM(a_nb_n)    \\
-\end{aligned} \]
+		\LIM(a_n) + \LIM(b_n)     & \coloneqq  \LIM(a_n+b_n) & \\
+		\LIM(a_n) \cdot \LIM(b_n) & \coloneqq  \LIM(a_nb_n)    \\
+	\end{aligned} \]
 定义负运算 $-\LIM(a_n) \coloneqq  \LIM(-a_n)$。
 
 定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \QQ$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
@@ -659,14 +678,6 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 这些定理是彼此等价的，其逻辑关系是
 \[ \mathrm{R0} \Leftrightarrow \mathrm{R1} \Leftrightarrow\mathrm{R2} \Leftrightarrow\mathrm{R3} + \mathrm{R10} \Leftrightarrow\mathrm{R4} \Leftrightarrow\mathrm{R5} \Leftrightarrow\mathrm{R6} \Leftrightarrow\mathrm{R7}+\mathrm{R10} \Leftrightarrow\mathrm{R8} \Leftrightarrow\text{R9}  \]
 因此都可以选作实数的完备性（连续性）公理。互相推导很适合作为课后练习。
-
-\begin{axiom}[Dedekind 原理]
-	设 $A$ 为 $\RR$ 上的 Dedekind 分割，$A' = \complement_\RR A$，对于任给的 $p\in A,q \in A'$，那么存在 $r \in \RR$ 使得 $p \leqslant r \leqslant q$。
-\end{axiom}
-
-\begin{axiom}[确界原理]
-	$\RR$ 具有最小上界性。即对于 $\RR$ 的任何子集 $S$，若 $S$ 在 $\RR$ 内存在上界，那么 $S$ 在 $\RR$ 内存在上确界。
-\end{axiom}
 
 确界原理由于其简明的性质，我们将在其上构建极限与收敛的体系。
 

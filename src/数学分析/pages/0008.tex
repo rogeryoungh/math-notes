@@ -30,7 +30,7 @@
 	设正项级数 $\sum a_i, \sum b_i$，若存在正数 $N$，使得
 	\[ a_i \leqslant b_i, \quad \forall n \geqslant N \]
 	那么
-	
+
 	（1） 若级数 $\sum b_i$ 收敛，则级数 $\sum a_i$ 收敛。
 
 	（2） 若级数 $\sum a_i$ 发散，则级数 $\sum b_i$ 发散。
@@ -45,4 +45,114 @@
 
 	（2） 其为（1）的逆否命题，也成立。
 \end{proof}
+
+因此我们可以通过比较、放缩等手段，将待判级数和已知敛散性的级数进行比较。
+
+一个重要的已知级数是等比级数，我们有三种判断手段。
+
+\begin{theorem}[比式判别法]
+	设 $\sum a_i$ 是正项级数，却存在某正数 $N$ 和 $q(0 < q < 1)$ 使得
+	\[ a_{n+1} / a_n \leqslant q, \quad \forall n \geqslant N \]
+	则级数 $\sum a_i$ 收敛；若
+	\[ a_{n+1} / a_n \geqslant 1, \quad \forall n \geqslant N \]
+	则级数 $\sum a_i$ 发散。
+
+
+	（极限形式）且
+	\[ \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q \]
+	则当 $q < 1$ 时，级数收敛；$q > 1$ 时，级数发散。
+\end{theorem}
+
+\begin{proof}
+	（1） 不妨设 $N = 1$，则有 $a_n \leqslant q^{n-1}a_1$。而等比级数显然是收敛的，故收敛。
+
+	（2） 显然当 $n > N_0$ 时 $a_n \geqslant n_0 > 0$，其每项的极限不趋于 $0$，故发散。
+
+	（极限形式）由极限知，我们取 $\varepsilon = \frac{|1-q|}{2}$，存在正数 $N$ 使得当 $n > N$ 时有
+	\[ q - \varepsilon < \frac{a_{n+1}}{a_n} < q + \varepsilon \]
+
+	当 $q<1$ 时，显然 $q + \varepsilon = \frac{1+q}{2} < 1$，由比式判别法知收敛。
+
+	当 $q > 1$ 时，$q - \varepsilon = \frac{1+q}{2} > 1$，由比式判别法知发散。
+\end{proof}
+
+\begin{theorem}[Cauchy 判别法（根式判别法）]
+	设 $\sum a_i$ 是正项级数，且存在正数 $N$ 和正常数 $q$ 使得
+	\[ \sqrt[n]{a_n} \leqslant q < 1, \forall n > N \]
+	则级数收敛；若
+	\[ \sqrt[n]{a_n} \geqslant 1, \forall n > N \]
+	则级数发散。
+\end{theorem}
+
+\begin{proof}
+	（1） 不妨设 $N=1$，显然 $a_n \leqslant q^n$，由等比级数收敛知原级数也收敛。
+
+	（2） 显然 $a_n \geqslant 1^n = 1$，故发散。
+\end{proof}
+
+\begin{theorem}[积分判别法]
+	设 $f$ 是 $[1, \infty)$ 上的减函数，则级数 $\sum f(i)$ 收敛的充分必要条件是反常积分 $\int_{1}^{+\infty} f(x) \d x$ 收敛。
+\end{theorem}
+
+\begin{proof}
+	假设级数收敛于 $S$，由收敛的性质知，$\lim_{n \to \infty} f(n) = 0$，故 $f$ 非负。进而对任意正整数 $N$ 有
+	\[ \int_{1}^{N} f(x) \d x = \sum_{n=2}^N \int_{n -1}^{n} f(x) \d x \leqslant \sum_{n=1}^{N-1} f(n) \leqslant \sum_{n=1}^{\infty} f(n) = S \]
+	考虑对 $M \in (N, N + 1]$，都有
+	\[ 0 \leqslant \int_{1}^{M} f(x) \d x \leqslant \int_{1}^{N+1} \leqslant S \]
+	因此该反常积分收敛。
+
+	反之，设反常积分。。。不想证了 TODO
+\end{proof}
+
+\begin{theorem}[Kummer]
+	设 $\sum a_i, \sum b_i$ 为正项级数，若 $n$ 充分大时有
+	\[ \frac{1}{b_n} \cdot \frac{a_n}{a_{n+1}} - \frac{1}{b_{n+1}} \geqslant \lambda > 0 \]
+	则 $\sum a_n$ 收敛；若
+	\[ \frac{1}{b_n} \cdot \frac{a_n}{a_{n+1}} - \frac{1}{b_{n+1}} \leqslant 0 \]
+	且 $\sum b_n$ 发散，则 $\sum a_n$ 发散。
+\end{theorem}
+
+\begin{proof}
+	（1） 条件即
+	\[ a_{n+1} \leqslant \frac{1}{\lambda} \left( \frac{a_n}{b_n} - \frac{a_{n+1}}{b_{n+1}} \right) \]
+	设 $S_n$ 是 $a_n$ 的和函数，有
+	\[ S_{n+1} \leqslant S_N +\frac{1}{\lambda} \left( \frac{a_N}{b_N} - \frac{a_{n+1}}{b_{n+1}} \right) \leqslant S_N + \frac{1}{\lambda} \frac{a_N}{b_N} \]
+	从而 $S_N$ 有上界，故收敛。
+
+	（2） 可知
+	\[ \frac{1}{b_n} \cdot \frac{a_n}{a_{n+1}} - \frac{1}{b_{n+1}} \leqslant 0 \Longrightarrow \frac{a_1}{b_1} \leqslant \cdots \leqslant \frac{a_n}{b_n} \leqslant \frac{a_{n+1}}{b_{n+1}} \]
+	故 $a_n \geqslant \frac{a_1}{b_1} b_n$，由 $\sum b_n$ 知 $\sum a_n$ 也发散。
+\end{proof}
+
+当 $b_n = 1$ 时即得比值判别法；取 $b_n = \frac{1}{n}$ 就是 Raabe 判别法；取 $b_n = \frac{1}{n \ln n}$，则得 Gauss 判别法。
+
+\begin{theorem}[Cauchy 凝聚判别法]
+	设 $a_n$ 单调递减趋于 $0$。则 $\sum a_n$ 收敛当且仅当 $\sum 2^k a_{2^k}$ 收敛。
+\end{theorem}
+
+在 Taylor 公式中，我们经常得到正负项交替出现的级数，我们称为交错级数。
+
+\begin{theorem}[Leibniz 判别法]
+	若 $a_n$ 单调递减趋于 $0$，则级数 $\sum (-1)^{n-1} a_n$ 收敛。
+\end{theorem}
+
+\begin{proof}
+	懒得证了，TODO。大致思想是注意到 $S_{2m-1}$ 和 $S_{2m}$ 分别是单减和单增的，从而 $[S_{2m-1}, S_{2m}]$ 是退缩区间套。
+\end{proof}
+
+\section{一般项级数收敛判别法}
+
+若级数 $\sum a_n$ 各项绝对值组成的级数 $\sum |a_n|$ 收敛，那么称原级数绝对收敛；若原级数收敛，绝对值级数不收敛，则称为条件收敛。
+
+更神秘的判别法，比如 Abel 判别法、Dirichlet 判别法感觉不太用得到，跳过。
+
+
+\section{函数项级数的一致收敛}
+
+设 $f_1, f_2, \cdots$ 是 $E$ 上的函数列，记为 $\{f_i\}$。若带入 $x = x_0$ 使得函数列的值收敛，则称函数列在点 $x_0$ 收敛，$x_0$ 称为函数列的收敛点；反之若发散，则称发散点。
+
+若函数列在 $D \subset E$ 上每一点都收敛，则称其在数集 $D$ 上收敛。此时对函数上每一点 $x$，都有一个极限值与之对应，称为函数列的极限函数。记为
+\[ \lim_{n \to \infty} f_n(x) = f(x) \]
+函数列的全体收敛点集，称为收敛域。
+
 

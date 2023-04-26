@@ -106,3 +106,17 @@ $$y-y_0 = f'(x_0)(x-x_0)$$
 \begin{theorem}[介值定理]
 	设 $f$ 为 $[a,b]$ 上的连续函数，$\mu$ 时严格介于 $f(a)$ 和 $f(b)$ 之间的数，则存在 $\xi\in (a,b)$，使得 $f(\xi)=\mu$。
 \end{theorem}
+
+\section{曲率}
+
+给定光滑曲线 $C$，取固定点 $M$ 和动点 $N$ 得到弧长 $\Delta s$。$N$ 处与 $M$ 处的切线和 $x$ 正轴夹角差记为 $\Delta \alpha$。以此定义 $M$ 处的曲率为
+\[ k = \lim_{\Delta s \to 0} \left| \frac{\Delta \alpha}{\Delta s} \right| \]
+
+假设光滑曲线由参数方程 $x(t), y(t)$ 给出，那么可以得到
+\[ \alpha = \arctan \frac{y'(t)}{x'(t)}, \quad \frac{\d \alpha}{\d t} = \frac{y''(t)x'(t) - y'(t) x''(t)}{x'(t)^2 + y'(t)^2} \]
+利用 $\d s/ \d t = \sqrt{x'(t)^2 + y'(t)^2}$ 得到
+\[ k = \left| \frac{\d a / \d t}{\d s \d t} \right| = \frac{|y''(t)x'(t) - y'(t) x''(t)|}{(x'(t)^2 + y'(t)^2)^{3/2}} \]
+特别的曲线如果由 $y(x)$ 给出，那么
+\[ k = \frac{|y''|}{(1+y'^2)^{3/2}} \]
+其中令 $R = 1/k$ 为曲线的曲率半径。
+

@@ -155,4 +155,88 @@
 \[ \lim_{n \to \infty} f_n(x) = f(x) \]
 函数列的全体收敛点集，称为收敛域。
 
+用 $\varepsilon - N$ 语言表示即：对任意固定的 $x \in D$，任给 $\varepsilon$ 恒存在 $N(\varepsilon, x)$ 使得当 $n > N$ 时有
+\[ | f_n(x) - f(x) | < \varepsilon \]
+则称 $\lim_{n \to \infty} f_n(x) = f(x)$。
+
+对于函数列，我们不仅要讨论其收敛域，还需要更多的性质，比如连续性、导数、积分是否在极限下不变。
+
+\begin{definition}
+	若对于函数列 $\{f_n\}$ 对任给的正数 $\varepsilon$ 总存在某一正整数 $N(\varepsilon)$ 使得当 $n > N$ 时对一切 $x \in D$ 都有
+	\[ |f_n(x) - f(x)| < \varepsilon \]
+	则称函数列一致收敛于 $f$，记作
+	\[ f_n(x) \rightrightarrows f(x) (n \to \infty) \]
+\end{definition}
+
+一致收敛是比收敛更强的性质。反之，存在 $\varepsilon$ 使得对任何 $N$ 都有 $x(N)$ 和 $n(N) > N$ 使得
+\[ |f_n(x) - f(x) | \geqslant \varepsilon \]
+则称其不一致收敛。
+
+\begin{theorem}[函数列一致收敛 Cauthy 准则]
+	给定函数列 $\{f_n\}$ 在 $D$ 上一致收敛的充要条件是：对任给 $\varepsilon > 0$ 都存在正数 $N$ 使得 $n, m > N$ 时，对一切 $x \in D$ 都有
+	\[ |f_n(x) - f_m(x) | < \varepsilon \]
+\end{theorem}
+
+\begin{proof}
+	先证必要性，已知 $f_n(x) \rightrightarrows f(x)$，显然我们可以取 $\frac{\varepsilon}{2}$ 使得
+	\[ |f_n(x) - f_m(x)| \leqslant |f_n(x) - f(x)| + |f_m(x) - f(x)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \]
+
+	再证必要性，考察每个点由 Cauthy 定理知其收敛，故一致收敛。
+\end{proof}
+
+
+\begin{definition}
+	若函数列 $\{f_n\}$ 定义在区间 $I$ 上，若对任意闭区间 $[a, b] \subset I$，函数列在 $[a, b]$ 上一致收敛于 $f$，则称 $\{f_n\}$ 在函数列上一致收敛。
+\end{definition}
+
+
+对于函数列，我们也可以定义函数项级数，和其部分和数列。
+
+\section{幂级数初步}
+
+接下来主要讨论幂函数序列 $\{a_n(x- x_0)^n \}$ 所产生的函数项级数
+\[ \sum_{n=0}^{\infty} = a_0 + a_1(x-x_0) + a_2(x-x_0)^2 + \cdots \]
+记作幂级数，接下来主要讨论 $x_0 = 0$。
+
+\begin{theorem}
+	若幂级数 $\sum f_i x^i$ 在 $x = x_1 \neq 0$ 处收敛，则对任何 $|x| < |x_1|$ 幂级数都绝对收敛；若幂级数在 $x = x_1$ 处发散，则对任何 $|x| > |x_1|$ 幂级数都发散。
+\end{theorem}
+
+\begin{proof}
+	设 $\sum f_i x_1^i$ 收敛，则 $\{f_i x_1^i\}$ 收敛于 $0$ 且有界，那么对任意 $|x| < |x_1|$ 其仍收敛于 $0$ 且有界，且每一项都严格小于 $\{f_i x_1^i\}$，因此绝对收敛。
+
+	那么若 $x_1$ 处发散，假如存在 $|x_2| > |x_1|$ 使得收敛，则由前证矛盾，故收敛。
+\end{proof}
+
+因此幂级数的收敛域是关于原点对称的区间，我们记区间长度为 $2R$，那么收敛半径为 $R$。对于 $x = \pm R$ 处，级数可能收敛，也可能不收敛。
+
+\begin{theorem}
+	对于幂级数 $\sum f_i x^i$ 若
+	\[ \lim_{n \to \infty} \sqrt[n]{|a_n|} = \rho \]
+	\begin{itemize}
+		\item 若 $\rho = 0$ 时，幂级数的收敛半径是 $R = +\infty$。
+		\item 若 $\rho > 0$ 时，幂级数的收敛半径是 $R = \frac{1}{\rho}$。
+		\item 若 $\rho = \infty$ 时，幂级数的收敛半径是 $R = 0$。
+	\end{itemize}
+\end{theorem}
+
+\section{Fourier 级数}
+
+函数列
+\[ 1, \quad \cos x, \quad \sin x, \quad \cos 2x, \quad \sin 2x , \cdots \]
+称为三角函数系，若这一列的函数记为 $\{\varphi_i(x)\}$ 则
+\[ \int_{-\pi}^{\pi} \varphi_i(x) \varphi_j(x) \d x = 0, \quad \forall i \neq j \]
+这个性质称为三角函数系的正交性。有限和
+\[ a_0 + \sum_{k=1}^n (a_k \cos kx + b_k \sin kx) \]
+称为三角多项式，而形式和
+\[ a_0 + \sum_{k=1}^\infty (a_k \cos kx + b_k \sin kx) \]
+称为三角级数，其中 $a_0, a_k, b_k$ 称为三角函数的系数。
+
+\begin{definition}
+	假设 $f$ 是一个周期为 $2\pi$ 的 Riemann 可积函数，令
+	\[ a_k = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos kx \d x, \quad b_k = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin k x \d x \]
+	其中 $a_0, a_k, b_k$ 称为 $f$ 的 Fourier 级数，形式和
+	\[ \frac{a_0}{2} + \sum_{k=1}^\infty (a_k \cos k x+ b_k \sin k x) \]
+	称为 $f$ 的 Fourier 级数或者 $Fourier$ 展开。
+\end{definition}
 

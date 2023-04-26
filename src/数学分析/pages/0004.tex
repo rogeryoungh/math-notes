@@ -1,92 +1,176 @@
-\chapter{函数的连续性}
+%% \newcommand{\mfrac}[2]{\frac{#1}{#2}}
 
-\section{连续性的概念}
+\chapter{导数理论}
 
-\begin{definition}[连续性]
-    设函数 $f$ 在某 $U(x_0)$ 上有定义。若
-    $$\lim_{x\to x_0}f(x) = f(x_0)$$
-    则称 $f$ 在点 $x_0$ 连续。
-\end{definition}
-
-记 $\Delta x = x-x_0$，称为自变量 $x$ 在点 $x_0$ 的增量或改变量。设 $y_0=f(x_0)$，相应的函数 $y$ 在点 $x_0$ 的增量记为
-$$\Delta y = f(x)-f(x) = f(x+\Delta)-f(x_0) = y-y_0$$ 
-
-连续性的 $\eps-\delta$ 形式定义：若对任给的 $\eps>0$，存在 $\delta>0$，使得当 $|x-x_0|<\delta$ 时，有 $|f(x)-f(x_0)|<\eps$，则称函数 $f$ 在点 $x_0$ 连续。
-
-或者进一步表示为
-$$\lim_{x\to x_0}f(x) = f\left(\lim_{x\to x_0}x\right)$$
+\section{导数的定义}
 
 \begin{definition}
-    设函数 $f$ 在某 $U_+(x_0)$ 上有定义。若
-    $$\lim_{x\to x_0^+}f(x) = f(x_0)$$
-    则称 $f$ 在点 $x_0$ 右连续。同理左连续。
+    设函数 $y=f(x)$ 在点 $x_0$ 的某邻域有定义，若极限
+    $$\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$$
+    存在，则称函数 $f$ 在点 $x_0$ 可导，并称该极限为函数 $f$ 在点 $x_0$ 的导数，记作 $f'(x_0)$。
 \end{definition}
 
-因此函数 $f$ 在点 $x_0$ 连续的充要条件是：$f$ 在点 $x_0$ 既是左连续，又是右连续。
+\begin{theorem}
+    若函数 $f$ 在点 $x_0$ 可导，则 $f$ 在点 $x_0$ 连续。
+\end{theorem}
 
-\begin{definition}[间断点]
-    设函数 $f$ 在某 $U^\circ(x_0)$ 上有定义。若 $f$ 在点 $x_0$ 无定义，或 $f$ 在点 $x_0$ 有定义而不连续，则称点 $x_0$ 为函数 $f$ 的间断点或不连续点。
+\begin{definition}
+    设函数 $y=f(x)$ 在点 $x_0$ 的某右邻域 $[x_0,x_0+\delta)$ 上有定义，若右极限
+    $$\lim_{\Delta x\to 0^+}\frac{\Delta y}{\Delta x} = \lim_{\Delta x\to 0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x},(0<\Delta x<\delta)$$
+    存在，则称该极限值为 $f$ 在点 $x_0$ 的右导数，记作 $f_+'(x)$。同理有左导数。
 \end{definition}
 
-若 $\displaystyle\lim_{x\to x_0}f(x)=A$，而 $f$ 在点 $x_0$ 无定义，或有定义但 $f(x_0)\ne A$，则称点 $x_0$ 为 $f$ 的可去间断点。
+左导数和右导数统称为单侧导数。
 
-若函数 $f$ 在点 $x_0$ 的左、右极限都存在，但 $\displaystyle\lim_{x\to x_0^+}f(x) \ne \lim_{x\to x_0^-}f(x)$，则称点 $x_0$ 为函数 $f$ 的跳跃间断点。
-
-可去间断点与跳跃间断点统称为第一类间断点，所有其他形式的间断点统称为第二类间断点。
-
-若函数 $f$ 在区间 $I$ 上的每一点都连续，则称 $f$ 为 $I$ 上的连续函数。对于闭区间或半开区间的端点，函数在这些点上连续是指左连续或右连续。
-
-\section{连续函数的性质}
-
-\begin{theorem}[局部有界性]
-    若函数 $f$ 在点 $x_0$ 连续，则 $f$ 在某 $U(x_0)$ 上有界。
+\begin{theorem}
+    若函数 $y=f(x)$ 在点 $x_0$ 的某邻域上有定义，则 $f'(x_0)$ 存在的充要条件是 $f_-'(x)$ 与 $f_+'(x)$ 都存在且相等。
 \end{theorem}
 
-\begin{theorem}[局部保号性]
-    若函数 $f$ 在点 $x_0$ 连续，且 $f(x_0)>0$，则对任何正数 $r<f(x_0)$，存在某 $U(x_0)$，使得对一切 $x\in U(x_0)$，有 $f(x)>r$。
+若函数 $f$ 在区间 $I$ 上每一点都可导（对区间端点，仅考虑相应的单侧导数），则称 $f$ 为 $I$ 上的可导函数。此时对每一个 $x\in I$，都有 $f$ 的一个导数 $f'(x)$ （或单侧导数）与之对应。
+
+这样就定义了一个在 $I$ 上的函数，称为导函数，简称为导数。记作 $f',y',\dfrac{\d y}{\d x}$，即
+
+$$f'(x) = \lim_{\Delta x \to 0}\frac{f(x+\Delta)-f(x)}{\Delta},x\in I$$
+
+有时 $f'(x_0)$ 也可写作 $y'\mid_{x=x_0}$ 或 $\mfrac{\d y}{\d x}\mid_{x=x_0}$。
+
+曲线 $y = f(x)$ 在点 $(x_0,y_0)$ 的切线方程是
+$$y-y_0 = f'(x_0)(x-x_0)$$
+
+\begin{definition}
+    若函数 $f$ 在点 $x_0$ 的某邻域 $U(x_0)$ 上对一切 $x\in U(x_0)$ 有
+    $$f(x_0) \geqslant f(x)$$
+    则称 $f$ 在点 $x_0$ 取得极大值，称点 $x_0$ 为极大值点。同理有极小值点。
+\end{definition}
+
+极大值、极小值统称为极值，极大值点、极小值点统称为极值点。
+
+\begin{theorem}[费马定理]
+    设函数 $f$ 在点 $x_0$ 的某邻域上有定义，且在点 $x_0$ 可导。若点 $x_0$ 为极值点，则必有 $f'(x_0)=0$。
 \end{theorem}
 
-\begin{theorem}[四则运算]
-    若函数 $f,g$ 在点 $x_0$ 连续，则 $f\pm g,f\cdot g,f/g$ 也都在点 $x_0$ 连续。
+\section{求导法则}
+
+\begin{theorem}
+    若函数 $u(x)$ 和 $v(x)$ 在点 $x_0$ 可导，则函数 $f(x)=u(x)\pm v(x)$ 在点 $x_0$ 也可导，且
+    $$f'(x_0) = u'(x_0)\pm v'(x_0)$$
+    函数 $f(x)=u(x)v(x)$ 在点 $x_0$ 也可导，且
+    $$f'(x_0) = u'(x_0)v'(x_0)$$
+    若 $v(x)\ne 0$，则函数 $f(x)=\dfrac{u(x)}{v(x)}$ 在点 $x_0$ 也可导，且
+    $$f'(x_0) = \frac{u'(x_0)v(x_0)-u(x_0)v'(x_0)}{v(x_0)^2}$$
 \end{theorem}
 
 \begin{theorem}
-    若函数 $f$ 在点 $x_0$ 连续，$g$ 在点 $u_0$ 连续，$u_0=f(x_0)$，则复合函数 $g\circ f$ 在 $x_0$ 连续。
+    设 $y=f(x)$ 为 $x=\phi(x)$ 的反函数，若 $\phi(y)$ 在点 $y_0$ 的某邻域上连续、严格单调且 $\phi'(y_0)\ne0$，则 $f(x)$ 在点 $x_0=\phi(y_0)$ 可导，且
+    $$f'(x_0)=\frac{1}{\phi'(y_0)}$$
 \end{theorem}
 
-\begin{definition}
-    设 $f$ 为定义在数集 $D$ 上的函数。若存在 $x_0\in D$，使得对一切 $x\in D$，有 $f(x_0)\ge f(x)$，则称 $f$ 在 $D$ 上有最大值，并称 $f(x_0)$ 为 $f$ 在 $D$ 上的最大值。
-\end{definition}
+\begin{theorem}
+    设 $u=\phi(x)$ 在点 $x_0$ 可导，$y=f(u)$ 在点 $u_0=\phi(x_0)$ 可导，则复合函数 $f\circ \phi$ 在点 $x_0$ 可导，且
+    $$(f\circ \phi)'(x_0) = f'(u_0)\phi'(x_0) = f'(\phi(x_0))\phi'(x_0)$$
+\end{theorem}
 
-\begin{theorem}[最大、最小值定理]
-    若函数 $f$ 在闭区间 $[a,b]$ 上连续，则 $f$ 在闭区间 $[a,b]$ 上有最大值与最小值。
+\subsection{基本求导法则}
+
+1. $(u\pm v)' = u'\pm v'$
+
+2. $(uv)' = u'v+uv'$
+
+3. $\left(\dfrac{u}{v}\right) = \dfrac{u'v-uv'}{v^2}$
+
+4. $(u\pm v)' = u'\pm v'$
+
+\subsection{基本初等函数导数公式}
+
+1. $(c)' = 0$（$c$ 为常数）
+
+2. $(x^a)' = ax^{a-1}$（$a$ 为任意实数）
+
+3. $(\sin x)' = \cos x,(\cos x)'=-\sin x,(\tan x)'=\sec^2x$
+
+4. $(\cot x)' = -\csc^2 x,(\sec x)'=\sec x \tan x,(\csc x)'=-\csc x \cot x$
+
+5. $(\arcsin x)'=\dfrac{1}{\sqrt{1-x^2}},(\arccos x)' = -\dfrac{1}{\sqrt{1-x^2}},(\arctan x)'=\dfrac{1}{1+x^2}$
+
+6. $(a^x)'=a^x \ln a(a>0\text{且}a\ne 1)$
+
+7. $(\log_a|x|)'=\dfrac{1}{x\ln a}(a>0\text{且}a\ne 1)$
+
+\section{单调性与导数}
+
+\begin{theorem}
+    设 $f$ 在区间 $I$ 上可导，则 $f(x)$ 在 $I$ 上递增（减） 的充要条件时
+    $$f'(x) \geqslant 0(\leqslant 0)$$
 \end{theorem}
 
 \begin{theorem}[介值定理]
-    若函数 $f$ 在闭区间 $[a,b]$ 上连续，且 $f(a)\ne f(b)$。若 $\mu$ 为介于 $f(a)$ 和 $f(b)$ 之间的任何实数。则至少存在一点 $x_0\in (a,b)$ 使得 $f(x_0)=\mu$。
+    设 $f$ 为 $[a,b]$ 上的连续函数，$\mu$ 时严格介于 $f(a)$ 和 $f(b)$ 之间的数，则存在 $\xi\in (a,b)$，使得 $f(\xi)=\mu$。
 \end{theorem}
 
-\begin{theorem}
-    若函数 $f$ 在 $[a,b]$ 上严格单调并连续，则反函数 $f^{-1}$ 在其定义域 $[\min\{f(a),f(b)\},\max\{f(a),f(b)\}]$ 上连续。
+\section{曲率}
+
+给定光滑曲线 $C$，取固定点 $M$ 和动点 $N$ 得到弧长 $\Delta s$。$N$ 处与 $M$ 处的切线和 $x$ 正轴夹角差记为 $\Delta \alpha$。以此定义 $M$ 处的曲率为
+\[ k = \lim_{\Delta s \to 0} \left| \frac{\Delta \alpha}{\Delta s} \right| \]
+
+假设光滑曲线由参数方程 $x(t), y(t)$ 给出，那么可以得到
+\[ \alpha = \arctan \frac{y'(t)}{x'(t)}, \quad \frac{\d \alpha}{\d t} = \frac{y''(t)x'(t) - y'(t) x''(t)}{x'(t)^2 + y'(t)^2} \]
+利用 $\d s/ \d t = \sqrt{x'(t)^2 + y'(t)^2}$ 得到
+\[ k = \left| \frac{\d a / \d t}{\d s \d t} \right| = \frac{|y''(t)x'(t) - y'(t) x''(t)|}{(x'(t)^2 + y'(t)^2)^{3/2}} \]
+特别的曲线如果由 $y(x)$ 给出，那么
+\[ k = \frac{|y''|}{(1+y'^2)^{3/2}} \]
+其中令 $R = 1/k$ 为曲线的曲率半径。
+
+\section{中值定理}
+
+\section{拉格朗日 Lagrange 定理}
+
+\begin{theorem}[罗尔 Rolle 中值定理]
+    若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，且 $f(a)=f(b)$。则存在 $\xi\in(a,b)$，使得 $f'(\xi)=0$。
 \end{theorem}
+
+\begin{proof}
+    因为 $f(x)$ 在 $[a,b]$ 上连续，所以有最大值 $M$ 和最小值 $m$。
+
+    1. 若 $m=M$，显然成立。
+
+    2. 若 $m < M$，又 $f(a) = f(b)$，故最值必然在 $\xi \in (a, b)$ 中取到，从而 $x=\xi$ 是其极值点，由费马定理知 $f'(\xi) = 0$。
+\end{proof}
+
+\begin{theorem}
+    若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，则存在 $\xi\in(a,b)$，使得
+    $$f'(\xi)=\frac{f(b)-f(a)}{b-a}$$
+\end{theorem}
+
+
+
+\begin{proof}
+    做辅助函数
+    \[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b - a}(x - a) \]
+    显然 $F(a) = F(b) = 0$，且满足 Rolle 定理的其他两个条件，故存在 $\xi \in (a, b)$ 使得
+    \[ F'(\xi) = f'(\xi) - \frac{f(b) - f(a)}{b - a} = 0 \]
+    移项即证。
+\end{proof}
+
+Lagrange 公式还有下面几种等价形式
+
+$$f(b)-f(a) = f'(\xi)(b-a),a<\xi<b$$
+$$f(b)-f(a) = f'(a+\theta(b-a))(b-a),0<\theta<1$$
+$$f(a+h) - f(a) = f'(a+\theta h)h,0<\theta<1$$
+
+\subsection{Cauchy 中值定理}
+
+\begin{theorem}
+    设 $f,g$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，且 $g'(x)\ne 0$，则存在 $\xi\in (a,b)$，使得
+    $$\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(\xi)}{g'(\xi)}$$
+\end{theorem}
+
+\subsection{凹凸性}
 
 \begin{definition}
-    设 $f$ 是定义在区间 $I$ 上的函数。若对任给的 $\eps>0$ 存在 $\delta=\delta(\eps)>0$ 使得对任何 $x',x''\in I$，只要 $|x'-x''|<\delta$ 就有
-    $$|f(x')-f(x'')|<\eps$$
-    就称函数 $f$ 在区间 $I$ 上一致连续。
+    设 $f$ 为定义在区间 $I$ 上的函数，若对 $I$ 上当任意两点 $x_1,x_2$ 和任意实数 $\lambda\in (0,1)$ 总有
+    $$f(\lambda x_1+(1-\lambda)x_2) \leqslant \lambda f(x_1)+(1-\lambda)f(x_2)$$
+    则称 $f$ 为 $I$ 上的凸函数。反之，如果总有
+    $$f(\lambda x_1+(1-\lambda)x_2) \geqslant \lambda f(x_1)+(1-\lambda)f(x_2)$$
+    则称 $f$ 为 $I$ 上的凹函数。
 \end{definition}
 
-\begin{theorem}[一致连续性]
-    若函数 $f$ 在闭区间 $[a,b]$ 上连续，则 $f$ 在 $[a,b]$ 上一致连续。
-\end{theorem}
-
-\section{初等函数的连续性}
-
-\begin{theorem}
-    设 $p>0$，$a,b$ 为任意两个实数，则有
-    $$p^a\cdot p^b = p^{a+b},(p^a)^b=p^{ab}$$
-\end{theorem}
-
-\begin{theorem}
-    指数函数 $a^x(a>0)$ 在 $\RR$ 上是连续的。
-\end{theorem}

@@ -22,7 +22,7 @@ $$\lim_{x \to \infty}f(x) = A \Leftrightarrow \lim_{x \to -\infty}f(x)=\lim_{x \
 \end{definition}
 
 \begin{definition}
-    设函数 $f$ 在 $U_+^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\eps>0$，存在正数 $\delta<\delta'$，使得当 $x_0<x<x_0+\delta$ 时，有 $|f(x)-A|<\eps$，则称函数 $f$ 当 $x$ 趋于 $x_0^+$ 时以 $A$ 为极限，记作 
+    设函数 $f$ 在 $U_+^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\eps>0$，存在正数 $\delta<\delta'$，使得当 $x_0<x<x_0+\delta$ 时，有 $|f(x)-A|<\eps$，则称函数 $f$ 当 $x$ 趋于 $x_0^+$ 时以 $A$ 为极限，记作
     $$\lim_{x \to x_0^+}f(x) = A\ \text{或}\ f(x)\to A(x \to x_0^+)$$
 \end{definition}
 
@@ -150,14 +150,107 @@ $$f(x) \sim g(x) (x \to x_0)$$
 
 \begin{equation*}
     \begin{aligned}
-        \frac{x}{1-x} &= x + x^2 + x^3 + x^4 + x^5 &+ O(x^6)\\
-        \ln(1+x)      &= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} &+ O(x^6)\\
-        \sin x        &= x - \frac{x^3}{6} + \frac{x^5}{120} &+ O(x^{7})\\
-        1- \cos x     &= \frac{x^2}{2} - \frac{x^4}{24} &+ O(x^{6})\\
-        \ee^x-1       &= x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} &+  O(x^{6})\\
-        \tan x        &= x + \frac{x^3}{3} + \frac{2x^5}{15} &+ O(x^{7})\\
-        \sqrt{x+1}-1  &= \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256} &+  O(x^{6})\\
-        \arcsin x     &= x + \frac{x^3}{6} + \frac{3x^5}{40} &+ O(x^7)\\
-        \arctan x     &= x - \frac{x^3}{3} + \frac{x^5}{5} &+ O(x^7)
+        \frac{x}{1-x} & = x + x^2 + x^3 + x^4 + x^5                                                      & + O(x^6)    \\
+        \ln(1+x)      & = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5}              & + O(x^6)    \\
+        \sin x        & = x - \frac{x^3}{6} + \frac{x^5}{120}                                            & + O(x^{7})  \\
+        1- \cos x     & = \frac{x^2}{2} - \frac{x^4}{24}                                                 & + O(x^{6})  \\
+        \ee^x-1       & = x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120}           & +  O(x^{6}) \\
+        \tan x        & = x + \frac{x^3}{3} + \frac{2x^5}{15}                                            & + O(x^{7})  \\
+        \sqrt{x+1}-1  & = \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256} & +  O(x^{6}) \\
+        \arcsin x     & = x + \frac{x^3}{6} + \frac{3x^5}{40}                                            & + O(x^7)    \\
+        \arctan x     & = x - \frac{x^3}{3} + \frac{x^5}{5}                                              & + O(x^7)
     \end{aligned}
 \end{equation*}
+
+\section{函数的连续性}
+
+\begin{definition}[连续性]
+    设函数 $f$ 在某 $U(x_0)$ 上有定义。若
+    $$\lim_{x\to x_0}f(x) = f(x_0)$$
+    则称 $f$ 在点 $x_0$ 连续。
+\end{definition}
+
+记 $\Delta x = x-x_0$，称为自变量 $x$ 在点 $x_0$ 的增量或改变量。设 $y_0=f(x_0)$，相应的函数 $y$ 在点 $x_0$ 的增量记为
+$$\Delta y = f(x)-f(x) = f(x+\Delta)-f(x_0) = y-y_0$$
+
+连续性的 $\eps-\delta$ 形式定义：若对任给的 $\eps>0$，存在 $\delta>0$，使得当 $|x-x_0|<\delta$ 时，有 $|f(x)-f(x_0)|<\eps$，则称函数 $f$ 在点 $x_0$ 连续。
+
+或者进一步表示为
+$$\lim_{x\to x_0}f(x) = f\left(\lim_{x\to x_0}x\right)$$
+
+\begin{definition}
+    设函数 $f$ 在某 $U_+(x_0)$ 上有定义。若
+    $$\lim_{x\to x_0^+}f(x) = f(x_0)$$
+    则称 $f$ 在点 $x_0$ 右连续。同理左连续。
+\end{definition}
+
+因此函数 $f$ 在点 $x_0$ 连续的充要条件是：$f$ 在点 $x_0$ 既是左连续，又是右连续。
+
+\begin{definition}[间断点]
+    设函数 $f$ 在某 $U^\circ(x_0)$ 上有定义。若 $f$ 在点 $x_0$ 无定义，或 $f$ 在点 $x_0$ 有定义而不连续，则称点 $x_0$ 为函数 $f$ 的间断点或不连续点。
+\end{definition}
+
+若 $\displaystyle\lim_{x\to x_0}f(x)=A$，而 $f$ 在点 $x_0$ 无定义，或有定义但 $f(x_0)\ne A$，则称点 $x_0$ 为 $f$ 的可去间断点。
+
+若函数 $f$ 在点 $x_0$ 的左、右极限都存在，但 $\displaystyle\lim_{x\to x_0^+}f(x) \ne \lim_{x\to x_0^-}f(x)$，则称点 $x_0$ 为函数 $f$ 的跳跃间断点。
+
+可去间断点与跳跃间断点统称为第一类间断点，所有其他形式的间断点统称为第二类间断点。
+
+若函数 $f$ 在区间 $I$ 上的每一点都连续，则称 $f$ 为 $I$ 上的连续函数。对于闭区间或半开区间的端点，函数在这些点上连续是指左连续或右连续。
+
+\subsection{连续函数的性质}
+
+\begin{theorem}[局部有界性]
+    若函数 $f$ 在点 $x_0$ 连续，则 $f$ 在某 $U(x_0)$ 上有界。
+\end{theorem}
+
+\begin{theorem}[局部保号性]
+    若函数 $f$ 在点 $x_0$ 连续，且 $f(x_0)>0$，则对任何正数 $r<f(x_0)$，存在某 $U(x_0)$，使得对一切 $x\in U(x_0)$，有 $f(x)>r$。
+\end{theorem}
+
+\begin{theorem}[四则运算]
+    若函数 $f,g$ 在点 $x_0$ 连续，则 $f\pm g,f\cdot g,f/g$ 也都在点 $x_0$ 连续。
+\end{theorem}
+
+\begin{theorem}
+    若函数 $f$ 在点 $x_0$ 连续，$g$ 在点 $u_0$ 连续，$u_0=f(x_0)$，则复合函数 $g\circ f$ 在 $x_0$ 连续。
+\end{theorem}
+
+\begin{definition}
+    设 $f$ 为定义在数集 $D$ 上的函数。若存在 $x_0\in D$，使得对一切 $x\in D$，有 $f(x_0)\ge f(x)$，则称 $f$ 在 $D$ 上有最大值，并称 $f(x_0)$ 为 $f$ 在 $D$ 上的最大值。
+\end{definition}
+
+\begin{theorem}[最大、最小值定理]
+    若函数 $f$ 在闭区间 $[a,b]$ 上连续，则 $f$ 在闭区间 $[a,b]$ 上有最大值与最小值。
+\end{theorem}
+
+\begin{theorem}[介值定理]
+    若函数 $f$ 在闭区间 $[a,b]$ 上连续，且 $f(a)\ne f(b)$。若 $\mu$ 为介于 $f(a)$ 和 $f(b)$ 之间的任何实数。则至少存在一点 $x_0\in (a,b)$ 使得 $f(x_0)=\mu$。
+\end{theorem}
+
+\begin{theorem}
+    若函数 $f$ 在 $[a,b]$ 上严格单调并连续，则反函数 $f^{-1}$ 在其定义域 $[\min\{f(a),f(b)\},\max\{f(a),f(b)\}]$ 上连续。
+\end{theorem}
+
+\begin{definition}
+    设 $f$ 是定义在区间 $I$ 上的函数。若对任给的 $\eps>0$ 存在 $\delta=\delta(\eps)>0$ 使得对任何 $x',x''\in I$，只要 $|x'-x''|<\delta$ 就有
+    $$|f(x')-f(x'')|<\eps$$
+    就称函数 $f$ 在区间 $I$ 上一致连续。
+\end{definition}
+
+\begin{theorem}[一致连续性]
+    若函数 $f$ 在闭区间 $[a,b]$ 上连续，则 $f$ 在 $[a,b]$ 上一致连续。
+\end{theorem}
+
+\subsection{初等函数的连续性}
+
+\begin{theorem}
+    设 $p>0$，$a,b$ 为任意两个实数，则有
+    $$p^a\cdot p^b = p^{a+b},(p^a)^b=p^{ab}$$
+\end{theorem}
+
+\begin{theorem}
+    指数函数 $a^x(a>0)$ 在 $\RR$ 上是连续的。
+\end{theorem}
+
+

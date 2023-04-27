@@ -7,7 +7,7 @@
 
 我初次用的书是华师的数分，现在发觉基础部分有相当多的细节。后参考自李逸的《基本分析讲义》。
 
-若无额外说明，皆在 $\RR$ 下。仍有很多术语不曾了解。
+若无额外说明，皆在 $\mathbb{R}$ 下。仍有很多术语不曾了解。
 
 \section{前言}
 
@@ -128,7 +128,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 	3. $S'$ 的上确界：对于任取的 $S'$ 的上界 $y$ 都有 $x \leqslant y$，且 $x$ 是 $S'$ 的上界，则称 $x$ 是 $S'$ 的上确界。
 \end{definition}
 
-类似的可定义全序集的最小元、下界、下确界。上、下确界分别记作 $\sup S'$ 和 $\inf S'$。比如取 $A = A' = (0, 1)$，其上下确界都不存在。若取 $A = \RR$，上下确界存在也不一定在 $A'$ 里面。
+类似的可定义全序集的最小元、下界、下确界。上、下确界分别记作 $\sup S'$ 和 $\inf S'$。比如取 $A = A' = (0, 1)$，其上下确界都不存在。若取 $A = \mathbb{R}$，上下确界存在也不一定在 $A'$ 里面。
 
 \begin{definition}[最小上界性]
 	如果集合 $S$ 的任何非空有上界子集 $S'$ 有最小上界，则称 $S$ 有最小上界性。
@@ -138,7 +138,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 
 
 
-例如 $\QQ \cap (0,\sqrt2)$ 是 $\QQ$ 的非空子集，其上界 $\sqrt2$ 并不在 $\QQ$ 内。
+例如 $\mathbb{Q} \cap (0,\sqrt2)$ 是 $\mathbb{Q}$ 的非空子集，其上界 $\sqrt2$ 并不在 $\mathbb{Q}$ 内。
 
 同样的有最小下界性。可以证明，有最小上界性的一定有最大下界性。展开描述即
 
@@ -265,17 +265,17 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 	2. $(\overline{A})^{\circ} = \varnothing$ 则称集合 $A$ 疏（无处稠密）于空间 $X$。
 \end{definition}
 
-显然 $\NN$ 和 $\ZZ$ 疏于 $\RR$，$\QQ$ 和 $\RR - \QQ$ 稠密于 $\RR$。
+显然 $\mathbb{N}$ 和 $\mathbb{Z}$ 疏于 $\mathbb{R}$，$\mathbb{Q}$ 和 $\mathbb{R} - \mathbb{Q}$ 稠密于 $\mathbb{R}$。
 
-虽然我们在小学二年级学过无理数的存在性，但我们仍对 $\QQ$ 和 $\RR$ 性状上的具体区别知之甚少。
+虽然我们在小学二年级学过无理数的存在性，但我们仍对 $\mathbb{Q}$ 和 $\mathbb{R}$ 性状上的具体区别知之甚少。
 
 \begin{definition}[连通]
 	若拓扑空间 $X$ 不能表示为两个不相交闭集的并，则称 $X$ 是连通空间。其子集 $X'$ 若是连通空间，则称 $X'$ 是连通的。
 \end{definition}
 
-可以得到 $\RR$ 是连通的，$\QQ$ 是不连通的。
+可以得到 $\mathbb{R}$ 是连通的，$\mathbb{Q}$ 是不连通的。
 
-依定义，闭区间是 $\RR$ 内的开集，其任意数量的交都是闭集。假想一个不断变小的区间列，一层套一层。
+依定义，闭区间是 $\mathbb{R}$ 内的开集，其任意数量的交都是闭集。假想一个不断变小的区间列，一层套一层。
 
 \begin{definition}[闭区间套]
 	给定有限的一列闭区间 $\{ I_i = [a_i, b_i] \}$，若
@@ -298,27 +298,27 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 	那么称 $F$ 是一个有序域。
 \end{definition}
 
-例如 $\QQ$ 是有序域。
+例如 $\mathbb{Q}$ 是有序域。
 
 \begin{theorem}[存在定理]
-	具有最小上界性的有序域 $\RR$ 存在，且包容着 $\QQ$ 作为子域。
+	具有最小上界性的有序域 $\mathbb{R}$ 存在，且包容着 $\mathbb{Q}$ 作为子域。
 \end{theorem}
 
-这个命题的证明较为复杂，是从 $\QQ$ 出发构造 $\RR$，而且其中有很多重要的信息，决定单独一章，这里略过。
+这个命题的证明较为复杂，是从 $\mathbb{Q}$ 出发构造 $\mathbb{R}$，而且其中有很多重要的信息，决定单独一章，这里略过。
 
 \begin{theorem}[Achimedes 原理]
-	对于 $x,y \in \RR$ 且 $x>0$，那么必定存在正整数 $n$，使得 $nx>y$。
+	对于 $x,y \in \mathbb{R}$ 且 $x>0$，那么必定存在正整数 $n$，使得 $nx>y$。
 \end{theorem}
 \begin{proof}
-	设 $A = \{nx \mid n \in \NN^+ \}$，若不存在 $n$ 则 $y$ 将是 $A$ 的一个上界，由最小上界性可知 $A$ 的上确界存在。
+	设 $A = \{nx \mid n \in \mathbb{N}^+ \}$，若不存在 $n$ 则 $y$ 将是 $A$ 的一个上界，由最小上界性可知 $A$ 的上确界存在。
 
-	又因为小于上确界的数 $\sup A-x$ 不是上确界，即存在 $m\in \NN^+$ 使得 $\sup A -x <mx$，即 $\sup A < (m+1)x$，矛盾。
+	又因为小于上确界的数 $\sup A-x$ 不是上确界，即存在 $m\in \mathbb{N}^+$ 使得 $\sup A -x <mx$，即 $\sup A < (m+1)x$，矛盾。
 
 	故必定存在 $n$ 使得 $nx>y$。
 \end{proof}
 
 \begin{definition}[度量空间]
-	称集合 $X$ 的元素为点，若存在 $X$ 上双变量的函数 $d:X \times X \to \RR$，满足（$x,y,z\in R$）
+	称集合 $X$ 的元素为点，若存在 $X$ 上双变量的函数 $d:X \times X \to \mathbb{R}$，满足（$x,y,z\in R$）
 
 	（1） 若 $x\ne y$，则 $d(x,y)$；仅 $d(x,x)=0$。
 
@@ -332,7 +332,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 这里的空间的含义是线性空间。
 
 对于 $X$ 的子集 $Y$，定义其距离函数
-$$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
+$$d_Y: Y \times Y \to \mathbb{R}, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 则 $(Y,d_Y)$ 仍是度量空间，称 $d_Y$ 是 $d$ 在 $Y$ 上的诱导度量。$(Y,d_Y)$ 称作是 $(X,d)$ 的子（度量）空间。
 
 \begin{definition}[稠密性]
@@ -340,14 +340,14 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 \end{definition}
 
 \begin{example}
-	$\QQ$ 在 $\RR$ 中稠密：对于 $x,y \in \RR$ 且 $x<y$，那么必定存在 $p\in\QQ$，使得 $x<p<y$。
+	$\mathbb{Q}$ 在 $\mathbb{R}$ 中稠密：对于 $x,y \in \mathbb{R}$ 且 $x<y$，那么必定存在 $p\in\mathbb{Q}$，使得 $x<p<y$。
 \end{example}
 \begin{proof}
-	由 Achimedes 原理，可设存在 $n\in \NN^+$ 使得 $n(y-x)>1$。
+	由 Achimedes 原理，可设存在 $n\in \mathbb{N}^+$ 使得 $n(y-x)>1$。
 
-	再设存在 $m_1,m_2\in \NN^+$，使得 $m_1>nx,m_2>-nx$。于是
+	再设存在 $m_1,m_2\in \mathbb{N}^+$，使得 $m_1>nx,m_2>-nx$。于是
 	$$-m_2<nx<m_1$$
-	因此存在 $m\in \NN^+$ 有 $-m_2\leqslant m \leqslant m_1$ 使得
+	因此存在 $m\in \mathbb{N}^+$ 有 $-m_2\leqslant m \leqslant m_1$ 使得
 	$$m-1\leqslant nx < m \leqslant 1+nx < ny$$
 	从而存在 $p=m/n$ 使得 $x<p<y$。
 \end{proof}
@@ -374,12 +374,12 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 
 	（5） 【归纳原理】设 $P(n)$ 是关于自然数的性质，假设只要 $P(n)$ 为真，则 $P(v(n))$ 也为真；且 $P(0)$ 为真。那么对 $N$ 中所有的元素 $P$ 都为真。
 
-	那么称 $N$ 为自然数，记作 $\NN$，$v(n)$ 称为后继函数。
+	那么称 $N$ 为自然数，记作 $\mathbb{N}$，$v(n)$ 称为后继函数。
 \end{axiom}
 
 \subsection{自然数}
 
-设 $m,n\in \NN$，定义 $\NN$ 上的加法 $+$ 和乘法 $\cdot$ 为
+设 $m,n\in \mathbb{N}$，定义 $\mathbb{N}$ 上的加法 $+$ 和乘法 $\cdot$ 为
 \begin{equation*}
 	\begin{aligned}
 		0+m\coloneqq m      & ,\quad v(n)+m\coloneqq v(n+m)             \\
@@ -389,8 +389,8 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 
 我们可以利用归纳原理推出我们熟悉的一些性质。
 
-\begin{theorem}[$\NN$ 的代数算律]
-	对于 $a,b,c\in \NN$ 有
+\begin{theorem}[$\mathbb{N}$ 的代数算律]
+	对于 $a,b,c\in \mathbb{N}$ 有
 
 	（1） 加法是结合的和交换的，且有单位元 $0$。
 
@@ -399,25 +399,25 @@ $$d_Y: Y \times Y \to \RR, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 	（3） 分配律：$(a+b) \cdot  c = a \cdot c + b\cdot c$。
 \end{theorem}
 
-\begin{definition}[$\NN$ 的序]
-	设 $m,n\in \NN$。
+\begin{definition}[$\mathbb{N}$ 的序]
+	设 $m,n\in \mathbb{N}$。
 
-	（1） 若存在 $a\in \NN$，使得 $n=m+a$，称 $m$ 小于等于 $n$，记作 $m \leqslant n$。
+	（1） 若存在 $a\in \mathbb{N}$，使得 $n=m+a$，称 $m$ 小于等于 $n$，记作 $m \leqslant n$。
 
 	（2） 若 $n\geqslant m$ 且 $n\ne m$，则称 $m$ 严格小于 $n$，记作 $m < n$。
 \end{definition}
 
-可以验证，$<$ 和 $\leqslant$ 是 $\NN$ 上的序关系。
+可以验证，$<$ 和 $\leqslant$ 是 $\mathbb{N}$ 上的序关系。
 
 \begin{theorem}[加法保序]
-	对于 $a,b\in \NN$，若 $a>b$，则 $a+c>b+c$。
+	对于 $a,b\in \mathbb{N}$，若 $a>b$，则 $a+c>b+c$。
 \end{theorem}
 
 \subsection{整数}
 
 接下来几节，都是记 $a,b,c$ 为当前集合的元素，$x,y,z$ 都是被构造的集合的元素。
 
-为了表达整数，定义二元组 $(a,b)$，其中 $a,b \in \NN$。记全体二元组的集合为 $Z$。我们约定
+为了表达整数，定义二元组 $(a,b)$，其中 $a,b \in \mathbb{N}$。记全体二元组的集合为 $Z$。我们约定
 $$(a,b) = (c,d) \Leftrightarrow a+d=b+c$$
 因为自然数的序是已定义的，于是定义 $Z$ 上的序关系
 $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
@@ -431,8 +431,8 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
 
 可以验证，$(n,0)$ 与 $n$ 有相同的性状，我们可以令其相等，从而把自然数嵌入到整数内。至此，我们可以着手验证整数是否满足我们预想的性质。
 
-\begin{theorem}[$\ZZ$ 的代数算律]
-	对于 $x,y,z\in \ZZ$ 有
+\begin{theorem}[$\mathbb{Z}$ 的代数算律]
+	对于 $x,y,z\in \mathbb{Z}$ 有
 
 	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
 
@@ -441,15 +441,15 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
 	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
 \end{theorem}
 
-即 $\ZZ$ 是一个交换环。于是
+即 $\mathbb{Z}$ 是一个交换环。于是
 
-\begin{theorem}[$\ZZ$ 是有序域]
-	（1） 加法保序：当 $x,y,z\in \ZZ$ 且 $y<z$ 时，$x+y<x+z$。
+\begin{theorem}[$\mathbb{Z}$ 是有序域]
+	（1） 加法保序：当 $x,y,z\in \mathbb{Z}$ 且 $y<z$ 时，$x+y<x+z$。
 
-	（2） 乘法保序：如果 $x,y\in \ZZ$，且 $x>0,y>0$，则 $xy>0$。
+	（2） 乘法保序：如果 $x,y\in \mathbb{Z}$，且 $x>0,y>0$，则 $xy>0$。
 \end{theorem}
 
-我们有理由相信，$(a,b)$ 符合我们对整数的一切想象。因此 $Z = \ZZ$。
+我们有理由相信，$(a,b)$ 符合我们对整数的一切想象。因此 $Z = \mathbb{Z}$。
 
 另外的，定义整数的负运算为 $-(a,b) = (b,a)$，以此定义减法
 $$x - y \coloneqq  x + (-y)$$
@@ -458,7 +458,7 @@ $$(a,0) - (b,0) = (a,b) = a - b$$
 
 \subsection{有理数}
 
-类似的，记整数的二元组 $(a,b)$，其中 $a,b\in \ZZ,b\ne 0$，记全体二元组的集合为 $Q$。我们约定
+类似的，记整数的二元组 $(a,b)$，其中 $a,b\in \mathbb{Z},b\ne 0$，记全体二元组的集合为 $Q$。我们约定
 $$(a,b) = (c,d) \Leftrightarrow ad = bc$$
 因为整数的序是已定义的，于是定义 $Q$ 上的序关系
 $$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
@@ -473,8 +473,8 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
 
 至此，我们可以着手验证有理数是否满足我们预想的性质。
 
-\begin{theorem}[$\QQ$ 的代数算律]
-	对于 $x,y,z\in \QQ$ 有
+\begin{theorem}[$\mathbb{Q}$ 的代数算律]
+	对于 $x,y,z\in \mathbb{Q}$ 有
 
 	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
 
@@ -483,15 +483,15 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
 	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
 \end{theorem}
 
-即 $\QQ$ 是一个域。
+即 $\mathbb{Q}$ 是一个域。
 
-\begin{theorem}[$\QQ$ 是有序域]
-	（1） 加法保序：当 $x,y,z\in \QQ$ 且 $y<z$ 时，$x+y<x+z$。
+\begin{theorem}[$\mathbb{Q}$ 是有序域]
+	（1） 加法保序：当 $x,y,z\in \mathbb{Q}$ 且 $y<z$ 时，$x+y<x+z$。
 
-	（2） 乘法保序：如果 $x,y\in \QQ$，且 $x>0,y>0$，则 $xy>0$。
+	（2） 乘法保序：如果 $x,y\in \mathbb{Q}$，且 $x>0,y>0$，则 $xy>0$。
 \end{theorem}
 
-我们有理由相信，$(a,b)$ 符合我们对有理数的一切想象。因此 $Q = \QQ$。
+我们有理由相信，$(a,b)$ 符合我们对有理数的一切想象。因此 $Q = \mathbb{Q}$。
 
 另外，定义倒数 $(a,b)^{-1} = (b,a)$，显然 $a,b\ne 0$。从而定义除法
 $$x/y \coloneqq  x \cdot y^{-1}$$
@@ -516,19 +516,19 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 
 直观的来说，我们把整个 $S$ 划分成了下组 $A$ 和上组 $A'$。
 
-记 $\QQ$ 上 Dedekind 分割的全体为 $R$，集合的相等即是 $R$ 上的等价关系，$R$ 上的序关系定义是
+记 $\mathbb{Q}$ 上 Dedekind 分割的全体为 $R$，集合的相等即是 $R$ 上的等价关系，$R$ 上的序关系定义是
 \[ A \subseteq B \Leftrightarrow A\leqslant B \]
 定义加法
 \[ A+B \coloneqq  \{ a+b \mid a\in A,b\in B\} \]
 于是可以定义负运算
 \[ \begin{aligned}
-		-A & \coloneqq  \{ s \in \QQ \mid \exists r>0,-s-r\in \complement_\QQ A\} \\
-		-A & \coloneqq  \{ s \in \QQ \mid \exists r\in \complement_\QQ A,s < -r\}
+		-A & \coloneqq  \{ s \in \mathbb{Q} \mid \exists r>0,-s-r\in \complement_\mathbb{Q} A\} \\
+		-A & \coloneqq  \{ s \in \mathbb{Q} \mid \exists r\in \complement_\mathbb{Q} A,s < -r\}
 	\end{aligned} \]
 
 
-然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \QQ \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
-$$A \cdot B \coloneqq  \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}$$
+然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \mathbb{Q} \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
+$$A \cdot B \coloneqq  \{ p \in \mathbb{Q} \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}$$
 同时
 \begin{equation*}
 	A \cdot B \coloneqq \begin{cases}
@@ -539,13 +539,13 @@ $$A \cdot B \coloneqq  \{ p \in \QQ \mid \text{存在}\ 0<a\in A,\ \text{存在}
 \end{equation*}
 
 当 $A > 0^*$ 时，定义乘法逆元
-$$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}\}$$
+$$A^{-1} \coloneqq  \{s \in \mathbb{Q} \mid \exists r \in \complement_\mathbb{Q} A, s < r^{-1}\}$$
 当 $A < 0^*$ 时，定义乘法逆元为 $A^{-1} \coloneqq  -(-A^{-1})$。
 
 至此，我们可以着手验证实数是否满足我们预想的性质。
 
-\begin{theorem}[$\RR$ 的代数算律]
-	对于 $x,y,z\in \RR$ 有
+\begin{theorem}[$\mathbb{R}$ 的代数算律]
+	对于 $x,y,z\in \mathbb{R}$ 有
 
 	（1） 加法是结合的和交换的，且有单位元 $0$，逆元存在。
 
@@ -554,30 +554,30 @@ $$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}
 	（3） 分配律：$(x+y) \cdot  z = x \cdot z + y\cdot z$。
 \end{theorem}
 
-即 $\RR$ 是一个域。
+即 $\mathbb{R}$ 是一个域。
 
-\begin{theorem}[$\RR$ 是有序域]
-	（1） 加法保序：当 $x,y,z\in \RR$ 且 $y<z$ 时，$x+y<x+z$。
+\begin{theorem}[$\mathbb{R}$ 是有序域]
+	（1） 加法保序：当 $x,y,z\in \mathbb{R}$ 且 $y<z$ 时，$x+y<x+z$。
 
-	（2） 乘法保序：如果 $x,y\in \RR$，且 $x>0,y>0$，则 $xy>0$。
+	（2） 乘法保序：如果 $x,y\in \mathbb{R}$，且 $x>0,y>0$，则 $xy>0$。
 \end{theorem}
 
-我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \RR$。
+我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \mathbb{R}$。
 
 \begin{theorem}[Dedekind 原理]
-	设 $A$ 为 $\RR$ 上的 Dedekind 分割，$A' = \complement_\RR A$，对于任给的 $a\in A,a' \in A'$，存在 $r \in \RR$ 使得 $a < r \leqslant a'$。
+	设 $A$ 为 $\mathbb{R}$ 上的 Dedekind 分割，$A' = \complement_\mathbb{R} A$，对于任给的 $a\in A,a' \in A'$，存在 $r \in \mathbb{R}$ 使得 $a < r \leqslant a'$。
 \end{theorem}
 
 \begin{proof}
-	由于 $a, a'$ 也是 $\QQ$ 上的分割，下面使用集合的语言。显然 $a' \in A'$ 是 $A$ 的一个上界。构造
+	由于 $a, a'$ 也是 $\mathbb{Q}$ 上的分割，下面使用集合的语言。显然 $a' \in A'$ 是 $A$ 的一个上界。构造
 	\[ b = \bigcup_{a \in A} a \]
 	下证 $a \subset b \subseteq a'$。
 
-	首先证明 $b$ 是 $\QQ$ 上分割。
+	首先证明 $b$ 是 $\mathbb{Q}$ 上分割。
 
 	\begin{itemize}
-		\item D1：显然 $b$ 非空，又因为对于任意的 $a \in A, a' \in A'$ 都有 $a \subset a'$，故 $b \subseteq a'$（注意可取等），即 $b \neq \QQ$。
-		\item D2：接下来取 $\beta \in b, \beta' \in \complement_\QQ b$，于是存在 $a_0 \in A$ 使得 $\beta \in a_0$，此时 $\beta' \notin a_0$ 即 $\beta' \in a_0'$，故 $\beta < \beta'$。
+		\item D1：显然 $b$ 非空，又因为对于任意的 $a \in A, a' \in A'$ 都有 $a \subset a'$，故 $b \subseteq a'$（注意可取等），即 $b \neq \mathbb{Q}$。
+		\item D2：接下来取 $\beta \in b, \beta' \in \complement_\mathbb{Q} b$，于是存在 $a_0 \in A$ 使得 $\beta \in a_0$，此时 $\beta' \notin a_0$ 即 $\beta' \in a_0'$，故 $\beta < \beta'$。
 		\item D3：对于任意的 $\beta_1 \in b$，存在 $a_0 \in b$ 使得 $\beta_1 \in a_0$，此时存在 $\alpha_1 \in a_0$ 使得 $\beta_1 < \alpha_1$ 且 $\alpha_1 \in b$。
 	\end{itemize}
 
@@ -590,23 +590,23 @@ $$A^{-1} \coloneqq  \{s \in \QQ \mid \exists r \in \complement_\QQ A, s < r^{-1}
 实数和有理数的最基本的一个区别就是有最小上界性。
 
 \begin{theorem}[确界原理]
-	$\RR$ 具有最小上界性。即对于 $\RR$ 的任何子集 $S$，若 $S$ 在 $\RR$ 内存在上界，那么 $S$ 在 $\RR$ 内存在上确界。
+	$\mathbb{R}$ 具有最小上界性。即对于 $\mathbb{R}$ 的任何子集 $S$，若 $S$ 在 $\mathbb{R}$ 内存在上界，那么 $S$ 在 $\mathbb{R}$ 内存在上确界。
 \end{theorem}
 \begin{proof}
 	设 $B'$ 是 $S$ 全体上界组成的集合，即 $B' = \{x \mid\forall s \in S, x \geqslant s \}$，令
-	\[ B = \complement_\RR B' = \{ x \mid \exists s \in S, x < s\} \]
-	试证 $B$ 是 $\RR$ 的一个分割。D1 和 D2 比较显然。显然对于任意的 $b \in B$ 存在 $s \in S$ 使得 $x < s$，那么总是可以取 $b_2 = \frac{b+s}{2} \in B$ 使 $x < b_2$。
+	\[ B = \complement_\mathbb{R} B' = \{ x \mid \exists s \in S, x < s\} \]
+	试证 $B$ 是 $\mathbb{R}$ 的一个分割。D1 和 D2 比较显然。显然对于任意的 $b \in B$ 存在 $s \in S$ 使得 $x < s$，那么总是可以取 $b_2 = \frac{b+s}{2} \in B$ 使 $x < b_2$。
 
-	由上文所证的 Dedekind 原理知，总存在 $u \in \RR(B')$ 使得任取上确界 $b' \in B'$ 使得 $u \leqslant b'$，故 $u$ 是上确界。
+	由上文所证的 Dedekind 原理知，总存在 $u \in \mathbb{R}(B')$ 使得任取上确界 $b' \in B'$ 使得 $u \leqslant b'$，故 $u$ 是上确界。
 \end{proof}
 
 \subsection{实数\ ·\ Cauchy 序列}
 
 我们试图得到实数，是因为有理数还不足以表示所有的数，比如 $x^2=2$ 的解。得到实数和前面的方法有所不同，要复杂的多。
 
-一个有理数上的序列 $\{a_n\}$，是一个从集合 $\NN$ 到 $\QQ$ 的一个映射，即我们以前说的数列。
+一个有理数上的序列 $\{a_n\}$，是一个从集合 $\mathbb{N}$ 到 $\mathbb{Q}$ 的一个映射，即我们以前说的数列。
 
-对于 $\QQ$ 上的无限序列 $\{a_n\}$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
+对于 $\mathbb{Q}$ 上的无限序列 $\{a_n\}$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
 $$d(a_j,a_k) < \eps$$
 则称序列 $\{a_n\}$ 为 Cauchy 序列，记作 $\LIM(a_n)$。记 Cauchy 序列的全体为集合 $R$。
 
@@ -623,7 +623,7 @@ $$d(a_n,b_n) < \eps$$
 	\end{aligned} \]
 定义负运算 $-\LIM(a_n) \coloneqq  \LIM(-a_n)$。
 
-定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \QQ$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
+定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \mathbb{Q}$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
 
 于是我们可以定义，设 $x$ 为一个不为零的实数，则存在限制离开零的 Cauchy 序列 $x=\LIM(a_n)$，定义倒数为
 $$x^{-1} \coloneqq  \LIM(a_n^{-1})$$
@@ -635,7 +635,7 @@ $$x^{-1} \coloneqq  \LIM(a_n^{-1})$$
 另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
 $$d(a_j,a_k) \leqslant \eps$$
 
-可以证明，$R$ 上的 Cauchy 序列与 $\QQ$ 上的 Cauchy 序列等价。
+可以证明，$R$ 上的 Cauchy 序列与 $\mathbb{Q}$ 上的 Cauchy 序列等价。
 
 若存在实数 $L$ 满足，存在 $N>0$ 使得当 $n \geqslant N$ 时，都有 $d(a_n,L) \leqslant \eps$，则 $a_n$ 收敛于 $L$，记作
 $$\lim_{n\to \infty} a_n = L$$
@@ -693,7 +693,7 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 %
 %设实数 $a<b$，则称数集 $\{x \mid a<x<b\}$ 为开区间，记作 $(a,b)$；数集 $\{x \mid a\leqslant x \leqslant b\}$ 称为闭区间，记作 $[a,b]$；数集 $\{x \mid a\leqslant x<b\}$ 和 $\{x \mid a < x \leqslant b\}$ 都称为半开半闭区间，分别记作 $[a,b)$ 和 $(a,b]$。以上几类区间统称为有限区间。
 %
-%满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\RR = (-\infty,+\infty)$。这几类区间统称为无限区间。
+%满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\mathbb{R} = (-\infty,+\infty)$。这几类区间统称为无限区间。
 %
 %设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
 %$$U(a;\delta) = (a-\delta,a+\delta)$$

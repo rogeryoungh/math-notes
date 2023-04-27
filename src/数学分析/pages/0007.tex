@@ -1,0 +1,43 @@
+\chapter{微分方程}
+
+\section{一阶线性常微分方程}
+
+一阶线性常微分方程的一般形式是
+\[ \frac{\d y}{\d x} = p(x) y + q(x) \]
+其中 $p(x), q(x)$ 是定义在区间 $(a, b)$ 上的给定的连续函数。当 $q(x) = 0$ 时，称为一阶线性其次常微分方程；否则称一阶线性非齐次常微分方程。
+
+以下用大写字母简记为积分，方便记忆。
+
+\paragraph{一阶线性其次常微分方程} 即
+\[ \frac{\d y}{\d x} = p(x) y \]
+那么我们可以分离变量
+\[ \frac{\d y}{y} = p(x) \d x \]
+两边积分得到
+\[ \ln |y| = \int_{x_0}^{x} p(t) \d t + C_1 \]
+其中 $C_1$ 是任意常数；若引入任意非零常数 $C_2 = \pm \ee^{C_1}$，就得到
+\[ y(x) = C_2 \ee^{\int_{x_0}^{x} p(t) \d t } = C_2 \ee^{P(x)} \]
+显然 $y = 0$ 也是一解，故 $C_2$ 是可以取任意常数的。
+
+这样对于给定初值的问题
+\[ \frac{\d y}{\d x} = p(x) y, \quad y(x_0) = y_0 \]
+的通解为
+\[ y(x) = y_0 \ee^{ \int_{x_0}^{x} p(t) \d t } = y_0 \ee^{P(x)} \]
+
+除此之外，我们有以下性质：
+
+\begin{itemize}
+	\item 方程的解要么恒为零，要么恒不为零。
+	\item 方程任何有限个解的线性组合仍是解，所有解构成一个一维线性空间。
+\end{itemize}
+
+\paragraph{一阶线性非齐次常微分方程} 一阶线性非齐次常微分方程为
+\[ \frac{\d y}{\d x} = p(x) y + q(x) \]
+考虑套用之前的公式，设
+\[ u(x) = y \ee^{-\int_{x_0}^{x} p(t) \d t} = y \ee^{-P(x)} \]
+注意到
+\[ \frac{\d u}{\d x} \cdot \ee^{\int_{x_0}^{x} p(t) \d t} = y' - p(x) y = q(x) \]
+可以得到 $y(x)$ 的解
+\[ y(x) = \ee^{\int_{x_0}^{x} p(t) \d t} \left(  \int \ee^{-\int p(x) \d x} q(x) \d x + C \right)
+= \ee^{P(x)} \left( \int \ee^{-P(x)} q(x) + C \right)  \]
+
+

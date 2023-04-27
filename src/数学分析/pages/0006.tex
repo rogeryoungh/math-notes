@@ -12,8 +12,8 @@
 \[ a_n = S_n - S_{n-1} \to S - S = 0 \quad(n \to \infty) \]
 
 \begin{theorem}[Cauchy 准则]
-	给定级数 $\sum a_i$，存在 $N = N(\varepsilon)$ 使得当 $n > N$ 时有
-	\[ |S_{n+p} - S_{n}| = |a_{n+p} + \cdots + a_{n+1}| < \varepsilon \]
+	给定级数 $\sum a_i$，存在 $N = N(\eps)$ 使得当 $n > N$ 时有
+	\[ |S_{n+p} - S_{n}| = |a_{n+p} + \cdots + a_{n+1}| < \eps \]
 \end{theorem}
 
 显然级数的有限项不影响级数的敛散性，以下讨论均舍弃。
@@ -68,12 +68,12 @@
 
 	（2） 显然当 $n > N_0$ 时 $a_n \geqslant n_0 > 0$，其每项的极限不趋于 $0$，故发散。
 
-	（极限形式）由极限知，我们取 $\varepsilon = \frac{|1-q|}{2}$，存在正数 $N$ 使得当 $n > N$ 时有
-	\[ q - \varepsilon < \frac{a_{n+1}}{a_n} < q + \varepsilon \]
+	（极限形式）由极限知，我们取 $\eps = \frac{|1-q|}{2}$，存在正数 $N$ 使得当 $n > N$ 时有
+	\[ q - \eps < \frac{a_{n+1}}{a_n} < q + \eps \]
 
-	当 $q<1$ 时，显然 $q + \varepsilon = \frac{1+q}{2} < 1$，由比式判别法知收敛。
+	当 $q<1$ 时，显然 $q + \eps = \frac{1+q}{2} < 1$，由比式判别法知收敛。
 
-	当 $q > 1$ 时，$q - \varepsilon = \frac{1+q}{2} > 1$，由比式判别法知发散。
+	当 $q > 1$ 时，$q - \eps = \frac{1+q}{2} > 1$，由比式判别法知发散。
 \end{proof}
 
 \begin{theorem}[Cauchy 判别法（根式判别法）]
@@ -155,31 +155,31 @@
 \[ \lim_{n \to \infty} f_n(x) = f(x) \]
 函数列的全体收敛点集，称为收敛域。
 
-用 $\varepsilon - N$ 语言表示即：对任意固定的 $x \in D$，任给 $\varepsilon$ 恒存在 $N(\varepsilon, x)$ 使得当 $n > N$ 时有
-\[ | f_n(x) - f(x) | < \varepsilon \]
+用 $\eps - N$ 语言表示即：对任意固定的 $x \in D$，任给 $\eps$ 恒存在 $N(\eps, x)$ 使得当 $n > N$ 时有
+\[ | f_n(x) - f(x) | < \eps \]
 则称 $\lim_{n \to \infty} f_n(x) = f(x)$。
 
 对于函数列，我们不仅要讨论其收敛域，还需要更多的性质，比如连续性、导数、积分是否在极限下不变。
 
 \begin{definition}
-	若对于函数列 $\{f_n\}$ 对任给的正数 $\varepsilon$ 总存在某一正整数 $N(\varepsilon)$ 使得当 $n > N$ 时对一切 $x \in D$ 都有
-	\[ |f_n(x) - f(x)| < \varepsilon \]
+	若对于函数列 $\{f_n\}$ 对任给的正数 $\eps$ 总存在某一正整数 $N(\eps)$ 使得当 $n > N$ 时对一切 $x \in D$ 都有
+	\[ |f_n(x) - f(x)| < \eps \]
 	则称函数列一致收敛于 $f$，记作
 	\[ f_n(x) \rightrightarrows f(x) (n \to \infty) \]
 \end{definition}
 
-一致收敛是比收敛更强的性质。反之，存在 $\varepsilon$ 使得对任何 $N$ 都有 $x(N)$ 和 $n(N) > N$ 使得
-\[ |f_n(x) - f(x) | \geqslant \varepsilon \]
+一致收敛是比收敛更强的性质。反之，存在 $\eps$ 使得对任何 $N$ 都有 $x(N)$ 和 $n(N) > N$ 使得
+\[ |f_n(x) - f(x) | \geqslant \eps \]
 则称其不一致收敛。
 
 \begin{theorem}[函数列一致收敛 Cauthy 准则]
-	给定函数列 $\{f_n\}$ 在 $D$ 上一致收敛的充要条件是：对任给 $\varepsilon > 0$ 都存在正数 $N$ 使得 $n, m > N$ 时，对一切 $x \in D$ 都有
-	\[ |f_n(x) - f_m(x) | < \varepsilon \]
+	给定函数列 $\{f_n\}$ 在 $D$ 上一致收敛的充要条件是：对任给 $\eps > 0$ 都存在正数 $N$ 使得 $n, m > N$ 时，对一切 $x \in D$ 都有
+	\[ |f_n(x) - f_m(x) | < \eps \]
 \end{theorem}
 
 \begin{proof}
-	先证必要性，已知 $f_n(x) \rightrightarrows f(x)$，显然我们可以取 $\frac{\varepsilon}{2}$ 使得
-	\[ |f_n(x) - f_m(x)| \leqslant |f_n(x) - f(x)| + |f_m(x) - f(x)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \]
+	先证必要性，已知 $f_n(x) \rightrightarrows f(x)$，显然我们可以取 $\frac{\eps}{2}$ 使得
+	\[ |f_n(x) - f_m(x)| \leqslant |f_n(x) - f(x)| + |f_m(x) - f(x)| < \frac{\eps}{2} + \frac{\eps}{2} = \eps \]
 
 	再证必要性，考察每个点由 Cauthy 定理知其收敛，故一致收敛。
 \end{proof}

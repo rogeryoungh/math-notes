@@ -31,4 +31,5 @@
 
 \theoremstyle{solvestyle}
 \newtheorem{solution}{解}
+\newtheorem{note}{笔记}
 

@@ -1,0 +1,283 @@
+\chapter{概率论}
+
+考研中遇到的概率论很少，暂放于此。
+
+\section{随机事件与概率}
+
+设随机事件的样本空间为 $\Omega$，若对每个事件 $A$ 都有个确定的实数 $P(A)$，且事件函数满足：
+
+\begin{itemize}
+	\item 非负性：$P(A) \geqslant 0$。
+	\item 规范性：$P(\Omega) = 1$.
+	\item 可加性：对任意可列个两两不相容事件 $A_1, \cdots$ 有
+	      \[ P\left(\bigcup A_i\right) = \sum P(A_i) \]
+\end{itemize}
+
+若样本空间满足
+\begin{itemize}
+	\item 只有有限个样本点；
+	\item 每个样本点发生的可能性相同。
+\end{itemize}
+就称为古典概型。若样本空间满足
+\begin{itemize}
+	\item 样本空间是一个可度量的有界区域；
+	\item 每个样本点发生的可能性相同。
+\end{itemize}
+就称为几何概型。
+
+其区别主要是：古典概型有限，几何概型无限但可度量。
+
+设 $A,B$ 是两个独立的事件，若 $P(A) > 0$，我们称在已知 $A$ 发生的条件下事件 $B$ 发生的概率为条件概率，记作
+\[ P(B | A) = \frac{P(AB)}{P(A)} \]
+
+贝叶斯公式：对 $n$ 个两两不相容事件 $A_1, \cdots, A_n$，则对事件 $B$ 有
+\[ P\left(A_j | B\right) = \frac{P(A_j)P(B | A_j)}{\sum\limits_{i=1}^n P(A_i)P(B | A_i) } \]
+
+\paragraph{事件的独立性} 设 $A,B$ 两个事件，若
+\[ P(AB) = P(A)P(B) \]
+则称事件 $A$ 与 $B$ 相互独立。对于三个事件 $A_1, A_2, A_3$，倘若其两两相互独立，称为两两独立；再加上条件
+\[ P(A_1 A_2 A_3) = P(A_1)P(A_2)P(A_3) \]
+才是相互独立的。
+
+\begin{note}
+	若 $P(AB) = 0$，不意味着 $AB = \varnothing$。比如 $[0,1]\cap [1,2] = \{1\}$，但概率是 $0$。
+\end{note}
+
+\section{一维随机变量及其分布}
+
+随机变量就是“其值会随机而定”的变量，是一个实值单值函数。设随机实验的样本空间为 $\Omega = \{\omega\}$，若对于任意 $\omega$ 都有唯一实数 $X(\omega)$ 与其对应，且对任意实数 $x$，$\{\omega \mid X(\omega) \leqslant x, \omega \in \Omega\}$ 是随机时间，则称定义在 $\Omega$ 上的实值单值函数为随机变量。
+
+设 $X$ 是随机变量，$x$ 是任意实数，则函数 $F(x) = P\{X \leqslant x\}$ 是随机变量 $X$ 的分布函数，记为 $X \sim F(x)$，称 $X$ 服从 $F(x)$ 分布。
+
+\begin{itemize}
+	\item $F(x)$ 对 $x$ 单调不减。
+	\item $F(x)$ 是 $x$ 的右连续函数。
+	\item $F(- \infty) = \lim\limits_{i \to -\infty} F(x) = 0$，$F(+\infty) = \lim\limits_{x \to + \infty} F(x) = 1$。 
+	\item $P\{X \leqslant a\} = F(a)$，$P\{X < a\} = F(a - 0)$，$P\{X = a\} = F(a) - F(a - 0)$。
+\end{itemize}
+
+如果随机变量只取有限的可列值，则称为离散型随机变量，可以写分布列。
+
+如果随机变量的分布函数可以写成
+\[ F(x) = \int_{-\infty}^{\infty} f(t) \d t \]
+其中 $f(x)$ 是非负可积函数，则称 $X$ 是连续型随机变量，$f(x)$ 是 $X$ 的概率密度函数。
+
+\subsection{常见随机分布}
+
+\paragraph{二项分布}
+如果 $X$ 的概率分布为
+\[ P\{X = k\} = \binom{n}{k} p^k(1 - p)^{n-k}. \quad k = 0, 1, \cdots, n \]
+则称 $X$ 服从参数为 $(n, p)$ 的二项分布，记为 $X \sim B(n, p)$。特别的，当 $n=1$ 时称为二项分布。二项分布也是 $n$ 重伯努利实验中事件 $A$ 发生的次数，其中 $P(A) = p$。
+
+\paragraph{泊松分布}
+如果 $X$ 的概率分布为
+\[ P\{X = k\} = \frac{\lambda^k}{k!} \ee^{-\lambda} , \quad k = 0, 1, \cdots \]
+则记为 $X \sim P(\lambda)$。
+
+\paragraph{几何分布}
+如果 $X$ 的概率分布为
+\[ P\{X=k\} = (1 - p)^{k-1}p, \quad k = 1, 2, \cdots \]
+则记为 $X \sim G(p)$。
+
+\paragraph{超几何分布}
+如果 $X$ 的概率分布为
+\[ P\{X = k\} = \frac{\binom{M}{k} \binom{N - M}{n - k}}{\binom{N}{n}}, \quad \max(0, n - N + M) \leqslant k \leqslant \min(M, n) \]
+则记为 $X \sim H(n, N, M)$。设有 $N$ 个产品组成的整体，其中有 $M$ 个不合格产品，从中取出 $n$ 个，次品数为 $k$，这就是组合意义。
+
+\paragraph{均匀分布}
+如果 $X$ 的概率密度函数为
+\[ f(x) = \frac{1}{b - a}, \quad a < x < b \]
+则记为 $X \sim U(a, b)$。
+
+\paragraph{指数分布}
+如果 $X$ 的概率密度函数为
+\[ f(x) = \lambda \ee^{-\lambda x}, \quad x > 0 \]
+则记为 $X \sim E(\lambda)$。
+
+\paragraph{正态分布}
+如果 $X$ 的概率密度为
+\[ f(x) = \frac{1}{\sqrt{2 \pi}  \sigma} \exp \left(- \frac{(x - \mu)^2}{2\sigma^2}  \right) \]
+则记为 $X = N(\mu, \sigma^2)$。
+
+\section{多维随机变量}
+
+对任意的 $n$ 个实数，$x_1, x_2, \cdots, x_n$，称 $n$ 元函数
+\[ F(x_1, \cdots, x_n) = P\{X_1 \leqslant x_1, X_2 \leqslant x_2, \cdots. X_n \leqslant x_n\} \]
+为多维随机变量 $(X_1, \cdots, X_n)$ 的联合分布函数，记为 $(X_1, \cdots, X_n) \sim F(x_1, \cdots, x_n)$。
+
+\begin{itemize}
+	\item $F(x, y)$ 是 $x, y$ 的单调不减函数。
+	\item $F(x, y)$ 是 $x, y$ 的右连续函数。
+	\item $F(-\infty, y) = F(x, -\infty) = F(-\infty, -\infty) = 0$，$F(+\infty, +\infty) = 1$。
+	\item 对任意 $x_1 < x_2, y_1 < y_2$，有
+	\[ P\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
+\end{itemize}
+
+设其联合分布函数为 $F(x,y)$，定义边缘分布函数
+\[ F_X(x) = P\{X \leqslant x\} = F(x, +\infty) \]
+同理，有 $F_Y(y) = F(+\infty, y)$。
+
+\paragraph{二维离散型随机变量} 如果二维随机变量 $(X, Y)$ 只能取有限对值或可列对值，则称为二维离散型随机变量。
+
+称
+\[ p_{i,j} = P\{X= x_i, Y = y_j\} \]
+为 $(X, Y)$ 的分布律，记为 $(X,Y) \sim p_{i,j}$。满足
+\[ p_{i,j} \leqslant 0, \quad \sum_i \sum_j p_{i,j} = 1 \]
+
+其联合分布函数为
+\[ F(x, y) = \sum_{x_i \leqslant x} \sum_{y_i \leqslant y} p_{i, j} \]
+其边缘分布为
+\[ p_{i, } = \sum_{j} p_{i, j}, \quad p_{,j} = \sum_{i} p_{i,j} \]
+
+
+若对固定的 $j$，若 $p_{, j} > 0$，则称
+\[ P\{ X = x_i \mid Y = y_i \} = \frac{P\{X = x_i, Y = y_j\}}{P\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
+为 $X$ 在 $Y = y_i$ 下的条件分布。
+
+\paragraph{二维连续型随机变量的概率密度}
+
+如果二维随机变量 $(X, Y)$ 的联合分布函数可以表示为
+\[ F(x, y) = \int_{-\infty}^{y} \int_{-\infty}^{x} f(u, v) \d u \d v \]
+则称 $(X, Y)$ 为二维连续型随机变量，记为 $(X, Y) \sim f(x, y)$。其满足
+\[ f(x, y) \geqslant 0, \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) \d x \d y = 1 \]
+
+若 $f$ 在点 $(x, y)$ 处连续，则
+\[ \frac{\partial^2 F(x, y)}{\partial x \partial y} = f(x, y) \]，反之若 $F(x, y)$ 连续可导，则此式是其概率密度。
+
+其边缘密度函数为
+\[ f_X(x) = \int_{-\infty}^{+\infty} f(x, y) \d y \]
+
+若 $f_X(x) > 0$，则记
+\[ f_{Y \mid X} (y \mid x) = \frac{f(x, y)}{f_{X}(x)} \]
+为 $Y$ 在 $X = x$ 条件下的条件概率密度。称
+\[ F_{Y \mid X}(y \mid x) = \int_{-\infty}^y \frac{f(x, y)}{f_{X}(x)} \d y \]
+为 $Y$ 在 $X = x$ 条件下的条件分布函数。
+
+\subsection{常见的二维分布}
+
+\paragraph{二维均匀分布} 称 $(X,Y)$ 在平面有界区域 $D$ 上服从均匀分布，如果 $(X, Y)$ 的概率密度为
+\[ f(x, y) = \frac{1}{S_D}, \quad (x, y) \in D \]
+
+\paragraph{二维正态分布} TODO。
+
+\paragraph{条件分布} TODO。
+
+\subsection{二维随机变量的独立性}
+
+设 $n$ 维随机变量 $(X_1, \cdots, X_n)$ 的联合分布函数为 $F$，设 $F_i$ 为第 $i$ 个变量的边缘分布函数，若满足
+\[ F(x_1, \cdots, x_n) = F_1(x_1) \cdots F_n(x_n) \]
+则称 $X_1, \cdots, X_n$ 相互独立。
+
+\section{随机变量的数字特征}
+
+设 $X$ 是随机变量，其分布列为 $p_i = P\{X = x_i\}$，记
+\[ E(X) = \sum_{i=1}^\infty x_i p_i \]
+为随机变量 $X$ 的数学期望。若 $X$ 是连续型随机变量，则记
+\[ E(X) = \int_{-\infty}^{+\infty} x f(x) \d x \]
+为其期望。
+
+其拥有线性性。比如设 $X, Y$ 相互独立，有
+\[ E(X Y) = E(X) E(y), \quad E(X \pm Y) = E(X) \pm E(Y) \]
+
+我们记 $E[(X - E(X))^2]$ 为 $X$ 的方差，有
+\[ D(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2 \]
+称 $\sqrt{D(X)}$ 为 $X$ 的标准差，或者均方差，记为 $\sigma(X)$。
+
+\begin{theorem}[切比雪夫不等式]
+	如果随机变量 $X$ 的期望 $E(X)$ 和方差 $D(X)$ 存在，则对任意 $\eps > 0$ 有
+	\[ P\{|X - E(X)| < \eps\} \geqslant 1 - \frac{D(X)}{\eps^2} \]
+\end{theorem}
+
+我们定义 $(X, Y)$ 的协方差为
+\[ \Cov(X, Y) = E[(X - E(X)(Y - E(Y)))] = E(XY) - E(X) E(Y) \]
+
+称 $\rho_{XY} = \frac{\Cov(X, Y)}{\sqrt{D(X) D(Y)}}$ 为 $X, Y$ 的相关系数。
+
+\section{大数定律与中心极限定理}
+
+设随机变量 $X$ 与随机变量序列 $\{X_n\}$，如果对任意的 $\eps > 0$ 有
+\[ \lim_{n \to \infty} P\{|X_n - X| < \eps \} =1 \]
+则称随机变量序列 $\{X_n\}$ 依概率收敛于随机变量 $X$，记为
+\[ \lim_{n \to \infty} X_n = X(P), \quad \text{或}\ X_n \stackrel{P}{\longrightarrow} X(n \to \infty) \]
+
+\begin{theorem}[切比雪夫大数定律]
+	设 $\{X_n\}$ 是相互独立的随机变量序列，如果方差 $D(X)$ 存在且有一致有上界，则 $\{X_n\}$ 服从大数定律
+	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \frac{1}{n} \sum_{i=1}^n E(X_i) \]
+\end{theorem}
+
+\begin{theorem}[伯努利大数定律]
+	假设 $\mu_n$ 是 $n$ 重伯努利实验中时间 $A$ 发生的次数，在每次实验中 $A$ 发生的概率为 $p(0 < p < 1)$，则
+	\[ \frac{\mu_n}{n} \stackrel{P}{\longrightarrow} p \]
+\end{theorem}
+
+\begin{theorem}[辛钦大数定律]
+	设 $\{X_n\}$ 是独立同分布的随机变量序列，如果 $E(X_i) = \mu$ 存在，则
+	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \mu \]
+\end{theorem}
+
+\begin{theorem}[列维 - 林德伯格定理]
+	假设 $\{X_n\}$ 是独立同分布的随机变量序列，如果
+	\[ E(X_i) = \mu, D(X_i) = \sigma^2 > 0 \]
+	存在，则对任意的实数 $x$ 有
+	\[ \lim_{n \to \infty} P\left\{ \frac{\sum_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+\end{theorem}
+
+\begin{theorem}[棣莫弗 - 拉普拉斯定理]
+	设随机变量 $Y_n \sim B(n, p)$，其中 $0 < p < 1$ 且 $n > 1$，则对任意的实数 $x$，有
+	\[ \lim_{n \to \infty} P\left\{ \frac{Y_n - np}{\sqrt{np(1 - p)}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+\end{theorem}
+
+\section{数理统计}
+
+研究对象的全体称为总体，组成总体的每一个元素称为个体。我们把总体和 $X$ 等同起来，所谓总体的分布就是指 $X$ 的分布。
+
+$n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $X_1, \cdots, X_n$ 所组成的总体为 $(X_1, \cdots, X_n)$ 称为来自总体 $X$ 容量为 $n$ 的一个简单随机样本，简称样本。一次抽样结果的 $n$ 个具体数值称为 $X_1, \cdots, X_n$ 的一个观测值（样本值）。
+
+假设总体 $X$ 的分布函数为 $F$，则 $(X_1, \cdots, X_n)$ 的分布函数为
+\[ F(x_1, \cdots, x_n) = \prod_{i=1}^n F(x_i) \]
+
+设 $X_1, \cdots, X_n$ 为来自总体 $X$ 的一个样本，$g$ 为仅与 $x$ 有关的 $n$ 元函数，则称 $g$ 为样本的一个统计量。若 $(x_1, \cdots, x_n)$ 为样本值，则 $g(x_1, \cdots, x_n)$ 为观测值。
+
+样本均值
+\[ \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i \]
+样本方差
+\[ S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \]
+样本 $k$ 阶（原点）矩
+\[ A_k = \frac{1}{n} \sum_{i=1}^n X_i^k \]
+样本 $k$ 阶中心矩
+\[ B_k = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^k \]
+
+将 $n$ 个观测量从小到大的顺序排列，记随机变量 $X_{(k)}$ 为第 $k$ 顺序统计量。
+
+常用统计量：
+
+\[
+\begin{aligned}
+	E(X_i) &= E(X) \\
+	D(X_i) &= D(X) \\
+	E(\overline{X}) &= E(X) \\
+	D(\overline{X}) &= \frac{1}{n} D(X) \\
+	E(S^2) &= D(X)
+\end{aligned}
+\]
+
+\subsection{三大分布}
+
+\newcommand{\calX}{\mathcal{X}}
+
+\paragraph{$\calX^2$ 分布}
+
+若随机变量 $X_1, \cdots, X_n$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\calX^2$ 分布，记为 $X \sim \calX^2(n)$。
+
+对于给定的 $\alpha(0 < \alpha < 1)$，称满足
+\[ P\left\{\calX^2 > \calX_\alpha^2(n)\right\} = \int_{\calX_\alpha^2(n)}^n f(x) \d x = \alpha  \]
+的 $\calX_\alpha^2(n)$ 为 $\calX^2(n)$ 分布的上 $\alpha$ 分位点。
+
+\paragraph{$t$ 分布}
+
+设随机变量 $X \sim N(0, 1), Y \sim \calX^2(n)$，$X$ 与 $Y$ 互相独立，则随机变量 $t = \frac{X}{\sqrt{Y / n}}$ 服从自由度为 $n$ 的 $t$ 分布，记为 $t \sim t(n)$.
+
+\paragraph{$F$ 分布}
+
+设随机变量 $X \sim \calX^2(n_1), y \sim \calX^2(n_2)$，且 $X$ 与 $Y$ 相互独立，则 $F = \frac{X / n_1}{Y / n_2}$ 服从自由度为 $(n_1, n_2)$ 的 $F$ 分布，记为 $F \sim F(n_1, n_2)$。
+

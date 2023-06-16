@@ -11,24 +11,24 @@
 含 $n$ 个未知量的线性方程组称为 $n$ 元线性方程组，它的一般形式是
 \begin{equation*}
 	\left\{
-		\begin{matrix}
-			a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\\
-			a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2\\
-			\cdots\qquad\cdots\qquad\cdots\\
-			a_{s1}x_1+a_{s2}x_2+\cdots+a_{sn}x_n=b_s
-		\end{matrix}
+	\begin{matrix}
+		a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\
+		a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
+		\cdots\qquad\cdots\qquad\cdots           \\
+		a_{s1}x_1+a_{s2}x_2+\cdots+a_{sn}x_n=b_s
+	\end{matrix}
 	\right.
 \end{equation*}
 方程的个数 $s$ 与未知量的个数 $n$ 可以相等，也可以不等。
 
 \begin{definition}[线性方程组的初等变换]
 	线性方程组的初等变换有三种，分别为：
-	
-	（1） 把一个方程的倍数加到另一个方程上。
 
-	（2） 互换两个方程的位置。
-
-	（3） 用一个非零数乘某一个方程。
+	\begin{enumerate}
+		\item 把一个方程的倍数加到另一个方程上。
+		\item 互换两个方程的位置。
+		\item 用一个非零数乘某一个方程。
+	\end{enumerate}
 \end{definition}
 
 对于线性方程组，若 $\ji{x}{n}$ 分别用数 $c_1,\cdots,c_n$ 代入后，每个方程都变成恒等式，那么称 $n$ 元有序组 $(c_1,\cdots,c_n)$ 是线性方程组的一个解。方程组所有解组成的集合称为这个线性方程组的解集，符合实际要求的解称为可行解。
@@ -45,11 +45,11 @@
 	由 $sn$ 个数排成的 $s$ 行（横的）$n$ 列（纵的）表
 	\begin{equation*}
 		\left(
-			\begin{matrix}
-				a_{11}&a_{12}&\ldots&a_{1n}\\
-				a_{21}&a_{22}&\ldots&a_{2n}\\
-				\vdots&\vdots&&\vdots\\a_{s1}&a_{s2}&\ldots&a_{sn}\\
-			\end{matrix}
+		\begin{matrix}
+			a_{11} & a_{12} & \ldots & a_{1n} \\
+			a_{21} & a_{22} & \ldots & a_{2n} \\
+			\vdots & \vdots &        & \vdots \\a_{s1}&a_{s2}&\ldots&a_{sn}\\
+		\end{matrix}
 		\right)
 	\end{equation*}
 	称为一个 $s\times n$ 矩阵，记作 $A_{s\times n}$ 或 $A=(a_{ij})$，它的 $(i,j)$ 元也记作 $A(i;j)$。
@@ -59,12 +59,12 @@
 
 \begin{definition}[初等行变换]\index{chudenghangbianhuan@初等行变换}
 	矩阵的初等行变换有三种，分别为：
-	
-	（1） 把一行的倍数加到另一行上。
 
-	（2） 互换两行的位置。
-
-	（3） 用一个非零数乘某一行。
+	\begin{enumerate}
+		\item 把一行的倍数加到另一行上。
+		\item 互换两行的位置。
+		\item 用一个非零数乘某一行。
+	\end{enumerate}
 \end{definition}
 
 矩阵经过初等行变换，可变成阶梯形矩阵，并可进一步化简成简化行阶梯形矩阵。
@@ -84,13 +84,15 @@
 
 由于初等变换不改变线性方程组的解，其总可以化为阶梯形方程组。因此设阶梯形方程组有 $n$ 个未知量，它的增广矩阵 $J$ 有 $r$ 个非零行，$J$ 有 $n+1$ 列。
 
-1. 若阶梯形方程组中出现 $0=d$（其中 $d$ 为非零数）这种方程，即最后一个非零行的主元位于 $n+1$ 列，则阶梯形方程组无解。
-
-2. 最后一个非零行的主元不位于 $n+1$ 列。
-
-2(1). $r=n$ 时，阶梯形方程恰有唯一解。
-
-2(2). $r<n$ 时，有无穷多组解。
+\begin{enumerate}
+	\item 若阶梯形方程组中出现 $0=d$（其中 $d$ 为非零数）这种方程，即最后一个非零行的主元位于 $n+1$ 列，则阶梯形方程组无解。
+	\item 最后一个非零行的主元不位于 $n+1$ 列。
+	
+	\begin{enumerate}
+		\item $r=n$ 时，阶梯形方程恰有唯一解。
+		\item $r<n$ 时，有无穷多组解。
+	\end{enumerate}
+\end{enumerate}
 
 \begin{theorem}
 	系数为有理数（实数、复数）的 $n$ 元线性方程组的解的情况只有三种可能：无解，有唯一解，有无穷多组解。
@@ -102,12 +104,12 @@
 
 \begin{definition}
 	复数集的一个子集 $K$ 是一个数域，那么满足：
-	
-	（1） $0,1 \in K$；
-	
-	（2） $a,b \in K \Rightarrow a \pm b,ab \in K$；
-	
-	（3） $a,b \in K$，且 $b \ne 0 \Rightarrow \dfrac{a}{b} \in K$。
+
+	\begin{enumerate}
+		\item $0,1 \in K$；
+		\item $a,b \in K \Rightarrow a \pm b,ab \in K$；
+		\item $a,b \in K$，且 $b \ne 0 \Rightarrow \dfrac{a}{b} \in K$。
+	\end{enumerate}
 \end{definition}
 
 其中，$\QQ,\RR,\CC$ 都是数域，但整数集 $\mathrm{Z}$ 不是数域。

@@ -4,40 +4,61 @@
 
 \section{随机事件与概率}
 
-设随机事件的样本空间为 $\Omega$，若对每个事件 $A$ 都有个确定的实数 $P(A)$，且事件函数满足：
+假定某个试验有有限个可能的结果 $e_1, \cdots, e_N$，其出现机会是等可能的。假定事件 $E$ 包含了其中的 $M$ 个结果，则称事件 $E$ 的概率为
+\[ P(E) = M / N \]
+这是古典概型。另一些时候，我们把结果扩展到无限的情况。我们把度量（可以通俗的理解为面积）相同的事件称为等可能的，这是几何概型。
+
+称集合 $\Omega$ 随机事件的样本空间，其元素 $\omega$ 称为基本事件。事件 $A$ 是 $\Omega$ 的一个子集，赋给每个事件一个实数值 $P(A)$，称为概率。其满足要求：
 
 \begin{itemize}
 	\item 非负性：$P(A) \geqslant 0$。
-	\item 规范性：$P(\Omega) = 1$.
-	\item 可加性：对任意可列个两两不相容事件 $A_1, \cdots$ 有
-	      \[ P\left(\bigcup A_i\right) = \sum P(A_i) \]
+	\item 规范性：$P(\Omega) = 1, P(\varnothing) = 0$。
+	\item 加法公理。
 \end{itemize}
 
-若样本空间满足
-\begin{itemize}
-	\item 只有有限个样本点；
-	\item 每个样本点发生的可能性相同。
-\end{itemize}
-就称为古典概型。若样本空间满足
-\begin{itemize}
-	\item 样本空间是一个可度量的有界区域；
-	\item 每个样本点发生的可能性相同。
-\end{itemize}
-就称为几何概型。
+若两个事件不能在同一次试验中同时发生，则称为互斥的。若一些事件中任意两个都互斥，则称为两两互斥。可以进一步导出对立事件的概念。可以把集合的交并补也引入。
 
-其区别主要是：古典概型有限，几何概型无限但可度量。
+\begin{theorem}[加法公理]
+	若干个互斥事件之和的概率，等于各事件的概率之和：
+	\[ P\left(\bigcup A_i\right) = \sum P(A_i) \]
+\end{theorem}
 
-设 $A,B$ 是两个独立的事件，若 $P(A) > 0$，我们称在已知 $A$ 发生的条件下事件 $B$ 发生的概率为条件概率，记作
-\[ P(B | A) = \frac{P(AB)}{P(A)} \]
+\begin{note}
+	这条公理其实是在古典定义、统计定义下是可证明的，但是为什么是公理呢？因为我们的确可以建立一种新的概率理论，在其中加法公理不成立。类似于平行公设。
+\end{note}
 
-贝叶斯公式：对 $n$ 个两两不相容事件 $A_1, \cdots, A_n$，则对事件 $B$ 有
-\[ P\left(A_j | B\right) = \frac{P(A_j)P(B | A_j)}{\sum\limits_{i=1}^n P(A_i)P(B | A_i) } \]
+\begin{definition}
+	设 $A,B$ 是两个事件且 $P(A) > 0$，我们称在已知 $A$ 发生的条件下事件 $B$ 发生的概率为条件概率，记作
+	\[ P(B | A) = \frac{P(AB)}{P(A)} \]
+\end{definition}
 
-\paragraph{事件的独立性} 设 $A,B$ 两个事件，若
-\[ P(AB) = P(A)P(B) \]
-则称事件 $A$ 与 $B$ 相互独立。对于三个事件 $A_1, A_2, A_3$，倘若其两两相互独立，称为两两独立；再加上条件
-\[ P(A_1 A_2 A_3) = P(A_1)P(A_2)P(A_3) \]
-才是相互独立的。
+假如 $P(B \mid A) > P(B)$，我们可以说事件 $A$ 促进了事件 $B$ 的发生。反之 $P(B \mid A) = P(A)$，则 $B$ 的发生对 $A$ 无影响。
+
+形式的说：
+
+\begin{definition}[条件概率]
+	若两事件 $A, B$ 满足
+	\[ P(A B) = P(A) P(B) \]
+	则称 $A, B$ 独立。
+\end{definition}
+
+变换形式是为了避免 $0$ 的讨论。
+
+设一列事件 $A_1, A_2, \cdots$，假如从中取出任意有限个都成立
+\[ P(A_{i1} \cdots A_{im}) = P(A_{i1}) \cdots P(A_{im}) \]
+那么称事件 $A_1, A_2, \cdots$ 相互独立。注意与两两独立的区别。
+
+
+\begin{theorem}[全概率公式]
+	设 $B_1, \cdots$ 为一列事件，他们两两互斥且每次试验至少发生一个。有时称这种性质为“完备事件群”。那么对任意事件 $A$ 有
+	\[ P(A) = P(B_1)P(A \mid B_1) + P(B_2)P(A \mid B_2) + \cdots \]
+\end{theorem}
+
+
+\begin{theorem}[全概率公式]
+	贝叶斯公式：对 $n$ 个两两不相容事件 $A_1, \cdots, A_n$，则对事件 $B$ 有
+	\[ P\left(A_j | B\right) = \frac{P(A_j)P(B | A_j)}{\sum\limits_{i=1}^n P(A_i)P(B | A_i) } \]
+\end{theorem}
 
 \begin{note}
 	若 $P(AB) = 0$，不意味着 $AB = \varnothing$。比如 $[0,1]\cap [1,2] = \{1\}$，但概率是 $0$。
@@ -45,22 +66,42 @@
 
 \section{一维随机变量及其分布}
 
-随机变量就是“其值会随机而定”的变量，是一个实值单值函数。设随机实验的样本空间为 $\Omega = \{\omega\}$，若对于任意 $\omega$ 都有唯一实数 $X(\omega)$ 与其对应，且对任意实数 $x$，$\{\omega \mid X(\omega) \leqslant x, \omega \in \Omega\}$ 是随机时间，则称定义在 $\Omega$ 上的实值单值函数为随机变量。
+随机变量就是“其值会随机而定”的变量，是一个实值单值函数。设随机实验的样本空间为 $\Omega$，若对于任意 $\omega \in \Omega$ 都有唯一实数 $X(\omega)$ 与其对应，且对任意实数 $x$，$\{\omega \mid X(\omega) \leqslant x, \omega \in \Omega\}$ 是随机时间，则称定义在 $\Omega$ 上的实值单值函数为随机变量。
 
-设 $X$ 是随机变量，$x$ 是任意实数，则函数 $F(x) = P\{X \leqslant x\}$ 是随机变量 $X$ 的分布函数，记为 $X \sim F(x)$，称 $X$ 服从 $F(x)$ 分布。
+\paragraph{离散型随机变量}
+
+研究一个随机变量，不只是查看其能取哪些值，更要看其取各种值的概率如何。
+
+\begin{definition}
+	设 $X$ 是离散型随机变量，其全部可能值为 $\{a_1, \cdots\}$，则称
+	\[ p_i = P\{X = a_i\} \]
+	为其概率函数。称
+	\[ F(x) = P\{X \leqslant x\} = \sum_{a_i \leqslant x} p_i \]
+	是其分布函数。记为 $X \sim F(x)$，称 $X$ 服从 $F(x)$ 分布。
+\end{definition}
+
+其具有以下的性质：
 
 \begin{itemize}
 	\item $F(x)$ 对 $x$ 单调不减。
 	\item $F(x)$ 是 $x$ 的右连续函数。
-	\item $F(- \infty) = \lim\limits_{i \to -\infty} F(x) = 0$，$F(+\infty) = \lim\limits_{x \to + \infty} F(x) = 1$。 
+	\item $F(- \infty) = \lim\limits_{i \to -\infty} F(x) = 0$，$F(+\infty) = \lim\limits_{x \to + \infty} F(x) = 1$。
 	\item $P\{X \leqslant a\} = F(a)$，$P\{X < a\} = F(a - 0)$，$P\{X = a\} = F(a) - F(a - 0)$。
 \end{itemize}
 
 如果随机变量只取有限的可列值，则称为离散型随机变量，可以写分布列。
 
-如果随机变量的分布函数可以写成
-\[ F(x) = \int_{-\infty}^{\infty} f(t) \d t \]
-其中 $f(x)$ 是非负可积函数，则称 $X$ 是连续型随机变量，$f(x)$ 是 $X$ 的概率密度函数。
+\paragraph{连续型随机变量}
+
+如果随机变量的分布函数是 $F(x)$，则 $f(x) = F'(x)$ 是其的概率密度函数。
+
+其具有以下的性质：
+
+\begin{itemize}
+	\item $f(x) \geqslant 1$。
+	\item 对任何常数 $a, b$ 有
+	      \[ P\{a \leqslant X \leqslant b\} = F(b) - F(a) = \int_{a}^{b} f(x) \d x, \qquad \int_{-\infty}^{\infty} f(x) \d x = 1 \]
+\end{itemize}
 
 \subsection{常见随机分布}
 
@@ -97,9 +138,40 @@
 \paragraph{正态分布}
 如果 $X$ 的概率密度为
 \[ f(x) = \frac{1}{\sqrt{2 \pi}  \sigma} \exp \left(- \frac{(x - \mu)^2}{2\sigma^2}  \right) \]
-则记为 $X = N(\mu, \sigma^2)$。
+则记为 $X \sim N(\mu, \sigma^2)$。
 
 \section{多维随机变量}
+
+设 $X = (X_1, \cdots, X_N)$，其中每个分量都是一维随机变量，则 $X$ 是一个 $n$ 维随机变量。
+
+\paragraph{离散型}
+
+假如每个分量是离散型的，那么称 $X$ 是 $n$ 维离散型随机变量。
+
+\begin{definition}
+	以 $\{a_{i1}, \cdots\}$ 记 $X_i$ 的全部可能值，则事件的概率
+	\[ p(j_1, \cdots, j_n) = P\{X_1 = a_{1j_1}, \cdots, X_n = a_{n j_n}\} \]
+	为随机变量的概率函数。显然应该满足条件
+	\[ p(j_1, \cdots) \geqslant 0, \quad \sum_{j_n} \cdots \sum_{j_1} p(j_1, \cdots)  =1 \]
+\end{definition}
+
+\paragraph{连续型}
+连续型随机变量不能简单的定义为各分量都是“一维连续型随机变量的那种”。考虑 $X_1 = X_2$，则 $(X_1, X_2)$ 仅在对角线处有值，故不可能存在概率密度函数。
+
+\begin{definition}
+	设 $f(x_1, \cdots, x_n)$ 是定义在 $\mathbb{R}^n$ 上的非负函数，使得对 $\mathbb{R}^n$ 中的任何集合 $A$，有
+	\[ P\{X \in A\} = \int_A \cdots \int f(x_1, \cdots, x_n) \d x_1 \cdots \d x_n \]
+	则称 $f$ 是 $X$ 的概率密度函数。显然当 $P\{ X \in \mathbb{R}^n\} = 1$。
+\end{definition}
+
+也可以定义分布函数
+\[ F(x_1, \cdots, x_n) = P\{X_1 \leqslant x_1, \cdots, X_n \leqslant x_n \} \]
+
+对于二维 $(X, Y)$，若 $f$ 在点 $(x, y)$ 处连续，则
+\[ \frac{\partial^2 F(x, y)}{\partial x \partial y} = f(x, y) \]
+反之若 $F(x, y)$ 连续可导，则此式是其概率密度。
+
+\paragraph{边缘分布}
 
 对任意的 $n$ 个实数，$x_1, x_2, \cdots, x_n$，称 $n$ 元函数
 \[ F(x_1, \cdots, x_n) = P\{X_1 \leqslant x_1, X_2 \leqslant x_2, \cdots. X_n \leqslant x_n\} \]
@@ -110,48 +182,13 @@
 	\item $F(x, y)$ 是 $x, y$ 的右连续函数。
 	\item $F(-\infty, y) = F(x, -\infty) = F(-\infty, -\infty) = 0$，$F(+\infty, +\infty) = 1$。
 	\item 对任意 $x_1 < x_2, y_1 < y_2$，有
-	\[ P\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
+	      \[ P\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
 \end{itemize}
 
 设其联合分布函数为 $F(x,y)$，定义边缘分布函数
 \[ F_X(x) = P\{X \leqslant x\} = F(x, +\infty) \]
 同理，有 $F_Y(y) = F(+\infty, y)$。
 
-\paragraph{二维离散型随机变量} 如果二维随机变量 $(X, Y)$ 只能取有限对值或可列对值，则称为二维离散型随机变量。
-
-称
-\[ p_{i,j} = P\{X= x_i, Y = y_j\} \]
-为 $(X, Y)$ 的分布律，记为 $(X,Y) \sim p_{i,j}$。满足
-\[ p_{i,j} \leqslant 0, \quad \sum_i \sum_j p_{i,j} = 1 \]
-
-其联合分布函数为
-\[ F(x, y) = \sum_{x_i \leqslant x} \sum_{y_i \leqslant y} p_{i, j} \]
-其边缘分布为
-\[ p_{i, } = \sum_{j} p_{i, j}, \quad p_{,j} = \sum_{i} p_{i,j} \]
-
-
-若对固定的 $j$，若 $p_{, j} > 0$，则称
-\[ P\{ X = x_i \mid Y = y_i \} = \frac{P\{X = x_i, Y = y_j\}}{P\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
-为 $X$ 在 $Y = y_i$ 下的条件分布。
-
-\paragraph{二维连续型随机变量的概率密度}
-
-如果二维随机变量 $(X, Y)$ 的联合分布函数可以表示为
-\[ F(x, y) = \int_{-\infty}^{y} \int_{-\infty}^{x} f(u, v) \d u \d v \]
-则称 $(X, Y)$ 为二维连续型随机变量，记为 $(X, Y) \sim f(x, y)$。其满足
-\[ f(x, y) \geqslant 0, \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) \d x \d y = 1 \]
-
-若 $f$ 在点 $(x, y)$ 处连续，则
-\[ \frac{\partial^2 F(x, y)}{\partial x \partial y} = f(x, y) \]，反之若 $F(x, y)$ 连续可导，则此式是其概率密度。
-
-其边缘密度函数为
-\[ f_X(x) = \int_{-\infty}^{+\infty} f(x, y) \d y \]
-
-若 $f_X(x) > 0$，则记
-\[ f_{Y \mid X} (y \mid x) = \frac{f(x, y)}{f_{X}(x)} \]
-为 $Y$ 在 $X = x$ 条件下的条件概率密度。称
-\[ F_{Y \mid X}(y \mid x) = \int_{-\infty}^y \frac{f(x, y)}{f_{X}(x)} \d y \]
-为 $Y$ 在 $X = x$ 条件下的条件分布函数。
 
 \subsection{常见的二维分布}
 
@@ -160,13 +197,70 @@
 
 \paragraph{二维正态分布} TODO。
 
-\paragraph{条件分布} TODO。
-
 \subsection{二维随机变量的独立性}
 
-设 $n$ 维随机变量 $(X_1, \cdots, X_n)$ 的联合分布函数为 $F$，设 $F_i$ 为第 $i$ 个变量的边缘分布函数，若满足
-\[ F(x_1, \cdots, x_n) = F_1(x_1) \cdots F_n(x_n) \]
-则称 $X_1, \cdots, X_n$ 相互独立。
+\paragraph{条件概率分布}
+
+对于二维离散型随机向量 $(X, Y)$，其联合概率分布为
+\[ p_{i,j} = P\{X= x_i, Y = y_j\} \]
+记为 $(X,Y) \sim p_{i,j}$。依条件概率的定义，有
+\[ P\{ X = x_i \mid Y = y_i \} = \frac{P\{X = x_i, Y = y_j\}}{P\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
+
+设二维连续型随机向量 $(X, Y)$，其概率密度是 $f(x, y)$。假设 $y \in [a, b]$，依条件概率的定义，有
+\[ P\{X \leqslant c \mid a \leqslant Y \leqslant b\} = \frac{P\{X \leqslant c , a \leqslant Y \leqslant b\}}{P\{a \leqslant y \leqslant b \}} = \frac{\int_{-\infty}^c \int_{a}^b f(x, y) \d y \d x }{\int_a^b f_Y(y) \d y }\]
+对 $c$ 求导，即得条件密度函数
+\[ f_{X \mid Y}(x \mid a \leqslant y \leqslant b) = \frac{\int_{a}^b f(x, y) \d y}{\int_{a}^b f_{Y}(y) \d t} \]
+考虑极限，$a, b$ 收敛于 $y$ 处，有
+\[ f_{X \mid Y}(x \mid y) = \frac{f(x, y)}{f_{Y}(y)} \]
+
+\paragraph{独立性}
+
+与一维情况类似，我们可以推广为 $n$ 维。
+
+\begin{definition}
+	设 $n$ 维随机向量 $(X_1, \cdots, X_n)$ 的联合密度函数为 $f(x_1, \cdots, x_n)$，而 $f_i$ 是 $X_i$ 的边缘密度函数，若
+	\[ f(x_1, \cdots, x_n) = f_1(x_1) \cdots f_n(x_n) \]
+	则称随机变量 $X_1, \cdots, X_n$ 相互独立。
+\end{definition}
+
+\paragraph{随机变量函数的概率分布}
+
+离散的情况是容易的，实在不行手算。
+
+设连续型随机变量 $X$ 有密度函数 $f(x)$，对于函数 $g$，考虑 $Y=g(X)$ 下的情况。假设 $g$ 严格上升，设 $h = g^{-1}$，有
+\[ P\{Y \leqslant y\} = P\{X \leqslant h(y)\} = \int_{-\infty}^{h(y)} f(t) \d t \]
+则 $y$ 的密度函数为
+\[ l(y) = f(h(y)) h'(y) \]
+同理，对严格递减也可以进行讨论，得到结论
+\[ l(y) = f(h(y)) |h'(y)| \]
+
+例如 $Y = aX+b$，则 $Y$ 的密度函数为
+\[ l(y) = \frac{1}{|a|}f\left(\frac{y-b}{a}\right) \]
+
+现考虑二元情况 $(X_1, X_2)$ 的密度函数为 $f(x_1, x_2)$，并有变量
+\[ Y_1 = g_1(X_1, X_2), \quad Y_2 = g_2(X_1, X_2) \]
+假定存在逆变换
+\[ X_1 = h_1(Y_1, Y_2), \quad X_2 = h_2(Y_1, Y_2) \]
+此时 Jacobi 行列式
+\[ J(y_1, y_2) = \left|\begin{matrix}
+	\partial h_1 / \partial y_1 & \partial h_1 / \partial y_2 \\
+	\partial h_2 / \partial y_1 & \partial h_2 / \partial y_2
+\end{matrix}\right| \]
+不为 $0$。在 $(Y_1, Y_2)$ 的平面上任取一个区域 $A$，对应于 $(X_1, X_2)$ 上的区域是 $B$。即
+\[ \begin{aligned}
+	P\{(Y_1, Y_2) \in A\} &= P\{(X_1, X_2) \in B\} \\
+	&= \iint_{B} f(x_1, x_2) \d x_1 \d x_2 \\
+	&= \iint_{A} f(h_1(y_1, y_2), h_2(y_1, y_2)) \cdot |J(y_1, y_2) \d y_1 \d y_2
+\end{aligned} \]
+因此 $(Y_1, Y_2)$ 的概率密度为
+\[ l(y_1, y_2) = f(h_1(y_1, y_2), h_2(y_1, y_2)) | J(y_1, y_2)| \]
+
+比较常见的例子是线性变换
+\[ Y_1 = a_{11} X_1 + a_{12} X_2, \quad Y_2 = a_{21} X_1 + a_{22} X_2 \]
+当其行列式不为 $0$ 时，设其存在逆变换
+\[ X_1 = b_{11} Y_1 + b_{12} Y_2, \quad X_2 = b_{21} Y_1 + b_{22} Y_2 \]
+可得
+\[ l(y_1, y_2) = f(b_{11} y_1 + b_{12} y_2, b_{21} y_1 + b_{22} y_2) | b_{11} b_{22} - b_{12} b_{21} | \]
 
 \section{随机变量的数字特征}
 
@@ -252,13 +346,13 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $X_1
 常用统计量：
 
 \[
-\begin{aligned}
-	E(X_i) &= E(X) \\
-	D(X_i) &= D(X) \\
-	E(\overline{X}) &= E(X) \\
-	D(\overline{X}) &= \frac{1}{n} D(X) \\
-	E(S^2) &= D(X)
-\end{aligned}
+	\begin{aligned}
+		E(X_i)          & = E(X)             \\
+		D(X_i)          & = D(X)             \\
+		E(\overline{X}) & = E(X)             \\
+		D(\overline{X}) & = \frac{1}{n} D(X) \\
+		E(S^2)          & = D(X)
+	\end{aligned}
 \]
 
 \subsection{三大分布}
@@ -280,4 +374,31 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $X_1
 \paragraph{$F$ 分布}
 
 设随机变量 $X \sim \calX^2(n_1), y \sim \calX^2(n_2)$，且 $X$ 与 $Y$ 相互独立，则 $F = \frac{X / n_1}{Y / n_2}$ 服从自由度为 $(n_1, n_2)$ 的 $F$ 分布，记为 $F \sim F(n_1, n_2)$。
+
+\subsection{参数的点估计}
+
+设总体 $X$ 的分布函数为 $F(x; \theta)$，其中 $\theta$ 是一个未知参数，$X_1, \cdots, X_n$ 是取自总体 $X$ 的一个样本。由样本构造一个适当的统计量 $\hat{\theta}(X_1, \cdots, X_n)$ 作为参数 $\theta$ 的估计，则称 $\hat{\theta}$ 为其估计量。
+
+如果 $x_1, \cdots, x_n$ 是样本的一个观察值，将其带入估计量得值 $\hat{\theta}(x_1, \cdots, x_n)$ 并以此值作为未知参数的近似值，则称为 $\theta$ 的估计值。
+
+\paragraph{矩估计法}
+
+设总体 $X$ 分布有 $n$ 个样本，有 $k$ 个未知参数。若 $X$ 的原点矩存在，我们令样本矩等于总体矩
+\[ \frac{1}{n} \sum_{i=1}^{N} X_i^l = E(X^l), \quad l = 1, \cdots, k \]
+这是包含 $k$ 个参数的 $k$ 个方程，由此解得矩估计量和矩估计值。
+
+一般约定：用矩法方程求总体未知参数的估计量时，从低阶开始。
+
+\paragraph{最大似然估计法}
+
+最大似然原理：对未知参数 $\theta$ 进行估计时，在该参数可能的取值范围 $I$ 内选取，用使”样本获得观测值 $x_1, \cdots, x_n$ 的概率最大的参数值 $\hat{\theta}$ 作为 $\theta$ 的估计。
+
+假设 $X$ 是离散型随机变量，其概率分布为 $P\{X = x\} = p(x; \theta)$，那么求其取值概率
+\[ L(x_1, \cdots, x_n;\theta) = P\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n P\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
+称为样本的似然函数。若存在 $\hat{theta}$ 使得 $L$ 取到最大值，则称 $\hat{theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
+
+同理，连续型随机变量也有
+\[ L(x_1, \cdots, x_n; \theta) = \prod_{i=1}^n f(x_i; \theta) \]
+
+
 

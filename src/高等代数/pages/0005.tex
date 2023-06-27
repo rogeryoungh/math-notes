@@ -18,13 +18,13 @@
 
 \begin{definition}
     集合 $S$ 上的一个二元关系 $\sim$ 如果具有下述性质：$\forall a,b,c\in S$，有
-
+    
     （1） 反身性 $a\sim a$
-
+    
     （2） 对称性 $a\sim b \Rightarrow b\sim a$
-
-    （3） 传递性 $a\sim b$ 且 $b\sim c \Rightarrow a\sim c$ 
-
+    
+    （3） 传递性 $a\sim b$ 且 $b\sim c \Rightarrow a\sim c$
+    
     那么称 $\sim$ 是 $S$ 上的一个等价关系。
 \end{definition}
 
@@ -36,7 +36,7 @@
 
 \begin{definition}
     如果集合 $S$ 是一些非空子集 $S_i$ （$i\in I$，这里 $I$ 表示指标集）的并集，并且其中不相等的子集一定不相交，那么称集合 $\{S
-    _i \mid i\in I\}$ 是 $S$ 的一个划分，记作 $\pi(S)$。
+        _i \mid i\in I\}$ 是 $S$ 的一个划分，记作 $\pi(S)$。
 \end{definition}
 
 \begin{theorem}
@@ -64,9 +64,9 @@
 \begin{theorem}
     设数域 $K$ 上 $s\times n$ 矩阵 $A$ 的秩为 $r$，如果 $r>0$，那么 $A$ 相抵于下述形式的矩阵
     \[\left(\begin{matrix}
-        E_r & 0\\
-        0   & 0
-    \end{matrix}\right)\]
+                E_r & 0  \\
+                0   & 0
+            \end{matrix}\right)\]
     称其为 $A$ 的相抵标准形；如果 $r=0$，那么相抵标准形是零矩阵。
 \end{theorem}
 
@@ -81,14 +81,14 @@
     \[AXA = A\]
     一定有解。如果 $\rank(A) = r$，并且
     \[A = P\left(\begin{matrix}
-        E_r & 0\\
-        0   & 0
-    \end{matrix}\right)Q\]
+                E_r & 0  \\
+                0   & 0
+            \end{matrix}\right)Q\]
     其中 $P,Q$ 分别是 $K$ 上 $s$ 级、$n$ 级可逆矩阵，那么矩阵方程的通解为
     \[X = Q^{-1}\left(\begin{matrix}
-        E_r & B\\
-        C   & D
-    \end{matrix}\right)P^{-1}\]
+                E_r & B  \\
+                C   & D
+            \end{matrix}\right)P^{-1}\]
     其中 $B,C,D$ 分别是数域 $K$ 上任意的 $r\times (s-r),(n-r)\times r,(n-r)\times (s-r)$ 矩阵。
 \end{theorem}
 
@@ -142,9 +142,9 @@
 不难验证矩阵的迹都有如下性质
 \begin{equation*}
     \begin{aligned}
-        \tr(A+B) &= \tr(A) + \tr(B)\\
-         \tr(kA) &= k\tr(A)\\
-         \tr(AB) &= \tr(BA)
+        \tr(A+B) & = \tr(A) + \tr(B) \\
+        \tr(kA)  & = k\tr(A)         \\
+        \tr(AB)  & = \tr(BA)
     \end{aligned}
 \end{equation*}
 
@@ -175,9 +175,9 @@
 
 \begin{theorem}
     设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，则
-
+    
     （1） $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。\index{tezhengduoxiangshi@特征多项式}
-
+    
     （2） $\alpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\alpha$ 是齐次线性方程组 $(\lambda_0E-A)X = \vzero$  的一个解。
 \end{theorem}
 

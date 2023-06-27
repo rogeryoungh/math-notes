@@ -12,7 +12,7 @@
 
 \begin{definition}
 	在一个排列中，如果一对数前面的数大于后面的数，那么它们就称为一个逆序，反之称为正序。
-	
+
 	排列中逆序的对数称为这个排列的逆序数。
 \end{definition}
 
@@ -51,12 +51,12 @@
 	$n$ 阶行列式
 	\begin{equation*}
 		\left|\begin{matrix}
-			a_{11}&a_{12}&\ldots&a_{1n}\\
-			a_{21}&a_{22}&\ldots&a_{2n}\\
-			\vdots&\vdots&&\vdots\\
-			a_{n1}&a_{n2}&\ldots&a_{nn}
+			a_{11} & a_{12} & \ldots & a_{1n} \\
+			a_{21} & a_{22} & \ldots & a_{2n} \\
+			\vdots & \vdots &        & \vdots \\
+			a_{n1} & a_{n2} & \ldots & a_{nn}
 		\end{matrix}\right|
-		 = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}a_{2j_2}\cdots a_{nj_n}
+		= \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}a_{2j_2}\cdots a_{nj_n}
 	\end{equation*}
 	该式称为 $n$ 阶行列式的完全展开式。
 \end{definition}
@@ -72,7 +72,7 @@
 	考虑其完整展开式的任意一项
 	\[(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}a_{2j_2}\cdots a_{nj_n}\]
 	若该项不为 $0$，则对 $1 \leqslant k \leqslant n$，皆有 $j_k\leqslant k$。
-	
+
 	因此只有 $j_k=k$，只有这一项不为 $0$。
 \end{proof}
 
@@ -85,15 +85,15 @@
 	设 $a_{1j_1}a_{2j_2}\cdots a_{nj_n}$ 经过 $s$ 次互换相邻元素变为 $a_{i_1k_1}a_{i_2k_2}\cdots a_{i_nk_n}$，则有
 	\begin{equation*}
 		\begin{aligned}
-			(-1)^{\tau(i_1i_2\cdots i_n)}&=(-1)^s\\
-			(-1)^{\tau(j_1j_2\cdots j_n)}(-1)^s&=(-1)^{\tau(k_1k_2\cdots k_n)}
+			(-1)^{\tau(i_1i_2\cdots i_n)}       & =(-1)^s                        \\
+			(-1)^{\tau(j_1j_2\cdots j_n)}(-1)^s & =(-1)^{\tau(k_1k_2\cdots k_n)}
 		\end{aligned}
 	\end{equation*}
 	从而
 	\begin{equation*}
 		\begin{aligned}
-			(-1)^{\tau(i_1i_2\cdots i_n)+\tau(k_1k_2\cdots k_n)}&=(-1)^s(-1)^{\tau(j_1j_2\cdots j_n)}(-1)^s\\
-			&=(-1)^{\tau(j_1j_2\cdots j_n)}
+			(-1)^{\tau(i_1i_2\cdots i_n)+\tau(k_1k_2\cdots k_n)} & =(-1)^s(-1)^{\tau(j_1j_2\cdots j_n)}(-1)^s \\
+			                                                     & =(-1)^{\tau(j_1j_2\cdots j_n)}
 		\end{aligned}
 	\end{equation*}
 \end{proof}
@@ -125,9 +125,9 @@
 	即行列式 $B$ 除了第 $i_1$ 行有 $b_{i_1j}=ka_{i_1j}$，其他行都有 $b_{ij}=a_{ij}$。
 	\begin{equation*}
 		\begin{aligned}
-			|B| &= \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots (ka_{i_1j}) \cdots a_{nj_n}\\
-			&= k\sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots a_{i_1j} \cdots a_{nj_n}\\
-			&=k|A|
+			|B| & = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots (ka_{i_1j}) \cdots a_{nj_n} \\
+			    & = k\sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots a_{i_1j} \cdots a_{nj_n}   \\
+			    & =k|A|
 		\end{aligned}
 	\end{equation*}
 \end{proof}
@@ -140,9 +140,9 @@
 	即行列式 $A$ 除了第 $i_1$ 行有 $a_{i_1j}=b_{i_1j}+c_{i_1j}$，其他行都有 $a_{ij}=b_{ij}=c_{ij}$。
 	\begin{equation*}
 		\begin{aligned}
-			|A| &= \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots (b_{i_1j}+c_{i_1j}) \cdots a_{nj_n}\\
-			&= \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots b_{i_1j} \cdots a_{nj_n}+\sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots c_{i_1j} \cdots a_{nj_n}\\
-			&=|B|+|C|
+			|A| & = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots (b_{i_1j}+c_{i_1j}) \cdots a_{nj_n}                                                                                  \\
+			    & = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots b_{i_1j} \cdots a_{nj_n}+\sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots c_{i_1j} \cdots a_{nj_n} \\
+			    & =|B|+|C|
 		\end{aligned}
 	\end{equation*}
 \end{proof}
@@ -157,11 +157,11 @@
 	那么有
 	\begin{equation*}
 		\begin{aligned}
-			|B| &= \sum_{j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n}(-1)^{\tau(j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n)}
-			a_{1j_1}\cdots a_{k_1j_{k_2}}\cdots a_{k_2j_{k_1}}\cdots a_{nj_n}\\
-			&=-\sum_{j_1\cdots j_{k_1} \cdots j_{k_2} \cdots j_n}(-1)^{\tau(j_1\cdots j_{k_1} \cdots j_{k_2} \cdots j_n)}
-			a_{1j_1}\cdots a_{k_1j_{k_1}}\cdots a_{k_2j_{k_2}}\cdots a_{nj_n}\\
-			&=-|A|
+			|B| & = \sum_{j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n}(-1)^{\tau(j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n)}
+			a_{1j_1}\cdots a_{k_1j_{k_2}}\cdots a_{k_2j_{k_1}}\cdots a_{nj_n}                                                  \\
+			    & =-\sum_{j_1\cdots j_{k_1} \cdots j_{k_2} \cdots j_n}(-1)^{\tau(j_1\cdots j_{k_1} \cdots j_{k_2} \cdots j_n)}
+			a_{1j_1}\cdots a_{k_1j_{k_1}}\cdots a_{k_2j_{k_2}}\cdots a_{nj_n}                                                  \\
+			    & =-|A|
 		\end{aligned}
 	\end{equation*}
 \end{proof}
@@ -193,7 +193,7 @@
 \section{行列式按一行展开}
 
 \begin{definition}[代数余子式]\index{daishuyuzishi@代数余子式}
-	$n$ 阶行列式 $|A|$ 中，划去第 $i$ 行和第 $j$ 列，剩下的元素按原来次序组成的 $n-1$ 阶行列式称为矩阵 $A$ 的 $(i,j)$ 元的余子式。记作 
+	$n$ 阶行列式 $|A|$ 中，划去第 $i$ 行和第 $j$ 列，剩下的元素按原来次序组成的 $n-1$ 阶行列式称为矩阵 $A$ 的 $(i,j)$ 元的余子式。记作
 	\[M_{ij} = \sum_{k_1\cdots k_{i-1}k_{i+1}\cdots k_n}(-1)^{\tau(k_1\cdots k_{i-1}k_{i+1}\cdots k_n)}a_{1k_1}\cdots a_{i-1,k_{i-1}}a_{i+1,k_{i+1}}\cdots a_{nk_n}\]
 	其中 $j=k_i$，令 $A_{ij}=(-1)^{i+j}M_{ij}$，称 $A_{ij}$ 是 $A$ 的 $(i,j)$ 元的代数余子式。
 \end{definition}
@@ -212,8 +212,8 @@
 	因此
 	\begin{equation*}
 		\begin{aligned}
-			|A|&=\sum_{j=1}^na_{ij}(-1)^{i+j}\sum_{k_1\cdots k_{i-1}k_{i+1}\cdots k_n}(-1)^{\tau(k_1\cdots k_{i-1}k_{i+1}\cdots k_n)}a_{1k_1}\cdots a_{i-1,k_{i-1}}a_{i+1,k_{i+1}}\cdots a_{nk_n}\\
-			&=\sum_{j=1}^na_{ij}(-1)^{i+j}M_{ij}=\sum_{j=1}^na_{ij}A_{ij}
+			|A| & =\sum_{j=1}^na_{ij}(-1)^{i+j}\sum_{k_1\cdots k_{i-1}k_{i+1}\cdots k_n}(-1)^{\tau(k_1\cdots k_{i-1}k_{i+1}\cdots k_n)}a_{1k_1}\cdots a_{i-1,k_{i-1}}a_{i+1,k_{i+1}}\cdots a_{nk_n} \\
+			    & =\sum_{j=1}^na_{ij}(-1)^{i+j}M_{ij}=\sum_{j=1}^na_{ij}A_{ij}
 		\end{aligned}
 	\end{equation*}
 	对于列展开式，转置即可。
@@ -230,8 +230,8 @@
 \end{proof}
 
 \begin{definition}[Vandermonde 行列式]
-	 若行列式满足 $a_{ij} = a_j^i$，则称为 Vandermonde 行列式。其值为（证略）
-	 \[\prod_{1 \leqslant j < i \leqslant n}(a_i-a_j)\]
+	若行列式满足 $a_{ij} = a_j^i$，则称为 Vandermonde 行列式。其值为（证略）
+	\[\prod_{1 \leqslant j < i \leqslant n}(a_i-a_j)\]
 \end{definition}
 
 \section{克莱姆 Cramer 法则}
@@ -240,13 +240,13 @@
 
 \begin{equation*}
 	\left\{
-		\begin{matrix}
-			a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\\
-			a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2\\
-			\cdots\qquad\cdots\qquad\cdots\\
-			a_{n1}x_1+a_{n2}x_2+\cdot +a_{nn}x_n=b_n
-		\end{matrix}
+	\begin{matrix}
+		a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\
+		a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
+		\cdots\qquad\cdots\qquad\cdots           \\
+		a_{n1}x_1+a_{n2}x_2+\cdot +a_{nn}x_n=b_n
+	\end{matrix}
 	\right.
 \end{equation*}
 
-其系数矩阵记作 $A$，增广矩阵记作 $\widetilde{A}$ 
+其系数矩阵记作 $A$，增广矩阵记作 $\widetilde{A}$

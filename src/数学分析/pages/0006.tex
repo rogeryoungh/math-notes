@@ -30,19 +30,19 @@
 	设正项级数 $\sum a_i, \sum b_i$，若存在正数 $N$，使得
 	\[ a_i \leqslant b_i, \quad \forall n \geqslant N \]
 	那么
-
+	
 	（1） 若级数 $\sum b_i$ 收敛，则级数 $\sum a_i$ 收敛。
-
+	
 	（2） 若级数 $\sum a_i$ 发散，则级数 $\sum b_i$ 发散。
 \end{theorem}
 
 \begin{proof}
 	设其部分和分别为 $A_i, B_i$。不妨假设 $N=1$，即对数列的每项都成立。
-
+	
 	（1） 显然有
 	\[ A_i \leqslant B_i \leqslant B \]
 	即 $A_i$ 为单调有界数列，故必有极限 $A$，因此级数 $\sum a_i$ 收敛。
-
+	
 	（2） 其为（1）的逆否命题，也成立。
 \end{proof}
 
@@ -56,8 +56,8 @@
 	则级数 $\sum a_i$ 收敛；若
 	\[ a_{n+1} / a_n \geqslant 1, \quad \forall n \geqslant N \]
 	则级数 $\sum a_i$ 发散。
-
-
+	
+	
 	（极限形式）且
 	\[ \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q \]
 	则当 $q < 1$ 时，级数收敛；$q > 1$ 时，级数发散。
@@ -65,14 +65,14 @@
 
 \begin{proof}
 	（1） 不妨设 $N = 1$，则有 $a_n \leqslant q^{n-1}a_1$。而等比级数显然是收敛的，故收敛。
-
+	
 	（2） 显然当 $n > N_0$ 时 $a_n \geqslant n_0 > 0$，其每项的极限不趋于 $0$，故发散。
-
+	
 	（极限形式）由极限知，我们取 $\eps = \frac{|1-q|}{2}$，存在正数 $N$ 使得当 $n > N$ 时有
 	\[ q - \eps < \frac{a_{n+1}}{a_n} < q + \eps \]
-
+	
 	当 $q<1$ 时，显然 $q + \eps = \frac{1+q}{2} < 1$，由比式判别法知收敛。
-
+	
 	当 $q > 1$ 时，$q - \eps = \frac{1+q}{2} > 1$，由比式判别法知发散。
 \end{proof}
 
@@ -86,7 +86,7 @@
 
 \begin{proof}
 	（1） 不妨设 $N=1$，显然 $a_n \leqslant q^n$，由等比级数收敛知原级数也收敛。
-
+	
 	（2） 显然 $a_n \geqslant 1^n = 1$，故发散。
 \end{proof}
 
@@ -100,7 +100,7 @@
 	考虑对 $M \in (N, N + 1]$，都有
 	\[ 0 \leqslant \int_{1}^{M} f(x) \d x \leqslant \int_{1}^{N+1} \leqslant S \]
 	因此该反常积分收敛。
-
+	
 	反之，设反常积分。。。不想证了 TODO
 \end{proof}
 
@@ -118,7 +118,7 @@
 	设 $S_n$ 是 $a_n$ 的和函数，有
 	\[ S_{n+1} \leqslant S_N +\frac{1}{\lambda} \left( \frac{a_N}{b_N} - \frac{a_{n+1}}{b_{n+1}} \right) \leqslant S_N + \frac{1}{\lambda} \frac{a_N}{b_N} \]
 	从而 $S_N$ 有上界，故收敛。
-
+	
 	（2） 可知
 	\[ \frac{1}{b_n} \cdot \frac{a_n}{a_{n+1}} - \frac{1}{b_{n+1}} \leqslant 0 \Longrightarrow \frac{a_1}{b_1} \leqslant \cdots \leqslant \frac{a_n}{b_n} \leqslant \frac{a_{n+1}}{b_{n+1}} \]
 	故 $a_n \geqslant \frac{a_1}{b_1} b_n$，由 $\sum b_n$ 知 $\sum a_n$ 也发散。
@@ -180,7 +180,7 @@
 \begin{proof}
 	先证必要性，已知 $f_n(x) \rightrightarrows f(x)$，显然我们可以取 $\frac{\eps}{2}$ 使得
 	\[ |f_n(x) - f_m(x)| \leqslant |f_n(x) - f(x)| + |f_m(x) - f(x)| < \frac{\eps}{2} + \frac{\eps}{2} = \eps \]
-
+	
 	再证必要性，考察每个点由 Cauthy 定理知其收敛，故一致收敛。
 \end{proof}
 
@@ -204,7 +204,7 @@
 
 \begin{proof}
 	设 $\sum f_i x_1^i$ 收敛，则 $\{f_i x_1^i\}$ 收敛于 $0$ 且有界，那么对任意 $|x| < |x_1|$ 其仍收敛于 $0$ 且有界，且每一项都严格小于 $\{f_i x_1^i\}$，因此绝对收敛。
-
+	
 	那么若 $x_1$ 处发散，假如存在 $|x_2| > |x_1|$ 使得收敛，则由前证矛盾，故收敛。
 \end{proof}
 

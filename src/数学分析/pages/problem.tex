@@ -155,6 +155,79 @@ $$|xf(y)-yf(x)| \leqslant M|x|+M|y|$$
 	TODO。构造 $F(x) = (1-x)f(0) + xf(1) - f(x)$，有 $F(0) = F(1) = F(c) = 0$。套中值定理。
 \end{solution}
 
+\begin{problem}[000016]
+设 $f(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 上导函数连续，且存在 $c \in (a, b)$ 使得 $f'(c) = 0$。证明：存在 $\xi \in (a, b)$，使得
+\[ f'(\xi) - f(\xi) + f(a) = 0 \]
+\end{problem}
+
+\begin{solution}
+	几何角度很直观，即 $\frac{f'(x) - f(a)}{f'(x)}$ 存在值为 $1$ 的时候。但是零点很恼人，严谨的说明是要费一番功夫的。
+
+	积分构造
+	\[ F(x) = \frac{f(x) - f(a)}{\ee^x}, \quad F'(x) = \frac{f'(x) - f(x) + f(a)}{\ee^x} = \frac{f'(x)}{\ee^x} - F(x) \]
+	问题转化为存在 $\xi$ 使得 $F'(\xi) = 0$。
+
+	易知 $F(a) = 0, F'(c) = -F(c)$。因此由 Lagrange 中值定理得，存在 $x_0 \in (a, c)$ 使得
+	\[ F'(x_0) = \frac{F(c) - F(a)}{c - a} \]
+	由于
+	\[ F'(x_0) F'(c) = \frac{-F(c)^2}{c- a} < 0 \]
+	因此由介值定理可知，必存在 $\xi \in (x_0, c)$ 使得 $F'(d) = 0$。
+\end{solution}
+
+\begin{problem}[000017]
+已知 $\lim\limits_{x \to +\infty} f(x)$ 存在，且
+\[ f(x) = \frac{x^{1+x}}{(1+x)^x} - \frac{x}{\ee} + 2 \lim_{x \to \infty} f(x) \]
+求 $f(x)$。
+\end{problem}
+
+\begin{solution}
+	显然先取 $t = \frac{1}{x}$，设极限为 $A$，则
+	\[ A = 2A + \lim_{t \to 0^+} \left( \frac{1}{t (t+1)^{\frac{1}{t}}} - \frac{1}{t \ee} \right) \]
+	故取等价无穷小得
+	\[ -A = \lim_{t \to 0^+} \frac{1 - \exp\left( \frac{\ln(t + 1)}{t} - 1\right)}{t \exp\frac{\ln(t + 1)}{t}} = \lim_{t \to 0^+} \frac{1 - \frac{\ln(t + 1)}{t}}{t \ee} = \frac{1}{2 \ee} \]
+	因此
+	\[ f(x) = \frac{x^{1+x}}{(1+x)^x} - \frac{x + 1}{\ee} \]
+\end{solution}
+
+\begin{problem}[000018]
+（1）证明：当 $x \geqslant 1$ 时，有
+\[ \frac{1}{x+1} < \ln\left(1 + \frac{1}{x}\right) < \frac{1}{x} \]
+（2）证明：设 $f(x)$ 在 $[1, \infty)$ 连续可导，且
+\[ f'(x) = \frac{1}{1 + f^2(x)} \left( \sqrt{\frac{1}{x}} - \sqrt{\ln\left(1 + \frac{1}{x}\right)} \right) \]
+有 $\lim\limits_{x \to +\infty} f(x)$ 存在。
+\end{problem}
+
+\begin{solution}
+	（1） 显然求导即证。
+
+	（2） 显然 $f'(x) > 0$。由于 $1 + f^2(x) \geqslant 1$，因此
+	\[ 0 < f'(x) < \frac{1}{\sqrt{x}} - \frac{1}{\sqrt{x+1}} < \frac{1}{2 x \sqrt{x}} \]
+	故 $f(x)$ 在 $[1, \infty)$ 上单调递增，积分有
+	\[ f(t) - f(1) = \int_{1}^{t} f'(x) \d x < \int_{1}^{t} \frac{1}{2 x \sqrt{x}} \d x = 1 - \frac{1}{\sqrt{t}} < 1 \]
+	由于 $f$ 单调递增且有界，故极限存在。
+\end{solution}
+
+\begin{problem}[000019]
+设数列 $\{x_n\}$ 满足 $0 < x_n < \frac{\pi}{2}$，且
+\[ \cos x_{n+1} - x_{n+1} = \cos x_n \]
+
+（1） 计算 $\lim\limits_{n \to \infty} x_n$。
+
+（2） 计算 $\lim\limits_{n \to \infty} \frac{x_{n+1}}{x_n^2}$。
+
+\end{problem}
+
+\begin{solution}
+	（1） 因为
+	\[ \cos x_{n+1} - \cos x_n = x_{n+1} > 0 \]
+	且 $0 < x_n < \frac{\pi}{2}$，因此 $0 < x_{n+1} < x_n$。故极限存在。
+
+	设极限为 $a$，由 $\cos a - a = \cos a$，易得 $a = 0$。
+
+	（2） 由于 $\cos x \sim 1 - \frac{x^2}{2}$，故
+	\[ \lim_{n \to \infty} \frac{x_{n+1}}{x_n^2} = \lim_{n \to \infty} \frac{x_{n+1}}{2 - 2 \cos x_{n}} = \lim_{n \to \infty} \frac{x_{n+1}}{2 - 2 \cos x_{n+1} + 2x_{n+1}} = \frac{1}{2} \]
+\end{solution}
+
 \section{积分}
 
 \begin{problem}[000008]

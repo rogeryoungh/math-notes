@@ -79,9 +79,9 @@
 
 \begin{definition}
     定义 $n$ 级矩阵 $A$ 的非负整数次幂为
-
+    
     （1） $A^n \coloneqq  E$
-
+    
     （2） $A^{m+1} \coloneqq  AA^m$
 \end{definition}
 
@@ -154,9 +154,9 @@
 
 \begin{theorem}[Binet $-$ Cauchy 公式]
     设 $A = (a_{ij})_{s \times n},B = (b_{ij})_{n \times m}$，则
-
+    
     1. 如果 $s>n$，那么 $|AB| = 0$；
-
+    
     2. 如果 $s\leqslant n$，那么  $|AB|$ 等于 $A$ 的所有 $s$ 阶子式的与相应 $s$ 阶子式的乘积之和，即
     \[|AB|=\sum_{1 \leqslant v_1<\cdots< v_s \leqslant n}A \dbinom{1,\cdots,s}{v_1,\cdots,v_s} \cdot B \dbinom{v_1,\cdots,v_s}{1,\cdots,s}\]
 \end{theorem}
@@ -227,9 +227,9 @@
 
 引用 Kronecker 记号 $\delta_{ij}$，它的含义是
 \[\delta_{ij}=\begin{cases}
-    1,\quad \text{当}\ i = j\\
-    0,\quad \text{当}\ i \ne j
-\end{cases}\]
+        1,\quad \text{当}\ i = j \\
+        0,\quad \text{当}\ i \ne j
+    \end{cases}\]
 
 \begin{theorem}
     设实数域上 $n$ 级矩阵 $A$ 的行向量组为 $\ji{\gamma}{n}$，列向量组为 $\ji{\alpha}{n}$，则
@@ -278,10 +278,10 @@ $n$ 维向量空间 $\RR^n$ 有了标准内积后，就称 $\RR^n$ 为一个欧�
     设 $\ji{\alpha}{s}$ 是欧几里得空间 $\RR^n$ 中一个线性无关的向量组，令
     \begin{equation*}
         \begin{aligned}
-            \beta_1&=\alpha_1\\
-            \beta_2&=\alpha_2 - \frac{\alpha_2,\beta_1}{\beta_1,\beta_1}\beta_1\\
-            &\cdots \\
-            \beta_s &= \alpha_s-\sum_{j=1}^{s-1}\frac{\alpha_s,\beta_j}{\beta_j,\beta_j}\beta_j
+            \beta_1 & =\alpha_1                                                                   \\
+            \beta_2 & =\alpha_2 - \frac{\alpha_2,\beta_1}{\beta_1,\beta_1}\beta_1                 \\
+                    & \cdots                                                                      \\
+            \beta_s & = \alpha_s-\sum_{j=1}^{s-1}\frac{\alpha_s,\beta_j}{\beta_j,\beta_j}\beta_j
         \end{aligned}
     \end{equation*}
     则 $\beta_1,\cdots,\beta_s$ 是正交向量组，并且与 $\ji{\alpha}{s}$ 等价。
@@ -303,8 +303,8 @@ $n$ 维向量空间 $\RR^n$ 有了标准内积后，就称 $\RR^n$ 为一个欧�
 设 $A$ 是数域 $K$ 上 $s \times n$ 矩阵，令
 \begin{equation*}
     \begin{aligned}
-        \bfA : K^n & \rightarrow K^s \\
-        \alpha &\mapsto A\alpha
+        \bfA : K^n & \rightarrow K^s  \\
+        \alpha     & \mapsto A\alpha
     \end{aligned}
 \end{equation*}
 

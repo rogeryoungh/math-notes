@@ -20,7 +20,7 @@
 \begin{proof}
     （1） 显然
     $$\left[ F(x)+C \right]' = F'(x) = f(x), x\in I$$
-    
+
     （2） 设 $F$ 和 $G$ 是 $f$ 在 $I$ 上的任意两个原函数，则有
     $$\left[ F(x)-G(x) \right]' = F'(x) - G'(x) = f(x) - f(x) = 0, x\in I$$
     根据 Lagrange 中值定理，有
@@ -40,7 +40,7 @@
 $$a = x_0 < x_1 < \cdots < x_{n-1} < x_n = b$$
 它们把 $[a,b]$ 分为 $n$ 个小区间 $\Delta_i = [x_{i-1},x_i], i=1,\cdots,n$。这些分点或这些闭子区间构成对 $[a,b]$ 的一个分割，记为
 $$T=\{x_0,\cdots,x_n\}\ \text{或}\ \{\Delta_1,\cdots,\Delta_n\}$$
-小区间 $\Delta_i$ 的长度为 $\Delta x_i = x_i-x_{i-1}$，并记 
+小区间 $\Delta_i$ 的长度为 $\Delta x_i = x_i-x_{i-1}$，并记
 $$\| T \| = \max_{1 \leqslant i \leqslant n}\{\Delta x_i\}$$
 称为分割的模。
 
@@ -114,7 +114,7 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
 
 \begin{proposition}
     设 $T'$ 为分割 $T$ 添加 $p$ 个新分点后所得到的分割，则有
-    
+
 \end{proposition}
 
 \begin{theorem}
@@ -177,7 +177,7 @@ $$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t
 
 \begin{equation*}
     \begin{aligned}
-        \int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 + a^2| + \frac{B}{a}\arctan\frac{t}{a} + C                                \\
+        \int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 + a^2| + \frac{B}{a}\arctan\frac{t}{a} + C                               \\
                                    & =\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{\sqrt{4q-p^2}}\arctan{\frac{2x+p}{\sqrt{4q-p^2}}} + C
     \end{aligned}
 \end{equation*}
@@ -186,7 +186,7 @@ $$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t
 
 \begin{equation*}
     \begin{aligned}
-        \int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 - a^2| + \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|                                                   \\
+        \int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 - a^2| + \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|                                                  \\
                                    & =\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{2\sqrt{4q-p^2}}\ln\left| \frac{2x+p-\sqrt{p^2-4q}}{2x+p+\sqrt{p^2-4q}} \right| + C
     \end{aligned}
 \end{equation*}
@@ -200,7 +200,7 @@ $$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t
 
 更进一步的，假设
 \[ \begin{aligned}
-        \int u v^{(n+1)} \d x & = \int u \d v^{(n)} = uv^{(n)} - \int u' v(n) \d x                                                                  \\
+        \int u v^{(n+1)} \d x & = \int u \d v^{(n)} = uv^{(n)} - \int u' v(n) \d x                                                                 \\
                               & = u v^{(n)} - u^{(1)} v^{(n-1)} + u^{(2)} v^{(n-2)} + \cdots + (-1)^n u^{(n)} v + (-1)^{n+1} \int u^{(n+1)} \d v x
     \end{aligned} \]
 

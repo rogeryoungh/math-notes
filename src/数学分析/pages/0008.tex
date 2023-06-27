@@ -243,15 +243,15 @@
 \[ X_1 = h_1(Y_1, Y_2), \quad X_2 = h_2(Y_1, Y_2) \]
 此时 Jacobi 行列式
 \[ J(y_1, y_2) = \left|\begin{matrix}
-	\partial h_1 / \partial y_1 & \partial h_1 / \partial y_2 \\
-	\partial h_2 / \partial y_1 & \partial h_2 / \partial y_2
-\end{matrix}\right| \]
+		\partial h_1 / \partial y_1 & \partial h_1 / \partial y_2 \\
+		\partial h_2 / \partial y_1 & \partial h_2 / \partial y_2
+	\end{matrix}\right| \]
 不为 $0$。在 $(Y_1, Y_2)$ 的平面上任取一个区域 $A$，对应于 $(X_1, X_2)$ 上的区域是 $B$。即
 \[ \begin{aligned}
-	P\{(Y_1, Y_2) \in A\} &= P\{(X_1, X_2) \in B\} \\
-	&= \iint_{B} f(x_1, x_2) \d x_1 \d x_2 \\
-	&= \iint_{A} f(h_1(y_1, y_2), h_2(y_1, y_2)) \cdot |J(y_1, y_2) \d y_1 \d y_2
-\end{aligned} \]
+		P\{(Y_1, Y_2) \in A\} & = P\{(X_1, X_2) \in B\}                                                      \\
+		                      & = \iint_{B} f(x_1, x_2) \d x_1 \d x_2                                        \\
+		                      & = \iint_{A} f(h_1(y_1, y_2), h_2(y_1, y_2)) \cdot |J(y_1, y_2) \d y_1 \d y_2
+	\end{aligned} \]
 因此 $(Y_1, Y_2)$ 的概率密度为
 \[ l(y_1, y_2) = f(h_1(y_1, y_2), h_2(y_1, y_2)) | J(y_1, y_2)| \]
 

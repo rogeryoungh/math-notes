@@ -4,11 +4,11 @@
 
 \begin{definition}[双线性函数]\index{shuangxianxinghanshu@双线性函数}
     设域 $F$ 上的线性空间 $V$，映射 $f : V \times V \to F$ 如果对任意的 $k_1,k_2 \in F$ 和任意的 $\beta_1,\alpha_2,\beta_1,\beta_2,\alpha,\beta \in V$ 有
-
+    
     （1） $f(k_1\alpha_1 + k_2\alpha_2,\beta) = k_1 f(\alpha_1,\beta) + k_2f(\alpha_2,\beta)$
-
+    
     （2） $f(\alpha,k_1\beta_1 + k_2\beta_2) = k_1 f(\alpha,\beta_1) + k_2f(\alpha,\beta_2)$
-
+    
     那么称 $f$ 是 $V$ 上一个双线性函数，$f$ 也写成 $f(\alpha,\beta)$。
 \end{definition}
 
@@ -22,11 +22,11 @@
 \[ f(\alpha,\beta) = f\left( \sum_{i=1}^n x_i\alpha_i,\sum_{j=1}^ny_j\alpha_j \right) = \sum_{i=1}^n\sum_{j=1}^n x_iy_jf(\alpha_i,\alpha_j) \]
 令
 \[ A = \left(\begin{matrix}
-    f(\alpha_1,\alpha_1) & f(\alpha_1,\alpha_2) & \cdots & f(\alpha_1,\alpha_n)\\
-    f(\alpha_2,\alpha_1) & f(\alpha_2,\alpha_2) & \cdots & f(\alpha_2,\alpha_n)\\
-    \vdots                 & \vdots                 &        & \vdots                \\
-    f(\alpha_n,\alpha_1) & f(\alpha_n,\alpha_2) & \cdots & f(\alpha_n,\alpha_n)
-\end{matrix}\right) \]
+            f(\alpha_1,\alpha_1) & f(\alpha_1,\alpha_2) & \cdots & f(\alpha_1,\alpha_n)  \\
+            f(\alpha_2,\alpha_1) & f(\alpha_2,\alpha_2) & \cdots & f(\alpha_2,\alpha_n)  \\
+            \vdots               & \vdots               &        & \vdots                \\
+            f(\alpha_n,\alpha_1) & f(\alpha_n,\alpha_2) & \cdots & f(\alpha_n,\alpha_n)
+        \end{matrix}\right) \]
 
 称 $A$ 是双线性函数 $f$ 在基 $\ji{\alpha}{n}$ 下的度量矩阵，它是由 $f$ 及基 $\ji{\alpha}{n}$ 唯一决定的。于是有
 \[ f(\alpha,\beta) = \transpose{X}AY \]
@@ -90,7 +90,7 @@
         \cdots,
         \left(\begin{matrix} 0 & 1 \\ -1 & 0 \end{matrix}\right),
         0,\cdots,0
-    \right\} \]
+        \right\} \]
 \end{theorem}
 
 \begin{definition}
@@ -118,12 +118,12 @@
 \begin{theorem}[Witt 消去律的推广]
     设特征不为 $2$ 的域 $F$ 上的 $n$ 级对称矩阵 $A_1,A_2$，$m$ 级对称矩阵 $B_1,B_2$。如果
     \[ \left(\begin{matrix}
-        A_1 & 0   \\
-        0   & B_1 \\
-    \end{matrix}\right) \simeq \left(\begin{matrix}
-        A_2 & 0   \\
-        0   & B_2 \\
-    \end{matrix}\right) \]
+                A_1 & 0   \\
+                0   & B_1 \\
+            \end{matrix}\right) \simeq \left(\begin{matrix}
+                A_2 & 0   \\
+                0   & B_2 \\
+            \end{matrix}\right) \]
     且 $A_1 \simeq A_2$，那么 $B_1 \simeq B_2$。
 \end{theorem}
 
@@ -241,9 +241,9 @@
     设实内积空间 $V,V'$，若存在双射 $\sigma : V \to V'$ 使得对于任意的 $\alpha,\beta \in V$ 和 $k \in \RR$ 有
     \begin{equation*}
         \begin{aligned}
-            \sigma(\alpha + \beta) &= \sigma(\alpha) + \sigma(\beta)\\
-            \sigma(k\alpha) &= k\sigma(\alpha)\\
-            (\alpha,\beta) &= (\sigma(\alpha),\sigma(\beta))
+            \sigma(\alpha + \beta) & = \sigma(\alpha) + \sigma(\beta)  \\
+            \sigma(k\alpha)        & = k\sigma(\alpha)                 \\
+            (\alpha,\beta)         & = (\sigma(\alpha),\sigma(\beta))
         \end{aligned}
     \end{equation*}
     那么称 $\sigma$ 是 $V \to V'$ 的一个同构映射，此时称 $V$ 与 $V'$ 同构，记作 $V \cong V'$。
@@ -295,27 +295,27 @@
 
 \begin{proposition}
     正交变换 $\bfA$ 具有特性：
-
+    
     （1） 保持向量长度。
-
+    
     （2） 保持两个非零向量的夹角不变。
-
+    
     （3） 保持正交性。
-
+    
     （4） 一定是线性变换。
-
+    
     （5） 保持向量间的距离不变。
-
+    
     （6） 一定是单射，一定可逆。
 \end{proposition}
 
 \begin{theorem}
     设 $n$ 为 Euclid 空间 $V$ 上的线性变换 $\bfA$，$\bfA$ 在 $V$ 的标准正交基下的矩阵为 $A$，则下列描述等价：
-
+    
     （1） $\bfA$ 是正交变换。
-
+    
     （2） $\bfA$ 把 $V$ 的标准正交基映成标准正交基。
-
+    
     （3） $A$ 是正交矩阵。
 \end{theorem}
 
@@ -361,13 +361,13 @@ $n$ 维线性空间的任意一个 $n-1$ 维子空间称为一个超平面。
 
 \begin{definition}
     设 $G$ 是一个非空集合，若 $G$ 上的乘法运算满足
-
+    
     （1） 结合律：$a(bc) = (ab)c$。
-
+    
     （2） 单位元：存在 $e \in G$ 使得 $ea = ae = a$。
-
+    
     （3） 逆元：任取 $a \in G$ 总存在 $b \in G$ 使得 $ab = ba = 1$。
-
+    
     那么称 $G$ 是一个群。
 \end{definition}
 

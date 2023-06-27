@@ -42,10 +42,10 @@ $\bfA(\alpha)$ 也可写成 $\bfA\alpha$。
 \[ \bfP_U : V \to V, \alpha \mapsto \alpha_1 \]
 则 $\bfP_U$ 是 $V$ 上的一个线性变换。称 $\bfP_U$ 是平行于 $W$ 在 $U$ 上的投影，它满足
 \[ \bfP_U(\alpha) =
-\begin{cases}
-    \alpha,& \alpha \in U\\
-    0 , & \alpha \in W
-\end{cases} \]
+    \begin{cases}
+        \alpha, & \alpha \in U  \\
+        0 ,     & \alpha \in W
+    \end{cases} \]
 可以证明，满足该式的投影变换是唯一的。
 
 类似的，定义 $\bfP_W(\alpha) = \alpha_2$，称它为平行于 $U$ 在 $W$ 的投影。
@@ -61,7 +61,7 @@ $\bfA(\alpha)$ 也可写成 $\bfA\alpha$。
 任取 $\alpha\in V$，设 $\alpha = \alpha_1 + \alpha_2, \alpha_1 \in U, \alpha_2 \in W$，则
 \begin{equation*}
     \begin{aligned}
-        \bfP_U^2(\alpha) = \bfP_U(\bfP_U(\alpha)) = \alpha_1 = \bfP_U(\alpha)\\
+        \bfP_U^2(\alpha) = \bfP_U(\bfP_U(\alpha)) = \alpha_1 = \bfP_U(\alpha) \\
         \bfP_W^2(\alpha) = \bfP_W(\bfP_W(\alpha)) = \alpha_1 = \bfP_W(\alpha)
     \end{aligned}
 \end{equation*}
@@ -116,8 +116,8 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 利用 Taylor 公式不难发现
 \begin{equation*}
     \begin{aligned}
-        f(x+a) &= f(x) + a\bfA + \frac{a^2}{2!}f''(x) + \cdots + \frac{a^{n-1}}{(n-1)!} f^{(n-1)}(x)\\
-        &= \left( \bfI + a\boldsymbol{D} + \frac{a^2}{2!}\boldsymbol{D} + \cdots + \frac{a^{n-1}}{(n-1)!} \boldsymbol{D}^{(n-1)} \right)f(x)
+        f(x+a) & = f(x) + a\bfA + \frac{a^2}{2!}f''(x) + \cdots + \frac{a^{n-1}}{(n-1)!} f^{(n-1)}(x)                                                 \\
+               & = \left( \bfI + a\boldsymbol{D} + \frac{a^2}{2!}\boldsymbol{D} + \cdots + \frac{a^{n-1}}{(n-1)!} \boldsymbol{D}^{(n-1)} \right)f(x)
     \end{aligned}
 \end{equation*}
 即平移 $\boldsymbol{T}_a$ 是导数 $\boldsymbol{D}$ 的一个多项式。
@@ -134,7 +134,7 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
     设域 $F$ 上线性空间 $V,V'$ 的线性映射 $\bfA : V \to V'$，则
     
     （1） $\bfA$ 是单射当且仅当 $\Ker \bfA = 0$。
-
+    
     （2） $\bfA$ 是满射当且仅当 $\Im \bfA = V'$。
 \end{proposition}
 
@@ -157,11 +157,11 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
     \left( \bfA \alpha_1 , \bfA \alpha_2 , \cdots , \bfA \alpha_n \right) = 
     \left( \eta_1 , \eta_2 , \cdots , \eta_n \right)
     \left( \begin{matrix}
-        a_{11} & a_{11} & \cdots & a_{1n}\\
-        a_{21} & a_{22} & \cdots & a_{2n}\\
-        \vdots & \vdots &        & \vdots\\
-        a_{s1} & a_{s1} & \cdots & a_{sn}
-    \end{matrix} \right)
+            a_{11} & a_{11} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots &        & \vdots \\
+            a_{s1} & a_{s1} & \cdots & a_{sn}
+        \end{matrix} \right)
 \]
 把 $s\times n$ 矩阵记作 $A$，它的第 $j$ 列就是 $\bfA \alpha_j$ 在 $\ji{\eta}{s}$ 下的坐标。称 $A$ 是线性映射 $\bfA$ 在 $V$ 的基 $\ji{\alpha}{n}$ 和 $V'$ 的基 $\ji{\eta}{s}$ 下的矩阵。于是线性映射 $\bfA$ 有了矩阵表示。
 
@@ -173,11 +173,11 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
     \left( \bfA \alpha_1 , \bfA \alpha_2 , \cdots , \bfA \alpha_n \right) = 
     \left( \alpha_1 , \alpha_2 , \cdots , \alpha_n \right)
     \left( \begin{matrix}
-        a_{11} & a_{11} & \cdots & a_{1n}\\
-        a_{21} & a_{22} & \cdots & a_{2n}\\
-        \vdots & \vdots &        & \vdots\\
-        a_{n1} & a_{n1} & \cdots & a_{nn}
-    \end{matrix} \right)
+            a_{11} & a_{11} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots &        & \vdots \\
+            a_{n1} & a_{n1} & \cdots & a_{nn}
+        \end{matrix} \right)
 \]
 把右端的 $n$ 级矩阵记作 $A$，它的第 $j$ 列就是 $\bfA \alpha_j$ 在 $\ji{\alpha}{n}$ 下的坐标。称 $A$ 是线性映射 $\bfA$ 在 $V$ 的基 $\ji{\alpha}{n}$ 下的矩阵。于是线性映射 $\bfA$ 有了矩阵表示。
 \[ \bfA(\ji{\alpha}{n}) = (\ji{\alpha}{n}) A\]
@@ -188,9 +188,9 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
 \[ \bfA \alpha_i = \alpha_i, \bfA \beta_j = 0 \]
 从而幂等变换 $\bfA$ 在基 $\ji{\alpha}{r},\ji{\beta}{{n-r}}$ 下的矩阵 $\bfA$ 为
 \[ A = \left(\begin{matrix}
-    E_r & 0\\
-    0   & 0
-\end{matrix}\right) \]
+            E_r & 0  \\
+            0   & 0
+        \end{matrix}\right) \]
 其中 $r = \rank(A) = \dim(\Im \bfA) = \rank(\bfA)$。
 
 \paragraph{$\Hom(V,V')$ 与 $M_{s \times n}(F)$ 的关系，$\Hom(V,V)$ 与 $M_n(F)$ 的关系}
@@ -357,8 +357,8 @@ $F[\bfA]$ 中所有数乘变换组成的集合是 $F[\bfA]$ 是 $F[\bfA]$ 的一
     设域 $F$ 上的线性空间 $V$，映射 $f : V \to F$ 若对任意的 $k \in F, \alpha,\beta \in V$ 满足
     \begin{equation*}
         \begin{aligned}
-            f(\alpha+\beta) &= f(\alpha) + f(\beta) \\
-            f(k\alpha) &= kf(\alpha)
+            f(\alpha+\beta) & = f(\alpha) + f(\beta) \\
+            f(k\alpha)      & = kf(\alpha)
         \end{aligned}
     \end{equation*}
     那么称 $f$ 是 $V$ 上的线性函数。

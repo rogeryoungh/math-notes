@@ -228,6 +228,51 @@ $$|xf(y)-yf(x)| \leqslant M|x|+M|y|$$
 	\[ \lim_{n \to \infty} \frac{x_{n+1}}{x_n^2} = \lim_{n \to \infty} \frac{x_{n+1}}{2 - 2 \cos x_{n}} = \lim_{n \to \infty} \frac{x_{n+1}}{2 - 2 \cos x_{n+1} + 2x_{n+1}} = \frac{1}{2} \]
 \end{solution}
 
+\begin{problem}[000020]
+设
+\[ f_n(x) = \cos x + \cos^2 x + \cdots + \cos^n x \]
+
+（1） 证明：对于每个 $n$，方程 $f_n(x) = 1$ 在 $[0, \frac{\pi}{3})$ 内有且仅有一个实根。
+
+（2） 证明：$\lim\limits_{n \to \infty} x_n$ 存在，并求其值。
+\end{problem}
+
+\begin{solution}
+	（1）设
+	\[ g_n(x) =  - 1 + \sum_{i=1}^n x^i = \frac{2x - 1 - x^{n+1}}{1 - x}, \quad x \neq 1 \]
+	因此 $f_n(x) = g_n(\cos x)$，由于 $\cos x$ 单调，即证 $g_n(x) = 0$ 在 $(\frac{1}{2}, 1]$ 内有且仅有一个实根。
+
+
+	令 $h_n(x) = 2x - 1 - x^{n+1}$，求导
+	\[ h'_n(x) = 2 - (n + 1)x^n, \quad h''_n(x) = - n(n+1) x^{n-1} \leqslant 0 \]
+	可知 $h'_n(x)$ 单调递减，解得零点 $x_0 = \sqrt[n]{\frac{2}{n + 1}}$。
+
+	当 $x \in (x_0, 1]$ 时，$h_n(x)$ 单调递减，知 $h_n(x) \geqslant h_n(1) = 0$。当 $x \in (x_0, 1)$ 时，$h_n(x)$ 单调递增。又 $h_n(\frac{1}{2}) <  h_n(1) = 1 < h_n(x_0)$，故存在唯一解。
+
+	（2）设 $y_n = \cos x_n$。注意到
+	\[ h_{n+1}(y_n) = 2 y_n - 1 - y_{n}^{n+1} > 2 y_n - 1 - y_{n}^n = h_n(y_n) = 0 \]
+	故 $y_{n+1} < y_{n}$。因此 $y_n$ 单调递减且有界，故收敛。设极限为 $A$，显然 $A \in (\frac{1}{2}, 1)$,得到
+	\[ 0 = 2A - 1 - \lim_{n \to \infty} x_n^{n+1} = 2A - 1 \]
+	故 $A = \frac{1}{2}$，反推 $x_n \to \frac{\pi}{3}$。
+
+	（2）其实可以更直接的定出答案。注意到
+	\[ h_n\left(\frac{n + 1}{2n}\right) = \frac{1}{n} - \left(\frac{n + 1}{2n}\right)^{n+1} > \frac{1}{n} - \frac{1}{2^{n+1}} > 0 \]
+	因此 $\frac{1}{2} < \cos x_n < \frac{n + 1}{2n}$。由夹逼准则知 $x_n \to \frac{\pi}{3}$。
+
+\end{solution}
+
+\begin{problem}[000021]
+（1987 卷 I）设函数 $f(x)$ 在闭区间 $[0,1]$ 上可微，对于 $[0, 1]$ 上的每一个 $x$，函数 $f(x)$ 的值都在开区间 $(0, 1)$ 内，且 $f'(x) \neq 1$。证明：在 $(0, 1)$ 内有且仅有一个 $x$，使 $f(x) = x$。
+\end{problem}
+
+\begin{solution}
+	设 $F(x) = f(x) - x$，注意到
+	\[ F(0) = f(0) > 0, \quad F(1) = f(1) - 1 < 0 \]
+	因此 $F(x)$ 至少存在一个实根。设存在两个不同的实根 $x_1, x_2$，由 Lagrange 中值定理知存在 $\xi \in (0, 1)$
+	\[ f'(\xi) = \frac{f(x_1) - f(x_2)}{x_1 - x_2} = 1 \]
+	故矛盾，因此实根唯一。
+\end{solution}
+
 \section{积分}
 
 \begin{problem}[000008]

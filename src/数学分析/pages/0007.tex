@@ -1,10 +1,61 @@
-\chapter{微分方程}
+\chapter{常微分方程}
 
-\section{一阶线性常微分方程}
+如果知道函数及其导数、微分组成的关系式，得到的便是微分方程。
+
+\section{基本概念}
+
+自变量只有一个的方程是\textbf{常微分方程}，两个以上则称\textbf{偏微分方程}，其中未知函数最高阶导数的阶数称为微分方程的阶数。一般的 $n$ 阶常微分方程具有形式
+\[ F\left(x, y, \frac{\d y}{\d x}, \cdots, \frac{\d^n y}{\d x^n} \right) = 0 \]
+如方程的左端为 $y$ 及各阶导数的一次有理整式，则称为 $n$ 阶线性微分方程，否则称为非线性微分方程。一般的 $n$ 阶线性微分方程有形式
+\[ \frac{\d^n y}{\d x^n} + a_{n-1}(x) \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + a_1(x) \frac{\d y}{\d x} + a_0(x) y = f(x) \]
+这里 $a_i(x), f(x)$ 是关于 $x$ 的已知函数。
+
+如果函数 $y = \varphi(x)$ 带入方程后，能使其变为恒等式，则称函数 $y=\varphi(x)$ 为方程的解。如果隐函数 $\Phi(x, y) = 0$ 是其解，则称隐式解，也可以不加区分的称为解。
+
+含有 $n$ 个独立的任意常数 $C_1, \cdots, C_n$ 的解
+\[ y = \varphi(x, C_1, \cdots, C_n) \]
+称为 $n$ 阶方程的通解，其中独立性指 $\varphi$ 及各阶偏导数关于 $n$ 个常数 $C_1, \cdots, C_n$ 的 Jacobi 行列式不为 $0$。为了确定微分方程的一个特解，需要给出定解条件。常见的定解条件是初值条件和边值条件，其中初值条件指：当 $x = x_0$ 时，有
+\[ y=y_0, y' = y_0^{(1)}, \cdots, y^{(n-1)} = y_0^{(n-1)} \]
+满足初值条件的解称为微分方程的特解。
+
+\section{变量分离微分方程}
+
+形如
+\[ \frac{\d y}{\d x} = f(x) g(y) \]
+的方程，称为变量分离方程，假如 $g(y) \neq 0$ 我们可以很容易的分离它
+\[ \frac{\d y}{g(y)} = f(x) \d x \]
+两边同时积分即可。另外，不要忘记当 $g(y) = 0$ 时也有解 $y=y_0$。
+
+有两种常见的变式：
+
+（1）形如
+\[ \frac{\d y}{\d x} = g\left(\frac{y}{x}\right) \]
+的方程，记作齐次微分方程。做变量代换 $u = \frac{y}{x}$，有
+\[ \frac{\d u}{\d x} = \frac{1}{x} \left(\frac{\d y}{\d x} -\frac{y}{x} \right) = \frac{g(u) - u}{x} \]
+就变成变量分离的了。
+
+（2）形如
+\[ \frac{\d y}{\d x} = g \left(\frac{a_1 x + b_1 y + c_1}{a_2 x + b_2 y + c_2}\right) \]
+分为三种情况讨论：
+\begin{enumerate}
+	\item 如果
+	      \[ \frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2} = k \]
+	      则比较显然。
+	\item 如果
+	      \[ \frac{a_1}{a_2} = \frac{b_1}{b_2} = k \neq \frac{c_1}{c_2} \]
+	      令 $u = a_2 x + b_2 y$，此时有
+	      \[ \frac{\d u}{\d x} = g \left(a_2 + b_2 \frac{k u + c_1}{u + c_2}\right) \]
+	      是变量分离方程。
+	\item 对于剩余的情况，把分子分母看成两条不相交的直线，尝试平移到原点。设交点为 $(x, y) = (x_0, y_0)$，有
+	      \[ \frac{\d y}{\d x} = \frac{\d (y - y_0)}{\d (x - x_0)} = g \left(\frac{a_1 (x - x_0) + b_1 (y - y_0)}{a_2(x - x_0) + b_2 (y - y_0)} \right) \]
+	      也变成了齐次形式。
+\end{enumerate}
+
+\section{一阶线性微分方程}
 
 一阶线性常微分方程的一般形式是
 \[ \frac{\d y}{\d x} = p(x) y + q(x) \]
-其中 $p(x), q(x)$ 是定义在区间 $(a, b)$ 上的给定的连续函数。当 $q(x) = 0$ 时，称为一阶线性其次常微分方程；否则称一阶线性非齐次常微分方程。
+其中 $p(x), q(x)$ 在给定区间上连续的函数。当 $q(x) = 0$ 时，称为一阶线性齐次常微分方程；否则称一阶线性非齐次常微分方程。
 
 以下用大写字母简记为积分，方便记忆。
 
@@ -40,4 +91,69 @@
 \[ y(x) = \ee^{\int_{x_0}^{x} p(t) \d t} \left(  \int \ee^{-\int p(x) \d x} q(x) \d x + C \right)
 	= \ee^{P(x)} \left( \int \ee^{-P(x)} q(x) + C \right)  \]
 
+可以发现一个有趣的性质，非齐次方程的解可以由齐次形式下的解的“常数变易”得到。因此先考虑解齐次形式，再变易常数为函数 $c(x)$，这种解法记作常数变易法。
 
+\paragraph{Bernoulli 微分方程} 形如
+\[ \frac{\d y}{\d x} = p(x) y + q(x) y^n, \quad n \neq 0,1 \]
+的方程称为 Bernoulli 微分方程。设 $y \neq 0$，得到
+\[ y^{-n} \frac{\d y}{\d x} = \frac{\d (y^{1-n})}{(1-n)\d x} = y^{1-n}p(x) + q(x) \]
+换元 $u = y^{1-n}$ 即可。
+
+\section{恰当微分方程}
+
+有时可以考虑答案是全微分的形式。设
+\[ f(x, y) \d x + g(x, y) \d y = 0 \]
+并假设 $f, g$ 连续。设其左端恰好是某个二元函数 $u(x, y)$ 的全微分
+\[ f(x, y) \d x + g(x, y) \d y = \d u(x, y) = \frac{\partial u}{\partial x} \d x + \frac{\partial u}{\partial y} \d y \]
+则称其为恰当微分方程。容易验证其通解为 $u(x, y) = C$。
+
+注意到
+\[ \frac{\partial f}{\partial y} = \frac{\partial^2 u}{\partial y \partial x} = \frac{\partial^2 u}{\partial x \partial y} = \frac{\partial g}{\partial x} \]
+故其是该方程为恰当微分方程的充要条件。
+
+再考虑如何求出 $u$，先以 $y$ 为参数
+\[ u = \int f(x, y) \d x + \varphi(y) \]
+回带得到
+\[ \frac{\partial u}{\partial y} = g(x, y) = \frac{\d \varphi(y)}{\d y} + \frac{\partial}{\partial y}\int f(x, y) \d x \]
+总之有解
+\[ u = \int f(x, y) \d x + \int \left( g(x, y) - \frac{\partial}{\partial y}\int f(x, y) \d x  \right) \d y \]
+
+这个形式过于复杂，一般情况下多瞪眼可能更快。下面是一些常见的表
+
+\[ \begin{aligned}
+	y \d x + x \d y &= \d x y \\
+	\frac{y \d x - x \d y}{y^2} &= \d \frac{x}{y} \\
+	\frac{y \d x - x \d y}{xy} &= \d \ln\left|\frac{x}{y}\right| \\
+	\frac{y \d x - x \d y}{x^2 + y^2} &= \d \arctan \frac{x}{y} \\
+	\frac{y \d x - x \d y}{x^2 - y^2} &= \d \ln\left| \frac{x-y}{x+y}\right| \\
+\end{aligned} \]
+
+假如一个方程乘以 $\mu(x, y)$ 就成为了恰当微分方程，则称 $\mu$ 是原方程的积分因子。假若方程有解存在，则必有积分因子存在，而且不是唯一的。因此之前的很多方法都可以改写成积分因子法，但从零瞪出一个因子非常有技巧性，实战中不实用。
+
+\section{齐次线性微分方程}
+
+一般的 $n$ 阶线性微分方程有形式
+\[ \frac{\d^n y}{\d x^n} + a_{n-1}(x) \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + a_1(x) \frac{\d y}{\d x} + a_0(x) y = f(x) \]
+
+倘若 $f(x) \equiv 0$ 则是齐次线性微分方程，否则为非齐次。对其分析过程比较复杂，这里直接给出结论：方程的线性无关解最大个数为 $n$，所有解构成一个 $n$ 维线性空间。其非齐次的通解可以将各个系数用常数变易法待定，计算即可。
+
+注意到
+\[ \ee^{i x} = \cos x + i \sin x \]
+反推得到
+\[ \sin x = \frac{1}{2}(\ee^{i x} + \ee^{-i x}), \quad \cos x = \frac{1}{2} (\ee^{ix} - \ee^{-ix}) \]
+因此我们在计算时完全可以将指数和三角统一起来，叙述过程时再改成三角。
+
+\paragraph{常系数}
+
+设所有系数都是常数，即方程为
+\[ L[y] \equiv \frac{\d^n y}{\d x^n} + a_{n-1} \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + a_1 \frac{\d y}{\d x} + a_0 y = 0 \]
+考虑代入
+\[ L[\ee^{\lambda x}] = (\lambda^n + a_{n-1} \lambda^{n-1} + \cdots + a_0) \ee^{\lambda x} = F(\lambda) \ee^{\lambda x} \]
+其中方程 $F(\lambda)$ 是关于 $\lambda$ 的 $n$ 次多项式，我们求解 $F(\lambda) = 0$ 即可，因此又称为特征方程，其根称为特征根。假如所有的根都不是重根，那么可以直接得到 $n$ 个线性无关的解 $y_i = \ee^{\lambda_i x}$。
+
+假若方程存在 $k$ 重根 $\mu$，即特征方程存在因子 $(\lambda - \mu)^k$，考虑平移代换 $z = y \ee^{\mu x}$，继续代入 $y = \ee^{\lambda x}$ 有
+\[ L[y \ee^{\mu x}] = L[\ee^{(\lambda + \mu) x}] = F(\lambda + \mu) \ee^{(\lambda + \mu) x} \]
+显然 $F(\lambda + \mu)$ 含有 $k$ 重零根，对比系数可以得到方程 $L[y] = 0$ 的 $0 \sim k-1$ 项系数为 $0$，即方程形如
+\[ L[z] = \frac{\d^n y}{\d x^n} + b_{n-1} \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + b_{k} \frac{\d^k y}{\d x^k} = 0 \]
+可以观察出其 $k$ 个线性无关的解 $y = 1, x, x^2, \cdots, x^{k-1}$，故原方程的 $k$ 个解为
+\[ z = \ee^{\mu x}, x \ee^{\mu x}, \cdots, x^{k-1} \ee^{\mu x} \]

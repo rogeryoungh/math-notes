@@ -4,17 +4,17 @@
 
 \begin{problem}[000001]
 设 $a_1=1,a_k=k(a_{k-1}+1)$，试计算
-$$\lim_{n\to \infty}\prod_{k=1}^n\left(1+\frac{1}{a_k}\right)$$
+\[ \lim_{n\to \infty}\prod_{k=1}^n\left(1+\frac{1}{a_k}\right)\]
 \end{problem}
 \begin{solution}
 	先变形
-	$$\left(1+\frac{1}{a_k}\right)=\frac{a_{n+1}}{ka_n}$$
+	\[ \left(1+\frac{1}{a_k}\right)=\frac{a_{n+1}}{ka_n}\]
 	累乘可以化简
-	$$\prod_{k=1}^n\left(1+\frac{1}{a_k}\right) = \frac{a_{n+1}}{(n+1)!}$$
+	\[ \prod_{k=1}^n\left(1+\frac{1}{a_k}\right) = \frac{a_{n+1}}{(n+1)!}\]
 	注意到
-	$$\frac{a_{n+1}}{(n+1)!}-\frac{a_{n}}{n!} = \frac{a_{n+1}-(n+1)a_n}{(n+1)!} = \frac{1}{n!}$$
+	\[ \frac{a_{n+1}}{(n+1)!}-\frac{a_{n}}{n!} = \frac{a_{n+1}-(n+1)a_n}{(n+1)!} = \frac{1}{n!}\]
 	故
-	$$\lim_{n\to \infty}\prod_{k=1}^n\left(1+\frac{1}{a_k}\right) = \lim_{n\to \infty}\left(1+\frac{1}{2!}+\cdots+\frac{1}{n!}\right) = \ee$$
+	\[ \lim_{n\to \infty}\prod_{k=1}^n\left(1+\frac{1}{a_k}\right) = \lim_{n\to \infty}\left(1+\frac{1}{2!}+\cdots+\frac{1}{n!}\right) = \ee\]
 \end{solution}
 
 \begin{problem}[000002]
@@ -25,13 +25,11 @@ $$\lim_{n\to \infty}\prod_{k=1}^n\left(1+\frac{1}{a_k}\right)$$
 	显然是考不动点。
 
 	考虑方程
-	$$ x + (x-4)x - 3 = x^2 - 3x - 3 = 0 $$
+	\[ x + (x-4)x - 3 = x^2 - 3x - 3 = 0 \]
 	的解，取其中一解 $x_0 = \frac{3 + \sqrt{21}}{2}$。接下来考察单调性，设 $x_{n-1} \in [2, x_0)$，有
-	$$ x_n - x_{n-1} = 4 - x_{n-1} - \frac{1}{x_n - 1} = -\frac{x_{n-1}^2 - 3x_{n-1} - 3}{x_{n-1} - 1} > 0$$
+	\[ x_n - x_{n-1} = 4 - x_{n-1} - \frac{1}{x_n - 1} = -\frac{x_{n-1}^2 - 3x_{n-1} - 3}{x_{n-1} - 1} > 0 \]
 	故序列 $\{x_n\}$ 单调递增且 $x_n \in [2, x_0)$。设极限为 $A$，解方程
-	$$
-		A^2 - 3A - 3 = 0, \quad A = x_0 = \frac{3 + \sqrt{21}}{2}
-	$$
+	\[ A^2 - 3A - 3 = 0, \quad A = x_0 = \frac{3 + \sqrt{21}}{2} \]
 \end{solution}
 
 \begin{problem}[000003]
@@ -39,24 +37,24 @@ $$\lim_{n\to \infty}\prod_{k=1}^n\left(1+\frac{1}{a_k}\right)$$
 \end{problem}
 \begin{solution}
 	构造
-	$$f(x) = \begin{cases}
+	\[ f(x) = \begin{cases}
 			n, & x=\dfrac{m}{n},m,n\ \text{为互质整数} \\
 			0, & x\ \text{为无理数}
-		\end{cases}$$
+		\end{cases} \]
 \end{solution}
 
 \begin{problem}[000004]
 设 $f,g$ 是 $\mathbb{R}$ 上的实函数，且
-$$f(x+y)+f(x-y) = 2f(x)g(y)$$
+\[ f(x+y)+f(x-y) = 2f(x)g(y)\]
 在 $\mathbb{R}$ 上 $f(x)$ 不恒等于零但有界，试证：$|g(y)|\leqslant 1$
 \end{problem}
 \begin{solution}
 	令 $M=\sup|f(x)|$，则有
-	$$2M\geqslant |f(x+y)|+|f(x-y)| \geqslant |f(x+y)+f(x-y)| = 2|f(x)||g(y)|$$
+	\[ 2M\geqslant |f(x+y)|+|f(x-y)| \geqslant |f(x+y)+f(x-y)| = 2|f(x)||g(y)| \]
 	设存在 $y_0$ 使得 $|g(y_0)|=1+2\delta>1$。由上确界的定义知存在 $x_0$ 有
-	$$M \geqslant |f(x_0)| > \frac{M}{\delta+1}$$
+	\[ M \geqslant |f(x_0)| > \frac{M}{\delta+1}\]
 	故
-	$$2|f(x_0)||g(y_0)| > \frac{2(1+2\delta)M}{1+\delta} > 2M$$
+	\[ 2|f(x_0)||g(y_0)| > \frac{2(1+2\delta)M}{1+\delta} > 2M\]
 	因此矛盾，故恒有 $|g(y)|\leqslant 1$。
 \end{solution}
 
@@ -68,11 +66,11 @@ $$f(x+y)+f(x-y) = 2f(x)g(y)$$
 	设 $A=\{x \mid f(x) \geqslant x\}$，由题知 $a\in A$ 故 $A$ 非空。又 $f$ 定义在 $[a,b]$ 上，故 $A$ 有界。因此设 $x_0=\sup A\in [a,b]$ 是有意义的。又 $f(x)\in[a,b]$ 在定义域内，分类讨论如下
 
 	1. 若 $y_0=f(x_0) > x_0$，由单调性知
-	$$f(y_0)=f(f(x_0)) \geqslant f(x_0) = y_0$$
+	\[ f(y_0)=f(f(x_0)) \geqslant f(x_0) = y_0\]
 	故 $y_0\in A$。这意味着 $\sup A \geqslant y_0 >x_0$，矛盾。
 
 	2. 若 $y_0=f(x_0) < x_0$，由确界定义知 $\exists x_1\in A$ 使 $y_0<x_1\leqslant x_0$，由单调性知
-	$$f(x_1)\leqslant f(x_0)=y_0 <x_1$$
+	\[ f(x_1)\leqslant f(x_0)=y_0 <x_1\]
 	这意味着 $x_1\notin A$，矛盾。
 
 	故 $y_0=f(x_0)=x_0$，此时 $x_0 = \sup\{x \mid f(x) \geqslant x\}$。
@@ -83,16 +81,16 @@ $$f(x+y)+f(x-y) = 2f(x)g(y)$$
 
 \begin{problem}[000006]
 设 $f(x)$ 是定义在 $\mathbb{R}$ 上的函数且对任意 $x,y$有
-$$|xf(y)-yf(x)| \leqslant M|x|+M|y|$$
+\[ |xf(y)-yf(x)| \leqslant M|x|+M|y|\]
 其中 $M > 0$。求证：存在常数 $a$ 使得对任意 $x$ 有 $|f(x)-ax| \leqslant M$
 \end{problem}
 \begin{solution}
 	当 $x=0$ 时，有 $|f(0)|\leqslant M$。而当 $xy\ne 0$ 时，恒有
-	$$\left| f(x)-\frac{f(y)}{|y|}x \right| \leqslant M \left(1+\frac{|x|}{|y|}\right)$$
+	\[ \left| f(x)-\frac{f(y)}{|y|}x \right| \leqslant M \left(1+\frac{|x|}{|y|}\right)\]
 	若 $a$ 不存在，即对任意的 $a$ 存在 $x_0$ 使
-	$$|f(x_0)-ax_0|=M(1+2\delta)>M$$
+	\[ |f(x_0)-ax_0|=M(1+2\delta)>M\]
 	那么取 $a = \dfrac{f(y_0)}{|y_0|}$，当 $y_0=\dfrac{|x_0|}{\delta}$ 时，有
-	$$\left| f(x)-\frac{f(y_0)}{|y_0|}x \right| \leqslant M \left(1+ \frac{|x_0|}{|y_0|}\right)=M(1+\delta)$$
+	\[ \left| f(x)-\frac{f(y_0)}{|y_0|}x \right| \leqslant M \left(1+ \frac{|x_0|}{|y_0|}\right)=M(1+\delta)\]
 	因此矛盾，故存在 $a$。
 \end{solution}
 
@@ -102,13 +100,13 @@ $$|xf(y)-yf(x)| \leqslant M|x|+M|y|$$
 
 \begin{solution}
 	即对于任给的 $\eps>0$，存在 $n>N_1$ 使得
-	$$|a_n-A|<\dfrac{\eps}{2}$$
+	\[ |a_n-A|<\dfrac{\eps}{2}\]
 	那么变形有
-	$$\left|\frac{\sum a_n}{n}-A\right| \leqslant \frac{\sum |a_n-A|}{n} = \frac{\sum_{k=1}^{N_1} |a_k-A|}{n} + \frac{\sum_{k=N_1+1}^{n} |a_k-A|}{n}$$
+	\[ \left|\frac{\sum a_n}{n}-A\right| \leqslant \frac{\sum |a_n-A|}{n} = \frac{\sum_{k=1}^{N_1} |a_k-A|}{n} + \frac{\sum_{k=N_1+1}^{n} |a_k-A|}{n}\]
 	注意到 $\sum_{k=1}^{N_1} |a_k-A|$ 已经为定值，从而存在 $n>N_2$ 使得
-	$$\frac{\sum_{k=1}^{N_1}|x_k-A|}{n}<\frac{\eps}{2}$$
+	\[ \frac{\sum_{k=1}^{N_1}|x_k-A|}{n}<\frac{\eps}{2}\]
 	因此当 $n>\max\{N_1,N_2\}$ 时有
-	$$LHS < \frac{\eps}{2}+\frac{n-N_1}{n}\times \frac{\eps}{2} < \frac{\eps}{2}+\frac{\eps}{2} = \eps$$
+	\[ LHS < \frac{\eps}{2}+\frac{n-N_1}{n}\times \frac{\eps}{2} < \frac{\eps}{2}+\frac{\eps}{2} = \eps \]
 \end{solution}
 
 \begin{problem}[000009]
@@ -271,6 +269,34 @@ $$|xf(y)-yf(x)| \leqslant M|x|+M|y|$$
 	因此 $F(x)$ 至少存在一个实根。设存在两个不同的实根 $x_1, x_2$，由 Lagrange 中值定理知存在 $\xi \in (0, 1)$
 	\[ f'(\xi) = \frac{f(x_1) - f(x_2)}{x_1 - x_2} = 1 \]
 	故矛盾，因此实根唯一。
+\end{solution}
+
+\begin{problem}[000022]
+设函数
+\[ f(x) = x \int_{1}^{0} \ee^{-x^2t^2} \d t \]
+则当 $0<a<x<b$ 时有：
+
+A. $xf(x) > af(a)$，B. $bf(b) > x f(x)$，C. $xf(a) > af(x)$，D. $xf(b) > bf(x)$。
+\end{problem}
+
+\begin{solution}
+	答案 D。首先积分换元
+	\[ f(x) = \int_{1}^{0} \ee^{-(xt)^2} \d (xt) = -\int_{0}^{1} \ee^{-x^2} \d x  \]
+	剩下的比较直观，就不写了。
+\end{solution}
+
+\begin{problem}[000022]
+设函数
+\[ f(x) = x \int_{1}^{0} \ee^{-x^2t^2} \d t \]
+则当 $0<a<x<b$ 时有：
+
+A. $xf(x) > af(a)$，B. $bf(b) > x f(x)$，C. $xf(a) > af(x)$，D. $xf(b) > bf(x)$。
+\end{problem}
+
+\begin{solution}
+	答案 D。首先积分换元
+	\[ f(x) = \int_{1}^{0} \ee^{-(xt)^2} \d (xt) = -\int_{0}^{1} \ee^{-x^2} \d x  \]
+	剩下的比较直观，就不写了。
 \end{solution}
 
 \section{积分}

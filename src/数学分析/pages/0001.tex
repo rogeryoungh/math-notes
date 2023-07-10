@@ -33,11 +33,11 @@
 定义有序对为 $(a,b) \coloneqq  \{\{a\},\{a,b\}\}$，其中 $a$ 称为有序对的第一坐标，而 $b$ 称为第二坐标。特殊的，$(a,a) = \{a\}$。
 
 定义集合的笛卡尔 Cartesian 乘积为
-$$A \times B \coloneqq  \{(a,b) \mid a\in A \text{且} b\in B\}$$
+\[ A \times B \coloneqq  \{(a,b) \mid a\in A \text{且} b\in B\}\]
 一般 $A \times B \ne B \times A$。同样可以推广到多个集合
-$$\prod X_i \coloneqq  X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cdots \times X_{n-1}) \times X_n$$
+\[ \prod X_i \coloneqq  X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cdots \times X_{n-1}) \times X_n\]
 其元素 $x$ 是多层嵌套，我们可以简记为
-$$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
+\[ x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)\]
 称 $x_i \coloneqq  \mathrm{pr}_i(x)$ 为 $x$ 的第 $i$ 个分量，$\mathrm{pr}$ 是投影映射。当所有 $X_i$ 都等于 $X$ 时，上述乘积记为 $X^n$。
 
 设 $C$ 和 $D$ 为两个给定的集合。
@@ -47,72 +47,71 @@ $$x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)$$
 \end{definition}
 
 赋值法则的定义域 Domain 和像域 Image Set 约定如下
-\begin{equation*}
-	\begin{aligned}
+\[ \begin{aligned}
 		\dom(R) \coloneqq  \{c\in C \mid \exists d \in D, (c,d) \in R\} \\
 		\im(R) \coloneqq  \{d\in D \mid \exists c \in C, (c,d) \in R\}  \\
-	\end{aligned}
-\end{equation*}
+	\end{aligned} \]
 
 \begin{definition}
 	设 $R$ 为一个赋值法则，$B$ 为满足 $\im(R) \subseteq B$ 的一个集合，记二元对 $(R,B)$ 为一个映射，$B$ 称为值域。定义 $f$ 的定义域 $A$ 和像域为 $R$ 的定义域和像域。记作
-	$$f:A\to B, a\mapsto f(a)$$
+	\[ f:A\to B, a\mapsto f(a) \]
 \end{definition}
 
 称 $f$ 的图为
-$$\graph(f) \coloneqq  \{(a,f(a)) \in A\times B \mid a \in A\}$$
+\[ \graph(f) \coloneqq  \{(a,f(a)) \in A\times B \mid a \in A\}\]
 
 对任意给定的 $A$ 的子集 $A_0$，定义 $f$ 在 $A_0$ 上的限制为映射
-$$f \mid_{A_0} = f : A_0 \to B$$
+\[ f \mid_{A_0} = f : A_0 \to B\]
 
 称映射 $f$ 和 $g$ 的复合为
-$$g\circ f: A \to C, a \mapsto g(f(a))$$
+\[ g\circ f: A \to C, a \mapsto g(f(a))\]
 显然 $g \circ f$ 仅当 $\im(f) \subseteq \dom(g)$ 时有定义。$f\circ g$ 一般与 $g \circ f$ 不相等。
 
-若映射 $f$ 满足
-
-（1） $f(a_1) = f(a_2) \Rightarrow a_1,a_2$，称 $f$ 为单射。
-
-（2） 对任意的 $b\in B$ 存在 $a\in A$ 满足 $f(a)=b$，称 $f$ 为满射。
-
-（3） $f$ 既是单射又是满射，称 $f$ 为双射。
+\begin{itemize}
+	\item 若映射 $f$ 满足 $f(a_1) = f(a_2) \Rightarrow a_1,a_2$，称 $f$ 为单射。
+	\item 若映射 $f$ 满足对任意的 $b\in B$ 存在 $a\in A$ 满足 $f(a)=b$，称 $f$ 为满射。
+	\item 若映射 $f$ 满足$f$ 既是单射又是满射，称 $f$ 为双射。
+\end{itemize}
 
 若 $f$ 为双射，我们定义它的逆映射 $f^{-1}$ 为
-$$f^{-1}(b) =  a \Leftrightarrow f(a) = b$$
+\[ f^{-1}(b) =  a \Leftrightarrow f(a) = b\]
 
-映射 $\ast$：$X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\ast(x,y)$ 记做 $x \ast y$。对 $X$ 中的非空子集定义
-$$A \ast B \coloneqq  \ast(a\times B) = \{A \ast b \mid a \in A, b\in B\}$$
+映射 $\ast: X\times X \to X$ 通常也称为集合 $X$ 上的运算，此时我们把 $\ast(x,y)$ 记做 $x \ast y$。对 $X$ 中的非空子集定义
+\[ A \ast B \coloneqq  \ast(a\times B) = \{A \ast b \mid a \in A, b\in B\}\]
 
 如果映射定义中的 $B$ 是一个数域，则把映射称为函数。
 
-简要提及一下关系的部分知识。称集合 $S\times S$ 的子集 $\odot$ 为关系。把 $(x,y) \in C$ 记作 $x \odot y$。
+\section{序关系}
+
+称集合 $S\times S$ 的子集 $\odot$ 为关系。把 $(x,y) \in \odot$ 记作 $x \odot y$。
 
 \begin{definition}[等价关系]
 	若集合 $S$ 上的关系 $\simeq$ 满足
 
-	（1） 自反性：对任意的 $x\in S$ 有 $x \simeq x$。
+	\begin{itemize}
+		\item 自反性：对任意的 $x\in S$ 有 $x \simeq x$。
 
-	（2） 对称性：若 $x \simeq y$ 则 $y \simeq x$。
+		\item 对称性：若 $x \simeq y$ 则 $y \simeq x$。
 
-	（3） 传递性：若 $x \simeq y$ 且 $y \simeq z$ 则 $x \simeq z$。
+		\item 传递性：若 $x \simeq y$ 且 $y \simeq z$ 则 $x \simeq z$。
+	\end{itemize}
 
 	则称 $\simeq$ 为等价关系，一般记作 $\sim$ 或 $=$。
 \end{definition}
 
 记 $x\in A$ 的等价类：
-$$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
-
-\section{序关系}
+\[ [x] \coloneqq  \{y \in A \mid y \sim x\}\]
 
 \begin{definition}[全序关系]
 	若集合 $S$ 上的关系 $\preceq$ 满足
 
-	（1） 反对称性：若 $x \preceq y$ 且 $y \preceq x$ 则 $x = y$。
+	\begin{itemize}
+		\item 反对称性：若 $x \preceq y$ 且 $y \preceq x$ 则 $x = y$。
 
-	（2） 传递性：若 $x \preceq y$ 且 $y \preceq z$ 则 $x \preceq z$。
+		\item 传递性：若 $x \preceq y$ 且 $y \preceq z$ 则 $x \preceq z$。
 
-	（3） 完全性：对任意的 $x,y\in S$ 要么 $x \preceq y$ 要么 $y \preceq x$。（注意蕴含了自反性 $x \preceq x$）。
-
+		\item 完全性：对任意的 $x,y\in S$ 要么 $x \preceq y$ 要么 $y \preceq x$。（注意蕴含了自反性 $x \preceq x$）。
+	\end{itemize}
 	则称 $\preceq$ 为全序关系， $(S,\preceq)$ 为全序集。一般用 $\leqslant$ 来表示全序关系.
 \end{definition}
 
@@ -121,11 +120,13 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 \begin{definition}
 	设全序集 $S' \subseteq S$，若 $x \in S$ 是：
 
-	1. $S$ 的最大元：若不存在 $y \in S$ 使得 $x < y$，则称 $x$ 是最大元。
+	\begin{itemize}
+		\item $S$ 的最大元：若不存在 $y \in S$ 使得 $x < y$，则称 $x$ 是最大元。
 
-	2. $S'$ 的上界：若对于任取的 $x' \in S'$ 满足 $x' \leqslant x$，则称 $x$ 是 $S'$ 的上界。
+		\item $S'$ 的上界：若对于任取的 $x' \in S'$ 满足 $x' \leqslant x$，则称 $x$ 是 $S'$ 的上界。
 
-	3. $S'$ 的上确界：对于任取的 $S'$ 的上界 $y$ 都有 $x \leqslant y$，且 $x$ 是 $S'$ 的上界，则称 $x$ 是 $S'$ 的上确界。
+		\item $S'$ 的上确界：对于任取的 $S'$ 的上界 $y$ 都有 $x \leqslant y$，且 $x$ 是 $S'$ 的上界，则称 $x$ 是 $S'$ 的上确界。
+	\end{itemize}
 \end{definition}
 
 类似的可定义全序集的最小元、下界、下确界。上、下确界分别记作 $\sup S'$ 和 $\inf S'$。比如取 $A = A' = (0, 1)$，其上下确界都不存在。若取 $A = \mathbb{R}$，上下确界存在也不一定在 $A'$ 里面。
@@ -165,15 +166,18 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 \begin{definition}
 	给定集合 $A$，设元素 $x, y, z \in A$，定义如下性质
 
-	（1） 封闭性：若 $A \ast A \subseteq A$，则称 $A$ 在运算 $\ast$ 下封闭。
+	\begin{itemize}
+		\item 封闭性：若 $A \ast A \subseteq A$，则称 $A$ 在运算 $\ast$ 下封闭。
 
-	（2） 结合性：若 $x \ast (y \ast z) = (x \ast y) \ast z$，则称运算 $\ast$ 是结合的。
+		\item 结合性：若 $x \ast (y \ast z) = (x \ast y) \ast z$，则称运算 $\ast$ 是结合的。
 
-	（3） 交换性：若 $x \ast y = y \ast x$，则称运算 $\ast$ 是交换的。
+		\item 交换性：若 $x \ast y = y \ast x$，则称运算 $\ast$ 是交换的。
 
-	（4） 单位元（幺元）：若存在 $e \in A$ 使得 $e \ast x = x \ast e = x$，则称 $e$ 为 $A$ 上的单位元。
+		\item 单位元（幺元）：若存在 $e \in A$ 使得 $e \ast x = x \ast e = x$，则称 $e$ 为 $A$ 上的单位元。
 
-	（5） 逆元（么元）：若存在 $x^{-1} \in A$ 使得 $x \ast x^{-1} = x^{-1} \ast x = e$，则称 $x^{-1}$ 为 $x$ 在 $A$ 上的逆元。
+		\item 逆元（么元）：若存在 $x^{-1} \in A$ 使得 $x \ast x^{-1} = x^{-1} \ast x = e$，则称 $x^{-1}$ 为 $x$ 在 $A$ 上的逆元。
+	\end{itemize}
+
 \end{definition}
 
 注意 $-x$ 和 $x^{-1}$ 只是记号，不代表我们定义出了减法和除法运算。
@@ -181,13 +185,15 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 \begin{definition}[群，半群]
 	给定集合 $G$ 和其上的二元运算 $\ast: G \times G \to G$，若：
 
-	1. 满足结合律，称为半群。
+	\begin{itemize}
+		\item 满足结合律，称为半群。
 
-	2. 满足单位元、交换性的半群，称为幺半群、交换半群。
+		\item 满足单位元、交换性的半群，称为幺半群、交换半群。
 
-	3. 每个元素都可逆的幺半群，称为群。
+		\item 每个元素都可逆的幺半群，称为群。
 
-	4. 满足交换律的群，称为交换群（Abelian 群）。
+		\item 满足交换律的群，称为交换群（Abelian 群）。
+	\end{itemize}
 \end{definition}
 
 \begin{example}
@@ -204,13 +210,15 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 \begin{definition}[环，域]
 	给定集合 $R$ 和其上的二元运算 $(R, +, \ast)$，若：
 
-	1. 满足 $(R, +)$ 是交换群，$(R, \ast)$ 是幺半群，且乘法关于加法满足分配率，称为环。
+	\begin{itemize}
+		\item 满足 $(R, +)$ 是交换群，$(R, \ast)$ 是幺半群，且乘法关于加法满足分配率，称为环。
 
-	2. 环 $R$ 中 $(R, \ast)$ 可交换，称为交换环。
+		\item 环 $R$ 中 $(R, \ast)$ 可交换，称为交换环。
 
-	3. 除零元外皆可逆的环，称为除环。
+		\item 除零元外皆可逆的环，称为除环。
 
-	4. 交换除环称为域。
+		\item 交换除环称为域。
+	\end{itemize}
 \end{definition}
 
 \section{拓扑初步}
@@ -283,7 +291,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 	（1） 其是下降的
 	\[ I_1 \supseteq I_2  \supseteq I_3  \supset \cdots \]；
 
-	（2） 区间长度 $\lim_{n \to \infty} (b_i - a_i) = 0$；
+	（2） 区间长度 $\lim\limits_{n \to \infty} (b_i - a_i) = 0$；
 
 	那么称这一列区间是闭缩区间套，简称区间套。
 \end{definition}
@@ -320,11 +328,13 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 \begin{definition}[度量空间]
 	称集合 $X$ 的元素为点，若存在 $X$ 上双变量的函数 $d:X \times X \to \mathbb{R}$，满足（$x,y,z\in R$）
 
-	（1） 若 $x\ne y$，则 $d(x,y)$；仅 $d(x,x)=0$。
+	\begin{itemize}
+		\item 若 $x\ne y$，则 $d(x,y)$；仅 $d(x,x)=0$。
 
-	（2） 对于任意的 $x,y$ 都有 $d(x,y) = d(y,x)$。
+		\item 对于任意的 $x,y$ 都有 $d(x,y) = d(y,x)$。
 
-	（3） 对于任意的 $z$，都有 $d(x,y) \leqslant d(x,z) + d(z,y)$。
+		\item 对于任意的 $z$，都有 $d(x,y) \leqslant d(x,z) + d(z,y)$。
+	\end{itemize}
 
 	就称 $(X,d)$ 是一个度量空间（度量空间），函数 $d$ 称作其上的距离函数。
 \end{definition}
@@ -332,7 +342,7 @@ $$[x] \coloneqq  \{y \in A \mid y \sim x\}$$
 这里的空间的含义是线性空间。
 
 对于 $X$ 的子集 $Y$，定义其距离函数
-$$d_Y: Y \times Y \to \mathbb{R}, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
+\[ d_Y: Y \times Y \to \mathbb{R}, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)\]
 则 $(Y,d_Y)$ 仍是度量空间，称 $d_Y$ 是 $d$ 在 $Y$ 上的诱导度量。$(Y,d_Y)$ 称作是 $(X,d)$ 的子（度量）空间。
 
 \begin{definition}[稠密性]
@@ -346,9 +356,9 @@ $$d_Y: Y \times Y \to \mathbb{R}, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 	由 Achimedes 原理，可设存在 $n\in \mathbb{N}^+$ 使得 $n(y-x)>1$。
 
 	再设存在 $m_1,m_2\in \mathbb{N}^+$，使得 $m_1>nx,m_2>-nx$。于是
-	$$-m_2<nx<m_1$$
+	\[ -m_2<nx<m_1 \]
 	因此存在 $m\in \mathbb{N}^+$ 有 $-m_2\leqslant m \leqslant m_1$ 使得
-	$$m-1\leqslant nx < m \leqslant 1+nx < ny$$
+	\[ m-1\leqslant nx < m \leqslant 1+nx < ny \]
 	从而存在 $p=m/n$ 使得 $x<p<y$。
 \end{proof}
 
@@ -380,12 +390,12 @@ $$d_Y: Y \times Y \to \mathbb{R}, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 \subsection{自然数}
 
 设 $m,n\in \mathbb{N}$，定义 $\mathbb{N}$ 上的加法 $+$ 和乘法 $\cdot$ 为
-\begin{equation*}
+\[
 	\begin{aligned}
 		0+m\coloneqq m      & ,\quad v(n)+m\coloneqq v(n+m)             \\
 		0\cdot m\coloneqq m & ,\quad v(n)\cdot m\coloneqq n \cdot m + m
 	\end{aligned}
-\end{equation*}
+\]
 
 我们可以利用归纳原理推出我们熟悉的一些性质。
 
@@ -418,16 +428,16 @@ $$d_Y: Y \times Y \to \mathbb{R}, (y_1,y_2) \mapsto d_Y(y_1,y_2)=d(y_1,y_2)$$
 接下来几节，都是记 $a,b,c$ 为当前集合的元素，$x,y,z$ 都是被构造的集合的元素。
 
 为了表达整数，定义二元组 $(a,b)$，其中 $a,b \in \mathbb{N}$。记全体二元组的集合为 $Z$。我们约定
-$$(a,b) = (c,d) \Leftrightarrow a+d=b+c$$
+\[ (a,b) = (c,d) \Leftrightarrow a+d=b+c\]
 因为自然数的序是已定义的，于是定义 $Z$ 上的序关系
-$$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
+\[ (a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c\]
 然后是定义 $N$ 上的加法和乘法
-\begin{equation*}
+\[
 	\begin{aligned}
 		(a,b) + (c,d)     & \coloneqq  (a+c,b+d) \\
 		(a,b) \cdot (c,d) & \coloneqq  (a c,b d)
 	\end{aligned}
-\end{equation*}
+\]
 
 可以验证，$(n,0)$ 与 $n$ 有相同的性状，我们可以令其相等，从而把自然数嵌入到整数内。至此，我们可以着手验证整数是否满足我们预想的性质。
 
@@ -452,23 +462,23 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow a+d \leqslant b+c$$
 我们有理由相信，$(a,b)$ 符合我们对整数的一切想象。因此 $Z = \mathbb{Z}$。
 
 另外的，定义整数的负运算为 $-(a,b) = (b,a)$，以此定义减法
-$$x - y \coloneqq  x + (-y)$$
+\[ x - y \coloneqq  x + (-y)\]
 可以验证
-$$(a,0) - (b,0) = (a,b) = a - b$$
+\[ (a,0) - (b,0) = (a,b) = a - b\]
 
 \subsection{有理数}
 
 类似的，记整数的二元组 $(a,b)$，其中 $a,b\in \mathbb{Z},b\ne 0$，记全体二元组的集合为 $Q$。我们约定
-$$(a,b) = (c,d) \Leftrightarrow ad = bc$$
+\[ (a,b) = (c,d) \Leftrightarrow ad = bc\]
 因为整数的序是已定义的，于是定义 $Q$ 上的序关系
-$$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
+\[ (a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc\]
 于是定义 $Q$ 上的加法和乘法
-\begin{equation*}
+\[
 	\begin{aligned}
 		(a,b) + (c,d)     & \coloneqq  (ad+bc,b+d)           \\
 		(a,b) \cdot (c,d) & \coloneqq  (a \cdot c,b \cdot d) \\
 	\end{aligned}
-\end{equation*}
+\]
 定义加法逆元为 $-(a,b) \coloneqq  (-a,b)$。可以验证，$(a,1)$ 与 $a$ 有相同的性状，我们可以令其相等，从而把整数嵌入到有理数内。
 
 至此，我们可以着手验证有理数是否满足我们预想的性质。
@@ -494,9 +504,9 @@ $$(a,b) \leqslant (c,d) \Leftrightarrow ad \leqslant bc$$
 我们有理由相信，$(a,b)$ 符合我们对有理数的一切想象。因此 $Q = \mathbb{Q}$。
 
 另外，定义倒数 $(a,b)^{-1} = (b,a)$，显然 $a,b\ne 0$。从而定义除法
-$$x/y \coloneqq  x \cdot y^{-1}$$
+\[ x/y \coloneqq  x \cdot y^{-1}\]
 可以验证，
-$$(a,1)/(b,1) = (a,b) = a/b$$
+\[ (a,1)/(b,1) = (a,b) = a/b\]
 
 \subsection{实数\ ·\ Dedekind 分割}
 
@@ -528,18 +538,18 @@ $$(a,1)/(b,1) = (a,b) = a/b$$
 
 
 然而乘法因为负数的问题，我们需要分类讨论。$R$ 中存在加法单位元 $0^* = \{x \in \mathbb{Q} \mid x \geqslant 0\}$，对于正实数 $A,B\geqslant 0^*$，定义乘法
-$$A \cdot B \coloneqq  \{ p \in \mathbb{Q} \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}$$
+\[ A \cdot B \coloneqq  \{ p \in \mathbb{Q} \mid \text{存在}\ 0<a\in A,\ \text{存在}\ 0<b\in B, p<ab\}\]
 同时
-\begin{equation*}
+\[
 	A \cdot B \coloneqq \begin{cases}
 		-((-A) \cdot B),    & A<0^*, B\geqslant 0^* \\
 		-(A \cdot (-B)),    & A\geqslant 0^*, B<0^* \\
 		-((-A) \cdot (-B)), & A<0^*, B<0^*          \\
 	\end{cases}
-\end{equation*}
+\]
 
 当 $A > 0^*$ 时，定义乘法逆元
-$$A^{-1} \coloneqq  \{s \in \mathbb{Q} \mid \exists r \in \complement_\mathbb{Q} A, s < r^{-1}\}$$
+\[ A^{-1} \coloneqq  \{s \in \mathbb{Q} \mid \exists r \in \complement_\mathbb{Q} A, s < r^{-1}\}\]
 当 $A < 0^*$ 时，定义乘法逆元为 $A^{-1} \coloneqq  -(-A^{-1})$。
 
 至此，我们可以着手验证实数是否满足我们预想的性质。
@@ -607,11 +617,11 @@ $$A^{-1} \coloneqq  \{s \in \mathbb{Q} \mid \exists r \in \complement_\mathbb{Q}
 一个有理数上的序列 $\{a_n\}$，是一个从集合 $\mathbb{N}$ 到 $\mathbb{Q}$ 的一个映射，即我们以前说的数列。
 
 对于 $\mathbb{Q}$ 上的无限序列 $\{a_n\}$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
-$$d(a_j,a_k) < \eps$$
+\[ d(a_j,a_k) < \eps\]
 则称序列 $\{a_n\}$ 为 Cauchy 序列，记作 $\LIM(a_n)$。记 Cauchy 序列的全体为集合 $R$。
 
 对于 Cauchy 序列 $\LIM(a_n),\LIM(b_n)$，若对于任意的 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $n \geqslant N$ 时有
-$$d(a_n,b_n) < \eps$$
+\[ d(a_n,b_n) < \eps\]
 则记作 $\LIM(a_n) = \LIM(b_n)$。
 
 定义 $R$ 的序关系，对于实数 $x,y$，若存在 Cauchy 序列满足 $x=\LIM(a_n),y=\LIM(b_n)$，对于 $n\geqslant 1$ 有 $a_n \leqslant b_n$，则 $\LIM(a_n) \leqslant \LIM(b_n)$。
@@ -626,22 +636,22 @@ $$d(a_n,b_n) < \eps$$
 定义倒数时会因为恼人的 $0$ 出现了一些困难，解决的方法即是把 $0$ 排出。若存在 $c\in \mathbb{Q}$ 满足 $c > 0$ 使得 $d(a_n,0) \geqslant c$，则称 $\{a_n\}$ 为限制离开零的序列。若 $x$ 为不为零的实数，则必存在一个限制离开零的 Cauchy 序列 $\LIM(a_n) = x$。
 
 于是我们可以定义，设 $x$ 为一个不为零的实数，则存在限制离开零的 Cauchy 序列 $x=\LIM(a_n)$，定义倒数为
-$$x^{-1} \coloneqq  \LIM(a_n^{-1})$$
+\[ x^{-1} \coloneqq  \LIM(a_n^{-1})\]
 
 可以验证，常数 Cauchy 序列 $\{a_n\}$ 与 $a$ 具有相同的性状，因此可以令它们相等，从而使有理数嵌入到实数中。
 
 至此，我们可以着手验证实数是否满足我们预想的性质，在 Dedekind 分割中提过了，这里不再重复。
 
 另外，定义 $R$ 上的 Cauchy 序列，若对于任意的实数 $\eps > 0$ 存在 $N \geqslant 0$ 使得当 $j,k \geqslant N$ 时有
-$$d(a_j,a_k) \leqslant \eps$$
+\[ d(a_j,a_k) \leqslant \eps\]
 
 可以证明，$R$ 上的 Cauchy 序列与 $\mathbb{Q}$ 上的 Cauchy 序列等价。
 
 若存在实数 $L$ 满足，存在 $N>0$ 使得当 $n \geqslant N$ 时，都有 $d(a_n,L) \leqslant \eps$，则 $a_n$ 收敛于 $L$，记作
-$$\lim_{n\to \infty} a_n = L$$
+\[ \lim_{n\to \infty} a_n = L\]
 
 可以验证
-$$\LIM(a_n) = \lim_{n\to \infty} a_n$$
+\[ \LIM(a_n) = \lim_{n\to \infty} a_n\]
 
 \subsection{复数}
 
@@ -677,7 +687,7 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 
 这些定理是彼此等价的，其逻辑关系是
 \[ \mathrm{R0} \Leftrightarrow \mathrm{R1} \Leftrightarrow\mathrm{R2} \Leftrightarrow\mathrm{R3} + \mathrm{R10} \Leftrightarrow\mathrm{R4} \Leftrightarrow\mathrm{R5} \Leftrightarrow\mathrm{R6} \Leftrightarrow\mathrm{R7}+\mathrm{R10} \Leftrightarrow\mathrm{R8} \Leftrightarrow\text{R9}  \]
-因此都可以选作实数的完备性（连续性）公理。互相推导很适合作为课后练习。
+因此都可以选作实数的完备性（连续性）公理。互相推导很适合作为课后练习，可以查看 \href{https://zhuanlan.zhihu.com/p/48859870}{实数的完备性定理 - 知乎}。
 
 确界原理由于其简明的性质，我们将在其上构建极限与收敛的体系。
 
@@ -696,9 +706,9 @@ $$\LIM(a_n) = \lim_{n\to \infty} a_n$$
 %满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\mathbb{R} = (-\infty,+\infty)$。这几类区间统称为无限区间。
 %
 %设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
-%$$U(a;\delta) = (a-\delta,a+\delta)$$
+%$$U(a;\delta) = (a-\delta,a+\delta)\]
 %点 $a$ 的空心 $\delta$ 邻域定义为
-%$$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}$$
+%$$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}\]
 %也可以简单的记作 $U^\circ(a)$。
 %
 %此外，常用的邻域还有：

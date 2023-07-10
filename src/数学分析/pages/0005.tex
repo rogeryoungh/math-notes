@@ -7,29 +7,29 @@
 先放这，稍后做整理。
 
 \begin{definition}
-    设函数 $f$ 与 $F$ 在区间 $I$ 上都有定义。若
-    $$F'(x) = f(x), x\in I$$
-    则称 $F$ 为 $f$ 在区间 $I$ 上的一个原函数。
+	设函数 $f$ 与 $F$ 在区间 $I$ 上都有定义。若
+	$$F'(x) = f(x), x\in I$$
+	则称 $F$ 为 $f$ 在区间 $I$ 上的一个原函数。
 \end{definition}
 
 \begin{theorem}
-    设 $F$ 是 $f$ 在区间 $I$ 上的一个原函数，则
-    （1） $F+C$ 也是 $f$ 在 $I$ 上的原函数，其中 $C$ 为任意常量函数
-    （2） $f$ 在 $I$ 上的任意两个原函数之间，只可能相差一个常数。
+	设 $F$ 是 $f$ 在区间 $I$ 上的一个原函数，则
+	（1） $F+C$ 也是 $f$ 在 $I$ 上的原函数，其中 $C$ 为任意常量函数
+	（2） $f$ 在 $I$ 上的任意两个原函数之间，只可能相差一个常数。
 \end{theorem}
 \begin{proof}
-    （1） 显然
-    $$\left[ F(x)+C \right]' = F'(x) = f(x), x\in I$$
+	（1） 显然
+	$$\left[ F(x)+C \right]' = F'(x) = f(x), x\in I$$
 
-    （2） 设 $F$ 和 $G$ 是 $f$ 在 $I$ 上的任意两个原函数，则有
-    $$\left[ F(x)-G(x) \right]' = F'(x) - G'(x) = f(x) - f(x) = 0, x\in I$$
-    根据 Lagrange 中值定理，有
-    $$F(x) - G(x) \equiv C, x\in I$$
+	（2） 设 $F$ 和 $G$ 是 $f$ 在 $I$ 上的任意两个原函数，则有
+	$$\left[ F(x)-G(x) \right]' = F'(x) - G'(x) = f(x) - f(x) = 0, x\in I$$
+	根据 Lagrange 中值定理，有
+	$$F(x) - G(x) \equiv C, x\in I$$
 \end{proof}
 
 \begin{definition}
-    函数 $f$ 在区间 $I$ 上的全体原函数称为 $f$ 在 $I$ 上的不定积分，记作
-    $$\int f(x) \d x = F(x) + C$$
+	函数 $f$ 在区间 $I$ 上的全体原函数称为 $f$ 在 $I$ 上的不定积分，记作
+	$$\int f(x) \d x = F(x) + C$$
 \end{definition}
 
 其中 $\displaystyle\int$ 称为积分号，$f(x)$ 为被积函数，$f(x)\d x$ 为被积表达式，$x$ 称为积分变量。
@@ -45,51 +45,51 @@ $$\| T \| = \max_{1 \leqslant i \leqslant n}\{\Delta x_i\}$$
 称为分割的模。
 
 \begin{definition}
-    设 $f$ 是定义在 $[a,b]$ 上的一个函数。对于 $[a,b]$ 的一个分割 $T=\{\Delta_1,\cdots,\Delta_n\}$，任取点 $\xi\in\Delta_i,i=1,\cdots,n$，并作和式
-    $$\sum_{i=1}^nf(\xi_i)\Delta x_i$$
-    称此和式为函数 $f$ 在 $[a,b]$ 上的一个积分和，也称黎曼和。
+	设 $f$ 是定义在 $[a,b]$ 上的一个函数。对于 $[a,b]$ 的一个分割 $T=\{\Delta_1,\cdots,\Delta_n\}$，任取点 $\xi\in\Delta_i,i=1,\cdots,n$，并作和式
+	$$\sum_{i=1}^nf(\xi_i)\Delta x_i$$
+	称此和式为函数 $f$ 在 $[a,b]$ 上的一个积分和，也称黎曼和。
 \end{definition}
 
 显然，积分既与分割 $T$ 与有关，又与所选取的点集 $\{\xi_i\}$ 有关。
 
 \begin{definition}
-    设 $f$ 是定义在 $[a,b]$ 上的一个函数，$J$ 是一个确定的实数。若对任给的正数 $\epsilon$，总存在某一正数 $\delta$，使得对 $[a,b]$ 的任何分割 $T$，以及在其上任意选取的点集 $\{\xi_i\}$，只要 $\| T \| < \delta$，就有
-    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - J \right| < \eps$$
-    则称函数 $f$ 在区间 $[a,b]$ 上可积或黎曼可积；数 $J$ 称为 $f$ 在 $[a,b]$ 上的定积分或黎曼积分，记作
-    $$J = \int_a^b f(x) \d x = \lim_{\| T \| \to 0} \sum_{i=1}^nf(\xi_i)\Delta x_i$$
+	设 $f$ 是定义在 $[a,b]$ 上的一个函数，$J$ 是一个确定的实数。若对任给的正数 $\epsilon$，总存在某一正数 $\delta$，使得对 $[a,b]$ 的任何分割 $T$，以及在其上任意选取的点集 $\{\xi_i\}$，只要 $\| T \| < \delta$，就有
+	$$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - J \right| < \eps$$
+	则称函数 $f$ 在区间 $[a,b]$ 上可积或黎曼可积；数 $J$ 称为 $f$ 在 $[a,b]$ 上的定积分或黎曼积分，记作
+	$$J = \int_a^b f(x) \d x = \lim_{\| T \| \to 0} \sum_{i=1}^nf(\xi_i)\Delta x_i$$
 \end{definition}
 
 其中 $f$ 称为被积函数，$x$ 称为积分变量，$[a,b]$ 称为积分区间，$a,b$ 分别称为这个定积分的下限和上限。
 
 \begin{theorem}[Newton - Leibniz 公式]
-    若函数 $f$ 在 $[a,b]$ 上连续，且存在原函数 $F$，即 $F'(x) = f(x), x\in[a,b]$，则 $f$ 在 $[a,b]$ 上可积，且
-    $$\int_a^bf(x)\d x = F(b) - F(a)$$
+	若函数 $f$ 在 $[a,b]$ 上连续，且存在原函数 $F$，即 $F'(x) = f(x), x\in[a,b]$，则 $f$ 在 $[a,b]$ 上可积，且
+	$$\int_a^bf(x)\d x = F(b) - F(a)$$
 \end{theorem}
 
 \begin{proof}
-    即证对于任给的 $\eps > 0$，存在 $\delta>0$ 使得当 $\| T \| < \delta$ 时有
-    $$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - [F(b)-F(a)] \right| < \eps$$
-    对于任意分割 $T$，在每个小区间 $[x_{i-1},x_i]$ 上对 $F(x)$ 使用 Lagrange 中值定理，则分别存在 $\eta_i \in (x_{i-1},x_i),i=1,\cdots,n$，使得
-    $$F(b)-F(a) = \sum_{i=1}^n F'(\eta_i)\Delta x_i = \sum_{i=1}^nf(\eta_i)\Delta x_i$$
-    又因为 $f$ 在 $[a,b]$ 上一致连续，因此存在 $\delta > 0$ 当 $x_1,x_2\in[a,b]$ 且 $|x_1-x_2| < \delta$ 时，有
-    $$f(x_1) - f(x_2)| < \frac{\eps}{b-a}$$
-    由 $\Delta x_i \leqslant \| T \| < \delta$ 时，任取 $\xi_i \in [x_{i-1},x_i]$，便有 $|\xi_i-\eta_i|<\delta$，于是
-    $$LHS = \left| \sum_{i=1}^n [f(\xi_i)-f(\eta_i)]\Delta x_i \right| \leqslant \frac{\eps}{b-a}\sum_{i=1}^n\Delta x_i = \eps$$
-    于是 $f$ 在 $[a,b]$ 上可积。
+	即证对于任给的 $\eps > 0$，存在 $\delta>0$ 使得当 $\| T \| < \delta$ 时有
+	$$\left| \sum_{i=1}^nf(\xi_i)\Delta x_i - [F(b)-F(a)] \right| < \eps$$
+	对于任意分割 $T$，在每个小区间 $[x_{i-1},x_i]$ 上对 $F(x)$ 使用 Lagrange 中值定理，则分别存在 $\eta_i \in (x_{i-1},x_i),i=1,\cdots,n$，使得
+	$$F(b)-F(a) = \sum_{i=1}^n F'(\eta_i)\Delta x_i = \sum_{i=1}^nf(\eta_i)\Delta x_i$$
+	又因为 $f$ 在 $[a,b]$ 上一致连续，因此存在 $\delta > 0$ 当 $x_1,x_2\in[a,b]$ 且 $|x_1-x_2| < \delta$ 时，有
+	$$f(x_1) - f(x_2)| < \frac{\eps}{b-a}$$
+	由 $\Delta x_i \leqslant \| T \| < \delta$ 时，任取 $\xi_i \in [x_{i-1},x_i]$，便有 $|\xi_i-\eta_i|<\delta$，于是
+	$$LHS = \left| \sum_{i=1}^n [f(\xi_i)-f(\eta_i)]\Delta x_i \right| \leqslant \frac{\eps}{b-a}\sum_{i=1}^n\Delta x_i = \eps$$
+	于是 $f$ 在 $[a,b]$ 上可积。
 \end{proof}
 
 \subsection{可积条件}
 
 \begin{theorem}
-    若函数 $f$ 在 $[a,b]$ 上可积，则 $f$ 在 $[a,b]$ 上必定有界。
+	若函数 $f$ 在 $[a,b]$ 上可积，则 $f$ 在 $[a,b]$ 上必定有界。
 \end{theorem}
 \begin{proof}
-    反证，若 $f$ 在 $[a,b]$ 上无界，则对于即对于 $[a,b]$ 的任意分割 $T$，必存在属于 $T$ 的某区间 $\Delta_k$，使 $f$ 在其上无界。在 $i\ne k$ 的各个区间 $\Delta_i$ 上取定 $\xi_i$，记
-    $$G = \left| \sum_{i\ne k}f(\xi)\Delta x_i \right|$$
-    任意大的正数 $M$，存在 $\xi_k\in \Delta_k$，使得
-    $$|f(\xi_k)| > \frac{M+G}{\Delta x_k}$$
-    于是有
-    $$\left| \sum_{i=1}^nf(\xi)\Delta x_i \right| \geqslant |f(\xi_k)\Delta x_k| - \left| \sum_{i\ne k}f(\xi)\Delta x_i \right| > \frac{M+G}{\Delta x_k}\cdot \Delta x_k - G = M$$
+	反证，若 $f$ 在 $[a,b]$ 上无界，则对于即对于 $[a,b]$ 的任意分割 $T$，必存在属于 $T$ 的某区间 $\Delta_k$，使 $f$ 在其上无界。在 $i\ne k$ 的各个区间 $\Delta_i$ 上取定 $\xi_i$，记
+	$$G = \left| \sum_{i\ne k}f(\xi)\Delta x_i \right|$$
+	任意大的正数 $M$，存在 $\xi_k\in \Delta_k$，使得
+	$$|f(\xi_k)| > \frac{M+G}{\Delta x_k}$$
+	于是有
+	$$\left| \sum_{i=1}^nf(\xi)\Delta x_i \right| \geqslant |f(\xi_k)\Delta x_k| - \left| \sum_{i\ne k}f(\xi)\Delta x_i \right| > \frac{M+G}{\Delta x_k}\cdot \Delta x_k - G = M$$
 \end{proof}
 
 有界函数不一定黎曼可积，比如 Dirichlet 函数。
@@ -103,23 +103,23 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
 与积分和相比较，达布和只与分割 $T$ 有关，而与点集 $\{\xi_i\}$ 无关。
 
 \begin{proposition}
-    给定分割 $T$，对于任何点集 $\{\xi_i\}$ 而言，上和时所有积分和的上确界，下和是所有积分和的下确界。
+	给定分割 $T$，对于任何点集 $\{\xi_i\}$ 而言，上和时所有积分和的上确界，下和是所有积分和的下确界。
 \end{proposition}
 \begin{proof}
-    设 $\Delta_i$ 中 $M_i$ 是 $f(x)$ 的上确界，故可选取点 $\xi=\Delta_i$，使 $f(\xi_i)>M_i-\frac{\eps}{b-a}$，于是有
-    $$\sum_{i=1}^nf(\xi_i)\Delta x_i > \sum_{i=1}^nM_i\Delta x_i-\frac{\eps}{b-a}\sum_{i=1}^n\Delta x_i = S(T)-\eps$$
-    即 $S(T)$ 是全体积分和的上确界。类似可证 $s(T)$ 是全体积分和的下确界。
+	设 $\Delta_i$ 中 $M_i$ 是 $f(x)$ 的上确界，故可选取点 $\xi=\Delta_i$，使 $f(\xi_i)>M_i-\frac{\eps}{b-a}$，于是有
+	$$\sum_{i=1}^nf(\xi_i)\Delta x_i > \sum_{i=1}^nM_i\Delta x_i-\frac{\eps}{b-a}\sum_{i=1}^n\Delta x_i = S(T)-\eps$$
+	即 $S(T)$ 是全体积分和的上确界。类似可证 $s(T)$ 是全体积分和的下确界。
 \end{proof}
 
 
 \begin{proposition}
-    设 $T'$ 为分割 $T$ 添加 $p$ 个新分点后所得到的分割，则有
+	设 $T'$ 为分割 $T$ 添加 $p$ 个新分点后所得到的分割，则有
 
 \end{proposition}
 
 \begin{theorem}
-    函数 $f$ 在 $[a,b]$ 上可积的充要条件是：人格 $\eps >0$，总存在相应的一个分割 $T$ 使得
-    $$S(T) - s(T) < \sum_{i=1}^n\omega_i\Delta x_i = \eps$$
+	函数 $f$ 在 $[a,b]$ 上可积的充要条件是：人格 $\eps >0$，总存在相应的一个分割 $T$ 使得
+	$$S(T) - s(T) < \sum_{i=1}^n\omega_i\Delta x_i = \eps$$
 \end{theorem}
 
 其中 $\omega$ 称为 $f$ 在 $\Delta_i$ 上的振幅。
@@ -127,15 +127,15 @@ $$m(b-a) \leqslant s(T) \leqslant \sum_{i=1}^n f(\xi_i)\Delta x_i \leqslant S(T)
 由充要条件，我们可以得到一系列的可积函数类。
 
 \begin{theorem}
-    若 $f$ 为 $[a,b]$ 上的连续函数，则 $f$ 在 $[a,b]$ 上可积。
+	若 $f$ 为 $[a,b]$ 上的连续函数，则 $f$ 在 $[a,b]$ 上可积。
 \end{theorem}
 \begin{proof}
-    由于 $f$ 在闭区间 $[a,b]$ 上一致连续，即任给 $\eps > 0$，存在 $\delta>0$，对 $[a,b]$ 中任意两点 $x_1,x_2$，只要 $|x_1-x_2|<\delta$，便有
-    $$|f(x_1)-f(x_2)| < \frac{\eps}{b-a}$$
-    所以对于在 $[a,b]$ 的分割 $T$ 满足 $\|T\| < \delta$，在 $T$ 所属的任一小区间 $\Delta_i$ 上，都有
-    $$\omega_i = M_i-m_i = \sup_{x_1,x_2\in\Delta_i}|f(x_1)-f(x_2)| \leqslant \frac{\eps}{b-a}$$
-    从而
-    $$\sum_{T}\omega_i\Delta x_i \leqslant \frac{\eps}{b-a}\sum_T\Delta x_i = \eps$$
+	由于 $f$ 在闭区间 $[a,b]$ 上一致连续，即任给 $\eps > 0$，存在 $\delta>0$，对 $[a,b]$ 中任意两点 $x_1,x_2$，只要 $|x_1-x_2|<\delta$，便有
+	$$|f(x_1)-f(x_2)| < \frac{\eps}{b-a}$$
+	所以对于在 $[a,b]$ 的分割 $T$ 满足 $\|T\| < \delta$，在 $T$ 所属的任一小区间 $\Delta_i$ 上，都有
+	$$\omega_i = M_i-m_i = \sup_{x_1,x_2\in\Delta_i}|f(x_1)-f(x_2)| \leqslant \frac{\eps}{b-a}$$
+	从而
+	$$\sum_{T}\omega_i\Delta x_i \leqslant \frac{\eps}{b-a}\sum_T\Delta x_i = \eps$$
 \end{proof}
 
 
@@ -162,34 +162,32 @@ $$\int \frac{mx+n}{x^2+px+q} \d x$$
 $$x^2+px+q = \left(x+\frac{p}{2}\right)^2+q-\frac{p^2}{4} = t^2 \pm a^2$$
 再令 $A=m,B=n-\mfrac12mp$，可得
 $$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t
-    = A\int \frac{t\d t}{t^2 \pm a^2} + B\int \frac{\d t}{t^2 \pm a^2}$$
+	= A\int \frac{t\d t}{t^2 \pm a^2} + B\int \frac{\d t}{t^2 \pm a^2}$$
 其中
 
-\begin{equation*}
-    \begin{aligned}
-        A\int \frac{t \d t}{t^2 \pm a^2} & = \frac{A}{2}\int \frac{\d(t^2 \pm a^2)}{t^2 \pm a^2} = \frac{A}{2} \ln|t^2 \pm a^2| +C \\
-        B\int \frac{\d t}{t^2 + a^2}     & = \frac{B}{a}\arctan\frac{t}{a}+C                                                       \\
-        B\int \frac{t \d t}{t^2 - a^2}   & = \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C
-    \end{aligned}
-\end{equation*}
+\[
+	\begin{aligned}
+		A\int \frac{t \d t}{t^2 \pm a^2} & = \frac{A}{2}\int \frac{\d(t^2 \pm a^2)}{t^2 \pm a^2} = \frac{A}{2} \ln|t^2 \pm a^2| +C \\
+		B\int \frac{\d t}{t^2 + a^2}     & = \frac{B}{a}\arctan\frac{t}{a}+C                                                       \\
+		B\int \frac{t \d t}{t^2 - a^2}   & = \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C
+	\end{aligned}
+\]
 
 因此当 $p^2<4q$ 时，可以得到
-
-\begin{equation*}
-    \begin{aligned}
-        \int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 + a^2| + \frac{B}{a}\arctan\frac{t}{a} + C                               \\
-                                   & =\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{\sqrt{4q-p^2}}\arctan{\frac{2x+p}{\sqrt{4q-p^2}}} + C
-    \end{aligned}
-\end{equation*}
+\[
+	\begin{aligned}
+		\int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 + a^2| + \frac{B}{a}\arctan\frac{t}{a} + C                               \\
+		                           & =\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{\sqrt{4q-p^2}}\arctan{\frac{2x+p}{\sqrt{4q-p^2}}} + C
+	\end{aligned}
+\]
 
 当 $p^2>4q$ 时，可以得到
-
-\begin{equation*}
-    \begin{aligned}
-        \int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 - a^2| + \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|                                                  \\
-                                   & =\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{2\sqrt{4q-p^2}}\ln\left| \frac{2x+p-\sqrt{p^2-4q}}{2x+p+\sqrt{p^2-4q}} \right| + C
-    \end{aligned}
-\end{equation*}
+\[
+	\begin{aligned}
+		\int \frac{mx+n}{x^2+px+q} & = \frac{A}{2} \ln|t^2 - a^2| + \frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|                                                  \\
+		                           & =\frac{m}{2}\ln|x^2+px+q| + \frac{2n-mp}{2\sqrt{4q-p^2}}\ln\left| \frac{2x+p-\sqrt{p^2-4q}}{2x+p+\sqrt{p^2-4q}} \right| + C
+	\end{aligned}
+\]
 
 \subsection{分部积分法}
 
@@ -200,9 +198,9 @@ $$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t
 
 更进一步的，假设
 \[ \begin{aligned}
-        \int u v^{(n+1)} \d x & = \int u \d v^{(n)} = uv^{(n)} - \int u' v(n) \d x                                                                 \\
-                              & = u v^{(n)} - u^{(1)} v^{(n-1)} + u^{(2)} v^{(n-2)} + \cdots + (-1)^n u^{(n)} v + (-1)^{n+1} \int u^{(n+1)} \d v x
-    \end{aligned} \]
+		\int u v^{(n+1)} \d x & = \int u \d v^{(n)} = uv^{(n)} - \int u' v(n) \d x                                                                 \\
+		                      & = u v^{(n)} - u^{(1)} v^{(n-1)} + u^{(2)} v^{(n-2)} + \cdots + (-1)^n u^{(n)} v + (-1)^{n+1} \int u^{(n+1)} \d v x
+	\end{aligned} \]
 
 例如当 $P(x)$ 是关于 $x$ 的多项式时，假设计算
 \[ \int P(x) \ee^{ax} \d x = \ee^{ax} \left( \frac{P}{a} - \frac{P'}{a^2} + \frac{P''}{a^3} + cdots \right) \]

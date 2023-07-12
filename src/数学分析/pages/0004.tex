@@ -218,13 +218,23 @@ Cauchy 中值定理就更加的变化多端了。
 	构造
 	\[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b^2 - a^2}(x^2 - a^2) \]
 	注意到 $F(a) = F(b) = 0$，因此存在 $\eta \in (a, b)$ 使得
-	\[ F'(\eta) = f'(\eta) - 2 \eta \frac{f(b) - f(a)}{b^2 - a^2} = f'(\eta) - \frac{2 \eta f'(\xi)}{b + a} = 0 \] 
+	\[ F'(\eta) = f'(\eta) - 2 \eta \frac{f(b) - f(a)}{b^2 - a^2} = f'(\eta) - \frac{2 \eta f'(\xi)}{b + a} = 0 \]
 \end{proof}
 
 \begin{proposition}
-	设 $f$ 是 $[a,b]$ 上的连续可导函数，且 $f'(a) = f'(b)$，那么存在 $\xi \in (a,b)$ 使得
+	设 $f$ 是 $[a,b]$ 上的连续可导函数，且 $f'(a) = f'(b) = 0$，那么存在 $\xi \in (a,b)$ 使得
 	\[ f(\xi) - f(a) = f'(\xi)(\xi - a) \]
 \end{proposition}
+
+\begin{proof}
+	首先构造
+	\[ F(x) = \frac{f(x) - f(a)}{x - a}, \quad F'(x) = \frac{1}{x-a} \left(f'(x) - \frac{f(x) - f(a)}{x-a}\right), \quad x \in (a, b] \]
+	可以令 $F(a) = f'(a) = 0$ 使其在 $x=a$ 处连续。注意到
+	\[ F(b) = \frac{f(b) - f(a)}{b-a}, \quad F'(b) = -\frac{f(b) - f(a)}{(b-a)^2} \]
+	故存在 $x_0 \in (a, b)$
+	\[ F'(x_0) F'(b) = \frac{F(b) - F(a)}{b - a} F'(b) \leqslant 0 \]
+	因此存在 $\xi \in (x_0, b)$ 使得 $F'(\xi) = 0$。
+\end{proof}
 
 \begin{proposition}
 	设函数 $f$ 是 $[a,b]$ 上连续且二阶可导，且 $f'(a) = f'(b) = 0$，那么存在 $c \in (a,b)$ 使得
@@ -258,14 +268,85 @@ Cauchy 中值定理就更加的变化多端了。
 
 \section{L'Hospital 法则}
 
-
-
-\begin{theorem}
+\begin{theorem}[L'Hospital 法则，0/0 型]
 	设 $f,g$ 是 $(a,b)$ 上的连续可导函数，$g' \neq 0$，且
-	\[ \lim_{x \to a^{+}} f(x) = \lim_{x \to a^{+}} g(x) = 0 \]	
+	\[ \lim_{x \to a^{+}} f(x) = \lim_{x \to a^{+}} g(x) = 0 \]
 	如果极限
 	\[ \lim_{x \to a^{+}} \frac{f'(x)}{g'(x)} = A \]
 	其中 $A$ 为实数或 $\infty$。则
 	\[ \lim_{x \to a^{+}} \frac{f(x)}{g(x)} = \lim_{x \to a^{+}} \frac{f'(x)}{g'(x)} \]
 \end{theorem}
+
+\begin{proof}
+	考虑补上 $x=a$ 处的零值，延展函数 $f, g$ 为 $F, G$，从而存在 $\xi_x \in (a, x)$ 使得
+	\[ \frac{F(x)}{G(x)} = \frac{F(x) - F(a)}{G(x) - G(a)} = \frac{F'(\xi_x)}{G'(\xi_x)} \]
+	因此当 $x \to a^+$ 时，$\xi_x \to a^+$。故
+	\[ \lim_{x \to a^{+}} \frac{f(x)}{g(x)} = \lim_{\xi_x \to a^{+}} \frac{f'(\xi_x)}{g'(\xi_x)} \]
+\end{proof}
+
+\begin{theorem}[L'Hospital 法则，0/0 型]
+	设 $f,g$ 是 $(a,b)$ 上的连续可导函数，$g' \neq 0$，且
+	\[ \lim_{x \to a^{+}} f(x) = \lim_{x \to a^{+}} g(x) = \infty \]
+	如果极限
+	\[ \lim_{x \to a^{+}} \frac{f'(x)}{g'(x)} = A \]
+	其中 $A$ 为实数或 $\infty$。则
+	\[ \lim_{x \to a^{+}} \frac{f(x)}{g(x)} = \lim_{x \to a^{+}} \frac{f'(x)}{g'(x)} \]
+\end{theorem}
+
+对于 $0 \cdot \infty$，一般考虑
+\[ \lim_{x \to a} f(x) g(x) = \lim_{x \to a} \frac{f(x)}{\frac{1}{g(x)}} \]
+对于 $\infty - \infty$，一般考虑
+\[ \lim_{x \to a} (f(x) - g(x)) = \lim_{x \to a} \frac{\frac{1}{f(x)} - \frac{1}{g(x)}}{\frac{1}{f(x)g(x)}} \]
+倘若 $0^0$、$\infty^0$、$1^\infty$，则
+\[ \lim_{x \to a} f(x)^{g(x)} = \exp \left(\lim_{x \to a} g(x) \ln f(x) \right) \]
+
+\section{Taylor 公式}
+
+假设函数 $f$ 在 $x_0$ 处 $n$ 阶可导，定义其在 $x_0$ 处的 $n$ 阶 Taylor 多项式定义为
+\[ P_n(x;x_0, f) = f(x_0) + \sum_{k=1}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k \]
+当 $x_0 = 0$ 时，即为 Maclaurin 公式。
+
+\subsection{Peano 型余项}
+存在 $\delta > 0$ 使得对 $x \in (x_0 - \delta, x_0 + \delta)$ 有
+\[ f(x) = P_n(x) + r_n(x) \]
+这里
+\[ r_n(x) = o((x-x_n)^n), \quad x \to x_0 \]
+我们可以通过洛 $n$ 次证明。
+
+\subsection{Lagrange 型余项}
+由 Lagrange 中值定理，考虑在 $(x_0, x_0 + \delta)$，对任意的 $x$ 都存在 $\xi_1$ 使得
+\[ f(x) = f(x_0) + f'(\xi_1)(x-x_0) \]
+大胆的推广一下，我们可以证明
+\[ f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(\xi_2)}{2}(x-x_0)^2 \]
+一般的，我们就得到了 Lagrange 型余项。
+
+\begin{theorem}
+	存在 $\delta > 0$，设 $f$ 在 $(x_0, x_0+\delta)$ 上连续并 $n + 1$ 阶可导，则对任意的 $x$ 都存在 $\xi$ 有
+	\[ f(x) = P_n(x) + r_n(x) \]
+	其中
+	\[ r_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1} \]
+\end{theorem}
+
+\begin{proof}
+	固定 $x$，构造辅助函数
+	\[ G(t) = f(x) - \sum_{k=0}^n \frac{f^{(k)}(t)}{k!} (x-t)^k \]
+	并任意的取在 $(x_0, x_0 + \delta)$ 上连续可导的函数 $H(t)$，且 $H(x) = 0$。存在 $\xi \in (x_0, x_0 + \delta)$ 满足
+	\[ \frac{G(x_0)}{H(x_0)} = \frac{G(x) - G(x_0)}{H(x) - H(x_0)} = \frac{G'(\xi)}{H'(\xi)} = -\frac{f^{(n+1)}(\xi)}{n!H'(\xi)}(x-\xi)^n \]
+	即
+	\[ G(x_0) = -\frac{f^{(n+1)}(\xi)}{n! H'(\xi)}(x-\xi)^nH(x_0) \]
+	取 $H(t) = (x-t)^{n+1}$ 即证。
+\end{proof}
+
+\subsection{Cauchy 型余项}
+
+\begin{theorem}
+	存在 $\delta > 0$，设 $f$ 在 $(x_0, x_0+\delta)$ 上连续并 $n + 1$ 阶可导，则对任意的 $x$ 都存在 $\xi$ 有
+	\[ f(x) = P_n(x) + r_n(x) \]
+	其中
+	\[ r_n(x) = \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n(x-x_0) \]
+\end{theorem}
+
+\begin{proof}
+	在上一个证明中取 $H(t) = x - t$ 即可。
+\end{proof}
 

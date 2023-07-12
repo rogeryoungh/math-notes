@@ -253,3 +253,61 @@ $$\int \frac{mx+n}{x^2+px+q} \d x = \int \frac{At+B}{t^2 \pm a^2} \d t
 两边平方可得
 \[ x = \frac{t^2 - c}{2at + b}, \quad 2\frac{at^2 + bt + ca}{(2at+b)^2} \d t \]
 
+\section{定积分的基本性质}
+
+\begin{theorem}[积分第一中值定理]
+	设 $f$ 在 $[a,b]$ 上可积且连续，则存在 $\xi \in [a, b]$ 使得
+	\[ \int_{a}^{b} f(x) \d x = f(\xi) (b-a) \]
+\end{theorem}
+
+\begin{proof}
+	设 $m, M$ 分别是 $f$ 在 $[a,b]$ 上的最小值和最大值，显然存在 $\mu \in [m, M]$ 使得
+	\[ m \leqslant \mu = \frac{1}{b-a}\int_{a}^{b} f(x) \d x \leqslant M \]
+	由连续性显然存在 $f(\xi) = \mu$。
+\end{proof}
+
+\begin{theorem}[广义积分第一中值定理]
+	假设 $f, g$ 在 $[a, b]$ 上可积且连续，在 $[a,b]$ 上恒有 $g \geqslant 0$ 或 $g \leqslant 0$，则存在 $\xi \in [a,b]$ 使得
+	\[ \int_{a}^{b} f(x)g(x) \d x = f(\xi) \int_{a}^{b} g(x) \d x \]
+\end{theorem}
+
+\begin{proof}
+	不妨令 $g \geqslant 0$。设 $m, M$ 为 $f$ 在 $[a, b]$ 上的最小值和最大值，如果
+	\[ \int_{a}^{b} g(x) \d x \neq 0 \]
+	则存在 $\mu \in [m, M]$ 使得
+	\[ m \leqslant \mu = \frac{ \int_{a}^{b} f(x)g(x) \d x}{\int_{a}^{b} g(x) \d x} \leqslant M \]
+	显然此时存在 $\xi = \mu$。假如积分为 $0$，则显然有 $g = 0$，任意 $\xi$ 都成立。
+\end{proof}
+
+\begin{theorem}[积分第二中值定理]
+	假设 $f, g$ 在 $[a,b]$ 上可积，且 $g \geqslant 0$。如果 $g$ 单调递减，则存在 $\xi \in [a, b]$ 满足
+	\[ \int_{a}^{b} f(x) g(x) \d x = g(a) \int_{a}^{\xi} f(x) \d x \]
+	如果 $g$ 单调递增，则存在 $\eta \in [a, b]$ 满足
+	\[ \int_{a}^{b} f(x) g(x) \d x = g(b) \int_{\eta}^{b} f(x) \d x \]
+\end{theorem}
+
+\subsection{变量替换法}
+
+\begin{theorem}
+	假设函数 $\varphi : [\alpha, \beta] \to [a, b]$ 连续可导，且 $\varphi(\alpha) = a, \varphi(\beta) = b$，则对任意的 $[a, b]$ 上的可积函数 $f$ 有 $f(\varphi(t))\varphi'(t)$ 可积，且
+	\[ \int_{a}^{b} f(x) \d x = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \d t \]
+	假如 $\varphi$ 严格单调，则有
+	\[ \int_{\varphi(\alpha)}^{\varphi(\beta)} f(x) \d x = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \d t \]
+
+\end{theorem}
+
+\section{反常积分}
+
+\begin{definition}
+	假设函数 $f : [a, \infty) \to \mathbb{R}$ 可积。如果极限存在，则记
+	\[ \int_{a}^{+\infty} f(x) \d x = \lim_{A \to +\infty} \int_{a}^{A} f(x) \d x \]
+	称为 $f$ 在 $[a, +\infty)$ 上的无穷积分或第一类反常积分。
+\end{definition}
+
+类似的我们可以定义 $(-\infty, a]$ 上的无穷积分。考虑函数 $f : (-\infty, +\infty) \to \mathbb{R}$，若对任意的 $c$ 下面的积分都收敛，则记
+\[ \int_{-\infty}^{+\infty} f(x) \d x = \int_{-\infty}^{c} f(x) \d x + \int_{c}^{+\infty}f(x) \d x \]
+当然，只要存在 $c$ 使得收敛，将对全体 $\mathbb{R}$ 收敛。
+
+一个常见的误区是认为
+\[ \lim_{A \to +\infty} \int_{-A}^{A} f(x) \d x \]
+收敛，则 $(-\infty, +\infty)$ 上的反常积分存在。反例是 $f = \sin x$。

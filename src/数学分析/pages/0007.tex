@@ -88,7 +88,7 @@
 注意到
 \[ \frac{\d u}{\d x} \cdot \ee^{\int_{x_0}^{x} p(t) \d t} = y' - p(x) y = q(x) \]
 可以得到 $y(x)$ 的解
-\[ y(x) = \ee^{\int_{x_0}^{x} p(t) \d t} \left(  \int \ee^{-\int p(x) \d x} q(x) \d x + C \right)
+\[ y(x) = \ee^{\int_{x_0}^{x} p(t) \d t} \left(  \int \ee^{-\int p(s) \d s} q(s) \d s + C \right)
 	= \ee^{P(x)} \left( \int \ee^{-P(x)} q(x) + C \right)  \]
 
 可以发现一个有趣的性质，非齐次方程的解可以由齐次形式下的解的“常数变易”得到。因此先考虑解齐次形式，再变易常数为函数 $c(x)$，这种解法记作常数变易法。
@@ -157,3 +157,20 @@
 \[ L[z] = \frac{\d^n y}{\d x^n} + b_{n-1} \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + b_{k} \frac{\d^k y}{\d x^k} = 0 \]
 可以观察出其 $k$ 个线性无关的解 $y = 1, x, x^2, \cdots, x^{k-1}$，故原方程的 $k$ 个解为
 \[ z = \ee^{\mu x}, x \ee^{\mu x}, \cdots, x^{k-1} \ee^{\mu x} \]
+
+\section{Gronwall 定理}
+
+考虑区间 $[a, b]$ 上的微分不等式
+\[ y'(x) + p(x) y(x) \leqslant f(x) \]
+令 $P(x)$ 为 $p(x)$ 的原函数，类似于普通微分方程的解法，有
+\[ \frac{\d }{\d x} \left(y(x) \ee^{P(x)}\right) = (y'(x) + p(x) y) \ee^{P(x)} \leqslant f(x) \ee^{P(x)} \]
+选取 $u \in [a, b]$，在 $[a, u]$ 上积分得到
+\[ y(u) \ee^{P(u)} - y(a) \leqslant \int_{a}^{u} f(s) \ee^{P(s)} \d s = \ee^{P(u)} \int_{a}^{u} f(s) \ee^{P(s) - P(u)} \d s  \]
+从而得到
+\[ y(x) \leqslant y(a) \ee^{-P(u)} + \int_{a}^{u} f(s) \ee^{P(s) - P(u)} \d s \]
+
+特殊的，令 $f \equiv 0$，有
+\[ y(x) \leqslant y(a) \ee^{-P(x)} \]
+如果 $y_1, y_2$ 满足如下微分不等式
+\[ y_1' + p(x) y_1 \leqslant y_2' + p(x) y_2, \quad y_1(a) = y_2(a) \]
+则一定 $y_1 \equiv y_2$。

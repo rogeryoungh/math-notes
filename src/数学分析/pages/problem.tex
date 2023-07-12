@@ -124,7 +124,14 @@
 \end{problem}
 
 \begin{solution}
-	TODO。
+	由于连续，即存在 $x_0 \in (0, 1)$ 使得 $f(x_0) = \frac{1}{2}$。由中值定理，存在 $\xi_1 \in (0, x_0)$ 使得
+	\[ f'(\xi_1) = \frac{f(x_0) - f(0)}{x_0 - 0} = \frac{1}{2x_0}
+	\]
+	同理，存在 $\xi_2 \in (x_0, 1)$ 使得
+	\[ f'(\xi_2) = \frac{f(1) - f(x_0)}{1 - x_0} = \frac{1}{2(1 -x_0)} \]
+	故
+	\[ \frac{1}{f'(\xi_1)} + \frac{1}{f'(\xi_2)} = 2x_0 + 2(1 - x_0) = 2 \]
+
 \end{solution}
 
 \begin{problem}[000011]
@@ -298,6 +305,81 @@ A. $xf(x) > af(a)$，B. $bf(b) > x f(x)$，C. $xf(a) > af(x)$，D. $xf(b) > bf(x
 	\[ f(x) = \int_{1}^{0} \ee^{-(xt)^2} \d (xt) = -\int_{0}^{1} \ee^{-x^2} \d x  \]
 	剩下的比较直观，就不写了。
 \end{solution}
+
+\begin{problem}[000023]
+设函数 $f$ 在 $[0, 1]$ 上二阶可导，且 $\int_{0}^{1} f(x) \d x = 0$，则
+
+A. 当 $f'(x) < 0$ 时，$f(\frac{1}{2}) < 0$。
+B. 当 $f''(x) < 0$ 时，$f(\frac{1}{2}) < 0$。
+
+C. 当 $f'(x) > 0$ 时，$f(\frac{1}{2}) < 0$。
+D. 当 $f''(x) > 0$ 时，$f(\frac{1}{2}) < 0$。
+\end{problem}
+
+\begin{solution}
+	答案 D。考虑原函数 $F(x)$ 的 Lagrange 余项 Taylor 公式，令 $x_0 = \frac{1}{2}$，即存在 $\xi \in (0, 1)$ 使得
+	\[ F(x) = F(x_0) + F'(x_0)(x-x_0) + \frac{F''(x_0)}{2}(x-x_0)^2 + \frac{F'''(\xi)}{6}(x-x_0)^3 \]
+	注意到 $F(0) = F(1)$，带入即
+	\[ 4 F'(x_0) + F'''(x_0) = 0 \]
+	故 $f''(x) f(\frac{1}{2}) < 0$。
+\end{solution}
+
+
+\begin{problem}[000024]
+设函数 $f$ 在 $[-2, 2]$ 上二阶可导，且 $|f| \leqslant 1$。又
+\[ \frac{1}{2}[f'(0)]^2 + [f(0)]^3 > \frac{3}{2} \]
+证明：存在 $\xi \in (-2,2)$，使得 $f''(\xi) + 3[f(\xi)]^2 = 0$。
+\end{problem}
+
+\begin{solution}
+	构造
+	\[ F(x) = \frac{1}{2}[f'(x)]^2 + [f(x)]^3,\quad F'(x) = f'(x)(f''(x) + 3f(x)) \]
+	下面只需证存在 $\xi$ 使得 $F'(\xi) = 0$ 且 $f'(\xi) \neq 0$ 即可。注意到存在 $\eta_1 \in (0, 2)$ 使得
+	\[ |f'(\eta_1)| = \frac{|f(2) - f(0)|}{2 - 0} \leqslant 1 \]
+	故
+	\[ F(\eta_1) \leqslant \frac{1}{2} + 1 = \frac{3}{2} \]
+	同理存在 $\eta_2 \in (-2, 0)$ 使得 $F(\eta_2) \leqslant \frac{3}{2}$。又 $F(0) \geqslant \frac{3}{2}$，故存在最大值 $\xi \in (\eta_1, \eta_2)$，且由 Fermat 定理知 $F'(\xi) = 0$。此时 $F(\xi) > \frac{3}{2}$，故 $f'(\xi) \neq 0$。
+\end{solution}
+
+
+\begin{problem}[000025]
+设
+\[ f(x) = \int_{0}^{x} \ee^{t^2} \d x, \quad x > 0 \]
+
+（1） 证明：对于任意的 $x$ 存在唯一的 $\theta_x \in (0, 1)$ 使得 $f(x) = x f'(x \cdot \theta_x)$。
+
+（2）求 $\lim\limits_{x \to 0^+} \theta_x$。
+\end{problem}
+
+\begin{solution}
+	（1）不妨将定义域延伸至 $f(0) = 0$。由中值定理知存在 $\xi \in (0, x)$ 使得
+	\[ \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x} = f'(\xi) \]
+	又 $f'(x) = \ee^{x^2} > 0$，故 $\xi$ 唯一，即 $\theta_x = \frac{\xi}{x} \in (0, 1)$。
+
+	（2）容易解得
+	\[ \theta_x = \frac{1}{x} \sqrt{\ln \frac{f(x)}{x}} \]
+	故极限为
+	\[ \lim_{x \to 0^+} \theta_x = \lim_{x \to 0^+} \sqrt{\frac{f(x) - x}{x^3}} = \frac{\sqrt{3}}{3} \]
+\end{solution}
+
+\begin{problem}[000026]
+已知 $f(x)$ 是二阶可导的正值函数，且 $f(0) = f'(0) = 1$ 并
+\[ f(x) f''(x) \geqslant [f'(x)]^2 \]
+那么
+
+A. $f(2) \leqslant \ee^2 \leqslant \sqrt{f(1)f(3)}$。B. $\ee^2 \leqslant f(2) \leqslant \sqrt{f(1)f(3)}$。
+
+C. $\sqrt{f(1)f(3)} \leqslant \ee^2 \leqslant f(2)$。D. $\sqrt{f(1)f(3)} \leqslant f(2) \leqslant \ee^2$。
+\end{problem}
+
+\begin{solution}
+	答案是 B。注意到我们应该对 $\frac{f'}{f}$ 进行改造，构造
+	\[ g(x) = \ln f(x) - x \]
+	即
+	\[ g'(x) = \frac{f'(x)}{f(x)} - 1, \quad g''(x) = \frac{f(x) f''(x) - [f'(x)]^2}{f^2(x)} \geqslant 0 \]
+	故 $g'(x) \geqslant g'(0) = 0$，故 $g(x) \geqslant 0$，即 $f(x) \geqslant \ee^x$。注意到凹凸性，由 Jensen 不等式即可比大小。
+\end{solution}
+
 
 \section{积分}
 

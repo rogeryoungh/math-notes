@@ -410,3 +410,42 @@ C. $\sqrt{f(1)f(3)} \leqslant \ee^2 \leqslant f(2)$。D. $\sqrt{f(1)f(3)} \leqsl
 \begin{solution}
 	\[ LHS =  \ln |x + \sqrt{x^2+a}| + C \]
 \end{solution}
+
+
+\begin{problem}[000027]
+已知 $a > 0$，则对于反常积分
+\[ I = \int_{0}^{1} \frac{\ln x}{x^a} \d x \]
+的敛散性的判别，下列正确的是
+
+A. 当 $a > 1$ 时 $I$ 收敛。B. 当 $a < 1$ 时 $I$ 收敛。
+
+C. 敛散性和 $a$ 的取值无关，必收敛。D. 敛散性与 $a$ 的取值无关，必发散。
+\end{problem}
+\begin{solution}
+	当 $a < 1$ 时，注意到
+	\[ f'(x) = \frac{1 - a \ln x}{x^{a+1}} \]
+	故 $|f(x)| \leqslant |f(\ee^{1/a})|$，有界故收敛。当 $a \geqslant 1$ 时，考虑与 $x^{-a}$ 进行比较，注意到当 $0 < x < \frac{1}{\ee}$ 时有 $f(x) < -\frac{1}{x^a}$，故 $I$ 发散。
+\end{solution}
+
+\begin{problem}[000028]
+设 $p$ 为常数，若反常积分
+\[ I = \int_{0}^{1} \frac{\ln x}{x^p(1-x)^{1-p}} \d x \]
+收敛，求 $p$ 的取值范围。
+\end{problem}
+\begin{solution}
+	答案是 $(-1,1)$。考虑划分成两部分
+	\[ I = \int_{0}^{\frac{1}{2}} \frac{\ln x}{x^p(1-x)^{1-p}} \d x + \int_{\frac{1}{2}}^{1} \frac{\ln x}{x^p(1-x)^{1-p}} \d x = I_1 + I_2 \]
+	分别对 $x \to 0$ 和 $x \to 1$ 讨论即可，有点麻烦。
+\end{solution}
+
+\begin{problem}[000029]
+已知
+\[ b = \int_{1}^{+\infty} \left(\frac{2x^3 + ax + 1}{x(x+2)} - (2x-4)\right) \d x \]
+其中 $a,b$ 为常数，求 $ab$。
+\end{problem}
+\begin{solution}
+	答案是 $-4 \ln 3$。注意到
+	\[ b = \int_{1}^{+\infty} \frac{(a+8)x+1}{x(x+2)} \d x= \int_{1}^{+\infty} \left(\frac{1}{2x} - \frac{2a+15}{2(x+2)}\right) \d x \]
+	讨论一下，就知道 $a = -8, b = \frac{\ln 3}{2} $。
+\end{solution}
+

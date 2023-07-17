@@ -1,1 +1,228 @@
 \chapter{多变量理论}
+
+\section{多变量极限}
+
+我们回忆一下 $n$ 维 Euclidean 空间
+\[ \mathbb{R}^n = \{\vbf{x} = (x_1, \cdots, x_n) \mid x_i \in \mathbb{R} \} \]
+其中的元素我们记为 $n$ 维向量（vector）。在其上我们定义向量内积的概念
+\[ \vbf{x} \cdot \vbf{y} = \langle \vbf{x}, \vbf{y} \rangle= \sum_{i=1}^{n} x_i y_i \]
+向量内积具有线性性。并满足 Schwarz 不等式：
+\[ (\vbf{x} \cdot \vbf{y})^2 \leqslant (\vbf{x} \cdot \vbf{x})(\vbf{y} \cdot \vbf{y}) \]
+
+我们定义一个向量的范数（norm）为
+\[ |\vbf{x}| = \sqrt{\vbf{x} \cdot \vbf{x}} = \sqrt{\sum_{i=1}^{n} |x_i|^2}  \]
+从而有三角不等式
+\[ |\vbf{x} + \vbf{y}| +\leqslant |\vbf{x}| + |\vbf{y}| \]
+事实上还存在一些其他范数，比如 $p$ - 范数
+\[ |\vbf{x}|_p = \sqrt[p]{\sum_{i=1}^{n} |x_i|^p}  \]
+和 $\infty$ - 范数
+\[ |\vbf{x}|_\infty = \max_{i=1}^{n} |x_i|  \]
+
+可以进一步的定义向量的夹角
+\[ \theta_{\vbf{x}, \vbf{y}} = \arccos\frac{\vbf{x} \cdot \vbf{y}}{|\vbf{x}||\vbf{y}|} \]
+和距离
+\[ d(\vbf{x}, \vbf{y}) = |\vbf{x}-\vbf{y}| \]
+从而构建出度量空间。
+
+我们可以定义球邻域
+\[ \mathbb{B}^n(\vbf{x}, r) = \{ \vbf{y} \mid |\vbf{y}-\vbf{x}| < r \} \]
+和方邻域
+\[ \mathbb{O}^n(\vbf{a}, r) = \{ \vbf{x} \mid |x_i - a_i| < r, 1 \leqslant i \leqslant n \} \]
+由于
+\[ \mathbb{B}^n(\vbf{a}, r) \subset \mathbb{O}^n(\vbf{a}, r) \subset \mathbb{B}^n(\vbf{a}, r\sqrt{n})  \]
+我们可以不加区分的统称为邻域，记作 $U(\vbf{a}, r)$。
+
+\begin{definition}
+	设 $\{\vbf{x}_i\}$ 是 $\mathbb{R}^n$ 中的点列。如果存在 $M > 0$ 使得 $\vbf{x}_i \in \mathbb{B}^n(\vbf{0}, M)$，则称其为有界的。如果对任意 $\eps > 0$ 都存在正整数 $I$ 使得当 $i > I$ 时满足
+	\[ |\vbf{i} - \vbf{x}| < \eps \]
+	成立，即 $\vbf{x} \in \mathbb{B}^n(\vbf{x}, \eps)$，则记
+	\[ \lim_{i \to \infty} \vbf{x}_i = \vbf{x} \]
+	假如不收敛到任何点，则称其为发散的。
+\end{definition}
+
+考虑到考研对多元部分的考察并不深入，将实数上的连续性搬到多元空间上是自然的，可以信赖直觉。
+
+\begin{definition}
+	设 $D \subset \mathbb{R}^n$，且 $\vbf{a} \in D'$ 是 $D$ 的聚点，如果对任意 $\eps > 0$ 存在 $\delta > 0$ 使得当 $\vbf{x} \in U^{\circ}(\vbf{a}, \delta) \cap D$ 有
+	\[ |f(\vbf{x} - A)| < \eps \]
+	成立，则称 $f(\vbf{x})$ 在 $D$ 上当 $\vbf{x} \to \vbf{a}$ 时以 $A$ 为极限，或者称为 $n$ 重极限，记作
+	\[ \lim_{\vbf{x} \to \vbf{a}} f(\vbf{x}) = A \]
+\end{definition}
+
+实数上极限的唯一性、有界性等性质也可以搬过来。但是有一些复杂的情况，比如
+\[ \lim_{(x, y) \to \vbf{0}} \frac{y}{x} \]
+我们沿着 $y = kx$ 趋于 $\vbf{0}$，得到是 $k$ 不是定值，说明极限不存在。
+
+\begin{definition}
+	设 $D = D_1 \times D_2 \subset \mathbb{R}$，$x_0, y_0$ 分别是 $D_1, D_2$ 的聚点。如果对每个固定的 $y \in D_2$ 且 $y \neq y_0$ 作为 $x$ 的一元函数，极限
+	\[ \lim_{x \to x_0} f(x, y) \]
+	存在且极限
+	\[ \lim_{y \to y_0} \lim_{x \to x_0} f(x, y) \]
+	也存在，则称后者为 $f$ 在 $(x_0, y_0)$ 点先对 $x$ 后对 $y$ 的累次极限。
+\end{definition}
+
+\section{多变量导数}
+
+回顾一下一元函数 $f(x)$ 在 $a$ 处的微分
+\[ f(a + \Delta x) - f(a) = f'(a) \Delta x + o(|\Delta x|) \]
+根据无穷小的定义得到
+\[ \lim_{\Delta x \to 0} \frac{f(a + \Delta x) - f(a) - f'(a) \Delta x}{|\Delta x|} = 0 \]
+
+\begin{definition}
+	设 $n$ 元函数 $f(\vbf{x})$ 在 $\vbf{a}$ 的邻域内有定义，若存在 $n$ 维向量 $\vbf{b}$ 使得
+	\[ \lim_{\Delta \vbf{x} \to 0} \frac{f(\vbf{a} + \Delta \vbf{x}) - f(\vbf{a}) - \vbf{b} \cdot \Delta \vbf{x}}{|\Delta \vbf{x}|} = 0 \]
+	成立，即
+	\[ f(\vbf{a} + \Delta \vbf{x}) - f(\vbf{a}) = \vbf{b} \cdot \Delta \vbf{x} + o(|\Delta x|) \]
+	则称 $f$ 在 $\vbf{a}$ 处可微或可导，向量 $\vbf{b}$ 为函数 $f$ 在 $\vbf{a}$ 处的导数，记为
+	\[ \vbf{b} = f'(\vbf{a}) = \nabla f(\vbf{a}) \]
+	并记微分为 $\d f = \vbf{b} \cdot \d \vbf{x}$。
+\end{definition}
+
+假如考虑对于固定点 $\vbf{a}$，考虑在 $x_i$ 方向上的极限
+\[ \lim_{\Delta x_i \to 0} \frac{f(a_1, \cdots, a_i + \Delta x_i, \cdots, a_n) - f(\vbf{a})}{\Delta x_i} \]
+若极限存在，则称 $f$ 在 $\vbf{a}$ 关于 $x_i$ 可偏导，记极限为 $f$ 在 $\vbf{a}$ 处关于 $x_i$ 的偏导数并记为
+\[ \frac{\partial f}{\partial x_i}(\vbf{a}) = f_{x_i}(\vbf{a}) \] 
+
+注意，偏导数存在不意味着可微。比如
+\[ f(x, y) = \frac{xy}{x^2 + y^2}, \quad f(\vbf{0}) = 0 \]
+此时 $f_x(\vbf{0}) = f_y(\vbf{0}) = 0$，但并不连续。
+
+\begin{theorem}
+	如果函数 $f$ 在 $\vbf{a}$ 处可微，则在 $\vbf{a}$ 处必存在偏导数且满足
+	\[ f'(\vbf{a}) = \left( f_{x_1}(\vbf{a}), \cdots, f_{x_n}(\vbf{a}) \right) \]
+	和
+	\[ \d f(\vbf{a}) = f'(\vbf{a}) \d \vbf{x} = \sum_{i=1}^n f_{x_i} \d x_i \]
+\end{theorem}
+
+\begin{proof}
+	由可微知存在 $\vbf{b}$ 使得
+	\[ f(\vbf{a} + \Delta \vbf{x}) - f(\vbf{a}) = \vbf{b} \cdot \Delta \vbf{x} + o(|\Delta \vbf{x}|) \]
+	此时我们可以取仅 $x_i$ 方向有值的无穷小，便可导出偏导。
+\end{proof}
+
+\begin{theorem}
+	如果 $f$ 在 $\vbf{a}$ 的某个邻域存在偏导数，且偏导数在 $\vbf{a}$ 点连续，则 $f$ 在 $\vbf{a}$ 处可微。
+\end{theorem}
+
+考虑一单位向量 $\vbf{\mu}$，如果极限
+\[ \frac{\partial f}{\partial \mu}(\vbf{x}_0) = \lim_{t \to 0+} \frac{f(\vbf{x}_0 + t \vbf{\mu}) - f(\vbf{x}_0)}{t} \]
+存在，则称函数 $f$ 在 $\vbf{x}_0$ 处沿着方向 $\vbf{\mu}$ 是方向可导的，并称该极限为函数 $f$ 在 $\vbf{x}_0$ 处沿着 $\vbf{\mu}$ 的方向导数。
+
+假如 $f$ 在 $\vbf{x}_0$ 处的偏导数存在，函数 $f$ 在 $\vbf{x}_0$ 处的梯度为
+\[ \grad_{\vbf{x}_0} f = \nabla_{\vbf{x}_0} f = \left( f_{x_1}(\vbf{x}_0), \cdots, f_{x_n}(\vbf{x}_n) \right) \]
+显然当函数 $f$ 可微时，$\nabla_{\vbf{x}_0} f = f'(\vbf{x}_0)$，且
+\[ \frac{\partial f}{\partial \vbf{\mu}} (\vbf{x}_0) = \nabla_{\vbf{x}_0} f \cdot \vbf{\mu} \]
+
+我们记其为 Nabla 算子，即
+\[ \nabla = \left( \frac{\partial}{\partial x_1}, \cdots, \frac{\partial}{\partial x_n} \right) \]
+和 Laplace 算子
+\[ \Delta = \nabla \cdot \nabla = \sum_{i=1}^{n} \frac{\partial^2}{(\partial x_i)^2} \]
+如果函数 $f$ 的所有二阶偏导存在且 $\Delta f = 0$，则称其为调和的。
+
+推广偏导数概念到二阶直至更高阶是自然的，但是微分算子是不可交换的。
+
+\begin{theorem}[Clairaut - Euler]
+	假设函数 $f$ 的混合二阶偏导数 $f_{x_i x_j}$ 和 $f_{x_j x_i}$ 在 $\vbf{x}_0$ 连续，则必有 $f_{x_i x_j}(\vbf{x}_0) = f_{x_j x_i}(\vbf{x}_0)$。
+\end{theorem}
+
+\section{偏导数的应用}
+
+\subsection{链式法则}
+
+我们以二元为例子，考虑二元二维向量值函数 $\vbf{g}(x, y) = (u(x, y), v(x, y))$，得到复合函数
+\[ z = (f \circ \vbf{g})(x, y) = f(u(x, y), v(x, y)) \]
+我们有链式法则
+\[ \begin{aligned}
+	\frac{\partial z}{\partial x}(x_0, y_0) = \frac{\partial f}{\partial u}(u_0, v_0) \frac{\partial u}{\partial x}(x_0, y_0) + \frac{\partial f}{\partial v}(u_0, v_0)\frac{\partial v}{\partial x}(x_0, y_0) \\
+	\frac{\partial z}{\partial y}(x_0, y_0) = \frac{\partial f}{\partial u}(u_0, v_0) \frac{\partial u}{\partial y}(x_0, y_0) + \frac{\partial f}{\partial v}(u_0, v_0)\frac{\partial v}{\partial y}(x_0, y_0)
+\end{aligned} \]
+
+\subsection{微分中值定理}
+
+如果对任意 $\vbf{x}_0, \vbf{x}_1 \in D$ 都有
+\[ \overline{\vbf{x}_0 \vbf{x}_1} = \{ (1-t)\vbf{x}_0 + t\vbf{x}_1 \mid t \in (0, 1) \} \subset D \]
+则称区域 $D \subset \mathbb{R}^n$ 是凸的。如果对 $\vbf{x}_0$ 有任意的 $\vbf{x}_1$ 都有 $\overline{\vbf{x}_0 \vbf{x}_1} \subset D$，称 $D \subset \mathbb{R}^n$ 是关于 $\vbf{x}_0$ 星形的。
+
+\begin{theorem}
+	若多元函数 $f$ 在凸区域 $D \subset \mathbb{R}^n$ 内可微，则对 $D$ 内的任意两点 $\vbf{x}_0$ 和 $\vbf{x}$，存在 $\theta \in (0, 1)$ 使得
+	\[ f(\vbf{x}) - f(\vbf{x}_0) = \nabla_{\vbf{x}_0 + \theta(\vbf{x} - \vbf{x}_0)}(f) \cdot (\vbf{x} - \vbf{x}_0) \]
+\end{theorem}
+
+类似的，我们可以把一元的 Taylor 各种公式扩展到多元。
+
+\subsection{切线与法平面}
+
+考虑空间中曲线的参数方程
+\[ \vbf{r}(t) = (x(t), y(t), z(t)), \quad t \in [a, b] \]
+如果 $\vbf{r}'(t)$ 连续且 $\vbf{r}'(t) \neq \vbf{0}$ 则称曲线是光滑的。
+
+固定点 $\vbf{P}_0 = (x_0, y_0, z_0)$，我们可以得到切向量
+\[ \vbf{r}'(t_0) = (x'(t_0), y'(t_0), z'(t_0)) \]
+和曲线在 $\vbf{P}_0$ 处的切线方程
+\[ \frac{x - x_0}{x'(t_0)} = \frac{y - y_0}{y'(t_0)} = \frac{z - z_0}{z'(t_0)} \]
+和曲线在 $\vbf{P}_0$ 处的法平面
+\[ x'(t_0)(x - x_0) + y'(t_0)(y - y_0) + z'(t_0)(z - z_0) = \vbf{r}'(t_0) \cdot (\vbf{p} - \vbf{P}_0) = 0 \]
+
+考虑曲面的方程
+\[ F(x, y, z) = 0 \]
+固定点 $\vbf{P}_0 = (x_0, y_0, z_0)$，得到切平面的法向量
+\[ \vbf{n} = (F_x(\vbf{P}_0), F_y(\vbf{P}_0), F_z(\vbf{P}_0)) \]
+从而得到切平面方程为
+\[ F_x(\vbf{P}_0)(x-x_0) + F_y(\vbf{P}_0)(y-y_0) + F_z(\vbf{P}_0)(z-z_0) = \nabla_{\vbf{P}_0}f \cdot (\vbf{p} - \vbf{P}_0) = 0 \]
+和法线方程
+\[ \frac{x - x_0}{F_x(t_0)} = \frac{y - y_0}{F_y(t_0)} = \frac{z - z_0}{F_z(t_0)} \]
+
+\section{极值问题}
+
+极值问题主要有两种：无条件极值和有条件极值。
+
+对于多元函数 $f$，若存在 $\vbf{x}_0$ 的邻域 $\mathbb{B}^n(\vbf{x}_0, \rho)$ 使得
+\[ f(\vbf{x}_0) \geqslant f(\vbf{x}) \]
+则称 $\vbf{x}_0$ 为 $f$ 的极大值点。类似的，有极小值点，统称为极值点。如果存在去心邻域 $\mathbb{B}^n(\vbf{x}_0, \rho) - \{\vbf{x}_0\}$ 使得
+\[ f(\vbf{x}_0) > f(\vbf{x}) \]
+则称为严格极大值点。类似的有严格极小值和严格极值点。
+
+\subsection{无条件极值}
+
+\begin{theorem}[多元函数 Fermat 引理]
+	假设 $n$ 元函数 $f$ 在 $\vbf{x}_0$ 处可偏导且 $\vbf{x}_0$ 为其极值点，则 $f'(\vbf{x}_0) = \vbf{0}$。
+\end{theorem}
+
+\begin{theorem}
+	假设 $\vbf{x}_0$ 为多元函数 $f$ 的驻点，并假设 $f$ 在 $\vbf{x}_0$ 处有二阶连续偏导数，引入 Hessian 矩阵
+	\[ \operatorname{Hess}_{\vbf{x}}(f) = [f_{x_i x_j}(\vbf{x})]_{n \times n} \]
+	则有如下结论：
+	\begin{itemize}
+		\item $\operatorname{Hess}_{\vbf{x}}(f)$ 正定，$f(\vbf{x}_0)$ 为严格极小值。
+		\item $\operatorname{Hess}_{\vbf{x}}(f)$ 负定，$f(\vbf{x}_0)$ 为严格极大值。
+		\item $\operatorname{Hess}_{\vbf{x}}(f)$ 不定，$f(\vbf{x}_0)$ 不是极值。
+	\end{itemize}
+\end{theorem}
+
+那么对于二元函数 $f$，设 $(x_0, y_0)$ 为其驻点，引入记号
+\[ \Delta(x_0, y_0) = (f_{xx} f_{yy} - f_{xy}^2)(x_0, y_0) \]
+则有如下结论：
+\begin{itemize}
+	\item 如果 $\Delta > 0$ 且 $f_xx > 0$，为严格极小值。
+	\item 如果 $\Delta > 0$ 且 $f_xx < 0$，为严格极大值。
+	\item 如果 $\Delta < 0$，不是极值。
+	\item 如果 $\Delta = 0$ 无法判断。
+\end{itemize}
+
+无法判断的例子有 $f_1 = x^2y^2, g = -f, h = x^2 y^3$，在 $0$ 处极值情况各不相同。
+
+因此我们求取最值可以通过以下几个步骤：
+
+\begin{itemize}
+	\item 求出驻点和不可导点和相应的函数值。
+	\item 求出边界上的函数值。
+	\item 比较 $1$ 和 $2$ 的情况。
+\end{itemize}
+
+\subsection{条件极值问题}
+
+Todo Lagrange 橙子法。
+
+\section{二重积分}
+
+

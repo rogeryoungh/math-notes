@@ -99,6 +99,22 @@
 \[ y^{-n} \frac{\d y}{\d x} = \frac{\d (y^{1-n})}{(1-n)\d x} = y^{1-n}p(x) + q(x) \]
 换元 $u = y^{1-n}$ 即可。
 
+\paragraph{Riccati 方程}
+形如
+\[ \frac{\d y}{\d x} + p(x) y + q(x)y^2 = r(x) \]
+的方程称为 Riccati 微分方程。设 $\phi(x)$ 是其一个特解，令 $u = y - \phi$，得到
+\[ \frac{\d u}{\d x} + (p + 2 \phi q) u + q u^2 = 0 \]
+即是一个 Bernoulli 方程。
+
+\paragraph{Euler 方程}
+形如
+\[ x^2 \frac{\d^2 y}{\d x^2} + p x \frac{\d y}{\d x} + q = r(x) \]
+当 $x > 0$ 时，令 $x = \ee^u$，则
+\[ \frac{\d y}{\d x} = \frac{\d y}{x \d u}, \quad \frac{\d^2 y}{\d x^2} = \frac{1}{x^2} \left( \frac{\d^2 y}{\d u^2} - \frac{\d y}{\d u} \right) \]
+因此方程化为
+\[ \frac{\d^2 y}{\d u^2} + (p-1) \frac{\d y}{\d u} + qy = r(\ee^u) \]
+
+
 \section{恰当微分方程}
 
 有时可以考虑答案是全微分的形式。设

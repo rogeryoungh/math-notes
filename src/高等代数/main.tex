@@ -1,4 +1,5 @@
 \documentclass{purebook}
+\usepackage{fixdif}
 
 \makeindex[
   columns=2,
@@ -14,38 +15,19 @@
 
 \begin{document}
 
-\newcommand{\mfrac}[2]{\dfrac{#1\smash[b]{\strut}}{#2\smash[t]{\strut}}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\QQ}{\mathbb{Q}}
-\newcommand{\CC}{\mathbb{C}}
 \newcommand{\ee}{\mathrm{e}}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\uppi}{\mathrm{\pi}}
 \newcommand{\transpose}[1]{{#1}^\mathsf{T}}
 \newcommand{\eps}{\varepsilon}
+\newcommand{\vbf}[1]{\boldsymbol{#1}}
 
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\diag}{\operatorname{diag}}
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\tr}{\operatorname{tr}}
-\renewcommand{\char}{\operatorname{char}}
-\newcommand{\codim}{\operatorname{codim}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\Ker}{\operatorname{Ker}}
-\newcommand{\rad}{\operatorname{rad}}
 
-\newcommand{\bfA}{\boldsymbol{A}}
-\newcommand{\bbA}{\mathbb{A}}
-\newcommand{\bfB}{\boldsymbol{B}}
-\newcommand{\bfI}{\boldsymbol{I}}
-\newcommand{\bfP}{\boldsymbol{P}}
-\newcommand{\bfeps}{\boldsymbol{\eps}}
-\newcommand{\vzero}{\boldsymbol{0}}
-
-\newcommand{\num}[1]{{\fzfs{（}}{\rm{#1}}{\fzfs{）}}}
-\newcommand{\ji}[2]{#1_1,\cdots,#1_#2}
+\newcommand{\seq}[2]{#1_1,\cdots,#1_#2}
 
 \frontmatter
 

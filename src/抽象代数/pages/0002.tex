@@ -2,18 +2,18 @@
 
 \section{置换}
 
-\newcommand\NNn{\NN_n^{+}}
+\newcommand{\NNn}{\mathbb{N}_n^{+}}
 
 为方便起见，本节简记集合 $\{1,\cdots,n\}$ 为 $\NNn$。
 
 \begin{definition}
-    设 $X$ 是一个集合，则 $X$ 中的一个表是指函数 $f:\NNn \to X$。若 $X$ 中的表 $f$ 是双射，则称 $f$ 为 $X$ 的一个排列。
+	设 $X$ 是一个集合，则 $X$ 中的一个表是指函数 $f:\NNn \to X$。若 $X$ 中的表 $f$ 是双射，则称 $f$ 为 $X$ 的一个排列。
 \end{definition}
 
 因此，$X$ 的排列是 $X$ 的所有元素组成的一个无重复的 $n$ 元组。显然 $n$ 元集恰有 $n^n$ 个表和 $n!$ 个排列。
 
 \begin{definition}[置换]
-    设 $X$ 是一个集合（可能是无限集），$X$ 的一个置换是指双射 $\alpha : X \to X$。
+	设 $X$ 是一个集合（可能是无限集），$X$ 的一个置换是指双射 $\alpha : X \to X$。
 \end{definition}
 
 给定一个有限集 $X$，$|X|=n$， 设 $\phi : \NNn \to X$ 是一个排列，若 $f : \NNn \to X$ 是 $X$ 的一个排列，则 $f \circ \phi^{-1} : X \to X$ 是 $X$ 的一个置换。反之，若 $\alpha : X \to X$ 是 $X$ 的一个置换，则 $\alpha \circ \phi : \NNn \to X$ 是 $X$ 的一个排列。
@@ -22,13 +22,13 @@
 
 若 $X = \NNn$，则我们可以使用一个二行记号来表示置换 $\alpha$：
 \[\alpha = \left(\begin{matrix}
-    1 & 2 & \cdots & j & \cdots & n\\
-    \alpha(1) & \alpha(2) & \cdots & \alpha(j) & \cdots & \alpha(n)
-\end{matrix}\right)\]
+			1         & 2         & \cdots & j         & \cdots & n          \\
+			\alpha(1) & \alpha(2) & \cdots & \alpha(j) & \cdots & \alpha(n)
+		\end{matrix}\right)\]
 其底行是排列 $\alpha(1) , \alpha(2) , \cdots , \alpha(n)$。
 
 \begin{definition}[对称群]
-    集合 $X$ 的所有置换构成的族，记为 $S_X$，称为 $X$ 上的对称群。当 $X = \NNn$ 时， $S_X$ 通常记为 $S_n$，并称为 $n$ 次对称群。
+	集合 $X$ 的所有置换构成的族，记为 $S_X$，称为 $X$ 上的对称群。当 $X = \NNn$ 时， $S_X$ 通常记为 $S_n$，并称为 $n$ 次对称群。
 \end{definition}
 
 注意到，有些置换是交换的，有些置换又不是交换的。

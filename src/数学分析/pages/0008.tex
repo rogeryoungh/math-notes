@@ -3,7 +3,7 @@
 \section{多变量极限}
 
 我们回忆一下 $n$ 维 Euclidean 空间
-\[ \mathbb{R}^n = \{\vbf{x} = (x_1, \cdots, x_n) \mid x_i \in \mathbb{R} \} \]
+\[ \mathbb{R}^n = \{\vbf{x} = (\seq{x}{n}) \mid x_i \in \mathbb{R} \} \]
 其中的元素我们记为 $n$ 维向量（vector）。在其上我们定义向量内积的概念
 \[ \vbf{x} \cdot \vbf{y} = \langle \vbf{x}, \vbf{y} \rangle= \sum_{i=1}^{n} x_i y_i \]
 向量内积具有线性性。并满足 Schwarz 不等式：
@@ -240,7 +240,7 @@ Todo Lagrange 橙子法。
 在每个子区域 $\Omega_i$ 上任取点 $\vbf{\xi}_i$ 并求和
 \[ V(f, \vbf{T}, \vbf{\xi}) = \sum_{i=1}^n f(\vbf{\xi}_i) |\Omega_i| \]
 若当 $\|\vbf{T}\| \to 0$ 时，$V(f, \vbf{T}, \vbf{\xi})$ 的极限存在且和分割 $\vbf{T}$ 及点 $\vbf{\xi}_i$ 的选取无关，则称函数 $f$ 在 $\Omega$ 上可积，并称该极限为函数 $f$ 在 $\Omega$ 上的 $n$ 重积分，记作
-\[ \iint_{\Omega} f \d V = \iint_{\Omega} f(\vbf{x}) \d \vbf{x} \d y = \int \cdots \int_{\Omega} f(x_1, \cdots, x_n) \d x_1 \cdots \d x_n \]
+\[ \iint_{\Omega} f \d V = \iint_{\Omega} f(\vbf{x}) \d \vbf{x} \d y = \int \cdots \int_{\Omega} f(\seq{x}{n}) \d x_1 \cdots \d x_n \]
 我们称 $f$ 是可积函数，$\Omega$ 是积分区域，$x, y$ 是积分变量，$\d V = \d x \d y$ 是面积元。
 
 \begin{definition}[Fubini 定理]

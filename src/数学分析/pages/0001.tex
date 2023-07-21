@@ -1,8 +1,3 @@
-%% \newcommand{\dom}{\operatorname{\mathbf{Dom}}}
-%% \newcommand{\im}{\operatorname{\mathbf{Im}}}
-%% \newcommand{\graph}{\operatorname{\mathbf{graph}}}
-%% \newcommand{\LIM}{\operatorname{{LIM}}}
-
 \chapter{实数集与函数}
 
 我初次用的书是华师的数分，现在发觉基础部分有相当多的细节。后参考自李逸的《基本分析讲义》。
@@ -37,7 +32,7 @@
 一般 $A \times B \ne B \times A$。同样可以推广到多个集合
 \[ \prod X_i \coloneqq  X_1 \times X_2 \times \cdots \times X_n = (X_1 \times \cdots \times X_{n-1}) \times X_n\]
 其元素 $x$ 是多层嵌套，我们可以简记为
-\[ x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (x_1,\cdots,x_n)\]
+\[ x = (\cdots(x_1,x_2),x_3),\cdots,x_n) = (\seq{x}{n})\]
 称 $x_i \coloneqq  \mathrm{pr}_i(x)$ 为 $x$ 的第 $i$ 个分量，$\mathrm{pr}$ 是投影映射。当所有 $X_i$ 都等于 $X$ 时，上述乘积记为 $X^n$。
 
 设 $C$ 和 $D$ 为两个给定的集合。
@@ -48,24 +43,24 @@
 
 赋值法则的定义域 Domain 和像域 Image Set 约定如下
 \[ \begin{aligned}
-		\dom(R) \coloneqq  \{c\in C \mid \exists d \in D, (c,d) \in R\} \\
-		\im(R) \coloneqq  \{d\in D \mid \exists c \in C, (c,d) \in R\}  \\
+		\operatorname{dom}(R) \coloneqq  \{c\in C \mid \exists d \in D, (c,d) \in R\} \\
+		\operatorname{Im}(R) \coloneqq  \{d\in D \mid \exists c \in C, (c,d) \in R\}  \\
 	\end{aligned} \]
 
 \begin{definition}
-	设 $R$ 为一个赋值法则，$B$ 为满足 $\im(R) \subseteq B$ 的一个集合，记二元对 $(R,B)$ 为一个映射，$B$ 称为值域。定义 $f$ 的定义域 $A$ 和像域为 $R$ 的定义域和像域。记作
+	设 $R$ 为一个赋值法则，$B$ 为满足 $\operatorname{Im}(R) \subseteq B$ 的一个集合，记二元对 $(R,B)$ 为一个映射，$B$ 称为值域。定义 $f$ 的定义域 $A$ 和像域为 $R$ 的定义域和像域。记作
 	\[ f:A\to B, a\mapsto f(a) \]
 \end{definition}
 
 称 $f$ 的图为
-\[ \graph(f) \coloneqq  \{(a,f(a)) \in A\times B \mid a \in A\}\]
+\[ \operatorname{graph}(f) \coloneqq  \{(a,f(a)) \in A\times B \mid a \in A\}\]
 
 对任意给定的 $A$ 的子集 $A_0$，定义 $f$ 在 $A_0$ 上的限制为映射
 \[ f \mid_{A_0} = f : A_0 \to B\]
 
 称映射 $f$ 和 $g$ 的复合为
 \[ g\circ f: A \to C, a \mapsto g(f(a))\]
-显然 $g \circ f$ 仅当 $\im(f) \subseteq \dom(g)$ 时有定义。$f\circ g$ 一般与 $g \circ f$ 不相等。
+显然 $g \circ f$ 仅当 $\operatorname{Im}(f) \subseteq \operatorname{dom}(g)$ 时有定义。$f\circ g$ 一般与 $g \circ f$ 不相等。
 
 \begin{itemize}
 	\item 若映射 $f$ 满足 $f(a_1) = f(a_2) \Rightarrow a_1,a_2$，称 $f$ 为单射。
@@ -572,7 +567,7 @@
 	（2） 乘法保序：如果 $x,y\in \mathbb{R}$，且 $x>0,y>0$，则 $xy>0$。
 \end{theorem}
 
-我们有理由相信，$\LIM(a_n)$ 符合我们对实数性质的一切想象，从而 $R = \mathbb{R}$。
+我们有理由相信，$R$ 符合我们对实数性质的一切想象，从而 $R = \mathbb{R}$。
 
 \begin{theorem}[Dedekind 原理]
 	设 $A$ 为 $\mathbb{R}$ 上的 Dedekind 分割，$A' = \complement_\mathbb{R} A$，对于任给的 $a\in A,a' \in A'$，存在 $r \in \mathbb{R}$ 使得 $a < r \leqslant a'$。
@@ -611,6 +606,8 @@
 \end{proof}
 
 \subsection{实数\ ·\ Cauchy 序列}
+
+\newcommand{\LIM}{\operatorname{{LIM}}}
 
 我们试图得到实数，是因为有理数还不足以表示所有的数，比如 $x^2=2$ 的解。得到实数和前面的方法有所不同，要复杂的多。
 
@@ -652,6 +649,8 @@
 
 可以验证
 \[ \LIM(a_n) = \lim_{n\to \infty} a_n\]
+
+\let\LIM\relax
 
 \subsection{复数}
 
@@ -706,9 +705,9 @@
 %满足关系式 $x\geqslant a$ 的全体实数 $x$ 的集合记作 $[a,+\infty)$，类似地，有 $(-\infty,a],(a,\infty),(-\infty,a)$。特殊地 $\mathbb{R} = (-\infty,+\infty)$。这几类区间统称为无限区间。
 %
 %设 $\delta > 0$，满足 $|x-a|<\delta$ 的 $x$ 的集合称为点 $a$ 的 $\delta$ 邻域，记作 $U(a;\delta)$，或简单的记作 $U(a)$，即有
-%$$U(a;\delta) = (a-\delta,a+\delta)\]
+%\[U(a;\delta) = (a-\delta,a+\delta)\]
 %点 $a$ 的空心 $\delta$ 邻域定义为
-%$$U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}\]
+%\[U^\circ (a;\delta) = \{x \mid 0<|x-a|<\delta\}\]
 %也可以简单的记作 $U^\circ(a)$。
 %
 %此外，常用的邻域还有：

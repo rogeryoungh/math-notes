@@ -103,12 +103,12 @@
 \end{proof}
 
 \begin{example}
-	如果 $a_1, \cdots, a_k > 0$，那么有
-	\[ \lim_{n \to \infty} \sqrt[n]{a_1^n + \cdots + a_k^n} = \max\{a_1, \cdots, a_k\} \]
+	如果 $\seq{a}{k} > 0$，那么有
+	\[ \lim_{n \to \infty} \sqrt[n]{a_1^n + \cdots + a_k^n} = \max\{\seq{a}{k}\} \]
 \end{example}
 
 \begin{proof}
-	不妨设 $a_1 = \max\{a_1, \cdots, a_k\}$，那么有
+	不妨设 $a_1 = \max\{\seq{a}{k}\}$，那么有
 	\[ a_1 < \sqrt[n]{a_1^n + \cdots + a_k^n} < \sqrt[n]{k a_1^n} \to a_1 \]
 	由夹逼原理知原式成立。
 \end{proof}
@@ -276,18 +276,18 @@ Stolz 定理主要是用来处理 $\infty/\infty$ 型和 $0/0$ 型极限，可�
 \[ a_n < a_{n+1},\quad b_n > b_{n+1} \]
 首先
 \[ \begin{aligned}
-	a_n &= \sum_{k=0}^{n} \binom{n}{k} \frac{1}{n^k} \\
-	&= 1 + \sum_{k=1}^n \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n}\right) \\
-	&< 1 + \sum_{k=1}^n \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n+1}\right) \\
-	&< 1 + \sum_{k=1}^{n+1} \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n+1}\right) = a_{n+1} \\
-\end{aligned} \]
+		a_n & = \sum_{k=0}^{n} \binom{n}{k} \frac{1}{n^k}                                                    \\
+		    & = 1 + \sum_{k=1}^n \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n}\right)                 \\
+		    & < 1 + \sum_{k=1}^n \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n+1}\right)               \\
+		    & < 1 + \sum_{k=1}^{n+1} \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n+1}\right) = a_{n+1} \\
+	\end{aligned} \]
 再借助 Bernoulli 不等式
 \[ \begin{aligned}
-	\frac{b_{n-1}}{b_n} &= \frac{\left(1 + \frac{1}{n-1}\right)^n}{\left(1 + \frac{1}{n}\right)^{n+1}} \\
-	&= \left(1+\frac{1}{n^2 - 1}\right)^n \frac{1}{1 + \frac{1}{n}} \\
-	&> \left(1+\frac{n}{n^2 - 1}\right) \frac{1}{1 + \frac{1}{n}} \\
-	&= 1 + \frac{1}{(n+1)^2(n-1)} > 1
-\end{aligned} \]
+		\frac{b_{n-1}}{b_n} & = \frac{\left(1 + \frac{1}{n-1}\right)^n}{\left(1 + \frac{1}{n}\right)^{n+1}} \\
+		                    & = \left(1+\frac{1}{n^2 - 1}\right)^n \frac{1}{1 + \frac{1}{n}}                \\
+		                    & > \left(1+\frac{n}{n^2 - 1}\right) \frac{1}{1 + \frac{1}{n}}                  \\
+		                    & = 1 + \frac{1}{(n+1)^2(n-1)} > 1
+	\end{aligned} \]
 
 注意到当 $n > 2$ 时
 \[ a_n \leqslant 1 + \sum_{k=1}^n \frac{1}{k!} = e_n \leqslant 2 + \sum_{k=2}^n \frac{1}{k(k-1)} = 3 - \frac{1}{n} < 3 \]
@@ -297,9 +297,9 @@ Stolz 定理主要是用来处理 $\infty/\infty$ 型和 $0/0$ 型极限，可�
 
 我们定义 $a_n$ 的极限为 $\ee$，下证 $e_n \to \ee$。注意到固定 $u$ 有
 \[ \begin{aligned}
-	a_n &= 1 + \sum_{k=1}^n \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n}\right) \\
-	&> 1 + \sum_{k=1}^u \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n}\right)
-\end{aligned} \]
+		a_n & = 1 + \sum_{k=1}^n \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n}\right) \\
+		    & > 1 + \sum_{k=1}^u \frac{1}{k!} \prod_{j=1}^{k-1} \left(1 - \frac{j}{n}\right)
+	\end{aligned} \]
 那么令 $n \to \infty$，有
 \[ e_k = \sum_{k=0}^u \frac{1}{k!}\leqslant a_n \to \ee \]
 故由夹逼定理知 $e_n \to \ee$。

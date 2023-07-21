@@ -1,5 +1,3 @@
-%% \newcommand{\mfrac}[2]{\frac{#1}{#2}}
-
 \chapter{函数极限}
 
 \section{函数极限的概念}
@@ -119,7 +117,7 @@
 
 无穷小量收敛于 $0$ 的速度有快有慢。设当 $x \to x_0$ 时，$f$ 与 $g$ 均为无穷小量。
 
-若 $\lim\limits_{x \to x_0}\mfrac{f(x)}{g(x)} = 0$，则称当 $x \to x_0$ 时 $f$ 为 $g$ 的高阶无穷小量，或称 $g$ 为 $f$ 的低阶无穷小量。
+若 $\lim\limits_{x \to x_0}\frac{f(x)}{g(x)} = 0$，则称当 $x \to x_0$ 时 $f$ 为 $g$ 的高阶无穷小量，或称 $g$ 为 $f$ 的低阶无穷小量。
 
 记作
 \[ f(x)=o(g(x))(x \to x_0) \]
@@ -132,7 +130,7 @@
 \[ \lim_{x \to x_0}\frac{f(x)}{g(x)} = c \ne 0 \]
 时，$f$ 与 $g$ 必为同阶无穷小量。
 
-若 $\lim\limits_{x \to x_0}\mfrac{f(x)}{g(x)} = 1$ 则称 $f$ 与 $g$ 是当 $x \to x_0$ 时的等价无穷小量。记作
+若 $\lim\limits_{x \to x_0}\frac{f(x)}{g(x)} = 1$ 则称 $f$ 与 $g$ 是当 $x \to x_0$ 时的等价无穷小量。记作
 \[ f(x) \sim g(x) (x \to x_0) \]
 
 注意并不是任何两个无穷小量都可以进行这种阶的比较。例如 $x \to 0$ 时，$x\sin\dfrac{1}{x}$ 和 $x^2$ 都是无穷小量，但它们的比都不是有界量。
@@ -169,23 +167,23 @@
 		              & = x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^{7}}{315} + \frac{67x^9}{2835} + O(x^{11})                                                    \\
 		\sqrt{x+1}    & = 1 + \sum_{k=1}^\infty \left(-\frac{1}{2}\right)^k (2k-1)!!x^k,(-1, +\infty)                                                                   \\
 		              & = 1 + \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256}   - \frac{21x^6}{1024}   +  O(x^{7})                       \\
-		\arcsin x     & = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5 x^7}{112} + \frac{35x^9}{1152}                                                + O(x^{11})       \\
-		\arctan x     & = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7}                                                     + \frac{x^9}{9}          + O(x^{11})
+		\arcsin x     & = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5 x^7}{112} + \frac{35x^9}{1152}												+ O(x^{11})                                           \\
+		\arctan x     & = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7}													 + \frac{x^9}{9}		  + O(x^{11})
 	\end{aligned}
 \]
 
 % \begin{equation*}
-%     \begin{aligned}
-%         \frac{x}{1-x} & = x + x^2 + x^3 + x^4 + x^5                                                      & + O(x^6)    \\
-%         \ln(1+x)      & = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5}              & + O(x^6)    \\
-%         \sin x        & = x - \frac{x^3}{6} + \frac{x^5}{120}                                            & + O(x^{7})  \\
-%         1- \cos x     & = \frac{x^2}{2} - \frac{x^4}{24}                                                 & + O(x^{6})  \\
-%         \ee^x-1       & = x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120}           & +  O(x^{6}) \\
-%         \tan x        & = x + \frac{x^3}{3} + \frac{2x^5}{15}                                            & + O(x^{7})  \\
-%         \sqrt{x+1}-1  & = \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256} & +  O(x^{6}) \\
-%         \arcsin x     & = x + \frac{x^3}{6} + \frac{3x^5}{40}                                            & + O(x^7)    \\
-%         \arctan x     & = x - \frac{x^3}{3} + \frac{x^5}{5}                                              & + O(x^7)
-%     \end{aligned}
+%	 \begin{aligned}
+%		 \frac{x}{1-x} & = x + x^2 + x^3 + x^4 + x^5													  & + O(x^6)	\\
+%		 \ln(1+x)	  & = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5}			  & + O(x^6)	\\
+%		 \sin x		& = x - \frac{x^3}{6} + \frac{x^5}{120}											& + O(x^{7})  \\
+%		 1- \cos x	 & = \frac{x^2}{2} - \frac{x^4}{24}												 & + O(x^{6})  \\
+%		 \ee^x-1	   & = x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120}		   & +  O(x^{6}) \\
+%		 \tan x		& = x + \frac{x^3}{3} + \frac{2x^5}{15}											& + O(x^{7})  \\
+%		 \sqrt{x+1}-1  & = \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256} & +  O(x^{6}) \\
+%		 \arcsin x	 & = x + \frac{x^3}{6} + \frac{3x^5}{40}											& + O(x^7)	\\
+%		 \arctan x	 & = x - \frac{x^3}{3} + \frac{x^5}{5}											  & + O(x^7)
+%	 \end{aligned}
 % \end{equation*}
 
 \section{函数的连续性}

@@ -408,23 +408,23 @@ C. $\sqrt{f(1)f(3)} \leqslant \ee^2 \leqslant f(2)$。D. $\sqrt{f(1)f(3)} \leqsl
 \end{solution}
 
 \begin{problem}[000032]
-	（1988 卷 I）设函数 $f$ 在区间 $[a, b]$ 上连续，且在 $(a, b)$ 内有 $f'(x) > 0$。证明：在 $(a, b)$ 内存在唯一的 $\xi$，使得曲线 $y = f(x)$ 与两直线 $y = f(\xi), x = a$ 所围平面图形面积 $S_1$ 是曲线 $y = f(x)$ 与两直线 $y = f(\xi), x = b$ 所围平面图形 $S_2$ 的三倍。
+（1988 卷 I）设函数 $f$ 在区间 $[a, b]$ 上连续，且在 $(a, b)$ 内有 $f'(x) > 0$。证明：在 $(a, b)$ 内存在唯一的 $\xi$，使得曲线 $y = f(x)$ 与两直线 $y = f(\xi), x = a$ 所围平面图形面积 $S_1$ 是曲线 $y = f(x)$ 与两直线 $y = f(\xi), x = b$ 所围平面图形 $S_2$ 的三倍。
 \end{problem}
 
 \begin{solution}
 	考虑面积的函数
 	\[  \begin{aligned}
-		S_1(t) &= \int_{a}^{t} (f(t) - f(x)) \d x \\
-		S_2(t) &= \int_{t}^{b} (f(x) - f(t)) \d x
-	\end{aligned} \]
+			S_1(t) & = \int_{a}^{t} (f(t) - f(x)) \d x \\
+			S_2(t) & = \int_{t}^{b} (f(x) - f(t)) \d x
+		\end{aligned} \]
 	设 $F(t) = S_1(t) - 3S_2(t)$。注意到
 	\[ F(a) = -3S_2(a) < 0, \quad F(b) = S_1(b) > 0 \]
 	故至少存在一个 $\xi \in (a, b)$ 使得 $F(\xi) = 0$。再注意到
 	\[ \begin{aligned}
-		F'(t) 
-	&= \frac{\d}{\d t}\left( f(t)(3b - a - 2t) - \int_{a}^{t} f(x) \d x - 3 \int_{t}^{b} f(x) \d x \right) \\
-	&= f'(t) (3b - a - 2t) > 0
-	\end{aligned} \]
+			F'(t)
+			 & = \frac{\d}{\d t}\left( f(t)(3b - a - 2t) - \int_{a}^{t} f(x) \d x - 3 \int_{t}^{b} f(x) \d x \right) \\
+			 & = f'(t) (3b - a - 2t) > 0
+		\end{aligned} \]
 	故单调，即零点唯一。
 \end{solution}
 

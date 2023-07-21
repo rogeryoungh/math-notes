@@ -2,7 +2,7 @@
 
 注意我们的理论基础是整数，尽量通过分类讨论的方式得到结论。而且也要把握脉络，抓住重点，不要迷失于无谓的细节中。
 
-自然数 $\NN$ 、正整数 $\NN^+$ 和整数 $\ZZ$ 我们是熟知的。
+自然数 $\mathbb{N}$ 、正整数 $\mathbb{N}^+$ 和整数 $\mathbb{Z}$ 我们是熟知的。
 
 \section{整除}
 
@@ -20,7 +20,7 @@
 
 \begin{definition}
 	对于整数 $a,b$，其中 $a\ne 0$，若存在整数 $c$，它使得
-	$$b=ac$$
+	\[ b=ac \]
 	则 $b$ 叫做 $a$ 的倍数，$a$ 叫做 $b$ 的因数，记作 $a \mid b$。
 \end{definition}
 
@@ -30,7 +30,7 @@
 
 \begin{lemma}
 	如果对于整数 $a,b$ 满足 $a \mid b$，则有
-	$$(-a) \mid b,\quad a \mid (-b),\quad (-a) \mid (-b),\quad |a| \mid |b|$$
+	\[ (-a) \mid b,\quad a \mid (-b),\quad (-a) \mid (-b),\quad |a| \mid |b| \]
 \end{lemma}
 
 这个比较显然，由定义知存在 $c$ 使得 $b=ac$，再构造验证即可。
@@ -51,50 +51,50 @@
 
 \begin{proof}
 	因为 $|a| \mid |b|$，则存在整数 $c$ 使得 $|a|=|b|c$。那么有
-	$$0 \leqslant |a|=|b|c<|b|$$
+	\[ 0 \leqslant |a|=|b|c<|b| \]
 	即 $0\leqslant c<1$，又 $c$ 为整数，故 $c=a=0$。
 \end{proof}
 
 \begin{theorem}
 	对于整数 $a,b$，若 $b\ne 0$ 则一定存在唯一一对 $q,r$ 使得
-	$$a=bq+r,\quad 0 \leqslant r< |b|$$
+	\[ a=bq+r,\quad 0 \leqslant r< |b| \]
 \end{theorem}
 
 \begin{proof}
 	先证明存在性。
-	
+
 	（1） 若恰 $b \mid a$，则必存在 $c$ 使得 $a=bc$，此时有 $q=c,r=0$。
 
 	（2） 否则一定存在 $n$ 使得 $n|b|<a<(n+1)|b|$，即存在 $0<r<|b|$ 使得 $a=|b|n+r$。
-	
+
 	当 $b>0$ 时，令 $q=n$；当 $b<0$ 时，令 $q=-n$ 则有
-	$$a=bq+r,\quad 0 \leqslant r< |b|$$
+	\[ a=bq+r,\quad 0 \leqslant r< |b| \]
 
 	再证明唯一性。设存在两对 $q_1,r_1$ 和 $q_2,r_2$ 使得
-	$$a=bq_1+r_1=bq_2+r_2,\quad 0 \leqslant r_1,r_2< |b|$$
+	\[ a=bq_1+r_1=bq_2+r_2,\quad 0 \leqslant r_1,r_2< |b| \]
 	相减有
-	$$a-a=b(q_1-q_2)+r_1-r_2=0$$
+	\[ a-a=b(q_1-q_2)+r_1-r_2=0 \]
 	即 $r_1-r_2=-b(q_1-q_2)$，因此有 $b \mid (r_1-r_2)$。而 $|r_1-r_2|<|b|$，又引理知有 $|r_1-r_2|=0$。故
-	$$r_1=r_2,q_1=r_2$$
+	\[ r_1=r_2,q_1=r_2 \]
 	即两对相同。
 \end{proof}
 
 \begin{definition}[素数]
-    设整数 $p \ne 0,\pm 1$，若它除了 $\pm 1, \pm p$ 外没有其他的因数，则称 $p$ 是素数；否则称 $p$ 是合数。
+	设整数 $p \ne 0,\pm 1$，若它除了 $\pm 1, \pm p$ 外没有其他的因数，则称 $p$ 是素数；否则称 $p$ 是合数。
 \end{definition}
 
-我们讲到素数时，一般指正的。把素数的集合记作 $\PP$。
+我们讲到素数时，一般指正的。把素数的集合记作 $\mathbb{P}$。
 
 \begin{theorem}
-    若 $a$ 是合数，则必存在素数 $p$ 使得 $p \mid a$。
+	若 $a$ 是合数，则必存在素数 $p$ 使得 $p \mid a$。
 \end{theorem}
 
 此时称该素数为 $a$ 的素因数。
 
 \begin{theorem}
-    设整数 $a \geqslant 2$，那么 $a$ 一定可以分解为素数的乘积，即
-    \[ a = p_1p_2\cdots p_s \]
-    其中 $p_j \in \PP$。
+	设整数 $a \geqslant 2$，那么 $a$ 一定可以分解为素数的乘积，即
+	\[ a = p_1p_2\cdots p_s \]
+	其中 $p_j \in \mathbb{P}$。
 \end{theorem}
 
 OI 中，经常会求符合命题 $P(k)$ 的数 $k$ 有多少个，此时我们有记号 $[P(k)]$，当命题成立时其值为 $1$，命题为假时值为 $0$。
@@ -102,7 +102,7 @@ OI 中，经常会求符合命题 $P(k)$ 的数 $k$ 有多少个，此时我们�
 \subsection{公因数与公倍数}
 
 \begin{definition}[公因数]
-    设 $a_1,a_2$ 是两个整数，若 $d \mid a_1 $ 且 $ d \mid a_2$，则称 $d$ 是 $a_1,a_2$ 的公因数。一般的，若对于一组整数 $a_1,\cdots,a_k$，有 $d \mid a_i$，则称 $d$ 是 $a_1,\cdots,a_k$ 的公因数。
+	设 $a_1,a_2$ 是两个整数，若 $d \mid a_1 $ 且 $ d \mid a_2$，则称 $d$ 是 $a_1,a_2$ 的公因数。一般的，若对于一组整数 $\seq{a}{k}$，有 $d \mid a_i$，则称 $d$ 是 $\seq{a}{k}$ 的公因数。
 \end{definition}
 
 把 $a_1,a_2$ 的正的公因数中最大的，称作最大公因数，记作 $(a_1,a_2)$ 或 $\gcd(a_1,a_2)$。
@@ -110,13 +110,13 @@ OI 中，经常会求符合命题 $P(k)$ 的数 $k$ 有多少个，此时我们�
 由定义易知，若 $(a_1,a_2) = d$，则 $(a_1/d, a_2/d) = 1$。
 
 \begin{definition}[互素]
-    若 $(a_1,a_2) = 1$，则称 $a_1,a_2$ 是互素的。
+	若 $(a_1,a_2) = 1$，则称 $a_1,a_2$ 是互素的。
 \end{definition}
 
 类似的，对于多个数也类似的有最大公因数和互素等概念。
 
 \begin{definition}[公倍数]
-    设 $a_1,a_2$ 是两个整数，多 $a_1 \mid l$ 且 $a_2 \mid l$，则称 $l$ 是 $a_1,a_2$ 的公倍数。一般的，若对于一组整数 $a_1,\cdots,a_k$，有 $a_j \mid l$，则称 $l$ 是 $a_1,\cdots,a_k$ 的公倍数。
+	设 $a_1,a_2$ 是两个整数，多 $a_1 \mid l$ 且 $a_2 \mid l$，则称 $l$ 是 $a_1,a_2$ 的公倍数。一般的，若对于一组整数 $\seq{a}{k}$，有 $a_j \mid l$，则称 $l$ 是 $\seq{a}{k}$ 的公倍数。
 \end{definition}
 
 把 $a_1,a_2$ 的正的公倍数中最小的，称作最小公因数，记作 $[a_1,a_2]$ 或 $\lcm(a_1,a_2)$。
@@ -126,8 +126,8 @@ OI 中，经常会求符合命题 $P(k)$ 的数 $k$ 有多少个，此时我们�
 \subsection{带余除法}
 
 \begin{theorem}
-    设整数 $a,b$ 且 $a \ne 0$，则一定存在唯一的一对整数 $q,r$ 使得
-    \[ b = qa + r, 0 \leqslant r < |a| \]
+	设整数 $a,b$ 且 $a \ne 0$，则一定存在唯一的一对整数 $q,r$ 使得
+	\[ b = qa + r, 0 \leqslant r < |a| \]
 \end{theorem}
 
 更一般的，对于任意的 $d$ 总存在一对 $q,r$ 使得
@@ -136,7 +136,7 @@ OI 中，经常会求符合命题 $P(k)$ 的数 $k$ 有多少个，此时我们�
 当 $d = 0$ 时，称 $r$ 为最小非负余数，$d = 1$ 时称 $r$ 为最小正余数。计算机一般是 $d = 0$。
 
 \begin{lemma}
-    设 $a > 0$，则任意整数被 $a$ 除后所得的最小非负余数只可能是 $0,\cdots,a-1$ 中的一个。 
+	设 $a > 0$，则任意整数被 $a$ 除后所得的最小非负余数只可能是 $0,\cdots,a-1$ 中的一个。
 \end{lemma}
 
 于是我们可以按余数对整数进行分类。

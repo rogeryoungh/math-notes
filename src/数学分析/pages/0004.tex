@@ -1,26 +1,50 @@
-%% \newcommand{\mfrac}[2]{\frac{#1}{#2}}
+%% \newcommand{\frac}[2]{\frac{#1}{#2}}
 
 \chapter{导数理论}
 
 \section{导数的定义}
 
-\begin{definition}
-	设函数 $y=f(x)$ 在点 $x_0$ 的某邻域有定义，若极限
+\begin{definition}[微分]
+	设函数 $f$ 定义在某个邻域内 $U(x_0, r)$ 内，如果存在常数 $A$ 使得
+	\[ f(x) = f(x_0) + A(x - x_0) + o(x - x_0) \]
+	当 $x \to x_0$ 成立，则称 $f$ 在 $x_0$ 处可微。线性函数 $A(x-x_0)$ 称为 $f$ 在 $x_0$ 处的微分。
+\end{definition}
+
+我们记作 $\d y = \d f = A \d x$。
+
+\begin{definition}[导数]
+	设函数 $y=f(x)$ 在邻域 $U(x_0, r)$ 内有定义，若极限
 	\[ \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0} \]
 	存在，则称函数 $f$ 在点 $x_0$ 可导，并称该极限为函数 $f$ 在点 $x_0$ 的导数，记作 $f'(x_0)$。
 \end{definition}
 
 \begin{theorem}
-	若函数 $f$ 在点 $x_0$ 可导，则 $f$ 在点 $x_0$ 连续。
+	若函数 $f$ 在点 $x_0$ 可导，则 $f$ 在点 $x_0$ 连续，反之不然。
 \end{theorem}
 
-\begin{definition}
+显然一元函数的可微概念等价于可导。
+
+\begin{example}
+	考察
+	\[ f_n(x) = x^n \sin \frac{1}{x}, \quad f_n(0) = 0 \]
+	当 $n \geqslant 1$ 时，有
+	\[ \lim_{x \to 0} f_n(x) = \lim_{x \to 0} \left( x \sin \frac{1}{x} \right) x^{n-1} = 0  \]
+	当 $n \geqslant 2$ 时，有
+	\[ f_n'(0) = \lim_{\Delta x \to 0} \frac{f(0 + \Delta x) - f(0)}{\Delta x} = \lim_{\Delta x \to 0} f_{n-1}(\Delta x) = 0 \]
+	当 $n \geqslant 3$ 时，有
+	\[ f'(x) = x^{n-2}\left(n x\sin \frac{1}{x} - \cos \frac{1}{x}\right) \]
+	从而 $\lim\limits_{x \to 0} f'(x) = 0$。
+
+	因此，$f_1(x)$ 在 $\mathbb{R}$ 上连续，但在 $x=0$ 处不可导。$f_2(x)$ 连续且 $f_2'(0)$ 存在，但 $x=0$ 处导函数不连续。$f_3(x)$ 连续且导函数连续。
+\end{example}
+
+\begin{definition}[单侧导数]
 	设函数 $y=f(x)$ 在点 $x_0$ 的某右邻域 $[x_0,x_0+\delta)$ 上有定义，若右极限
 	\[ \lim_{\Delta x\to 0^+}\frac{\Delta y}{\Delta x} = \lim_{\Delta x\to 0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x},(0<\Delta x<\delta) \]
-	存在，则称该极限值为 $f$ 在点 $x_0$ 的右导数，记作 $f_+'(x)$。同理有左导数。
+	存在，则称该极限值为 $f$ 在点 $x_0$ 的右导数，记作 $f_+'(x)$。同理有左导数。左导数和右导数统称为单侧导数。
 \end{definition}
 
-左导数和右导数统称为单侧导数。
+
 
 \begin{theorem}
 	若函数 $y=f(x)$ 在点 $x_0$ 的某邻域上有定义，则 $f'(x_0)$ 存在的充要条件是 $f_-'(x)$ 与 $f_+'(x)$ 都存在且相等。
@@ -30,28 +54,12 @@
 
 这样就定义了一个在 $I$ 上的函数，称为导函数，简称为导数。记作 $f',y',\dfrac{\d y}{\d x}$，即
 
-$$f'(x) = \lim_{\Delta x \to 0}\frac{f(x+\Delta)-f(x)}{\Delta},x\in I$$
+\[ f'(x) = \lim_{\Delta x \to 0}\frac{f(x+\Delta)-f(x)}{\Delta},x\in I \]
 
-有时 $f'(x_0)$ 也可写作 $y'\mid_{x=x_0}$ 或 $\mfrac{\d y}{\d x}\mid_{x=x_0}$。
+有时 $f'(x_0)$ 也可写作 $y'\mid_{x=x_0}$ 或 $\frac{\d y}{\d x}\mid_{x=x_0}$。
 
 曲线 $y = f(x)$ 在点 $(x_0,y_0)$ 的切线方程是
-$$y-y_0 = f'(x_0)(x-x_0)$$
-
-\begin{definition}
-	若函数 $f$ 在点 $x_0$ 的某邻域 $U(x_0)$ 上对一切 $x\in U(x_0)$ 有
-	\[ f(x_0) \geqslant f(x) \]
-	则称 $f$ 在点 $x_0$ 取得极大值，称点 $x_0$ 为极大值点。同理有极小值点。
-\end{definition}
-
-极大值、极小值统称为极值，极大值点、极小值点统称为极值点。
-
-\begin{theorem}[Fermat 定理]
-	设函数 $f$ 在点 $x_0$ 的某邻域上有定义，且在点 $x_0$ 可导。若点 $x_0$ 为极值点，则必有 $f'(x_0)=0$。
-\end{theorem}
-
-\begin{proof}
-	不妨设 $x_0$ 为 $f$ 的极小值点，
-\end{proof}
+\[ y-y_0 = f'(x_0)(x-x_0) \]
 
 \section{求导法则}
 
@@ -60,8 +68,10 @@ $$y-y_0 = f'(x_0)(x-x_0)$$
 	\[ f'(x_0) = u'(x_0)\pm v'(x_0) \]
 	函数 $f(x)=u(x)v(x)$ 在点 $x_0$ 也可导，且
 	\[ f'(x_0) = u'(x_0)v'(x_0) \]
-	若 $v(x)\ne 0$，则函数 $f(x)=\dfrac{u(x)}{v(x)}$ 在点 $x_0$ 也可导，且
+	若 $v(x)\ne 0$，则函数 $f(x)=\frac{u(x)}{v(x)}$ 在点 $x_0$ 也可导，且
 	\[ f'(x_0) = \frac{u'(x_0)v(x_0)-u(x_0)v'(x_0)}{v(x_0)^2} \]
+	特别的，当 $f(x) = \frac{1}{v(x)}$ 时，有
+	\[ f'(x_0) = -\frac{v'(x_0)}{v(x_0)^2} \]
 \end{theorem}
 
 \begin{theorem}
@@ -100,16 +110,39 @@ $$y-y_0 = f'(x_0)(x-x_0)$$
 
 7. $(\log_a|x|)'=\dfrac{1}{x\ln a}(a>0\text{且}a\ne 1)$
 
-\section{单调性与导数}
+\section{极值定理}
 
-\begin{theorem}
-	设 $f$ 在区间 $I$ 上可导，则 $f(x)$ 在 $I$ 上递增（减） 的充要条件时
-	\[ f'(x) \geqslant 0(\leqslant 0) \]
+若函数 $f$ 在点 $x_0$ 的某邻域 $U(x_0)$ 上对一切 $x\in U(x_0)$ 有
+\[ f(x_0) \geqslant f(x) \]
+则称 $f$ 在点 $x_0$ 取得极大值，称点 $x_0$ 为极大值点。同理有极小值点。极大值、极小值统称为极值，极大值点、极小值点统称为极值点。
+
+显然极值点不一定是最值点，但假如最值点在定义域内部，则必是极值点。
+
+\begin{theorem}[Fermat 定理]
+	设函数 $f$ 在点 $x_0$ 的某邻域上有定义，且在点 $x_0$ 可导。若点 $x_0$ 为极值点，则必有 $f'(x_0)=0$。
 \end{theorem}
 
-\begin{theorem}[介值定理]
-	设 $f$ 为 $[a,b]$ 上的连续函数，$\mu$ 时严格介于 $f(a)$ 和 $f(b)$ 之间的数，则存在 $\xi\in (a,b)$，使得 $f(\xi)=\mu$。
+\begin{proof}
+	不妨设 $x_0$ 为 $f$ 的极小值点，则存在邻域 $U(x_0, \delta)$ 且满足不等式 $f(x) \leqslant f(x_0)$，那么
+	\[ \frac{f(x) - f(x_0)}{x - x_0} \geqslant 0, \quad x \in (x_0 - \delta, x_0) \qquad
+		\frac{f(x) - f(x_0)}{x - x_0} \leqslant 0, \quad x \in (x_0, x_0 + \delta) \]
+	从而
+	\[ 0 \leqslant f_+'(x_0) = f'(x_0) = f_-'(x_0) \leqslant 0 \]
+	故 $f'(x_0) = 0$。
+\end{proof}
+
+如果 $f'(x_0) = 0$，我们称为驻点。极值点不一定是驻点，比如 $y = |x|$，需要导数存在，反之驻点不一定是极值点，如 $y = x^3$。
+
+\begin{theorem}[Darboux 定理]
+	稼穑和 $f$ 在 $(a, b)$ 上存在导数，且存在相异的两点使得 $f'(x_1)f'(x_2) < 0$，则存在 $\xi \in (x_1, x_2)$ 使得 $f'(\xi) = 0$。
 \end{theorem}
+
+\begin{proof}
+	注意该定理并未要求导数连续，无法使用介值定理。不妨设 $f'(x_1) < 0$ 且 $f'(x_2) > 0$，取 $f(\xi) = \min_{[x_1, x_2]} f$。取两个邻域
+	\[ \frac{f(x) - f(x_1)}{x - x_1} < 0, \quad x \in U(x_1, \delta) \qquad
+		\frac{f(x) - f(x_2)}{x - x_2} \leqslant 0, \quad x \in U(x_2, \delta) \]
+	因此存在 $x_1 < x_3 < x_4 < x_2$ 使得 $f(x_3) < f(x_1)$ 和 $f(x_4) < f(x_2)$。故 $\xi$ 在开区间 $(x_1, x_2)$ 内，因此 $\xi$ 为 $f$ 的极值点，由 Fermat 定理知 $f'(\xi) = 0$。
+\end{proof}
 
 \section{曲率}
 

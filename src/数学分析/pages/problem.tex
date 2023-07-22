@@ -305,33 +305,6 @@
 	故矛盾，因此实根唯一。
 \end{solution}
 
-\begin{problem}[000022]
-设函数
-\[ f(x) = x \int_{1}^{0} \ee^{-x^2t^2} \d t \]
-则当 $0<a<x<b$ 时有：
-
-A. $xf(x) > af(a)$，B. $bf(b) > x f(x)$，C. $xf(a) > af(x)$，D. $xf(b) > bf(x)$。
-\end{problem}
-
-\begin{solution}
-	答案 D。首先积分换元
-	\[ f(x) = \int_{1}^{0} \ee^{-(xt)^2} \d (xt) = -\int_{0}^{1} \ee^{-x^2} \d x  \]
-	剩下的比较直观，就不写了。
-\end{solution}
-
-\begin{problem}[000022]
-设函数
-\[ f(x) = x \int_{1}^{0} \ee^{-x^2t^2} \d t \]
-则当 $0<a<x<b$ 时有：
-
-A. $xf(x) > af(a)$，B. $bf(b) > x f(x)$，C. $xf(a) > af(x)$，D. $xf(b) > bf(x)$。
-\end{problem}
-
-\begin{solution}
-	答案 D。首先积分换元
-	\[ f(x) = \int_{1}^{0} \ee^{-(xt)^2} \d (xt) = -\int_{0}^{1} \ee^{-x^2} \d x  \]
-	剩下的比较直观，就不写了。
-\end{solution}
 
 \begin{problem}[000023]
 设函数 $f$ 在 $[0, 1]$ 上二阶可导，且 $\int_{0}^{1} f(x) \d x = 0$，则
@@ -428,6 +401,152 @@ C. $\sqrt{f(1)f(3)} \leqslant \ee^2 \leqslant f(2)$。D. $\sqrt{f(1)f(3)} \leqsl
 	故单调，即零点唯一。
 \end{solution}
 
+\begin{problem}[000033]
+如果 $f$ 在 $[a, b]$ 上导数连续，那么存在 $\xi \in (a, b)$ 满足
+\[ \frac{af(b) - bf(a)}{a - b} = f(\xi) - \xi f'(\xi) \]
+\end{problem}
+
+\begin{solution}
+	注意到
+	\[ LHS = \frac{\frac{f(b)}{b} - \frac{f(a)}{a}}{\frac{1}{b} - \frac{1}{a}} \]
+	取 $F(x) = \frac{f(x)}{x}, G(x) = \frac{1}{x}$，套 Cauchy 定理即可。
+\end{solution}
+
+\begin{problem}[000034]
+如果 $f$ 在 $[a, b]$ 上导数连续且不是线型函数，那么存在 $\xi \in (a, b)$ 满足
+\[ |f'(\xi)| \geqslant \left| \frac{f(b) - f(a)}{b - a} \right| \]
+\end{problem}
+
+\begin{solution}
+	设
+	\[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b - a}(x - a), \quad F'(x) = f'(x) - \frac{f(b) - f(a)}{b - a} \]
+	由非线性性知存在 $F(c) \neq 0$，不妨设 $F(c) > 0$，存在两点 $\xi_1 \in (a, c), \xi_2 \in (c, b)$ 有
+	\[ F'(\xi_1) = \frac{F(c) - F(a)}{c - a} > 0, \quad F'(\xi_2)  \]
+	故有
+	\[ f'(\xi_2) < \frac{f(b) - f(a)}{b - a} < f'(\xi_1) \]
+	不难推出 $\xi_1, \xi_2$ 总有一个满足题意的。
+\end{solution}
+
+\begin{problem}[000035]
+如果 $f$ 在 $[a, b]$ 上二阶可导且 $f(a) = f(b) = 0$，则对任意的 $x \in (a, b)$ 存在 $\xi_x \in (a, b)$ 满足
+\[ f(x) = \frac{f''(\xi_x)}{2}(x - a)(x - b) \]
+\end{problem}
+
+\begin{solution}
+	固定 $x$ 并定义
+	\[ \lambda = \frac{2 f(x)}{(x - a)(x - b)} \]
+	构造
+	\[ F(u) = f(u) - \frac{\lambda}{2} (u - a)(u - b) \]
+	注意到 $F(a) = F(x) = F(b) = 0$，套两次中值定理即得存在 $\xi_x$ 使得 $F''(\xi_x) = 0$。
+\end{solution}
+
+\begin{problem}[000036]
+如果 $f$ 在 $[a, b]$ 上三阶可导且 $f(a) = f'(a) = f(b) = 0$，则对任意的 $x \in (a, b)$ 存在 $\xi_x \in (a, b)$ 满足
+\[ f(x) = \frac{f'''(\xi_x)}{6}(x-a)^2(x-b) \]
+\end{problem}
+
+\begin{solution}
+	TODO 仿照 000035 的计算方法，构造
+	\[ F(u) = f(u) - \frac{\lambda}{6}(u - a)^2(u - b), \quad \frac{6f(x)}{(x - a)^2(x - b)} \]
+	求导即证。
+\end{solution}
+
+\begin{problem}[000037]
+如果 $f$ 在 $[a, b]$ 上二阶可导，则对任意的 $c \in (a, b)$ 存在 $\xi_c \in (a, b)$ 满足
+\[ f''(\xi_c) = \frac{2 f(a)}{(a - b)(a - c)} + \frac{2 f(b)}{(b - c)(b - a)} + \frac{2f(c)}{(c- a)(c - b)} \]
+\end{problem}
+
+\begin{solution}
+	TODO 仿照 000035 的计算方法，构造三个 $\lambda$ 和 $F(x)$，求导即证。
+\end{solution}
+
+\begin{problem}[000038]
+设 $f$ 在区间 $[a, b]$ 上连续可导，且 $0 < a < b$，那么存在 $\xi, \eta \in (a, b)$ 满足
+\[ f'(\eta) = (b^2 + ab + a^2 + 2)\frac{f'(\xi)}{3 \xi^2 + 2} \]
+\end{problem}
+
+\begin{solution}
+	首先选取 $\eta$
+	\[ \frac{f(b) - f(a)}{b - a} = f'(\eta) \]
+	接下来即证
+	\[ \frac{f(b) - f(a)}{b^3 - a^3 + 2(b - a)} = \frac{f'(\xi)}{3\xi^2 + 2} \]
+	容易套用 Cauchy 中值定理。
+\end{solution}
+
+\begin{problem}[000039]
+设 $f$ 在区间 $[0, 1]$ 上二阶可导且 $|f(0)| \leqslant 1, |f(1)| \leqslant 1$，同时 $|f''(x)| \leqslant 2$。求证 $|f'(x)| \leqslant 3$。
+\end{problem}
+
+\begin{solution}
+	首先用两次 Taylor 公式，得到
+	\[ f(1) - f(0) = f'(x) + \frac{f''(\xi)}{2}(1 - x)^2 - \frac{f''(\eta)}{2}x^2 \]
+	因此
+	\[ \begin{aligned}
+			|f'(x)| & \leqslant \left| f(1) - f(0) - \frac{f''(\xi)}{2}(1 - x)^2 + \frac{f''(\eta)}{2}x^2 \right| \\
+			        & \leqslant 2 + |1-x|^2 + |x|^2 \leqslant 3
+		\end{aligned} \]
+\end{solution}
+
+\begin{problem}[000040]
+设 $f$ 是 $[a,b]$ 上的连续可导函数，且 $0 < a < b$，那么存在 $\xi, \eta \in (a,b)$ 使得
+\[ f'(\xi) = \frac{a+b}{2\eta}f'(\eta) \]
+\end{problem}
+
+\begin{proof}
+	首先存在 $\xi \in (a,b)$ 使得
+	\[ f'(\xi) = \frac{f(b) - f(a)}{b - a} \]
+	构造
+	\[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b^2 - a^2}(x^2 - a^2) \]
+	注意到 $F(a) = F(b) = 0$，因此存在 $\eta \in (a, b)$ 使得
+	\[ F'(\eta) = f'(\eta) - 2 \eta \frac{f(b) - f(a)}{b^2 - a^2} = f'(\eta) - \frac{2 \eta f'(\xi)}{b + a} = 0 \]
+\end{proof}
+
+\begin{problem}[000041]
+设 $f$ 是 $[a,b]$ 上的连续可导函数，且 $f'(a) = f'(b) = 0$，那么存在 $\xi \in (a,b)$ 使得
+\[ f(\xi) - f(a) = f'(\xi)(\xi - a) \]
+\end{problem}
+
+\begin{proof}
+	首先构造
+	\[ F(x) = \frac{f(x) - f(a)}{x - a}, \quad F'(x) = \frac{1}{x-a} \left(f'(x) - \frac{f(x) - f(a)}{x-a}\right), \quad x \in (a, b] \]
+	可以令 $F(a) = f'(a) = 0$ 使其在 $x=a$ 处连续。注意到
+	\[ F(b) = \frac{f(b) - f(a)}{b-a}, \quad F'(b) = -\frac{f(b) - f(a)}{(b-a)^2} \]
+	故存在 $x_0 \in (a, b)$
+	\[ F'(x_0) F'(b) = \frac{F(b) - F(a)}{b - a} F'(b) \leqslant 0 \]
+	因此存在 $\xi \in (x_0, b)$ 使得 $F'(\xi) = 0$。
+\end{proof}
+
+\begin{problem}[000042]
+设函数 $f$ 是 $[a,b]$ 上连续且二阶可导，且 $f'(a) = f'(b) = 0$，那么存在 $c \in (a,b)$ 使得
+\[ |f''(c)| \geqslant \frac{4}{(b-a)^2} |f(b) - f(a)| \]
+\end{problem}
+
+\begin{proof}
+	我们选取 $x_0$ 构造
+	\[ F(x) = f(x) - f(x_0) - f'(x_0)(x-x_0) , \quad G(x) = (x-x_0)^2 \]
+	连续使用两次微分中值定理得到
+	\[ \frac{F(x)}{G(x)} = \frac{F(x) - F(x_0)}{G(x) - G(x_0)} = \frac{F'(\xi_1)}{G'(\xi_1)} = \frac{f'(\xi_1) - f'(x_0)}{2 (\xi_1 - x_0)} = \frac{f''(\xi_2)}{2} \]
+	其中 $x_0 < \xi_2 < \xi_1 < x$。定 $x=\frac{a+b}{2}$，取 $x_0 = a$ 得到
+	\[ f\left(\frac{a+b}{2}\right) = f(a) + \frac{f''(\eta_1)}{8} (b-a)^2, \quad \eta_1 \in \left(a, \frac{a+b}{2}\right) \]
+	同理可取 $x_0 = b$ 得到
+	\[ f\left(\frac{a+b}{2}\right) = f(b) + \frac{f''(\eta_2)}{8} (b-a)^2, \quad \eta_2 \in \left(\frac{a+b}{2}, b\right) \]
+	从而有
+	\[ \frac{4(f(b) - f(a))}{(b-a)^2} = \frac{f''(\eta_1) - f''(\eta_2)}{2} \]
+	故
+	\[ \frac{4}{(b-a)^2}|f(b) - f(a)| = \frac{|f''(\eta_1) - f''(\eta_2)|}{2} \leqslant \max\{f''(\eta_1), f''(\eta_2)\} \]
+\end{proof}
+
+\begin{problem}[000043]
+设 $f$ 在区间 $[a, b]$ 上二阶可导且 $f(a) = f(b) = 0$，且二阶导数 $|f''(x)| \leqslant A$ 有界。则
+\[ \left| f\left(\frac{a+b}{2}\right) \right| \leqslant \frac{A}{8}(b- a)^2 \]
+\end{problem}
+
+\begin{solution}
+	用两次 Taylor 展开，得到
+	\[ \frac{f(a) + f(b)}{2} = f\left(\frac{a+b}{2}\right) + \frac{f''(\xi) + f''(\eta)}{4}\frac{(b - a)^2}{4} \]
+	故
+	\[ \left| f\left(\frac{a+b}{2}\right) \right| \leqslant \frac{A}{8}(b- a)^2 \]
+\end{solution}
 
 \section{一元积分学}
 
@@ -457,6 +576,21 @@ C. $\sqrt{f(1)f(3)} \leqslant \ee^2 \leqslant f(2)$。D. $\sqrt{f(1)f(3)} \leqsl
 \end{problem}
 \begin{solution}
 	\[ LHS =  \ln |x + \sqrt{x^2+a}| + C \]
+\end{solution}
+
+
+\begin{problem}[000022]
+设函数
+\[ f(x) = x \int_{1}^{0} \ee^{-x^2t^2} \d t \]
+则当 $0<a<x<b$ 时有：
+
+A. $xf(x) > af(a)$，B. $bf(b) > x f(x)$，C. $xf(a) > af(x)$，D. $xf(b) > bf(x)$。
+\end{problem}
+
+\begin{solution}
+	答案 D。首先积分换元
+	\[ f(x) = \int_{1}^{0} \ee^{-(xt)^2} \d (xt) = -\int_{0}^{1} \ee^{-x^2} \d x  \]
+	剩下的比较直观，就不写了。
 \end{solution}
 
 

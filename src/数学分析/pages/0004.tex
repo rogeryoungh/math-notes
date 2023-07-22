@@ -48,16 +48,50 @@
 	若函数 $y=f(x)$ 在点 $x_0$ 的某邻域上有定义，则 $f'(x_0)$ 存在的充要条件是 $f_-'(x)$ 与 $f_+'(x)$ 都存在且相等。
 \end{theorem}
 
-若函数 $f$ 在区间 $I$ 上每一点都可导（对区间端点，仅考虑相应的单侧导数），则称 $f$ 为 $I$ 上的可导函数。此时对每一个 $x\in I$，都有 $f$ 的一个导数 $f'(x)$ （或单侧导数）与之对应。
-
-这样就定义了一个在 $I$ 上的函数，称为导函数，简称为导数。记作 $f',y',\dfrac{\d y}{\d x}$，即
-
-\[ f'(x) = \lim_{\Delta x \to 0}\frac{f(x+\Delta)-f(x)}{\Delta},x\in I \]
-
-有时 $f'(x_0)$ 也可写作 $y'\mid_{x=x_0}$ 或 $\frac{\d y}{\d x}\mid_{x=x_0}$。
+若函数 $f$ 在区间 $I$ 上每一点都可导（对区间端点，仅考虑相应的单侧导数），则称 $f$ 为 $I$ 上的可导函数。此时对每一个 $x\in I$，都有 $f$ 的一个导数 $f'(x)$ （或单侧导数）与之对应。这样就定义了一个在 $I$ 上的函数，称为导函数，简称为导数。记作 $f',y',\dfrac{\d y}{\d x}$。
 
 曲线 $y = f(x)$ 在点 $(x_0,y_0)$ 的切线方程是
 \[ y-y_0 = f'(x_0)(x-x_0) \]
+
+这个极限还可以进行一定的变化，比如当 $f$ 在 $x_0$ 处可导时有
+\[ \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0 - \Delta x)}{2 \Delta x} = f'(x_0) \]
+反之不成立，比如 $y = |x|$。
+
+有一些可能不太好想的反例：
+\[ \lim_{x \to a+} f(x) = \infty \not\Rightarrow \lim_{x \to a+} f'(x) = \infty \]
+取
+\[ f(x) = \frac{1}{x} + \cos \frac{1}{x}, \quad 0 < x < \frac{\pi}{2} \]
+如
+\[ \lim_{x \to a+} f'(x) = \infty \not\Rightarrow \lim_{x \to a+} f(x) = \infty \]
+取
+\[ f(x) = \sqrt[3]{x}, \quad 0 < x < 1 \]
+如
+\[ \lim_{x \to +\infty} f(x) = A \not\Rightarrow \lim_{x \to +\infty} f'(x) = B \]
+取
+\[ f(x) = \frac{\sin(x^2)}{x} \]
+如
+\[ \lim_{x \to +\infty} f'(x) = A \not\Rightarrow \lim_{x \to +\infty} f(x) = B \]
+取
+\[ f(x) = \cos(\ln x) \]
+这说明端点处取无穷大和函数导数在端点处取无穷大没有本质联系。
+
+\subsection{高阶导数}
+
+进一步的，我们可以定义导数的导数。
+\[ f^{(n_1)}(x_0) = \left(f^{(n)}\right)' (x_0) = \frac{\d^k f}{\d x^k}(x_0) \]
+任意阶导数都存在的函数称为光滑的。
+
+二阶微分不具有微分不变性，比如 $y = f(u), u = g(x)$，有
+\[ \frac{\d^2 y}{\d x^2} = \frac{\d^2 y}{\d u^2} \left(\frac{\d u}{d x}\right)^2 + \frac{\d y}{\d u} \frac{\d^2 u}{\d x^2} \]
+
+\begin{theorem}
+	假如 $f(x)$ 在 $a$ 处二阶可导，则
+	\[ f''(a) = \lim_{h \to 0} \frac{f(a + h) + f(a - h) - 2f(a)}{h^2} \]
+\end{theorem}
+
+\begin{proof}
+	注意，这里转化为一阶导数定义再导出二阶的方法是错误的。只能使用 L'Hospital 法则。
+\end{proof}
 
 \section{求导法则}
 
@@ -73,8 +107,8 @@
 \end{theorem}
 
 \begin{theorem}
-	设 $y=f(x)$ 为 $x=\phi(x)$ 的反函数，若 $\phi(y)$ 在点 $y_0$ 的某邻域上连续、严格单调且 $\phi'(y_0)\ne0$，则 $f(x)$ 在点 $x_0=\phi(y_0)$ 可导，且
-	\[ f'(x_0)=\frac{1}{\phi'(y_0)} \]
+	设 $y=f(x)$ 严格单调且 $f'(x_0) \neq 0$，则其反函数 $x = f^{-1}(x) = g(y)$ 在对应区间内可导且且
+	\[ g'(y_0)=\frac{1}{f'(x_0)} \]
 \end{theorem}
 
 \begin{theorem}
@@ -237,55 +271,6 @@ Rolle 定理需要两个函数等高，假如不等高我们可以旋转一下�
 \end{proof}
 
 Cauchy 中值定理就更加的变化多端了。
-
-\begin{proposition}
-	设 $f$ 是 $[a,b]$ 上的连续可导函数，且 $0 < a < b$，那么存在 $\xi, \eta \in (a,b)$ 使得
-	\[ f'(\xi) = \frac{a+b}{2\eta}f'(\eta) \]
-\end{proposition}
-
-\begin{proof}
-	首先存在 $\xi \in (a,b)$ 使得
-	\[ f'(\xi) = \frac{f(b) - f(a)}{b - a} \]
-	构造
-	\[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b^2 - a^2}(x^2 - a^2) \]
-	注意到 $F(a) = F(b) = 0$，因此存在 $\eta \in (a, b)$ 使得
-	\[ F'(\eta) = f'(\eta) - 2 \eta \frac{f(b) - f(a)}{b^2 - a^2} = f'(\eta) - \frac{2 \eta f'(\xi)}{b + a} = 0 \]
-\end{proof}
-
-\begin{proposition}
-	设 $f$ 是 $[a,b]$ 上的连续可导函数，且 $f'(a) = f'(b) = 0$，那么存在 $\xi \in (a,b)$ 使得
-	\[ f(\xi) - f(a) = f'(\xi)(\xi - a) \]
-\end{proposition}
-
-\begin{proof}
-	首先构造
-	\[ F(x) = \frac{f(x) - f(a)}{x - a}, \quad F'(x) = \frac{1}{x-a} \left(f'(x) - \frac{f(x) - f(a)}{x-a}\right), \quad x \in (a, b] \]
-	可以令 $F(a) = f'(a) = 0$ 使其在 $x=a$ 处连续。注意到
-	\[ F(b) = \frac{f(b) - f(a)}{b-a}, \quad F'(b) = -\frac{f(b) - f(a)}{(b-a)^2} \]
-	故存在 $x_0 \in (a, b)$
-	\[ F'(x_0) F'(b) = \frac{F(b) - F(a)}{b - a} F'(b) \leqslant 0 \]
-	因此存在 $\xi \in (x_0, b)$ 使得 $F'(\xi) = 0$。
-\end{proof}
-
-\begin{proposition}
-	设函数 $f$ 是 $[a,b]$ 上连续且二阶可导，且 $f'(a) = f'(b) = 0$，那么存在 $c \in (a,b)$ 使得
-	\[ |f''(c)| \geqslant \frac{4}{(b-a)^2} |f(b) - f(a)| \]
-\end{proposition}
-
-\begin{proof}
-	我们选取 $x_0$ 构造
-	\[ F(x) = f(x) - f(x_0) - f'(x_0)(x-x_0) , \quad G(x) = (x-x_0)^2 \]
-	连续使用两次微分中值定理得到
-	\[ \frac{F(x)}{G(x)} = \frac{F(x) - F(x_0)}{G(x) - G(x_0)} = \frac{F'(\xi_1)}{G'(\xi_1)} = \frac{f'(\xi_1) - f'(x_0)}{2 (\xi_1 - x_0)} = \frac{f''(\xi_2)}{2} \]
-	其中 $x_0 < \xi_2 < \xi_1 < x$。定 $x=\frac{a+b}{2}$，取 $x_0 = a$ 得到
-	\[ f\left(\frac{a+b}{2}\right) = f(a) + \frac{f''(\eta_1)}{8} (b-a)^2, \quad \eta_1 \in \left(a, \frac{a+b}{2}\right) \]
-	同理可取 $x_0 = b$ 得到
-	\[ f\left(\frac{a+b}{2}\right) = f(b) + \frac{f''(\eta_2)}{8} (b-a)^2, \quad \eta_2 \in \left(\frac{a+b}{2}, b\right) \]
-	从而有
-	\[ \frac{4(f(b) - f(a))}{(b-a)^2} = \frac{f''(\eta_1) - f''(\eta_2)}{2} \]
-	故
-	\[ \frac{4}{(b-a)^2}|f(b) - f(a)| = \frac{|f''(\eta_1) - f''(\eta_2)|}{2} \leqslant \max\{f''(\eta_1), f''(\eta_2)\} \]
-\end{proof}
 
 \subsection{凹凸性}
 

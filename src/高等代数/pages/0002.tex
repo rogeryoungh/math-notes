@@ -47,7 +47,7 @@
 
 \begin{definition}
 	$n$ 阶行列式
-	\begin{equation*}
+	\[
 		\left|\begin{matrix}
 			a_{11} & a_{12} & \ldots & a_{1n} \\
 			a_{21} & a_{22} & \ldots & a_{2n} \\
@@ -55,7 +55,7 @@
 			a_{n1} & a_{n2} & \ldots & a_{nn}
 		\end{matrix}\right|
 		= \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}a_{2j_2}\cdots a_{nj_n}
-	\end{equation*}
+	\]
 	该式称为 $n$ 阶行列式的完全展开式。
 \end{definition}
 
@@ -75,29 +75,25 @@
 \end{proof}
 
 \begin{theorem}
-	给定行指标的一个排列 $i_1i_2\cdots i_n$，则 $n$ 级矩阵的行列式为
-	\[|A| = \sum_{k_1k_2\cdots k_n}(-1)^{\tau(i_1i_2\cdots i_n)+\tau(k_1k_2\cdots k_n)}a_{i_1k_1}a_{i_2k_2}\cdots a_{i_nk_n}\]
+	设 $n$ 级矩阵 $A$ 依据给定排列 $i_1i_2\cdots i_n$ 对行指标进行重排得到 $A_1$，则 $A_1$ 的行列式为
+	\[ |A_1| = (-1)^{\tau(i_1i_2\cdots i_n)} |A| \]
 \end{theorem}
 
 \begin{proof}
-	设 $a_{1j_1}a_{2j_2}\cdots a_{nj_n}$ 经过 $s$ 次互换相邻元素变为 $a_{i_1k_1}a_{i_2k_2}\cdots a_{i_nk_n}$，则有
-	\begin{equation*}
-		\begin{aligned}
+	设一列元素 $a_{1j_1}a_{2j_2}\cdots a_{nj_n}$ 经过 $s$ 次相邻互换变为 $a_{i_1k_1}a_{i_2k_2}\cdots a_{i_nk_n}$，则有
+	\[ \begin{aligned}
 			(-1)^{\tau(i_1i_2\cdots i_n)}       & =(-1)^s                        \\
 			(-1)^{\tau(j_1j_2\cdots j_n)}(-1)^s & =(-1)^{\tau(k_1k_2\cdots k_n)}
-		\end{aligned}
-	\end{equation*}
+		\end{aligned} \]
 	从而
-	\begin{equation*}
-		\begin{aligned}
+	\[ \begin{aligned}
 			(-1)^{\tau(i_1i_2\cdots i_n)+\tau(k_1k_2\cdots k_n)} & =(-1)^s(-1)^{\tau(j_1j_2\cdots j_n)}(-1)^s \\
 			                                                     & =(-1)^{\tau(j_1j_2\cdots j_n)}
-		\end{aligned}
-	\end{equation*}
+		\end{aligned} \]
 \end{proof}
 
-同理，给定列指标的一个排列 $k_1k_2\cdots k_n$，则 $n$ 级矩阵的行列式为
-\[|A| = \sum_{i_1i_2\cdots i_n}(-1)^{\tau(i_1i_2\cdots i_n)+\tau(k_1k_2\cdots k_n)}a_{i_1k_1}a_{i_2k_2}\cdots a_{i_nk_n}\]
+同理，给定列指标的一个排列 $k_1k_2\cdots k_n$ 和对应的矩阵 $A_2$，则 $n$ 级矩阵的行列式为
+\[ |A_2| = (-1)^{\tau(k_1k_2\cdots k_n)} |A| \]
 
 \section{行列式的性质}
 
@@ -121,13 +117,13 @@
 
 \begin{proof}
 	即行列式 $B$ 除了第 $i_1$ 行有 $b_{i_1j}=ka_{i_1j}$，其他行都有 $b_{ij}=a_{ij}$。
-	\begin{equation*}
+	\[
 		\begin{aligned}
 			|B| & = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots (ka_{i_1j}) \cdots a_{nj_n} \\
 			    & = k\sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots a_{i_1j} \cdots a_{nj_n}   \\
 			    & =k|A|
 		\end{aligned}
-	\end{equation*}
+	\]
 \end{proof}
 
 \begin{theorem}
@@ -136,13 +132,13 @@
 
 \begin{proof}
 	即行列式 $A$ 除了第 $i_1$ 行有 $a_{i_1j}=b_{i_1j}+c_{i_1j}$，其他行都有 $a_{ij}=b_{ij}=c_{ij}$。
-	\begin{equation*}
+	\[
 		\begin{aligned}
 			|A| & = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots (b_{i_1j}+c_{i_1j}) \cdots a_{nj_n}                                                                                  \\
 			    & = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots b_{i_1j} \cdots a_{nj_n}+\sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}\cdots c_{i_1j} \cdots a_{nj_n} \\
 			    & =|B|+|C|
 		\end{aligned}
-	\end{equation*}
+	\]
 \end{proof}
 
 \begin{theorem}
@@ -153,7 +149,7 @@
 	即设行列式 $B$ 为行列式第 $k_1,k_2$ 两行交换的结果，又
 	\[(-1)^{\tau(j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n)} =- (-1)^{\tau(j_1\cdots j_{k_1} \cdots j_{k_2} \cdots j_n)}\]
 	那么有
-	\begin{equation*}
+	\[
 		\begin{aligned}
 			|B| & = \sum_{j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n}(-1)^{\tau(j_1\cdots j_{k_2} \cdots j_{k_1} \cdots j_n)}
 			a_{1j_1}\cdots a_{k_1j_{k_2}}\cdots a_{k_2j_{k_1}}\cdots a_{nj_n}                                                  \\
@@ -161,7 +157,7 @@
 			a_{1j_1}\cdots a_{k_1j_{k_1}}\cdots a_{k_2j_{k_2}}\cdots a_{nj_n}                                                  \\
 			    & =-|A|
 		\end{aligned}
-	\end{equation*}
+	\]
 \end{proof}
 
 \begin{theorem}
@@ -208,12 +204,12 @@
 	把第 $i$ 行换到第 $1$ 行，第 $j$ 列换到第 $1$ 列，由对换的性质有
 	\[(-1)^{\tau(i1\cdots (i-1)(i+1)\cdots n)+\tau(jk_1\cdots k_{i-1}k_{i+1}\cdots k_n)}=(-1)^{i-1}(-1)^{j-1}(-1)^{\tau(k_1\cdots k_{i-1}k_{i+1}\cdots k_n)}\]
 	因此
-	\begin{equation*}
+	\[
 		\begin{aligned}
 			|A| & =\sum_{j=1}^na_{ij}(-1)^{i+j}\sum_{k_1\cdots k_{i-1}k_{i+1}\cdots k_n}(-1)^{\tau(k_1\cdots k_{i-1}k_{i+1}\cdots k_n)}a_{1k_1}\cdots a_{i-1,k_{i-1}}a_{i+1,k_{i+1}}\cdots a_{nk_n} \\
 			    & =\sum_{j=1}^na_{ij}(-1)^{i+j}M_{ij}=\sum_{j=1}^na_{ij}A_{ij}
 		\end{aligned}
-	\end{equation*}
+	\]
 	对于列展开式，转置即可。
 \end{proof}
 
@@ -236,7 +232,7 @@
 
 对于数域 $K$ 上 $n$ 个方程的 $n$ 元线性方程组，
 
-\begin{equation*}
+\[
 	\left\{
 	\begin{matrix}
 		a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\
@@ -245,6 +241,6 @@
 		a_{n1}x_1+a_{n2}x_2+\cdot +a_{nn}x_n=b_n
 	\end{matrix}
 	\right.
-\end{equation*}
+\]
 
 其系数矩阵记作 $A$，增广矩阵记作 $\widetilde{A}$

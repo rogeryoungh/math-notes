@@ -631,3 +631,216 @@ C. 敛散性和 $a$ 的取值无关，必收敛。D. 敛散性与 $a$ 的取值�
 	讨论一下，就知道 $a = -8, b = \frac{\ln 3}{2} $。
 \end{solution}
 
+\begin{problem}[000044]
+任给 $\beta \geqslant 0$ 和 $b > a > 0$ 证明
+\[ \left| \int_{a}^{b} \ee^{-\beta x} \frac{\sin x}{x} \d x \right| \leqslant \frac{2}{a} \]
+\end{problem}
+
+\begin{solution}
+	用积分第二中值定理，得到
+	\[ \int_{a}^{b} \frac{\ee^{-\beta x}}{x} \sin x \d x \leqslant \frac{\ee^{-a \beta}}{a} \int_{a}^{\xi} \frac{\ee^{-\beta x}}{x} \sin x \d x \]
+	因此
+	\[ \left| \int_{a}^{b} \ee^{-\beta x} \frac{\sin x}{x} \d x \right| \leqslant \frac{2}{a \ee^{a \beta}} \leqslant \frac{2}{a} \]
+\end{solution}
+
+\begin{problem}[000045]
+设 $f$ 在 $[a, b]$ 上连续，且
+\[ \int_{a}^{b} f(x) \d x = \int_{a}^{b} x f(x) = 0 \]
+证明：存在 $x_1 \neq x_2$ 使得 $f(x_1) = f(x_2) = 0$。
+\end{problem}
+
+\begin{solution}
+	显然 $f$ 至少存在一个零点，否则积分不可能为 $0$。假设 $x_0$ 是其唯一零点，不妨设左边小于 $0$ 右边大于 $0$。那么
+	\[ \int_{a}^{b} (x - x_0) f(x) \d x = \int_{a}^{b} x f(x) \d x - x_0 \int_{a}^{b} f(x) \d x = 0 \]
+	注意到 $(x - x_0) f(x) > 0$ 在 $x \neq x_0$ 成立，故左边积分不等于 $0$，矛盾。
+\end{solution}
+
+\begin{problem}[000046]
+设 $f$ 在 $[a, b]$ 上可积且 $a > 0$，证明
+\[ |f(0)| \leqslant \frac{1}{a} \int_{0}^{a} |f(x)| \d x + \int_{0}^{a} |f'(x)| \d x \]
+\end{problem}
+
+\begin{solution}
+	有积分中值定理得到
+	\[ \int_{0}^{a} f(x) \d x = a f(\xi) \]
+	因此
+	\[ f(0) = f(\xi) - \int_{0}^{\xi} f'(x) \d x = \frac{1}{a} \int_{0}^{a} f(x) \d x - \int_{0}^{\xi} f'(x) \d x \]
+	从而
+	\[ |f(0)| \leqslant \frac{1}{a} \int_{0}^{a} |f(x)| \d x + \int_{0}^{a} |f'(x)| \d x \]
+\end{solution}
+
+\begin{problem}[000047]
+假设在 $f$ 在 $[0, 1]$ 上可导，且
+\[ f(1) = 2 \int_{0}^{\frac{1}{2}} x f(x) \d x \]
+证明存在 $\xi \in (0, 1)$ 使得
+\[ f'(\xi) = -\frac{f(\xi)}{\xi} \]
+\end{problem}
+
+\begin{solution}
+	构造 $F(x) = x f(x)$，由积分中值定理知存在 $\eta \in (0, \frac{1}{2})$ 使得
+	\[ f(1) = 2\int_{0}^{\frac{1}{2}} F(x) \d x = F(\eta) \]
+	又 $F(0) = 0, F(1) = f(1) = F(\eta)$，故存在 $\xi \in (\eta, 1)$ 使得
+	\[ F'(\xi) = \frac{F(1) - F(\eta)}{1 - \eta} = 0 = f(\xi) + \xi f'(\xi) \]
+\end{solution}
+
+\begin{problem}[000048]
+假设在 $f$ 在 $[0, 1]$ 上可导，那么存在 $c_x \in (a, x)$ 使得
+\[ \int_{a}^{x} f(t) \d t = f(c_x) (x - a) \]
+若 $f$ 在 $a$ 处可导且 $f'(a) \neq 0$ 则
+\[ \lim_{x \to a+} \frac{c_x - a}{x -a} = \frac{1}{2} \]
+\end{problem}
+
+\begin{solution}
+	由积分中值定理，$c_x$ 的存在是显然的。定义
+	\[ I = \lim_{x \to a+} \frac{1}{(x-a)^2} \left( \int_{a}^{x} f(t) \d t - (x - a) f(a) \right) \]
+	首先由 L'Hopital 法则得到
+	\[ I = \lim_{x \to a+} \frac{f(x) - f(a)}{2(x - a)} = \frac{1}{2} f'(a) \]
+	又
+	\[ I = \lim_{x \to a+}\frac{f(c_x) - f(a)}{x - a} = f'(a) \frac{\partial c_x}{\partial x} \]
+	当 $f'(a) \neq 0$ 时比较即知。
+\end{solution}
+
+\begin{problem}[000049]
+假设 $f$ 在 $[a, b]$ 上存在二阶导数，那么存在 $\xi \in (a, b)$ 满足
+\[ f''(\xi) = \frac{24}{(b-a)^3} \int_{a}^{b} \left(f(x) - f\left(\frac{a+b}{2}\right)\right) \d x \]
+\end{problem}
+
+\begin{solution}
+	令 $x_0 = \frac{a+b}{2}$，由 Taylor 公式知存在 $\eta \in (a, x)$ 使得
+	\[ f(x) - f(x_0) = f'(x_0)(x - x_0) + \frac{f''(\eta_x)}{2} (x - x_0)^2 \]
+	积分得
+	\[ \int_{a}^{b} (f(x) - f(x_0)) \d x = \frac{1}{2} \int_{a}^{b} f''(\eta_x) (x - x_0)^2 \d x  \]
+	由积分中值定理，存在 $\xi$ 使
+	\[ \frac{1}{2} \int_{a}^{b} f''(\eta_x) (x - x_0)^2 \d x = \frac{1}{2} f''(\xi) \int_{a}^{b} (x - x_0)^2 \d x = \frac{(b-a)^3}{24} f''(\xi)   \]
+\end{solution}
+
+\begin{problem}[000050]
+假设 $f$ 在 $[0, 1]$ 上连续且 $f > 0$，则对任意正整数 $n$ 存在 $\xi_n$ 满足
+\[ \frac{1}{n} \int_{0}^{1} f(x) \d x = \int_{0}^{\xi_n} f(x) \d x + \int_{1 - \xi_n}^{1} f(x) \d x \]
+且
+\[ \lim_{n \to +\infty} n \xi_n = \frac{1}{f(0) + f(1)} \int_{0}^{1} f(x) \d x \]
+\end{problem}
+
+\begin{solution}
+	设 $F$ 为 $f$ 的原函数，构造
+	\[ G(x) = F(x) - F(0) + F(1) - F(1 - x) \]
+	注意到
+	\[ G'(x) = f(x) + f(1 - x) > 0, \quad G(0) = 0, G(1) = 2F(1) \]
+	由于 $G$ 连续且单调递增，因此存在 $\xi_n$ 使得 $\frac{1}{n}F(1) = G(\xi_n)$，且 $\xi_n$ 单调递减趋于 $0$。又由积分中值定理知存在 $\alpha_n \in (0, \xi_n), \beta_n \in (1-\xi_n, 1)$ 使得
+	\[ G(\xi_n) = f(\alpha_n) \xi_n + f(\beta_n) \xi_n \]
+	因此
+	\[ \lim_{n \to +\infty} n \xi_n = \lim_{n \to +\infty} \frac{n G(\xi_n)}{f(\alpha_n) + f(\beta_n)} = \frac{F(1)}{f(0) + f(1)} \]
+\end{solution}
+
+\begin{problem}[000051]
+如果 $f,g$ 在 $[a,b]$ 上连续且 $f, g > 0$，那么存在 $\xi \in (a,b)$ 满足
+\[ \frac{f(\xi)}{\int_{a}^{\xi} f(x) \d x} - \frac{g(\xi)}{\int_{\xi}^{b} g(x) \d x} = 1 \]
+\end{problem}
+
+\begin{solution}
+	设 $F, G$ 分别为 $f, g$ 的原函数，即证
+	\[ \frac{F'(\xi)}{F(\xi)} - \frac{G'(\xi)}{G(b) - G(\xi)} = 1 \]
+	构造
+	\[ H(x) = \ee^{-x} F(x) (G(b) - G(x)) \]
+	注意到 $H(a) = H(b) = 0$，因此存在 $\xi$ 使得
+	\[ H'(\xi) = \frac{F(\xi) (G(b) - G(\xi))}{\ee^{\xi}} \left(\frac{F'(\xi)}{F(\xi)} - \frac{G'(\xi)}{G(b) - G(\xi)} - 1\right) = 0 \]
+\end{solution}
+
+\begin{problem}[000052]
+如果 $f,g$ 在 $[a,b]$ 上连续且 $\varphi(x) \neq 0$，那么存在 $\xi \in (a,b)$ 满足
+\[ g(\xi) \int_{a}^{b} f(x) \varphi(x) \d x = f(\xi) \int_{a}^{b} g(x) \varphi(x) \d x \]
+\end{problem}
+
+\begin{solution}
+	构造
+	\[ F(x) = \left(\int_{a}^{b} f(t) \varphi(t) \d t\right) \int_{a}^{x} g(t) \varphi(t) \d t - \left(\int_{a}^{b} g(t)\varphi(t) \d t \right) \int_{a}^{x} f(t) \varphi(t) \d t \]
+	注意到
+	\[ F'(x) =  \varphi(x)\left(g(x)\int_{a}^{b} f(t) \varphi(t) \d t - f(x) \int_{a}^{b} g(t) \varphi(t) \d t \right), \quad F(a) = F(b) = 0 \]
+	故存在 $F'(\xi) = 0$。
+\end{solution}
+
+\begin{problem}[000053]
+假设 $f$ 在 $[-1, 1]$ 且在 $x=0$ 处可导，$f(0) = 0, f'(0) \neq 0$。求极限
+\[ I = \lim_{x \to 0+} \frac{\int_{0}^{x}(x^2 - t^2) f(t) \d t}{\int_{0}^{x} t f(x^2 - t^2) \d t} \]
+\end{problem}
+
+\begin{solution}
+	容易发现
+	\[ I = \lim_{x \to 0+} \frac{\int_{0}^{x} (x^2 - t^2) f(t) \d t}{\frac{1}{2} \int_{0}^{x^2} f(u) \d u} = \lim_{x \to 0+} \frac{2}{f(x^2)}\int_{0}^{x}f(t) \d t \]
+	注意条件里没有导数连续，因此不能用 L'Hospital 法则，考虑用导数定义
+	\[ I = \lim_{x \to 0+} \frac{2 \int_{0}^{x}f(t) \d t}{x^2} \frac{x^2}{f(x^2) - f(0)} = \lim_{x \to 0+} \frac{f(x)}{f'(0) x} = 1 \]
+\end{solution}
+
+\begin{problem}[000054]
+假设 $f$ 在 $[0, 1]$ 上连续且 $f \geqslant 0$。若满足
+\[ f^2(x) \leqslant 1 + 2 \int_{0}^{x} f(t) \d t \]
+求证：$f(x) \leqslant 1 + x$。
+\end{problem}
+
+\begin{solution}
+	令 $F$ 为 $f$ 的原函数，原方程即为 $F'(x)^2 \leqslant 1 + 2F(x)$。注意到
+	\[ 0 \leqslant \frac{F'(x)}{\sqrt{1 + 2 F(x)}} = \left(\sqrt{2F+1}\right)' \leqslant 1 \]
+	两侧积分得到
+	\[ 1 \leqslant \sqrt{2F(x) + 1}  \leqslant 1 + x \]
+	因此 $f = F' \leqslant \sqrt{2F(x) + 1} \leqslant x + 1$。
+\end{solution}
+
+\begin{problem}[000055]
+假设 $f$ 在 $[0, 1]$ 上连续在 $(0, 1)$ 上可导，且 $f(0) = f(\frac{1}{4}) = 0$，且
+\[ \int_{\frac{1}{4}}^{\frac{3}{4}} f(x) \d x = \frac{f(1)}{2} \]
+证明：存在 $\xi \in (0, 1)$ 满足 $f''(\xi)  0$。
+\end{problem}
+
+\begin{solution}
+	根据积分中值定理，知存在
+	\[ \int_{\frac{1}{4}}^{\frac{3}{4}} f(x) \d x = \frac{f(\eta_1)}{2} = \frac{f(1)}{2} \]
+	即 $f(\eta_1) = f(1)$，故存在 $f'(\eta_2) = 0$。又 $f(0) = f(\frac{1}{4})$ 知存在 $f'(\eta_3) = 0$，因此存在 $\xi \in (0, 1)$ 使得 $f''(\xi) = 0$。
+\end{solution}
+
+\begin{problem}[000056]
+设 $f$ 在 $[a, b]$ 上导数存在且连续，又 $f(a) = 0$，求证：
+\[ \int_{a}^{b} f^2(x) \d x \leqslant \frac{(b-a)^2}{2} \int_{a}^{b} (f'(x))^2 \d x \]
+\end{problem}
+
+\begin{solution}
+	由 Cauchy 积分不等式得
+	\[
+		f^2(x)  = \left(\int_{a}^{x} f'(t) \d t\right)^2
+		\leqslant (x-a) \int_{a}^{x} (f'(t))^2 \d t
+	\]
+	因此
+	\[ \int_{a}^{b} f^2(x) \d x \leqslant \left(\int_{a}^{b} (x-a) \d x \right) \int_{a}^{b} (f'(x))^2 \d x = \frac{(b-a)^2}{2} \int_{a}^{b} (f'(x))^2 \d x \]
+\end{solution}
+
+\begin{problem}[000057]
+设 $f$ 在 $[0， 1]$ 上导数存在且连续，又 $f(0) = 0$ 且 $0 \leqslant f' \leqslant 1$，求证：
+\[ \int_{0}^{1} f^3(x) \d x \leqslant \left(\int_{0}^{1} f(x) \d x\right)^2 \]
+\end{problem}
+
+\begin{solution}
+	设
+	\[ G(x) =  \left(\int_{0}^{x} f(t) \d t\right)^2 - \int_{0}^{x} f^3(t) \d t \]
+	求导得
+	\[ G'(x) = f(x) \left(2 \int_{0}^{x} f(t) \d t - f^2(x)\right) \]
+	令
+	\[ H(x) = 2 \int_{0}^{x} f(t) \d t - f^2(x), \quad H'(x) = 2f(x)(1 - f'(x)) \geqslant 0 \]
+	因此 $H(x) \geqslant H(0) = 0$，故 $G(x) \geqslant G(0) = 0$。
+\end{solution}
+
+\begin{problem}[000058]
+设 $f$ 在 $[0, 1]$ 上二阶导数连续，$f(0) = f(1) = 0$，且在 $(0, 1)$ 上 $f > 0$，求证：
+\[ \int_{0}^{1} \left|\frac{f''(x)}{f(x)}\right| \d x \geqslant 4 \]
+\end{problem}
+
+\begin{solution}
+	不妨设 $f > 0$。设 $x = a$ 时取到最大值，对两侧端点取微分中值定理
+	\[ \frac{f(a) - f(0)}{a - 0} = f'(\eta_1), \quad \frac{f(1) - f(a)}{1 - a} = f'(\eta_2) \]
+	因此
+	\[ \begin{aligned}
+			\int_{0}^{1} \left|\frac{f''(x)}{f(x)}\right|
+			 & \geqslant \frac{1}{f(a)} \int_{\eta_1}^{\eta_2} |f''(x)| \d x \\
+			 & \geqslant \frac{|f'(\eta_1) - f'(\eta_2)|}{f(a)}              \\
+			 & = \frac{1}{a(1-a)} \geqslant 4
+		\end{aligned} \]
+\end{solution}
+

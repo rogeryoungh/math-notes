@@ -393,12 +393,56 @@
 \subsection{收敛判别法}
 
 接下来我们考察
-\[ I = \int_{a}^{+\infty} f(x) \d x \]
+\[ I_f = \int_{a}^{+\infty} f(x) \d x \]
 的收敛性。
 
 \begin{theorem}[有界判别法]
-	假如
-	\[ I(A) = \int_{a}^{A} f(x) \d x \]
-	有界，是 $I$ 收敛的充分要条件。
+	积分
+	\[ I_f(A) = \int_{a}^{A} f(x) \d x \]
+	有界，是 $I_f$ 收敛的充分要条件。
 \end{theorem}
 
+\begin{theorem}[比较判别法]
+	如果 $0 \leqslant f(x) \leqslant g(x)$。若 $I_f$ 发散则 $I_g$ 发散。若 $I_g$ 收敛则 $I_f$ 收敛。
+
+	对于极限形式
+	\[ \lim_{x \to +\infty} \frac{f(x)}{g(x)} = K \geqslant 0 \]
+	若 $K = 0$ 且 $I_g$ 收敛则 $I_f$ 收敛。若 $K = +\infty$ 且 $I_g$ 发散则 $I_f$ 发散。若 $K$ 为正实数，则 $I_f$ 收敛是 $I_g$ 收敛的充要条件。
+\end{theorem}
+
+\begin{proof}
+	非极限形式易证。对于极限形式，若 $K$ 是正实数，则存在 $a_1$ 使得对 $x > a_1$ 有
+	\[ \frac{K}{2} g(x) \leqslant f(x) \leqslant \frac{3K}{2} g(x) \]
+	成立，套用非极限形式即证。
+\end{proof}
+
+\begin{theorem}[Cauchy 判别法]
+	假定 $a > 0$，若
+	\[ f(x) \leqslant \frac{K}{x^p}, \quad K > 0, p > 1 \]
+	则 $I_f$ 收敛。若
+	\[ f(x) \geqslant \frac{K}{x^p}, \quad K > 0, p \leqslant 1 \]
+	则 $I_f$ 发散。
+
+	极限形式：若
+	\[ \lim_{x \to +\infty} x^p f(x) = K \geqslant 0 \]
+	当 $K$ 是非负实数且 $p > 1$ 时收敛。当 $K$ 是正实数或 $+\infty$ 且 $p \leqslant 1$ 时 $I_f$ 发散。
+\end{theorem}
+
+\begin{proof}
+	在比较判别法中取 $g = x^{-p}$ 即可。
+\end{proof}
+
+\begin{theorem}[Abel 判别法]
+	假设反常积分
+	\[ \int_{a}^{+\infty} f(x) \d x \]
+	收敛且 $g(x)$ 单调有界，则反常积分
+	\[ \int_{a}^{+\infty} f(x) g(x) \d x \]
+	收敛。
+\end{theorem}
+
+\begin{theorem}[Dirichlet 判别法]
+	假如函数
+	\[ F(A) = \int_{a}^{A} f(x) \d x \]
+	有界且 $g(x)$ 单调同时 $g \to 0$ 则反常积分
+	\[ \int_{a}^{+\infty} f(x) g(x) \d x \]
+\end{theorem}

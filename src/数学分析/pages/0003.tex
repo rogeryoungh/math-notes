@@ -153,22 +153,25 @@
 
 \[
 	\begin{aligned}
-		\frac{1}{1-x} & = \sum_{k=0}^\infty x^n,(-1,1)                                                                                                                  \\
-		              & = 1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + O(x^7)                                                                                                  \\
-		\ln(1+x)      & = \sum_{k=0}^\infty\frac{(-1)^k}{k+1}x^{k+1},(-1,1]                                                                                             \\
-		              & = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} + \frac{x^7}{7} + O(x^8)                                    \\
-		\sin x        & = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1},\mathbb{R}                                                                                   \\
-		              & = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \frac{x^9}{362880}+ O(x^{11})                                                        \\
-		\cos x        & = \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^{2k},\mathbb{R}                                                                                       \\
-		              & = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + \frac{x^{10}}{3628800} + O(x^{12})                                 \\
-		\ee^x         & = \sum_{k=0}^\infty\frac{1}{k!}x^k,\mathbb{R}                                                                                                   \\
-		              & = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + \frac{x^6}{720} + \frac{x^7}{5040} + \frac{x^8}{40320} + O(x^{10}) \\
-		\tan x        & = \sum_{k=1}^\infty \frac{(-4)^k(1-4^k)B_{2k}}{(2k)!}x^{2k-1},(-\frac{\pi}{2},\frac{\pi}{2})                                                    \\
-		              & = x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^{7}}{315} + \frac{67x^9}{2835} + O(x^{11})                                                    \\
-		\sqrt{x+1}    & = 1 + \sum_{k=1}^\infty \left(-\frac{1}{2}\right)^k (2k-1)!!x^k,(-1, +\infty)                                                                   \\
-		              & = 1 + \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256}   - \frac{21x^6}{1024}   +  O(x^{7})                       \\
-		\arcsin x     & = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5 x^7}{112} + \frac{35x^9}{1152}												+ O(x^{11})                                           \\
-		\arctan x     & = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7}													 + \frac{x^9}{9}		  + O(x^{11})
+		\frac{1}{1-x}                              & = \sum_{k=0}^\infty x^n,(-1,1)                                                                                                                  \\
+		                                           & = 1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + O(x^7)                                                                                                  \\
+		\ln(1+x)                                   & = \sum_{k=0}^\infty\frac{(-1)^k}{k+1}x^{k+1},(-1,1]                                                                                             \\
+		                                           & = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} + \frac{x^7}{7} + O(x^8)                                    \\
+		\sin x                                     & = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1},\mathbb{R}                                                                                   \\
+		                                           & = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \frac{x^9}{362880}+ O(x^{11})                                                        \\
+		\cos x                                     & = \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^{2k},\mathbb{R}                                                                                       \\
+		                                           & = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + \frac{x^{10}}{3628800} + O(x^{12})                                 \\
+		\ee^x                                      & = \sum_{k=0}^\infty\frac{1}{k!}x^k,\mathbb{R}                                                                                                   \\
+		                                           & = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + \frac{x^6}{720} + \frac{x^7}{5040} + \frac{x^8}{40320} + O(x^{10}) \\
+		\tan x                                     & = \sum_{k=1}^\infty \frac{(-4)^k(1-4^k)B_{2k}}{(2k)!}x^{2k-1},(-\frac{\pi}{2},\frac{\pi}{2})                                                    \\
+		                                           & = x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^{7}}{315} + \frac{67x^9}{2835} + O(x^{11})                                                    \\
+		\sqrt{x+1}                                 & = 1 + \sum_{k=1}^\infty \left(-\frac{1}{2}\right)^k (2k-1)!!x^k,(-1, +\infty)                                                                   \\
+		                                           & = 1 + \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256}   - \frac{21x^6}{1024}   +  O(x^{7})                       \\
+		\ln(x + \sqrt{1+x^2})                      & = x - \frac{x^3}{6} + \frac{3x^5}{40} - \frac{5 x^7}{112} + \frac{35x^9}{1152}												+ O(x^{11})                                           \\
+		\arcsin x                                  & = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5 x^7}{112} + \frac{35x^9}{1152}												+ O(x^{11})                                           \\
+		\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right) & = x + \frac{x^3}{3} + \frac{x^5}{5} + \frac{x^7}{7}													 + \frac{x^9}{9}		  + O(x^{11})                                                 \\
+		\arctan x                                  & = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7}													 + \frac{x^9}{9}		  + O(x^{11})                                                 \\
+		\sqrt[x]{1+x}                              & = \ee x - \frac{\ee x}{2} + \frac{11 \ee x^2}{24} - \frac{7 \ee x^3}{16}		  + O(x^{4})
 	\end{aligned}
 \]
 

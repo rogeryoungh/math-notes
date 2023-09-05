@@ -566,6 +566,27 @@ C. $\sqrt{f(1)f(3)} \leqslant \ee^2 \leqslant f(2)$。D. $\sqrt{f(1)f(3)} \leqsl
 	\[ \left| f\left(\frac{a+b}{2}\right) \right| \leqslant \frac{A}{8}(b- a)^2 \]
 \end{solution}
 
+\begin{problem}[000064]
+（1995 卷 I）函数 $f(x)$ 和 $g(x)$ 在 $[a,b]$ 上存在二阶导数，并且 $g''(x) \neq 0$，$f(a) = f(b) = g(a) = g(b) = 0$，试证：
+
+（1） 在开区间 $(a, b)$ 内 $g(x) \neq 0$。
+
+（2） 在开区间 $(a, b)$ 内至少存在一点 $\xi$，使
+\[ \frac{f(\xi)}{g(\xi)} = \frac{f''(\xi)}{g''(\xi)} \]
+\end{problem}
+
+\begin{solution}
+	（1） Rolle 定理显然。
+
+	（2） 构造
+	\[ F(x) = f(x) g'(x) - f'(x) g(x) \]
+	注意到 $F(a) = F(b) = 0$，而且
+	\[ F'(x) = f(x) g''(x) - f''(x) g(x) \]
+	因此存在 $\xi$ 使得
+	\[ F'(\xi) = \frac{F(b) - F(a)}{b - a} = 0 \]
+	原式成立。
+\end{solution}
+
 \section{一元积分学}
 
 \begin{problem}[000008]
@@ -862,3 +883,49 @@ C. 敛散性和 $a$ 的取值无关，必收敛。D. 敛散性与 $a$ 的取值�
 		\end{aligned} \]
 \end{solution}
 
+\section{常微分方程}
+
+\begin{problem}[000061]
+（1991 卷 I）在上半平面求一条向上凹的曲线，其上任何一点 $P(x, y)$ 处的曲率等于此曲线在该点法线段 $PQ$ 长度的倒数（$Q$ 是法线与 $x$ 轴的交点），且曲线在 $(1, 1)$ 处的切线与 $x$ 轴平行。
+的值最小。
+\end{problem}
+
+\begin{solution}
+	由题意得
+	\[ \frac{y''}{(1+(y')^2)^{\frac{3}{2}}} = \frac{1}{y \sqrt{1 + (y')^2}} \]
+	整理得
+	\[ y'' y - (y')^2 = 1 \]
+	构造 $p = y'$，得 $y'' = \frac{p \d p}{\d y}$，故
+	\[ 1 + p^2 = yp \frac{\d p}{\d y} \]
+	分离变量解得
+	\[ y^2 - p^2 = 1 \]
+	容易解得
+	\[ y = \frac{\ee^{x-1} - \ee^{-(x-1)}}{2} \]
+\end{solution}
+
+\begin{problem}[000063]
+（1993 卷 I）设物体 $A$ 从点 $(0,1)$ 出发，以速度大小为常数 $v$ 沿 $y$ 轴正向运动。物体 $B$ 从点 $(1,0)$ 与 $A$ 同时出发，其速度大小为 $2v$，方向始终指向 $A$，试建立物体 $B$ 的运动轨迹所满足的微分方程，并写出初始条
+件。
+\end{problem}
+
+\begin{solution}
+	首先物体 $A$ 的速度指向物体 $B$，即
+	\[ \frac{\d y}{\d x} = \frac{1 + vt - y}{0 - x} \]
+	同时速度是 $2v$，得到
+	\[ \sqrt{(\d x)^2 + (\d y)^2} = 2 v \d t \]
+	这里需要把变量 $t$ 消去，联立得
+	\[ 2 x y'' + \sqrt{1 + (y')^2} = 0 \]
+\end{solution}
+
+\section{概率论与数理统计}
+
+\begin{problem}[000062]
+（1989 卷 I）设随机变量 $X$ 与 $Y$ 相互独立，且 $X$ 服从均值为 $1$、标准差为 $\sqrt{2}$ 的正态分布，而 $Y$ 服从标准正态分布，求随机变量 $Z = 2X - Y + 3$ 的概率密度函数。
+\end{problem}
+
+\begin{solution}
+	由于 $Z$ 是 $X, Y$ 的线性组合，故也服从正态分布。分别计算 $E(Z), D(Z)$。
+	\[ E(Z) = 2 E(X) - E(Y) + 3 = 5, \quad D(Z) = 4D(X) + D(Y) + 0 = 9 \]
+	故 $Z \sim N(5, 9)$，得到
+	\[ f_Z(z) = \frac{1}{3 \sqrt{2 \pi}} \exp\left(- \frac{(z-5)^2}{18 }\right) \]
+\end{solution}

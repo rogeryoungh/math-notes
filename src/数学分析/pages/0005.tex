@@ -224,6 +224,29 @@
 
 三角换元一般隐藏这一些直角三角形，建议草稿纸上画出来，分析的清楚一点。
 
+\paragraph{三角函数及双曲三角函数}
+
+回顾一下高中知识。除了常见的 $\sin x, \cos x, \tan x$，其倒数也有名字
+\[ \sin x \csc x = 1, \quad \cos x \sec x = 1, \quad \tan x \cot x = 1 \]
+常见公式 $\sin^2 x + \cos^2 x = 1$ 有变形
+\[ 1 + \tan^2 x = \sec^2 x, \quad 1 + \cot^2 x = \csc^2 x \]
+三角函数的和差关系
+\[ \begin{aligned}
+		\sin (x \pm y) & = \sin x \cos y \pm \cos x \sin y               \\
+		\cos (x \pm y) & = \cos x \cos y \mp \sin x \sin y               \\
+		\tan (x \pm y) & = \frac{\tan x \pm \tan y}{1 \mp \tan x \tan y}
+	\end{aligned} \]
+令 $t = \tan \frac{x}{2}$，有万能公式
+\[ \sin x = \frac{2 t}{1 + t^2}, \quad \cos x = \frac{1 - t^2}{1 + t^2}, \quad \tan x = \frac{2t}{1-t^2} \]
+
+双曲三角函数的定义是
+\[ \sinh x = \frac{\ee^x - \ee^{-x}}{2}, \quad \cosh x = \frac{\ee^x + \ee^{-x}}{2}, \quad \tanh = \frac{\ee^x - \ee^{-x}}{\ee^x + \ee^{-x}} \]
+有公式 $\sinh^2 x - \cosh^2 x = 1$，变形即
+\[ 1 - \tanh^2 x = \frac{1}{\cosh^2 x}, \quad 1 - \coth^2 x = \frac{1}{\sinh^2 x} \]
+
+类似的有反双曲三角函数，即
+\[ \arcsinh x = \ln(x+\sqrt{x^2+1}), \quad \arccosh x = \ln(x+\sqrt{x^2-1}), \quad \arctanh x = \frac{1}{2} \ln \left| \frac{1+x}{1-x}\right| \]
+
 \paragraph{形式一} 如果没有特殊形式，可以尝试齐次化（或者硬代万能公式），强行化有理式。
 
 例如
@@ -446,3 +469,43 @@
 	有界且 $g(x)$ 单调同时 $g \to 0$ 则反常积分
 	\[ \int_{a}^{+\infty} f(x) g(x) \d x \]
 \end{theorem}
+
+\section{常见的积分}
+
+基本积分表之前已经列出，我们这里列一些组合的。
+
+
+
+\begin{example}[有理式]
+	\[ \begin{aligned}
+			\int \frac{1}{(x+a)(x+b)} \d x & = \frac{1}{b-a} \ln \left| \frac{x+b}{x+a} \right| + C                \\
+			\int \frac{1}{x^2(x+a)}   \d x & = \frac{1}{a^2} \ln \left| 1 + \frac{a}{x} \right| - \frac{1}{ax} + C \\
+			\int \frac{1}{x(x^2+a)}   \d x & = \frac{1}{2a} \ln \left| \frac{x^2}{x^2+a}\right| + C
+		\end{aligned} \]
+\end{example}
+
+\begin{example}[带 $a^2 \pm x^2$]
+	\[ \begin{aligned}
+			\int \frac{1}{a^2+x^2} \d x                     & = \frac{1}{a} \arctan \frac{x}{a} + C                                                        \\
+			\int \frac{1}{a^2 - x^2} \d x                   & = \frac{1}{a} \arctanh \frac{x}{a} + C  = \frac{1}{2a} \ln \left| \frac{a+x}{a-x}\right| + C \\
+			\int \frac{1}{\sqrt{a^2 - x^2}} \d x            & = \arcsin \frac{x}{a} + C                                                                    \\
+			\int \frac{1}{\sqrt{a^2 + x^2}} \d x            & = \arcsinh \frac{x}{a} + C  = \ln \left| \sqrt{a^2 + x^2} + x^2 \right|  + C                 \\
+			\int \frac{x}{\sqrt{a^2 \pm x^2}} \d x          & = \pm\sqrt{a^2 \pm x^2} + C                                                                  \\
+			\int \frac{1}{(a^2 \pm x^2)^{\frac{3}{2}}} \d x & = \frac{x}{a^2\sqrt{x^2 \pm a^2}} + C                                                        \\
+			\int \frac{x}{(a^2 \pm x^2)^{\frac{3}{2}}} \d x & = \mp \frac{x}{a^2\sqrt{x^2 \pm a^2}} + C                                                    \\
+			\int \sqrt{a^2 + x^2} \d x                      & = \frac{x}{2}  \sqrt{a^2+x^2}+\frac{a^2}{2} \int \frac{\d x}{\sqrt{a^2-x^2}}                 \\
+			\int \frac{1}{(a^2+x^2)^n} \d x                 & = \frac{x}{2(n-1)a^2(x^2+a^2)^{n-1}} + \frac{2n-3}{2(n-1)a^2} \int \frac{\d x}{(x^2+a^2)^n}
+		\end{aligned} \]
+\end{example}
+
+\begin{example}[根式]
+	\[ \begin{aligned}
+			\int x \sqrt{x+a} \d x           & = \frac{2}{15} (3x - 2a) (x+a)^{\frac{3}{2}} + C                                                                   \\
+			\int \frac{x}{\sqrt{x+a}} \d x   & = \frac{2}{3} (x - 2a) \sqrt{x+a} + C                                                                              \\
+			\int \frac{1}{x\sqrt{x+a}} \d x  & = -\frac{1}{\sqrt{a}} \ln \left| \frac{\sqrt{a + x} + \sqrt{a}}{\sqrt{a + x} - \sqrt{a}} \right| + C , \quad a > 0 \\
+			\int \frac{1}{x\sqrt{x-a}} \d x  & = \frac{2}{\sqrt{a}}\arctan \sqrt{\frac{x}{a}-1}, \quad a > 0                                                      \\
+			\int \sqrt{\frac{a+x}{a-x}} \d x & = \arcsin \frac{x}{a} - \sqrt{a^2 - x^2} + C, \quad a > 0                                                          \\
+			\int \sqrt{\frac{a-x}{a+x}} \d x & = \arcsin \frac{x}{a} + \sqrt{a^2 + x^2} + C, \quad a > 0                                                          \\
+			\int \frac{\sqrt{x+a}}{x} \d x   & = 2 \sqrt{x+a} + a \int \frac{\d x}{x \sqrt{x+a}}
+		\end{aligned} \]
+\end{example}

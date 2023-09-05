@@ -239,3 +239,14 @@
 	\[ \frac{a_0}{2} + \sum_{k=1}^\infty (a_k \cos k x+ b_k \sin k x) \]
 	称为 $f$ 的 Fourier 级数或者 Fourier 展开。
 \end{definition}
+
+比如
+\[ \begin{aligned}
+		x   & = \sum_{k=1}^{\infty} \frac{2}{k} (-1)^{k+1} \sin k x, \quad                   & -\pi \leqslant x \leqslant \pi \\
+		x^2 & = \frac{\pi^2}{3} + \sum_{k=1}^{\infty} \frac{4}{k^2} (-1)^{k} \cos k x, \quad & -\pi \leqslant x \leqslant \pi \\
+	\end{aligned} \]
+
+一般的，对于周期为 $[-l,l]$ 的函数 $f(x)$，则其 Fourier 级数展开式为
+\[ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos \frac{n \pi x}{l} + b_n \sin \frac{n \pi x}{l} \right) \]
+其中
+\[ a_n = \frac{1}{l} \int_{-l}^{l} f(x) \cos \frac{n \pi x}{l} \d x, \quad b_n = \frac{1}{l} \int_{-l}^{l} f(x) \sin \frac{n \pi x}{l} \d x  \]

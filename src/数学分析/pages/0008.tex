@@ -75,7 +75,7 @@
 	\[ f(\vbf{a} + \Delta \vbf{x}) - f(\vbf{a}) = \vbf{b} \cdot \Delta \vbf{x} + o(|\Delta x|) \]
 	则称 $f$ 在 $\vbf{a}$ 处可微或可导，向量 $\vbf{b}$ 为函数 $f$ 在 $\vbf{a}$ 处的导数，记为
 	\[ \vbf{b} = f'(\vbf{a}) = \nabla f(\vbf{a}) \]
-	并记微分为 $\d f = \vbf{b} \cdot \d \vbf{x}$。
+	并记微分（全微分）为 $\d f = \vbf{b} \cdot \d \vbf{x}$。
 \end{definition}
 
 假如考虑对于固定点 $\vbf{a}$，考虑在 $x_i$ 方向上的极限
@@ -125,6 +125,16 @@
 	假设函数 $f$ 的混合二阶偏导数 $f_{x_i x_j}$ 和 $f_{x_j x_i}$ 在 $\vbf{x}_0$ 连续，则必有 $f_{x_i x_j}(\vbf{x}_0) = f_{x_j x_i}(\vbf{x}_0)$。
 \end{theorem}
 
+\subsection{隐函数}
+
+一个基本想法是如何从 $n+1$ 元函数方程
+\[ F(\vbf{x}, y) = 0 \]
+中提取出 $y = f(\vbf{x})$，其中 $\vbf{x} \in \mathbb{R}^n$，假设这样的 $f$ 存在且可任意偏导。则两边对 $\vbf{x_i}$ 求偏导得
+\[ F_{x_i}(\vbf{x}, y) + F_{y}(\vbf{x}, y) f_{x_i}(\vbf{x}) = 0 \]
+即得
+\[ f_{x_i}(\vbf{x}) = -\frac{F_{x_i}(\vbf{x}, y)}{F_{y}(\vbf{x}, y)}, \quad 1 \leqslant i \leqslant n \]
+顺此可推得全微分。
+
 \section{偏导数的应用}
 
 \subsection{链式法则}
@@ -149,6 +159,32 @@
 \end{theorem}
 
 类似的，我们可以把一元的 Taylor 各种公式扩展到多元。
+
+\subsection{空间几何基础}
+
+平面方程的一般式是
+\[ \pi_1(x, y, z) = Ax + By + Cz + D = 0 \]
+其法向量为 $\vbf{n} = (A, B, C)$。或者说是点法式
+\[ A(x-x_0) + B(y-y_0) + C(z-z_0) = 0 \]
+有三点式
+\[ \left|\begin{matrix}
+		x - x_1 & y - y_1 & z - z_1 \\
+		x - x_2 & y - y_2 & z - z_2 \\
+		x - x_3 & y - y_3 & z - z_3 \\
+	\end{matrix} \right| = 0 \]
+
+空间直线的一般式是
+\[ \pi_1(x, y, z) = \pi_2(x, y, z) = 0 \]
+即两个平面的交点。该直线的方向向量为 $\vbf{\tau} = \vbf{n}_1 \times \vbf{n}_2$。或者有点向式
+\[ \frac{x - x_0}{D} = \frac{y - y_0}{E} = \frac{z - z_0}{F} \]
+其方向向量为 $\vbf{\tau} = (D, E, F)$。或者两点式
+\[ \frac{x - x_1}{x_2 - x_1} = \frac{y - y_1}{y_2 - y_1} = \frac{z - z_1}{z_2 - z_1} \]
+
+过直线 $L$ 的全体平面束，若直线表现为两直线交线（即一般式）$\pi_1 \cap \pi_2$，则平面束方程为
+\[ \pi_1(x, y, z) + \lambda \pi_2(x, y, z) = 0, \quad \lambda \in \mathbb{R}^\ast \]
+其他形式则很容易构造两个平面转化为一般式。
+
+如果直线 $L_1$ 与直线 $L_2, L_3$ 都平行，则法向量可以取 $\vbf{n}_1 = \vbf{n}_2 \times \vbf{n}_3$。
 
 \subsection{切线与法平面}
 

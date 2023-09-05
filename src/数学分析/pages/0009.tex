@@ -271,11 +271,16 @@
 为其期望。
 
 其拥有线性性。比如设 $X, Y$ 相互独立，有
-\[ E(X Y) = E(X) E(y), \quad E(X \pm Y) = E(X) \pm E(Y) \]
+\[ E(X Y) = E(X) E(Y), \quad E(X \pm Y) = E(X) \pm E(Y) \]
 
 我们记 $E[(X - E(X))^2]$ 为 $X$ 的方差，有
 \[ D(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2 \]
 称 $\sqrt{D(X)}$ 为 $X$ 的标准差，或者均方差，记为 $\sigma(X)$。
+
+若 $X$ 是离散型随机变量，则
+\[ D(X) = \sum_{i=1}^{\infty} (x_i - E)^2 p_i \]
+连续性随机变量，则
+\[ D(X) = \int_{-\infty}^{\infty} (x-E)^2 f(x) \d x \]
 
 \begin{theorem}[切比雪夫不等式]
 	如果随机变量 $X$ 的期望 $E(X)$ 和方差 $D(X)$ 存在，则对任意 $\eps > 0$ 有

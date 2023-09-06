@@ -8,98 +8,96 @@
 
 在 $K^n$ 中规定加法运算：
 \[(\seq{a}{n})+(\seq{b}{n})\coloneqq (a_1+b_1,\cdots,a_n+b_n)\]
-
 在 $K$ 的元素与 $K^n$ 的元素之间规定数量乘法运算：
 \[k(\seq{a}{n}) \coloneqq  (\seq{ka}{n})\]
+不难验证加法和数量乘法运算满足下述八条运算法则：对于 $\vbf{\alpha},\vbf{\beta},\vbf{\gamma}\in K^n,k,l\in K$ 有
 
-不难验证加法和数量乘法运算满足下述八条运算法则：对于 $\alpha,\beta,\gamma\in K^n,k,l\in K$ 有
-
-1. $\alpha+\beta=\beta+\alpha$
-
-2. $(\alpha+\beta)+\gamma=\alpha+(\beta+\gamma)$
-
-3. 把元素 $(0,\cdots,0)$ 记作零元素 $\vbf{0}$，使得
-\[\vbf{0} + \alpha = \alpha + \vbf{0} = \alpha\]
-
-4. 对于 $\alpha = (\seq{a}{n})\in K^n$，定义其负元素
-\[-\alpha \coloneqq  (\seq{-a}{n})\]
-于是有
-\[\alpha + (-\alpha) = (-\alpha)+\alpha = 0\]
-
-5. $1\alpha = \alpha$
-
-6. $(kl)\alpha = k(l\alpha)$
-
-7. $(k+l)\alpha = k\alpha + l\alpha$
-
-8. $k (\alpha+\beta) = k\alpha + k\beta$
+\begin{enumerate}
+	\item $\vbf{\alpha}+\vbf{\beta}=\vbf{\beta}+\vbf{\alpha}$
+	\item $(\vbf{\alpha}+\vbf{\beta})+\vbf{\gamma}=\vbf{\alpha}+(\vbf{\beta}+\vbf{\gamma})$
+	\item 把元素 $(0,\cdots,0)$ 记作零元素 $\vbf{0}$，使得
+	      \[\vbf{0} + \vbf{\alpha} = \vbf{\alpha} + \vbf{0} = \vbf{\alpha}\]
+	\item 对于 $\vbf{\alpha} = (\seq{a}{n})\in K^n$，定义其负元素
+	      \[-\vbf{\alpha} \coloneqq  (\seq{-a}{n})\]
+	      于是有
+	      \[\vbf{\alpha} + (-\vbf{\alpha}) = (-\vbf{\alpha})+\vbf{\alpha} = 0\]
+	\item $1\vbf{\alpha} = \vbf{\alpha}$
+	\item $(kl)\vbf{\alpha} = k(l\vbf{\alpha})$
+	\item $k (\vbf{\alpha}+\vbf{\beta}) = k\vbf{\alpha} + k\vbf{\beta}$
+\end{enumerate}
 
 \begin{definition}[$n$ 维向量空间]
-	数域 $K$ 上所有 $n$ 元有序数组组成的集合 $K^n$，连同定义在它上面的加法运算和数量乘法运算，及其满足的 8 条运算法则一起，称为数域 $K$ 上的一个 $n$ 维向量空间。$K^n$ 的元素称为 $n$ 维向量；设向量 $\alpha  = (\seq{a}{n})$，称 $a_i$ 是 $\alpha$ 的第 $i$ 个分量。
+	数域 $K$ 上所有 $n$ 元有序数组组成的集合 $K^n$，连同定义在它上面的加法运算和数量乘法运算，及其满足的 8 条运算法则一起，称为数域 $K$ 上的一个 $n$ 维向量空间。$K^n$ 的元素称为 $n$ 维向量；设向量 $\vbf{\alpha}  = (\seq{a}{n})$，称 $a_i$ 是 $\vbf{\alpha}$ 的第 $i$ 个分量。
 \end{definition}
 
 在 $n$ 维向量空间 $K^n$ 中，可以定义减法运算
-\[\alpha - \beta \coloneqq  \alpha + (-\beta)\]
+\[\vbf{\alpha} - \vbf{\beta} \coloneqq  \vbf{\alpha} + (-\vbf{\beta})\]
 
 $n$ 元有序数组写成一行，称为行向量；写成一列，称为列向量，也可以看作行向量的转置。
 
 $K^n$ 可以看成是 $n$ 维行向量组成的向量空间，也可以看作是列向量组成的向量空间。
 
 \begin{definition}[线性组合]
-	给定向量组 $\seq{\alpha}{s}$，再任给 $K$ 中的一组数 $\seq{k}{s}$，那么向量
-	\[k_1 \alpha_1+\cdots+k_s \alpha_s\]
+	给定向量组 $\seq{\vbf{\alpha}}{s}$，再任给 $K$ 中的一组数 $\seq{k}{s}$，那么向量
+	\[k_1 \vbf{\alpha}_1+\cdots+k_s \vbf{\alpha}_s\]
 	称为向量组 $\seq{k}{s}$ 的一个线性组合，其中 $\seq{k}{s}$ 称为系数。
 \end{definition}
 
 \begin{definition}[线性表出]
-	给定向量组 $\seq{\alpha}{s}$，对于 $\beta \in K^n$，若存在 $K$ 中的一组数 $\seq{k}{s}$ 满足
-	\[\beta = k_1\alpha_1+\cdots+k_s\alpha_s\]
-	那么称 $\beta$ 可以由向量组 $\seq{\alpha}{s}$ 线性表出。
+	给定向量组 $\seq{\vbf{\alpha}}{s}$，对于 $\vbf{\beta} \in K^n$，若存在 $K$ 中的一组数 $\seq{k}{s}$ 满足
+	\[\vbf{\beta} = k_1\vbf{\alpha}_1+\cdots+k_s\vbf{\alpha}_s\]
+	那么称 $\vbf{\beta}$ 可以由向量组 $\seq{\vbf{\alpha}}{s}$ 线性表出。
 \end{definition}
 
 于是可以把数域 $K$ 上的 $n$ 元线性方程组
-
-\begin{equation*}
+\[
 	\left\{
 	\begin{matrix}
 		a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\
 		a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
-		\cdots\qquad\cdots\qquad\cdots           \\
-		a_{n1}x_1+a_{n2}x_2+\cdot +a_{nn}x_n=b_n
+		\cdots \qquad \cdots \qquad \cdots       \\
+		a_{n1}x_1+a_{n2}x_2+\cdots +a_{nn}x_n=b_n
 	\end{matrix}
 	\right.
-\end{equation*}
-
+\]
 写成
-\[x_1\alpha_1+\cdots+x_n\alpha_n=\beta\]
-其中 $\seq{\alpha}{n}$ 是线性方程组的列向量组，$\beta$ 是由常数项组成的列向量。
+\[x_1\left(\begin{matrix}
+			a_{11} \\ a_{21} \\ \cdots \\ a_{n1}
+		\end{matrix}\right)+x_2\left(\begin{matrix}
+			a_{12} \\ a_{22} \\ \cdots \\ a_{n2}
+		\end{matrix}\right)+\cdots+x_n\left(\begin{matrix}
+			a_{1n} \\ a_{2n} \\ \cdots \\ a_{nn}
+		\end{matrix}\right)=\left(\begin{matrix}
+			b_{1} \\ b_{2} \\ \cdots \\ b_{n}
+		\end{matrix}\right)\]
+或者
+\[ x_1\vbf{\alpha}_1+\cdots+x_n\vbf{\alpha}_n=\vbf{\beta} \]
+其中 $\seq{\vbf{\alpha}}{n}$ 是线性方程组的列向量组，$\vbf{\beta}$ 是由常数项组成的列向量。因此方程组有解等价于 $\vbf{\beta}$ 可以被 $\seq{\vbf{\alpha}}{n}$ 线性表出。
 
 \begin{definition}[线性子空间]
 	$K^n$ 的一个非空子集 $U$ 是 $K^n$ 的一个线性子空间，那么满足
 
-	（1） $U$ 对于 $K^n$ 的加法封闭：$\alpha,\gamma\in U \Rightarrow \alpha+\gamma \in U$
+	（1） $U$ 对于 $K^n$ 的加法封闭：$\vbf{\alpha},\vbf{\gamma}\in U \Rightarrow \vbf{\alpha}+\vbf{\gamma} \in U$
 
-	（2） $U$ 对于 $K^n$ 的乘法封闭：$\alpha \in U,k\in K \Rightarrow k\alpha \in U$
+	（2） $U$ 对于 $K^n$ 的乘法封闭：$\vbf{\alpha} \in U,k\in K \Rightarrow k\vbf{\alpha} \in U$
 \end{definition}
 
-特殊的，$\{0\}$ 也是 $K^n$ 的一个，称为零子空间。$K^n$ 本身也是 $K^n$ 的一个子空间。
+特殊的，$\{0\}$ 也是 $K^n$ 的一个子空间，称为零子空间。$K^n$ 本身也是 $K^n$ 的一个子空间。
 
-$\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 $\seq{\alpha}{n}$ 生成（张成）的子空间，记作
-\[\langle \seq{\alpha}{n}\rangle\coloneqq \{k_1\alpha_1+\cdots+k_s\alpha_s \mid k_i\in K,i=1,\cdots,s\}\]
+$\seq{\vbf{\alpha}}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 $\seq{\vbf{\alpha}}{n}$ 生成（张成）的子空间，记作
+\[\langle \seq{\vbf{\alpha}}{n}\rangle\coloneqq \{k_1\vbf{\alpha}_1+\cdots+k_s\vbf{\alpha}_s \mid k_i\in K,i=1,\cdots,s\}\]
 
-于是线性方程组有解，等价与 $\beta$ 可以由 $\seq{\alpha}{n}$ 线性表出，即 $\beta \in \langle\seq{\alpha}{n}\rangle$。
+于是线性方程组有解，等价与 $\vbf{\beta}$ 可以由 $\seq{\vbf{\alpha}}{n}$ 线性表出，即 $\vbf{\beta} \in \langle\seq{\vbf{\alpha}}{n}\rangle$。
 
 \section{线性相关与无关}
 
 \begin{definition}
-	$K^n$ 中向量组 $\seq{\alpha}{s}$ 称为是线性相关的，如果有 $K$ 中不全为 $0$ 的数 $\seq{k}{s}$，使得
-	\[k_1\alpha_1+\cdots+k_s\alpha_s=\vbf{0}\]
+	$K^n$ 中向量组 $\seq{\vbf{\alpha}}{s}$ 称为是线性相关的，如果有 $K$ 中不全为 $0$ 的数 $\seq{k}{s}$，使得
+	\[k_1\vbf{\alpha}_1+\cdots+k_s\vbf{\alpha}_s=\vbf{0}\]
 	否则称为线性无关。
 \end{definition}
 
-即线性无关意味着所有的系数只能都为 $0$。
-
-注意线性相关不意味着每个向量都可以由其他向量线性表出，该向量前的系数 $k$ 可以为 $0$。
+即线性无关意味着所有的系数只能都为 $0$。注意线性相关不意味着每个向量都可以由其他向量线性表出，该向量前的系数 $k$ 可以为 $0$。
 
 \section{向量组的秩}
 
@@ -107,11 +105,11 @@ $\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 
 	向量组的一个部分组称为一个极大线性无关组，如果这个部分组本身是线性无关的，但是从这个向量组的其余向量（如果还有的话）中任取一个添进去，得到的新的部分组都线性相关。
 \end{definition}
 
-如果向量组 $\seq{\alpha}{s}$ 的每一个向量都可以由向量组 $\seq{\beta}{r}$ 线性表出，那么称向量组 $\seq{\alpha}{s}$ 可以由向量组线性表出。
+如果向量组 $\seq{\vbf{\alpha}}{s}$ 的每一个向量都可以由向量组 $\seq{\vbf{\beta}}{r}$ 线性表出，那么称向量组 $\seq{\vbf{\alpha}}{s}$ 可以由向量组线性表出。
 
 \begin{definition}
-	如果向量组 $\seq{\alpha}{s}$ 与向量组 $\seq{\beta}{r}$ 可以互相线性表出，那么称两个向量组等价，记作
-	\[\{\seq{\alpha}{s}\} \cong \{\seq{\beta}{r}\}\]
+	如果向量组 $\seq{\vbf{\alpha}}{s}$ 与向量组 $\seq{\vbf{\beta}}{r}$ 可以互相线性表出，那么称两个向量组等价，记作
+	\[\{\seq{\vbf{\alpha}}{s}\} \cong \{\seq{\vbf{\beta}}{r}\}\]
 \end{definition}
 
 可以证明，这种关系具有三条性质（反身性，对称性，传递性），即是等价关系。
@@ -121,18 +119,18 @@ $\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 
 那么向量组与它的极大线性无关组等价。
 
 \begin{definition}
-	向量组 $\seq{\alpha}{r}$ 的极大线性无关组所含向量的个数称为这个向量组的秩，记作
-	\[\rank\{\seq{\alpha}{r}\}\]
+	向量组 $\seq{\vbf{\alpha}}{r}$ 的极大线性无关组所含向量的个数称为这个向量组的秩，记作
+	\[\rank\{\seq{\vbf{\alpha}}{r}\}\]
 \end{definition}
 
 \section{子空间的基与维数}
 
 \begin{definition}[子空间]
-	设 $U$ 是 $K^n$ 的一个子空间，如果 $\seq{\alpha}{r}\in U$ 是 $U$ 的一个基，那么
+	设 $U$ 是 $K^n$ 的一个子空间，如果 $\seq{\vbf{\alpha}}{r}\in U$ 是 $U$ 的一个基，那么
 
-	（1） $\seq{\alpha}{r}$ 线性无关。
+	（1） $\seq{\vbf{\alpha}}{r}$ 线性无关。
 
-	（2） $U$ 中每一个向量都可以由 $\seq{\alpha}{r}$ 线性表出。
+	（2） $U$ 中每一个向量都可以由 $\seq{\vbf{\alpha}}{r}$ 线性表出。
 \end{definition}
 
 显然，单位向量组 $\seq{\eps}{n}$ 是 $K^n$ 的一个基，称作标准基。
@@ -146,8 +144,8 @@ $\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 
 \end{theorem}
 
 \begin{theorem}
-	向量组 $\seq{\alpha}{s}$ 的一个极大线性无关组是这个向量组生成的子空间的 $\langle \seq{\alpha}{s} \rangle$，从而
-	\[\dim\langle \seq{\alpha}{s} \rangle = \rank\{\seq{\alpha}{s}\}\]
+	向量组 $\seq{\vbf{\alpha}}{s}$ 的一个极大线性无关组是这个向量组生成的子空间的 $\langle \seq{\vbf{\alpha}}{s} \rangle$，从而
+	\[\dim\langle \seq{\vbf{\alpha}}{s} \rangle = \rank\{\seq{\vbf{\alpha}}{s}\}\]
 \end{theorem}
 
 \section{矩阵的秩}
@@ -174,7 +172,7 @@ $\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 
 
 \begin{theorem}
 	数域 $K$ 上有线性方程组
-	\[x_1\alpha_1 + \cdots + x_n\alpha_n = \beta\]
+	\[x_1\vbf{\alpha}_1 + \cdots + x_n\vbf{\alpha}_n = \vbf{\beta}\]
 	有解的充分必要条件是：它的系数矩阵与增广矩阵的秩相等。
 \end{theorem}
 
@@ -185,7 +183,7 @@ $\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 
 \section{齐次线性方程组解集的结构}
 
 数域 $K$ 上 $n$ 元齐次线性方程组
-\[x_1\alpha_1 + \cdots + x_n\alpha_n = 0\]
+\[x_1\vbf{\alpha}_1 + \cdots + x_n\vbf{\alpha}_n = 0\]
 的一个解是 $K^n$ 中的一个向量，称它为齐次线性方程组的一个解向量。
 
 可知齐次线性方程组的解集 $W$ 是 $K^n$ 的一个子空间，称为方程组的一个解空间。
@@ -206,16 +204,82 @@ $\seq{\alpha}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，称为 
 	\[\dim W = n-\rank(A)\]
 \end{theorem}
 
+\begin{proof}
+	倘若 $\rank(A) = n$，即只有零解，那么 $W = \{\vbf{0}\}$，此时显然成立。
+
+	下面设 $\rank(A) = r < n$。第一步，将 $A$ 变化为简化行阶梯形矩阵，不妨设主元在前 $r$ 列，即得 $x_1, \cdots, x_r$ 关于自由变量 $x_{r+1}, \cdots, x_n$ 的线性关系。
+
+	第二步，取 $n-r$ 个线性无关向量（最简单就是逐个取 $1$），带入 $x_{r+1}, \cdots, x_n$，得到方程组的 $n-r$ 个解 $\seq{\vbf{\eta}}{{n-r}}$，显然这些解线性无关。
+
+	下证这些解是解空间的基。对于任何一个解 $\vbf{\eta}$，显然可以关于 $x_{r+1}, \cdots, x_n$ 的 $n-r$ 个线性无关向量分解，从而总是可以由 $\seq{\vbf{\eta}}{r}$ 线性表示。故
+	\[ \dim W = n - \rank(A) \]
+\end{proof}
+
+\begin{example}
+	求解
+	\[ \left\{
+		\begin{aligned}
+			x_1    & + 3x_2 & - 5x_3 & - 2x_4 & = 0 \\
+			-3x_1  & - 2x_2 & + x_3  & + x_4  & = 0 \\
+			-11x_1 & - 5x_2 & - x_3  & + 2x_4 & = 0 \\
+			5x_1   & + x_2  & +x_3   &        & = 0 \\
+		\end{aligned} \right. \]
+\end{example}
+
+第一步，化成简化阶梯型行列式，求出一般解
+\[ \left\{
+	\begin{aligned}
+		x_1 & = -x_3 - \frac{1}{7}x_4 \\
+		x_2 & = 2x_3 + \frac{5}{7}x_4 \\
+	\end{aligned} \right. \]
+第二步，其中 $x_3, x_4$ 是自由变量，得到基础解系
+\[ \vbf{\eta}_1 = \left(\begin{matrix}
+			-1 \\ 2 \\ 1 \\ 0
+		\end{matrix}\right), \quad \vbf{\eta}_2 = \left(\begin{matrix}
+			-1 \\ 5 \\ 0 \\ 7
+		\end{matrix}\right) \]
+因此方程组的解集为
+\[ W = \{ k_1 \vbf{\eta}_1 + k_2 \vbf{\eta}_2 \} \]
+
 \section{非齐次线性方程组的结构}
 
 称数域 $K$ 上 $n$ 元齐次线性方程组
-\[x_1\alpha_1 + \cdots + x_n\alpha_n = \beta\]
+\[x_1\vbf{\alpha}_1 + \cdots + x_n\vbf{\alpha}_n = \vbf{\beta}\]
 的导出组为
-\[x_1\alpha_1 + \cdots + x_n\alpha_n = 0\]
+\[x_1\vbf{\alpha}_1 + \cdots + x_n\vbf{\alpha}_n = 0\]
 其的解空间用 $W$ 表示。
 
 \begin{theorem}
 	如果数域 $K$ 上 $n$ 元齐次线性方程组有解，那么它的解集 $U$ 为
-	\[U = \{\gamma_0+\eta \mid \eta \in W\}\]
-	其中 $\gamma_0$ 是非其次线性方程组的一个特解，$W$ 是导出组的解空间用。
+	\[U = \{\vbf{\gamma}_0 + \vbf{\eta} \mid \vbf{\eta} \in W\}\]
+	其中 $\vbf{\gamma}_0$ 是非其次线性方程组的一个特解，$W$ 是导出组的解空间用。
 \end{theorem}
+
+\begin{example}
+	求解
+	\[ \left\{
+		\begin{aligned}
+			x_1   & + 2x_2 & - 3x_3 & - 4x_4 & = -5 \\
+			3x_1  & - x_2  & + 5x_3 & + 6x_4 & = -1 \\
+			-5x_1 & - 3x_2 & + x_3  & + 2x_4 & = 11 \\
+			-9x_1 & - 4x_2 & - x_3  &        & = 17 \\
+		\end{aligned} \right. \]
+\end{example}
+
+第一步，化成简化阶梯型行列式，求出一般解
+\[ \left\{
+	\begin{aligned}
+		x_1 & = -x_3 - \frac{8}{7}x_4 - 1  \\
+		x_2 & = 2x_3 + \frac{18}{7}x_4 - 2 \\
+	\end{aligned} \right. \]
+第二步，其中 $x_3, x_4$ 是自由变量，得到特解和基础解系
+\[ \vbf{\gamma}_0 = \left(\begin{matrix}
+			-1 \\ -2 \\ 0 \\ 0
+		\end{matrix}\right), \quad \vbf{\eta}_1 = \left(\begin{matrix}
+			-1 \\ 2 \\ 1 \\ 0
+		\end{matrix}\right), \quad \vbf{\eta}_2 = \left(\begin{matrix}
+			-1 \\ 5 \\ 0 \\ 7
+		\end{matrix}\right) \]
+因此方程组的解集为
+\[ W = \{ \vbf{\gamma}_0 + k_1 \vbf{\eta}_1 + k_2 \vbf{\eta}_2 \} \]
+

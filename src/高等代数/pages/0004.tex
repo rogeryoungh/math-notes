@@ -34,11 +34,7 @@
 注意到，若 $A,B\ne 0$，有可能 $BA = 0$。因此 $BA = 0$ 不能推出 $B=0$ 或 $A=0$。
 
 \begin{definition}[零因子]
-	对于矩阵 $A$，若存在矩阵 $B\ne 0$ 使得 $AB = 0$，那么称 $A$ 是一个左零因子。
-	
-	如果存在一个矩阵 $C\ne 0$ 使得 $CA = 0$，那么称 $A$ 是一个右零因子。
-	
-	左零因子和右零因子称为零因子。 
+	对于矩阵 $A$，若存在矩阵 $B\ne 0$ 使得 $AB = 0$，那么称 $A$ 是一个左零因子。如果存在一个矩阵 $C\ne 0$ 使得 $CA = 0$，那么称 $A$ 是一个右零因子。左零因子和右零因子称为零因子。 
 \end{definition}
 
 特殊的，零矩阵是零因子，称为平凡的零因子。
@@ -61,33 +57,28 @@
 \[k(AB) = (kA)B = A(kB)\]
 
 数量矩阵还有
-\[kE + lE = (k+l)E\]
-\[k(lE) = (kl)E\]
-\[(kE)(lE) = (kl)E\]
+\[ \begin{aligned}
+		kE + lE = (k+l)E \\
+		k(lE) = (kl)E    \\
+		(kE)(lE) = (kl)E
+	\end{aligned} \]
 
 矩阵的乘法虽不满足交换律，但若对具体的两个矩阵 $A$ 与 $B$，也有可能 $AB = BA$，那么称 $A$ 与 $B$ 可交换。比如数量矩阵与任一同级矩阵可交换
 \[(kE)A = A(kE) = kA\]
 
 \begin{definition}
 	定义 $n$ 级矩阵 $A$ 的非负整数次幂为
-	
-	（1） $A^n \coloneqq  E$
-	
-	（2） $A^{m+1} \coloneqq  AA^m$
+	\[ A^n \coloneqq  A \cdots A, \quad A^{n+1} \coloneqq A A^{n} \]
 \end{definition}
 
 
 \begin{theorem}
-	（1） $\transpose{(A+B)} = \transpose{A}$
-	
-	（2） $\transpose{(kA)} = k\transpose{A}$
-	
-	（3） $\transpose{(AB)} = \transpose{B}\transpose{A}$
+	\[ \transpose{(A+B)} = \transpose{A} + \transpose{B}, \quad \transpose{(kA)} = k\transpose{A}, \quad \transpose{(AB)} = \transpose{B}\transpose{A} \]
 \end{theorem}
 
-如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $\beta$，未知量 $\seq{x}{n}$ 组成的列向量为 $X$，那么 $n$ 元线性方程组可以写成
-\[AX = \beta\]
-于是列向量 $\eta$ 是方程组的 $AX = \beta$ 的解当且仅当 $A\eta = \beta$。
+如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $\vbf{\beta}$，未知量 $\seq{x}{n}$ 组成的列向量为 $X$，那么 $n$ 元线性方程组可以写成
+\[AX = \vbf{\beta}\]
+于是列向量 $\vbf{\eta}$ 是方程组的 $AX = \vbf{\beta}$ 的解当且仅当 $A \vbf{\eta} = \vbf{\beta}$。
 
 \section{特殊矩阵}
 
@@ -152,6 +143,40 @@
 	\[|AB|=\sum_{1 \leqslant v_1<\cdots< v_s \leqslant n}A \dbinom{1,\cdots,s}{\seq{v}{s}} \cdot B \dbinom{\seq{v}{s}}{1,\cdots,s}\]
 \end{theorem}
 
+\begin{theorem}
+	\[ \rank(\transpose{A}A) = \rank(A \transpose{A}) = \rank(A) \]
+\end{theorem}
+
+\begin{proof}
+	试证 $A\vbf{X} = \vbf{0}$ 与 $(\transpose{A}A) \vbf{X} = \vbf{0}$ 同解。
+	
+	假设 $\vbf{\eta}$ 是 $A \vbf{X} = \vbf{0}$ 的一个解，显然
+	\[ (\transpose{A}A) \vbf{X} = \transpose{A} (A \vbf{\eta}) = \transpose{A} \vbf{0} = \vbf{0} \]
+	反之，设 $\vbf{\eta}$ 是 $(\transpose{A}A) \vbf{X} = \vbf{0}$ 的一个解，注意到
+	\[ \transpose{(A \vbf{\eta})}(A \vbf{\eta}) = \transpose{\vbf{\eta}} ((\transpose{A}A) \vbf{\eta}) = 0 \]
+	即向量 $A \vbf{\eta}$ 的长度为 $0$，故 $A \vbf{\eta} = \vbf{0}$。
+\end{proof}
+
+\begin{example}
+	如果数域上的 $n$ 级矩阵 $A$ 满足 $A \transpose{A} = E$，且 $|A| = -1$，求证：$|E+A| = 0$。
+\end{example}
+
+\begin{solution}
+	注意到
+	\[ |E+A| = |A\transpose{A} + AE| = -|\transpose{A} + E| = -|A+E| \]
+	故 $|E+A| = 0$。
+\end{solution}
+
+\begin{example}
+	如果 $m \times n$ 的矩阵 $A$ 和 $n \times s$ 的矩阵 $B$ 满足 $AB = O$，求证：$\rank(A) + \rank(B) \leqslant n$。
+\end{example}
+
+\begin{solution}
+	注意到 $B$ 的每个列向量都是 $A \vbf{\beta}_i = \vbf{0}$ 的解。因此有 $\rank(B) \leqslant n - \rank(A)$。
+\end{solution}
+
+\section{可逆矩阵}
+
 \begin{definition}
 	对于数域 $K$ 上的矩阵 $A$，如果存在数域 $K$ 上的矩阵 $B$，使得
 	\[AB = BA = E\]
@@ -186,9 +211,58 @@
 	矩阵 $A$ 可逆的充分必要条件是它可以表示成一些初等矩阵的乘积。
 \end{theorem}
 
-用一个可逆矩阵左（右）乘一个矩阵 $A$，不改变 $A$ 的秩。
+用一个可逆矩阵左（右）乘一个矩阵 $A$，不改变 $A$ 的秩。这里给出了求可逆矩阵第逆矩阵的又一种方法，称为初等变换法。
 
-这里给出了求可逆矩阵第逆矩阵的又一种方法，称为初等变换法。
+\begin{example}
+	设 $A, B$ 分别是 $n \times m, m \times n$ 的矩阵，如果已知 $E_n - AB$ 可逆，求 $(E_m - BA)^{-1}$。
+\end{example}
+
+\begin{solution}
+	设存在 $m$ 级矩阵 $X$ 使得
+	\[ (E_m - BA)(E_m + X) = E_m \]
+	即
+	\[ X - BAX = BA \]
+	直觉指引我们构造 $X = BYA$，带入有
+	\[ B(E_m - AB)YA = BA \]
+	因此可以令 $Y = (E_m - AB)^{-1}$，故
+	\[ (E_m - BA)^{-1} = E_m + B(E_n - AB)^{-1}A \]
+\end{solution}
+
+\begin{example}
+	设方阵 $A, B$ 满足 $|A| + |B| = 0$，且 $A, B$ 是对合矩阵，即 $A^2 = B^2 = E$。证明：那么 $A+B, E + AB$ 都不可逆。
+\end{example}
+
+\begin{solution}
+	可以得到 $|A| = \pm 1$，不妨设 $|A| = 1, |B| = -1$，则
+	\[ \begin{aligned}
+			|A + B| & = |A(A+B)| = |E+AB|    \\
+			        & = -|(A+B)B| = -|AB+E|
+		\end{aligned} \]
+	故 $|A+B| = |AB+E| = 0$。
+\end{solution}
+
+\begin{example}
+	如果 $A^3 = 0$，求 $(E - A)^{-1}$。
+\end{example}
+
+\begin{solution}
+	注意到
+	\[ (E - A)(E + A + A^2) = E - A^3 = E \]
+	因此
+	\[ (E - A)^{-1} = E + A + A^2 \]
+\end{solution}
+
+\begin{example}
+	设 $n$ 级矩阵 $A, B$ 满足 $A + B = AB$，求证：$E - A, E - B$ 都可逆，且 $AB = BA$。
+\end{example}
+
+\begin{solution}
+	注意到
+	\[ (E-A)(E-B) = E - A - B + AB = E \]
+	因此
+	\[ E = (E-B)(E-A) = E + BA - AB \]
+	得到 $AB = BA$。
+\end{solution}
 
 \section{矩阵的分块}
 
@@ -228,24 +302,24 @@
 \end{theorem}
 
 \begin{definition}
-	在 $\mathbb{R}^n$ 中，任给 $\alpha = (\seq{a}{n}),\beta=(\seq{b}{n})$，规定
-	\[(\alpha,\beta) \coloneqq  \sum a_nb_n = \alpha\transpose{\beta}\]
-	这个二元实值函数 $(\alpha,\beta)$ 称为 $\mathbb{R}^n$ 的一个内积（通常称为标准内积）。
+	在 $\mathbb{R}^n$ 中，任给 $\alpha = (\seq{a}{n}),\vbf{\beta}=(\seq{b}{n})$，规定
+	\[(\alpha,\vbf{\beta}) \coloneqq  \sum a_nb_n = \alpha\transpose{\vbf{\beta}}\]
+	这个二元实值函数 $(\alpha,\vbf{\beta})$ 称为 $\mathbb{R}^n$ 的一个内积（通常称为标准内积）。
 \end{definition}
 
 可以验证 $\mathbb{R}^n$ 的标准内积有下列性质：
 
-1. 对称性 $(\alpha,\beta) = (\beta,\alpha)$。
+1. 对称性 $(\alpha,\vbf{\beta}) = (\vbf{\beta},\alpha)$。
 
-2. 线性性之一 $(\alpha+\gamma,\beta) = (\alpha,\beta) + (\gamma,\beta)$。
+2. 线性性之一 $(\alpha+\gamma,\vbf{\beta}) = (\alpha,\vbf{\beta}) + (\gamma,\vbf{\beta})$。
 
-3. 线性性之二 $(k\alpha,\beta) = k(\alpha,\beta)$。
+3. 线性性之二 $(k\alpha,\vbf{\beta}) = k(\alpha,\vbf{\beta})$。
 
 4. 正定性 $(\alpha,\alpha) \geqslant 0$，当且仅当 $\alpha=\vbf{0}$ 时等号成立。
 
 可以验证
-\[(k_1\alpha_1+k_2\alpha_2, \beta) = k_1(\alpha_1,\beta) + k_2(\alpha_2,\beta)\]
-\[(\alpha, k_1\beta_1+k_2\beta_2) = k_1(\alpha,\beta_1) + k_2(\alpha,\beta_2)\]
+\[(k_1\alpha_1+k_2\alpha_2, \vbf{\beta}) = k_1(\alpha_1,\vbf{\beta}) + k_2(\alpha_2,\vbf{\beta})\]
+\[(\alpha, k_1\vbf{\beta}_1+k_2\vbf{\beta}_2) = k_1(\alpha,\vbf{\beta}_1) + k_2(\alpha,\vbf{\beta}_2)\]
 
 $n$ 维向量空间 $\mathbb{R}^n$ 有了标准内积后，就称 $\mathbb{R}^n$ 为一个欧几里得空间。其中，向量 $\alpha$ 的长度 $|\alpha|$ 规定为
 \[|\alpha| \coloneqq  \sqrt{(\alpha,\alpha)}\]
@@ -255,7 +329,7 @@ $n$ 维向量空间 $\mathbb{R}^n$ 有了标准内积后，就称 $\mathbb{R}^n$
 
 长度为 $1$ 的向量称为单位向量，把非零向量 $\alpha$ 除以 $|\alpha|$ 称为把 $\alpha$ 单位化。
 
-在欧几里得空间 $\mathbb{R}^n$ 中，如果 $(\alpha,\beta)=0$，那么称 $\alpha$ 与 $\beta$ 是正交的，记作 $\alpha \bot \beta$。由非零向量组成的向量组如果其中每两个不同的向量都正交，那么称它们为正交向量组。如果其每个向量都是单位向量，那么称它为正交单位向量组。
+在欧几里得空间 $\mathbb{R}^n$ 中，如果 $(\alpha,\vbf{\beta})=0$，那么称 $\alpha$ 与 $\vbf{\beta}$ 是正交的，记作 $\alpha \bot \vbf{\beta}$。由非零向量组成的向量组如果其中每两个不同的向量都正交，那么称它们为正交向量组。如果其每个向量都是单位向量，那么称它为正交单位向量组。
 
 特殊的，零向量与任何向量正交，仅由一个非零向量组成的向量组也是正交向量组。
 
@@ -267,37 +341,37 @@ $n$ 维向量空间 $\mathbb{R}^n$ 有了标准内积后，就称 $\mathbb{R}^n$
 
 \begin{theorem}
 	设 $\seq{\alpha}{s}$ 是欧几里得空间 $\mathbb{R}^n$ 中一个线性无关的向量组，令
-	\begin{equation*}
+	\[
 		\begin{aligned}
-			\beta_1 & =\alpha_1                                                                   \\
-			\beta_2 & =\alpha_2 - \frac{\alpha_2,\beta_1}{\beta_1,\beta_1}\beta_1                 \\
-			        & \cdots                                                                      \\
-			\beta_s & = \alpha_s-\sum_{j=1}^{s-1}\frac{\alpha_s,\beta_j}{\beta_j,\beta_j}\beta_j
+			\vbf{\beta}_1 & =\alpha_1                                                                                           \\
+			\vbf{\beta}_2 & =\alpha_2 - \frac{\alpha_2,\vbf{\beta}_1}{\vbf{\beta}_1,\vbf{\beta}_1}\vbf{\beta}_1                 \\
+			              & \cdots                                                                                              \\
+			\vbf{\beta}_s & = \alpha_s-\sum_{j=1}^{s-1}\frac{\alpha_s,\vbf{\beta}_j}{\vbf{\beta}_j,\vbf{\beta}_j}\vbf{\beta}_j
 		\end{aligned}
-	\end{equation*}
-	则 $\seq{\beta}{s}$ 是正交向量组，并且与 $\seq{\alpha}{s}$ 等价。
+	\]
+	则 $\seq{\vbf{\beta}}{s}$ 是正交向量组，并且与 $\seq{\alpha}{s}$ 等价。
 \end{theorem}
 
-这给出了在欧几里得空间 $\mathbb{R}^n$ 中从一个线性无关的向量组 $\seq{\alpha}{s}$ 出发，够造出与它等价的一个正交向量组的方法，这种方法称为 施密特 Schmidt 正交化过程，只要再将 $\seq{\beta}{s}$ 中每个向量单位化，则其就是与原向量组等价的正交单位向量组，就是 $\mathbb{R}^n$ 的一个标准正交基。
+这给出了在欧几里得空间 $\mathbb{R}^n$ 中从一个线性无关的向量组 $\seq{\alpha}{s}$ 出发，够造出与它等价的一个正交向量组的方法，这种方法称为 施密特 Schmidt 正交化过程，只要再将 $\seq{\vbf{\beta}}{s}$ 中每个向量单位化，则其就是与原向量组等价的正交单位向量组，就是 $\mathbb{R}^n$ 的一个标准正交基。
 
 \section{\texorpdfstring{$K^n$ 到 $K^s$ 的线性映射}{Kn 到 Ks 的线性映射}}
 
 映射视作熟知的。设 $f$ 是集合 $S$ 到集合 $S'$，$S$ 所有元素在 $f$ 下的象组成的集合叫做 $f$ 的值域或者 $f$ 的象，记作 $f(S)$ 或 $\Im f$。
 
 \begin{definition}
-	数域 $K$ 上的向量空间 $K^n$ 到 $K^s$ 的一个映射 $\sigma$ 如果保持加法和数量乘法，即 $\forall \alpha,\beta \in K^n,k\in K$ 有
-	\[\sigma (\alpha+\beta) = \sigma(\alpha) + \sigma(\beta)\]
+	数域 $K$ 上的向量空间 $K^n$ 到 $K^s$ 的一个映射 $\sigma$ 如果保持加法和数量乘法，即 $\forall \alpha,\vbf{\beta} \in K^n,k\in K$ 有
+	\[\sigma (\alpha+\vbf{\beta}) = \sigma(\alpha) + \sigma(\vbf{\beta})\]
 	\[\sigma(k\alpha) = k\sigma(\alpha)\]
 	那么称 $\sigma$ 是 $K^n$ 到 $K^s$ 上的一个线性映射。
 \end{definition}
 
 设 $A$ 是数域 $K$ 上 $s \times n$ 矩阵，令
-\begin{equation*}
+\[
 	\begin{aligned}
 		\vbf{A} : K^n & \rightarrow K^s  \\
 		\alpha        & \mapsto A\alpha
 	\end{aligned}
-\end{equation*}
+\]
 
 
 \begin{definition}

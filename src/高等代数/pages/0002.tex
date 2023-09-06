@@ -243,4 +243,13 @@
 	\right.
 \]
 
-其系数矩阵记作 $A$，增广矩阵记作 $\widetilde{A}$
+其系数矩阵记作 $A$，增广矩阵记作 $\widetilde{A}$。
+
+\begin{theorem}
+	方程组有唯一解的充要条件是 $|A| \neq 0$。定义 $B_j$ 为矩阵 $A$ 第 $j$ 列换为常数项后的矩阵，此时解为
+	\[ \left( \frac{|B_1|}{|A|}, \cdots, \frac{|B_n|}{|A|} \right) \]
+\end{theorem}
+
+\begin{proof}
+	假设行列式有唯一解，由上一章知矩阵 $\widetilde{A}$ 可以通过初等行变换变化为阶梯型矩阵 $J$，$|A| = l |J| \neq 0$。
+\end{proof}

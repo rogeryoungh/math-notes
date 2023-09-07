@@ -70,71 +70,81 @@
 
 \section{广义逆矩阵}
 
+对于线性方程组 $A\vbf{X} = \vbf{\beta}$，当 $A$ 可逆时答案可以被直接表示为 $\vbf{X} = A^{-1}\vbf{\beta}$。当 $A$ 不可逆但方程有解时，引入广义逆的概念来辅助分析。
+
 \begin{theorem}
 	设 $A$ 是数域 $K$ 上 $s\times n$ 非零矩阵，则矩阵方程
-	\[AXA = A\]
+	\[ A \vbf{X} A = A \]
 	一定有解。如果 $\rank(A) = r$，并且
-	\[A = P\left(\begin{matrix}
-				E_r & 0  \\
-				0   & 0
-			\end{matrix}\right)Q\]
+	\[ A = P\left(\begin{matrix}
+				E_r & 0 \\ 0   & 0
+			\end{matrix}\right)Q \]
 	其中 $P,Q$ 分别是 $K$ 上 $s$ 级、$n$ 级可逆矩阵，那么矩阵方程的通解为
-	\[X = Q^{-1}\left(\begin{matrix}
-				E_r & B  \\
-				C   & D
-			\end{matrix}\right)P^{-1}\]
+	\[ \vbf{X} = Q^{-1}\left(\begin{matrix}
+				E_r & B \\ C   & D
+			\end{matrix}\right)P^{-1} \]
 	其中 $B,C,D$ 分别是数域 $K$ 上任意的 $r\times (s-r),(n-r)\times r,(n-r)\times (s-r)$ 矩阵。
 \end{theorem}
 
-\begin{definition}
-	设 $A$ 是数域 $K$ 上 $s\times n$ 非零矩阵，则矩阵方程 $AXA = A$ 的每一个解都称为 $A$ 的一个广义逆矩阵，简称广义逆。用 $A^-$ 表示。
+\begin{definition}[广义逆] \index{guangyini@广义逆}
+	设 $A$ 是数域 $K$ 上 $s\times n$ 非零矩阵，则矩阵方程 $A\vbf{X}A = A$ 的每一个解都称为 $A$ 的一个广义逆矩阵，简称广义逆。用 $A^-$ 表示。
 \end{definition}
 
 \begin{theorem}
-	非齐次线性方程组 $AX = \beta$ 有解的充分必要条件是
-	\[\beta = AA^-\beta\]
+	非齐次线性方程组 $A\vbf{X} = \vbf{\beta}$ 有解的充分必要条件是
+	\[\vbf{\beta} = AA^-\vbf{\beta} \]
+\end{theorem}
+
+\begin{proof}
+	必要性：设 $A \vbf{X}= \vbf{\beta}$ 有解 $\alpha$，则
+	\[ \vbf{\beta} = A \vbf{\alpha} = A A^{-} A \vbf{\alpha} = A A^{-} \vbf{\beta}  \]
+	充分性：若 $\vbf{\beta} = A A^{-} \vbf{\beta}$，显然 $A^{-} \vbf{\beta}$ 是 $A\vbf{X} = \vbf{\beta}$ 的解。
+\end{proof}
+
+\begin{theorem}
+	非齐次线性方程组 $A\vbf{X} = \vbf{\beta}$ 有解时，它的通解为
+	\[ \vbf{X}  = A^-\vbf{\beta}  \]
 \end{theorem}
 
 \begin{theorem}
-	非齐次线性方程组 $AX = \beta$ 有解时，它的通解为
-	\[X  = A^-\beta\]
+	数域 $K$ 上 $n$ 元齐次线性方程组 $A\vbf{X} = 0$ 的通解为
+	\[ \vbf{X}  = (E_n - A^-A)\vbf{Z} \]
+	其中 $A^-$ 是 $A$ 的任意一个广义逆，$\vbf{Z}$ 取遍 $K^n$ 中任意列向量。
 \end{theorem}
 
 \begin{theorem}
-	数域 $K$ 上 $n$ 元齐次线性方程组 $AX = 0$ 的通解为
-	\[X  = (I_n - A^-A)\vbf{Z}\]
+	数域 $K$ 上 $n$ 元非齐次线性方程组 $A\vbf{X} = \vbf{\beta}$ 的通解为
+	\[ \vbf{X}  = A^{-}\vbf{\beta} + (E_n - A^-A)\vbf{Z} \]
 	其中 $A^-$ 是 $A$ 的任意一个广义逆，$\vbf{Z}$ 取遍 $K^n$ 中任意列向量。
 \end{theorem}
 
 % \begin{definition}
 %	 设 $A$ 是复数域上 $s\times n$ 矩阵，矩阵方程组
-%	 \[\begin{cases}
+%	 \[ \begin{cases}
 %		 AXA = A,\\
 %		 XAX = X,\\
 %		 (AX)^* = AX,\\
 %		 (XA)^* = XA,
-%	 \end{cases}\]
+%	 \end{cases} \]
 %	 称为 $A$ 的 Penrose 方程组，它的解称为 $A$ 的 Moore-Penrose 广义逆，记作 $A^+$。
 % \end{definition}44
 
 \section{矩阵的相似}
 
-\begin{definition}
+\begin{definition}[矩阵相似] \index{juzhenxiangsi@矩阵相似}
 	设 $A$ 与 $B$ 都是数域 $K$ 上 $n$ 级矩阵，如果存在数域 $K$ 上一个 $n$ 级可逆矩阵 $P$，使得
-	\[P^{-1}AP = B\]
+	\[ P^{-1}AP = B \]
 	那么称 $A$ 与 $B$ 是相似的，记作 $A\sim B$。
 \end{definition}
 
-同样相似是集合 $M_{s\times n}(K)$ 上的一个二元关系，不难验证相似是一个等价关系，其下矩阵 $A$ 的等价类称为 $A$ 的相似类。
-
-相似的矩阵具有相等的行列式和秩。
+同样相似是集合 $M_{s\times n}(K)$ 上的一个二元关系，不难验证相似是一个等价关系，其下矩阵 $A$ 的等价类称为 $A$ 的相似类。相似的矩阵具有相等的行列式和秩。
 
 \begin{definition}
 	$n$ 级矩阵 $A=(a_{ij})$ 的主对角线上元素的称为 $A$ 的迹，记作 $\tr(A)$。
 \end{definition}
 
 不难验证矩阵的迹都有如下性质
-\[
+\[ 
 	\begin{aligned}
 		\tr(A+B) & = \tr(A) + \tr(B) \\
 		\tr(kA)  & = k\tr(A)         \\
@@ -146,23 +156,54 @@
 	相似的矩阵都有相同的迹。
 \end{theorem}
 
-这表明，矩阵的行列式、秩、迹都是相似关系下的不变量，简称为相似不变量。
+\begin{proof}
+	不妨设 $A = P^{-1} B P$，于是
+	\[ \tr(B) = \tr(P^{-1} AP) = \tr((P^{-1}P)A) = \tr(A) \]
+\end{proof}
 
-如果 $n$ 级矩阵相似于一个对角矩阵，那么称 $A$ 可对角化。
+这表明，矩阵的行列式、秩、迹都是相似关系下的不变量，简称为相似不变量。如果 $n$ 级矩阵相似于一个对角矩阵，那么称 $A$ \textbf{可对角化} \index{keduijiaohua@可对角化}。
 
-\begin{theorem}
-	数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是，$K^n$ 中有 $n$ 个线性无关的列向量 $\seq{\alpha}{n}$，以及 $K$ 中有 $n$ 个数 $\seq{\lambda}{n}$（它们之中有些可能相等），使得
-	\[A\alpha_i = \lambda_i \alpha_i, i=1,\cdots,n\]
-	这时，令 $P = (\seq{\alpha}{n})$，则
-	\[P^{-1}AP = \diag\{\seq{\lambda}{n}\}\]
+\begin{theorem} 
+	数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是，$K^n$ 中有 $n$ 个线性无关的列向量 $\seq{\vbf{\alpha}}{n}$，以及 $K$ 中有 $n$ 个数 $\seq{\lambda}{n}$（它们之中有些可能相等），使得
+	\[ A\vbf{\alpha}_i = \lambda_i \vbf{\alpha}_i, \quad  1 \leqslant i \leqslant n \]
+	这时，令 $P = (\seq{\vbf{\alpha}}{n})$，则
+	\[ P^{-1}AP = \diag\{\seq{\lambda}{n}\} \]
 \end{theorem}
+
+\begin{proof}
+	带入 $AP = PD$，注意到
+	\[ AP = (\seq{A\vbf{\alpha}}{n}) = (\lambda_1 \vbf{\alpha}_1, \cdots, \lambda_n \vbf{\alpha}_n)D = PD \]
+	因此存在 $A \vbf{\alpha}_i = \lambda_i \vbf{\alpha}_i$。
+\end{proof}
+
+\begin{example}
+	如果 $n$ 级矩阵 $A$ 可对角化，求证：$A$ 相似于 $\transpose{A}$。
+\end{example}
+
+\begin{proof}
+	即存在 $P$ 使得 $P^{-1}AP = D$，其中 $D$ 是对角阵，从而存在
+	\[ \transpose{D} = \transpose{(P^{-1}AP)} = \transpose{P}\transpose{A} (\transpose{P}) ^{-1}  \]
+	因此 $A \sim D = \transpose{D} ~ \transpose{A}$。
+\end{proof}
+
+\begin{example}
+	如果 $n$ 级矩阵 $A, B$ 满足 $AB - BA = A$，求证：$A$ 不可逆。
+\end{example}
+
+\begin{proof}
+	假设 $A$ 可逆，两边乘 $A^{-1}$ 得到
+	\[ B - A^{-1} B A = E \]
+	从左边来看，有
+	\[ \tr(B - A^{-1} B A) = \tr(B) - \tr(A^{-1}BA) = \tr(B) - \tr(B) = 0 \]
+	因此 $0 \neq \tr(E) = n$ 矛盾，故不可逆。
+\end{proof}
 
 \section{矩阵的特征值和特征向量}
 
-\begin{definition}
-	设 $A$ 是数域 $K$ 上的一个 $n$ 级矩阵，如果 $K^n$ 中有非零列向量 $\alpha$ 使得
-	\[A \alpha = \lambda_0\alpha,\text{且}\ \lambda_0\in K\]
-	那么称 $\lambda_0$ 是 $A$ 的一个特征值，称 $\alpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量。
+\begin{definition} \index{tezhengzhi@特征值} \index{tezhengxiangliang@特征向量}
+	设 $A$ 是数域 $K$ 上的一个 $n$ 级矩阵，如果 $K^n$ 中有非零列向量 $\vbf{\alpha}$ 使得
+	\[ A \vbf{\alpha} = \lambda_0\vbf{\alpha},\text{且}\ \lambda_0\in K \]
+	那么称 $\lambda_0$ 是 $A$ 的一个特征值，称 $\vbf{\alpha}$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量。
 \end{definition}
 
 注意零向量不是特征向量。
@@ -172,10 +213,10 @@
 	
 	（1） $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。\index{tezhengduoxiangshi@特征多项式}
 	
-	（2） $\alpha$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\alpha$ 是齐次线性方程组 $(\lambda_0E-A)X = \vbf{0}$  的一个解。
+	（2） $\vbf{\alpha}$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\vbf{\alpha}$ 是齐次线性方程组 $(\lambda_0E-A)\vbf{X} = \vbf{0}$  的一个解。
 \end{theorem}
 
-设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)X = \vbf{0}$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
+设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)\vbf{X} = \vbf{0}$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
 
 \begin{theorem}
 	相似的矩阵有相等的特征多项式。
@@ -183,33 +224,74 @@
 
 因此矩阵的特征多项式和特征值都是相似不变量。
 
-\begin{definition}
-	设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，$\lambda_1$ 是 $A$ 的一个特征值。把 $A$ 的属于 $\lambda_1$ 的特征子空间的维数叫做特征值 $\lambda_1$ 的几何重数，而把 $\lambda_1$ 作为 $A$ 的特征多项式根的重数叫做 $\lambda_1$ 的代数重数。\index{daishuchongshu@代数重数} \index{jihechognshu@几何重数}
-\end{definition}
+\begin{theorem}
+	设 $A$ 是 $n$ 级矩阵，则 $A$ 的特征多项式 $f(\lambda) = |\lambda E - A|$ 是一个 $n$ 次多项式，且 $[\lambda^n]f = 1, [\lambda^{n-1}]f = -\tr(A), [\lambda^0] f = (-1)^n |A|$。
+\end{theorem}
 
-代数重数简称为重数。
+\begin{definition}
+	设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，$\lambda_1$ 是 $A$ 的一个特征值。把 $A$ 的属于 $\lambda_1$ 的特征子空间的维数叫做特征值 $\lambda_1$ 的几何重数，而把 $\lambda_1$ 作为 $A$ 的特征多项式根的重数叫做 $\lambda_1$ 的代数重数。代数重数简称为重数。\index{daishuchongshu@代数重数} \index{jihechognshu@几何重数}
+\end{definition}
 
 \begin{theorem}
 	设 $\lambda_1$ 是数域 $K$ 上的 $n$ 级矩阵 $A$ 的一个特征值，则 $\lambda_1$ 的几何重数不超过它的代数重数。
 \end{theorem}
 
+\begin{example}
+	设 $A$ 是一个 $n$ 级正交矩阵，证明：
+	
+	\begin{enumerate}
+		\item 如果 $A$ 有特征值，那么它的特征值是 $1$ 或 $-1$；
+		\item 如果 $|A| = -1$，那么 $-1$ 是 $A$ 的一个特征值；
+		\item 如果 $|A| = 1$，且 $n$ 是奇数，那么 $1$ 是 $A$ 的一个特征值。
+	\end{enumerate}
+\end{example}
+
+\begin{proof}
+	（1）存在特征值即存在 $\lambda$ 使得 $A \vbf{\alpha} = \lambda \vbf{\alpha}$，得到
+	\[ \transpose{\vbf{\alpha}}\vbf{\alpha} = \transpose{(A \vbf{\alpha})}(A \vbf{\alpha}) = \transpose{(\lambda \vbf{\alpha})}(\lambda \vbf{\alpha}) = \lambda^2  \transpose{\vbf{\alpha}}\vbf{\alpha} \]
+	因此 $\lambda = \pm 1$。
+	
+	（2）第四章证明过。
+	
+	（3）如果 $|A| = 1$，那么
+	\[ |E - A| = |A \transpose{A} - A| = (-1)^n |E - A| = - |E-A| \]
+	因此 $1$ 是其特征值。
+\end{proof}
+
+\begin{example}
+	求矩阵的全部特征值和特征向量 \[ A=\left(
+		\begin{matrix}
+				2  & 2  & -2 \\
+				2  & 5  & -4 \\
+				-2 & -4 & 5  \\
+			\end{matrix}
+		\right) \]
+\end{example}
+
+\begin{solution}
+	首先求出特征多项式
+	\[ |\lambda E - A| = \lambda^3 - 12 \lambda^2 + 21 - 10 = (\lambda - 1)^2(\lambda - 10) \]
+	解得 $\lambda_1 = 1, \lambda_2 = 10$。首先解方程 $(\lambda_1 E - A) \vbf{X} = \vbf{0}$，得到基本解系
+	\[ \alpha_1 = \transpose{(-2, 1, 0)}, \alpha_2 = \transpose{(2, 0, 1)}, \alpha_3 = \transpose{(-1, -2, 2)} \]
+\end{solution}
+
 \section{矩阵可对角化的条件}
 
 \begin{theorem}
-	数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是 $A$ 有 $n$ 个线性无关的特征向量 $\seq{\alpha}{n}$，此时令
-	\[P=(\seq{\alpha}{n})\]
+	数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是 $A$ 有 $n$ 个线性无关的特征向量 $\seq{\vbf{\alpha}}{n}$，此时令
+	\[ P=(\seq{\vbf{\alpha}}{n}) \]
 	则
-	\[P^{-1}AP = \diag\{\seq{\lambda}{n}\}\]
-	其中 $\lambda_i$ 是 $\alpha_i$ 所属的特征值。上述对角矩阵称为 $A$ 的相似标准形。
+	\[ P^{-1}AP = \diag\{\seq{\lambda}{n}\} \]
+	其中 $\lambda_i$ 是 $\vbf{\alpha}_i$ 所属的特征值。上述对角矩阵称为 $A$ 的相似标准形。
 \end{theorem}
 
 \begin{theorem}
-	设 $\lambda_1,\lambda_2$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\seq{\alpha}{s}$ 与 $\seq{\beta}{r}$ 分别是 $A$ 的属于 $\lambda_1,\lambda_2$ 的线性无关的特征向量，则 $\seq{\alpha}{s},\seq{\beta}{r}$ 线性无关。
+	设 $\lambda_1,\lambda_2$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\seq{\vbf{\alpha}}{s}$ 与 $\seq{\vbf{\beta}}{r}$ 分别是 $A$ 的属于 $\lambda_1,\lambda_2$ 的线性无关的特征向量，则 $\seq{\vbf{\alpha}}{s},\seq{\vbf{\beta}}{r}$ 线性无关。
 \end{theorem}
 
 \begin{theorem}
-	设 $\seq{\lambda}{m}$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\alpha_{j1},\cdots,\alpha_{jr_j}$ 是 $A$ 的属于 $\lambda_j$ 的线性无关的特征向量，$j=1,\cdots,m$，则向量组
-	\[\alpha_{11},\cdots,\alpha_{1r_1},\cdots,\alpha_{m1},\cdots,\alpha_{1r_m}\]
+	设 $\seq{\lambda}{m}$ 是数域 $K$ 上 $n$ 级矩阵 $A$ 的不同特征值，$\vbf{\alpha}_{j1},\cdots,\vbf{\alpha}_{jr_j}$ 是 $A$ 的属于 $\lambda_j$ 的线性无关的特征向量，$j=1,\cdots,m$，则向量组
+	\[ \vbf{\alpha}_{11},\cdots,\vbf{\alpha}_{1r_1},\cdots,\vbf{\alpha}_{m1},\cdots,\vbf{\alpha}_{1r_m} \]
 	线性无关。
 \end{theorem}
 
@@ -235,11 +317,37 @@
 
 对于 $n$ 级实对称矩阵 $A$，找一个正交矩阵 $T$，使得 $T^{-1}AT$ 为对角矩阵的步骤如下。
 
-1. 计算 $|\lambda I- A|$，求出它的全部不同的根：$\seq{\lambda}{m}$，它们是 $A$ 的特征值。
+1. 计算 $|\lambda E- A|$，求出它的全部不同的根：$\seq{\lambda}{m}$，它们是 $A$ 的特征值。
 
-2. 对于每一个特征值 $\lambda_j$，求 $(\lambda_jI-A)X = \vbf{0}$ 的一个基础解系 $\alpha_{j1},\cdots,\alpha_{jr_j}$；然后把它们施密特正交化和单位化，得到 $\eta_{j1},\cdots,\eta_{jr_j}$。它们也是 $A$ 的属于 $\lambda_j$ 的一个特征向量。
+2. 对于每一个特征值 $\lambda_j$，求 $(\lambda_jE-A)\vbf{X} = \vbf{0}$ 的一个基础解系 $\vbf{\alpha}_{j1},\cdots,\vbf{\alpha}_{jr_j}$；然后把它们 Schmidt 正交化和单位化，得到 $\vbf{\eta}_{j1},\cdots,\vbf{\eta}_{jr_j}$。它们也是 $A$ 的属于 $\lambda_j$ 的一个特征向量。
 
 3. 令
-\[T=(\eta_{11},\cdots,\eta_{1r_1},\cdots,\eta_{m1},\cdots,\eta_{mr_m})\]
+\[ T=(\vbf{\eta}_{11},\cdots,\vbf{\eta}_{1r_1},\cdots,\vbf{\eta}_{m1},\cdots,\vbf{\eta}_{mr_m}) \]
 则 $T$ 是 $n$ 级正交矩阵，且
-\[T^{-1}AT = \diag\{\lambda_{1},\cdots,\lambda_{1},\cdots,\lambda_{m},\cdots,\lambda_{m}\}\]
+\[ T^{-1}AT = \diag\{\lambda_{1},\cdots,\lambda_{1},\cdots,\lambda_{m},\cdots,\lambda_{m}\} \]
+
+\begin{example}
+	给定实矩阵 $A$，求正交矩阵 $T$ 使得 $T^{-1}AT$ 为对角矩阵
+	\[ A=\left(
+		\begin{matrix}
+				0  & -2 & 2  \\
+				-2 & -3 & 4  \\
+				2  & 4  & -3 \\
+			\end{matrix}
+		\right) \]
+\end{example}
+
+\begin{solution}
+	首先求得特征多项式
+	\[ |\lambda E - A| = (\lambda-1)^2(\lambda+8) \]
+	得到特征值为 $1, -8$，分别求得 $(\lambda E - A) \vbf{X} = \vbf{0}$ 的基础解系
+	\[ \vbf{\alpha}_1 = \transpose{(-2, 0, 1)}, \vbf{\alpha}_2 = \transpose{(2, 1, 0)}, \vbf{\alpha}_3 = \transpose{(-1, 2, -2)} \]
+	正交归一化后得到
+	\[ \vbf{\eta}_1 = \transpose{\left(-\frac{2}{\sqrt{5}}, 0, \frac{1}{\sqrt{5}}\right)}, \vbf{\alpha}_2 = \transpose{\left(\frac{2}{3\sqrt{5}}, \frac{\sqrt{5}}{3}, \frac{4}{3 \sqrt{5}}\right)}, \vbf{\eta}_3 = \transpose{\left(-\frac{1}{3}, \frac{2}{3}, -\frac{2}{3}\right)} \]
+	因此
+	\[ T = \left(\begin{matrix}
+				-\frac{2}{\sqrt{5}} & \frac{2}{3\sqrt{5}}  & -\frac{1}{3} \\ 
+				0                   & \frac{\sqrt{5}}{3}   & \frac{2}{3}  \\
+				\frac{1}{\sqrt{5}}  & \frac{4}{3 \sqrt{5}} & -\frac{2}{3}
+			\end{matrix}\right) \]
+\end{solution}

@@ -168,6 +168,20 @@ $\seq{\vbf{\alpha}}{n}$ 的所有线性组合也是 $K^n$ 的一个子空间，�
 
 若一个 $n$ 级矩阵的秩如果等于它的级数，那么称为满秩矩阵。
 
+\begin{theorem}
+	设 $A$ 是 $s \times n$ 矩阵，$B$ 是 $l \times m$ 矩阵，则
+	\[ \rank\left(\begin{matrix}
+				A & 0 \\ 0  & B
+			\end{matrix}\right) = \rank(A) + \rank(B) \]
+\end{theorem}
+
+\begin{theorem}
+	设 $A$ 是 $s \times n$ 矩阵，$B$ 是 $l \times m$ 矩阵，$C$ 是 $s \times m$ 矩阵，则
+	\[ \rank\left(\begin{matrix}
+				A & C \\ 0  & B
+			\end{matrix}\right) \geqslant \rank(A) + \rank(B) \]
+\end{theorem}
+
 \section{线性方程组有解的充分必要条件}
 
 \begin{theorem}

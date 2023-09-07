@@ -1,5 +1,7 @@
 \chapter{二次型 · 矩阵的合同}
 
+\newcommand{\XAX}{\transpose{\vbf{X}}A\vbf{X}}
+
 \section{二次型及其标准型}
 
 \begin{definition}
@@ -10,15 +12,15 @@
 
 把二次型的系数按原来顺序排成一个 $n$ 级矩阵 $A$，则称 $A$ 是二次型 $f(\seq{x}{n})$ 的矩阵，它是对称矩阵。
 
-再令 $X = \transpose{(\seq{x}{n})}$，则二次型可以写作
-\[f(\seq{x}{n}) = \transpose{X}AX\]
+再令 $\vbf{X} = \transpose{(\seq{x}{n})}$，则二次型可以写作
+\[f(\seq{x}{n}) = \XAX\]
 
-令 $Y = \transpose{(\seq{y}{n})}$，设 $C$ 是数域 $K$ 上的 $n$ 级可逆矩阵，则关系式
-\[X = CY\]
-称为变量 $\seq{x}{n}$ 到变量 $\seq{y}{n}$ 的一个非退化线性替换。
+令 $\vbf{Y} = \transpose{(\seq{y}{n})}$，设 $C$ 是数域 $K$ 上的 $n$ 级可逆矩阵，则关系式
+\[\vbf{X} = C\vbf{Y}\]
+称为变量 $\seq{x}{n}$ 到变量 $\seq{y}{n}$ 的一个非退化线性替换。如果 $C$ 是正交矩阵，那么变量的替换 $\vbf{X} = C\vbf{Y}$ 称为正交替换。
 
 \begin{definition}
-	数域上两个 $n$ 元二次型 $\transpose{X}AX$ 与 $\transpose{Y}AY$，如果存在一个非退化线性替换 $X = CY$，把 $\transpose{X}AX$ 变成 $\transpose{Y}BY$ 那么称二次型 $\transpose{X}AX$ 与 $\transpose{Y}BY$ 等价，记作 $\transpose{X}AX \cong \transpose{Y}BY$。
+	数域上两个 $n$ 元二次型 $\XAX$ 与 $\transpose{\vbf{Y}}A\vbf{Y}$，如果存在一个非退化线性替换 $\vbf{X} = C\vbf{Y}$，把 $\XAX$ 变成 $\transpose{\vbf{Y}}B\vbf{Y}$ 那么称二次型 $\XAX$ 与 $\transpose{\vbf{Y}}B\vbf{Y}$ 等价，记作 $\XAX \cong \transpose{\vbf{Y}}B\vbf{Y}$。
 \end{definition}
 
 \begin{definition}
@@ -27,57 +29,94 @@
 	那么称 $A$ 与 $B$ 合同，记作 $A\simeq B$。
 \end{definition}
 
-如果二次型 $\transpose{X} A X$ 等价于一个只含平方项的二次型，那么这个只含平方项的二次型称为 $\transpose{X}AX$ 的一个标准形。
+带入 $\XAX$ 可以发现
+\[ \XAX = \transpose{(C\vbf{Y})} A (C\vbf{Y}) = \transpose{\vbf{Y}} (\transpose{C} A C) \vbf{Y} \]
+即二次型 $\XAX$ 和 $\transpose{\vbf{Y}}A\vbf{Y}$ 等价当且仅当 $A, B$ 合同。
 
-如果 $T$ 是正交矩阵，那么变量的替换 $X = TY$ 称为正交替换。
+如果二次型 $\transpose{\vbf{X}} A \vbf{X}$ 等价于一个只含平方项的二次型，那么这个只含平方项的二次型称为 $\XAX$ 的一个标准形。如果 $A$ 合同于一个对角矩阵，则这个对角矩阵称为 $A$ 的一个合同标准型。
 
-\begin{theorem}
-	设 $A,B$ 都是数域 $K$ 上 $n$ 级矩阵，则 $A$ 合同于 $B$ 当且仅当 $A$ 经过一系列成对初等行、列变换可以变成 $B$，此时对 $I$ 只作其中的初等列变换得到的可逆矩阵 $C$，就使得 $\transpose{C}AC=B$。
-\end{theorem}
+对于 $n$ 级实对称矩阵 $A$，存在 $n$ 级的正交矩阵 $T$ 使得
+\[ T^{-1}AT = \diag{\seq{\lambda}{n}} \]
+其中 $\seq{\lambda}{n}$ 是 $A$ 的全部特征值，因此 $A$ 合同于 $T^{-1}AT$。从而在 $\vbf{X} = T\vbf{Y}$ 的替换下，得到一个标准型
+\[ \lambda_1y_1^2 + \lambda_2y_2^2 + \cdots + \lambda_ny_n^2 \]
 
 \begin{theorem}
 	数域 $K$ 上的任一对称矩阵都合同于一个对角矩阵。
 \end{theorem}
 
-这意味着数域 $K$ 上任一 $n$ 元二次型都等价于一个只含平方项的二次型。
+这意味着数域 $K$ 上任一 $n$ 元二次型都等价于一个只含平方项的二次型。有一个新方法来求得基本型：对于 $\XAX$，对 $A$ 做初等行列变换，仅对 $E$ 做其中的初等列变换
+\[ \left(\begin{matrix}
+			A \\ E
+		\end{matrix}\right) \to \left(\begin{matrix}
+			D \\ C
+		\end{matrix}\right) \]
+得到对角矩阵 $D = \diag{\seq{d}{n}}$，则
+\[ \transpose{C}AC = D \]
+令 $\vbf{X} = C \vbf{Y}$，则得到 $\XAX$ 的一个标准型。
 
-二次型 $\transpose{X}AX$ 的矩阵 $A$ 的秩就称为二次型 $\transpose{X}AX$ 的秩。
+二次型 $\XAX$ 的矩阵 $A$ 的秩就称为二次型 $\XAX$ 的秩。
+
+\begin{example}
+	用正交替换把下述实二次型化为标准型
+	\[ f(x, y, z) = x^2 + 2y^2 + 3z^3 - 4xy - 4yz \]
+\end{example}
+
+\begin{solution}
+	首先得到矩阵
+	\[ A = \left(\begin{matrix}
+				1 & -2 & 0 \\ -2 & 2 & -2 \\ 0 & -2 & 3
+			\end{matrix}\right) \]
+	计算其特征值
+	\[ |\lambda E -A| = (\lambda - 2)(\lambda - 5)(\lambda + 1) \]
+	即 $A$ 的全部特征值为 $\lambda = 2, 5, -1$，对应的基础解系单位化得到
+	\[ \vbf{\eta}_1 = \transpose{\left(-\frac{2}{3}, \frac{1}{3}, \frac{2}{3}\right)}, \vbf{\eta}_2 = \transpose{\left(\frac{1}{3}, -\frac{2}{3}, \frac{2}{3}\right)}, \vbf{\eta}_3 = \transpose{\left(\frac{2}{3}, \frac{2}{3}, \frac{1}{3}\right)}  \]
+	令
+	\[ T = \left(\begin{matrix}
+				-\frac{2}{3} & \frac{1}{3}  & \frac{2}{3} \\
+				\frac{1}{3}  & -\frac{2}{3} & \frac{2}{3}        \\
+				\frac{2}{3}  & \frac{2}{3}  & \frac{1}{3}
+			\end{matrix}\right) \]
+	此处 $T$ 即是正交矩阵，且 $T^{-1}AT = \diag{2, 5, -1}$。令
+	\[ \transpose{\left(x, y, z\right)} = T \transpose{\left(a, b, c\right)} \]
+	则
+	\[ f(x, y, z) = 2a^2 + 5y^2 - z^2 \]
+\end{solution}
 
 \section{实二次型的规范形}
 
-实数域上的二次型简称为实二次型，$n$ 元实二次型 $\transpose{X}AX$ 经过一个适当的非退化线性替换 $X = CY$ 可以化成下述形式的标准形
+实数域上的二次型简称为实二次型，$n$ 元实二次型 $\XAX$ 经过一个适当的非退化线性替换 $\vbf{X} = C\vbf{Y}$ 可以化成下述形式的标准形
 \[d_1y_1^2+\cdots+d_py_p^2-d_{p+1}y_{p+1}^2-\cdots-d_ry_r^2\]
 其中 $d_i>0,i=1,\cdots,r$。再做一次非退化线性替换可以变成
 \[z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2\]
 
 \begin{theorem}
-	$n$ 元实二次型 $\transpose{X}AX$ 的规范形是唯一的。
+	$n$ 元实二次型 $\XAX$ 的规范形是唯一的。
 \end{theorem}
 
 \begin{definition}
-	在实二次型 $\transpose{X}AX$ 的规范形中，系数为 $+1$ 的平方项个数 $p$ 称为 $\transpose{X}AX$ 的正惯性指数，系数为 $-1$ 的平方项个数 $r-p$ 称为 $\transpose{X}AX$ 的负惯性指数；正惯性指数减去负惯性指数所得的差 $2p-r$ 称为 $\transpose{X}AX$ 的符号差。
+	在实二次型 $\XAX$ 的规范形中，系数为 $+1$ 的平方项个数 $p$ 称为 $\XAX$ 的正惯性指数，系数为 $-1$ 的平方项个数 $r-p$ 称为 $\XAX$ 的负惯性指数；正惯性指数减去负惯性指数所得的差 $2p-r$ 称为 $\XAX$ 的符号差。
 \end{definition}
 
-任一 $n$ 级实对称矩阵合同于对角矩阵 $\diag\{1,\cdots,1,-1,\cdots,-1,0,\cdots,0\}$，其中 $0$ 的个数等于 $\transpose{X}AX$ 的正惯性指数，$-1$ 的个数等于 $\transpose{X}AX$ 的负惯性指数（也分别称作 $A$ 的惯性指数），这个对角举着称为 $A$ 的合同规范形。
+任一 $n$ 级实对称矩阵合同于对角矩阵 $\diag\{1,\cdots,1,-1,\cdots,-1,0,\cdots,0\}$，其中 $0$ 的个数等于 $\XAX$ 的正惯性指数，$-1$ 的个数等于 $\XAX$ 的负惯性指数（也分别称作 $A$ 的惯性指数），这个对角举着称为 $A$ 的合同规范形。
 
-现讨论复数域上的二次型，简称为复二次型。设 $n$ 元复二次型 $\transpose{X}AX$ 经过一个适当的非退化线性替换 $X = CY$ 变成下述形式的标准形
+现讨论复数域上的二次型，简称为复二次型。设 $n$ 元复二次型 $\XAX$ 经过一个适当的非退化线性替换 $\vbf{X} = C\vbf{Y}$ 变成下述形式的标准形
 \[d_1y_1^2+\cdots+d_ry_r^2\]
 其中 $d_i\ne 0,i=1,\cdots,n$，$r$ 是这个二次型的秩。再做一个非退化线性替换可得
 \[z_1^2+\cdots+z_r^2\]
-把这个标准形叫做复二次型 $\transpose{X}AX$ 的规范形，显然其完全由其秩决定，故只有一种形式。
+把这个标准形叫做复二次型 $\XAX$ 的规范形，显然其完全由其秩决定，故只有一种形式。
 
 \section{正定二次型与正定矩阵}
 
 \begin{definition}
-	$n$ 元实二次型 $\transpose{X}AX$ 称为正定的，如果对于 $\mathbb{R}^n$ 中任一非零列向量 $\alpha$，都由 $\transpose{\alpha}A\alpha>0$。
+	$n$ 元实二次型 $\XAX$ 称为正定的，如果对于 $\mathbb{R}^n$ 中任一非零列向量 $\alpha$，都由 $\transpose{\alpha}A\alpha>0$。
 \end{definition}
 
 \begin{theorem}
-	$n$ 元实二次型 $\transpose{X}AX$ 是正定的当且仅当它的正惯性系数等于 $n$。
+	$n$ 元实二次型 $\XAX$ 是正定的当且仅当它的正惯性系数等于 $n$。
 \end{theorem}
 
 \begin{definition}
-	实对称矩阵 $A$ 称为正定的，如果实二次型 $\transpose{X}AX$ 是正定的 。
+	实对称矩阵 $A$ 称为正定的，如果实二次型 $\XAX$ 是正定的 。
 \end{definition}
 
 正定的实对称矩阵简称为正定矩阵。
@@ -89,11 +128,11 @@
 \begin{definition}
 	实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型对于 $\mathbb{R}^n$ 中任一非零列向量 $\alpha$，都有
 	\[\transpose{\alpha}A\alpha \geqslant 0 \quad (\transpose{\alpha}A\alpha<0,\transpose{\alpha}A\alpha\leqslant 0)\]
-	如果 $\transpose{X}AX$ 既不是半正定的，又不是半负定的，那么称它是不定的。
+	如果 $\XAX$ 既不是半正定的，又不是半负定的，那么称它是不定的。
 \end{definition}
 
 \begin{definition}
-	实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型 $\transpose{X}AX$ 是半正定（负定，半负定，不定）的。
+	实对称矩阵 $A$ 称为半正定（负定，半负定，不定）的，如果实二次型 $\XAX$ 是半正定（负定，半负定，不定）的。
 \end{definition}
 
 \begin{theorem}
@@ -116,3 +155,5 @@
 其可推广到 $n$ 元函数的情形：设 $F(\seq{x}{n})$ 有一个稳定点 $\alpha = (\seq{a}{n})$，设 $F(\seq{x}{n})$ 在 $\alpha$ 的一个邻域内有 3 阶连续偏导数，令
 \[H = (F_{x_ix_j}''(\alpha))\]
 称 $H$ 是 $F(\seq{x}{n})$ 在 $\alpha$ 处的黑塞矩阵。如果 $H$ 是正定的，那么 $F$ 在 $(x_0,y_0)$ 处达到极小值。如果 $H$ 是负定的，那么 $F$ 在 $(x_0,y_0)$ 处达到极大值。
+
+\let\XAX\relax

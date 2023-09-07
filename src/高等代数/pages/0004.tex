@@ -130,6 +130,14 @@
 \end{theorem}
 
 \begin{theorem}
+	\[ \rank(A + B) \leqslant \rank(A) + \rank(B) \]
+\end{theorem}
+
+\begin{proof}
+	显然 $A + B$ 的列向量总是可以由 $A$ 和 $B$ 列向量的极大无关组表出。
+\end{proof}
+
+\begin{theorem}
 	设 $A = (a_{ij})_{s \times n},B = (b_{ij})_{n \times m}$，则
 	\[|AB| = |A||B| = |B||A| = |BA|\]
 \end{theorem}
@@ -157,22 +165,20 @@
 	即向量 $A \vbf{\eta}$ 的长度为 $0$，故 $A \vbf{\eta} = \vbf{0}$。
 \end{proof}
 
+\begin{theorem}
+	设 $A$ 是一个 $s \times n$ 矩阵，且 $A \neq 0$，证明：$A$ 可以被分解为行列向量的乘积当且仅当 $\rank(A) = 1$
+\end{theorem}
+
+\begin{proof}
+	由于秩为 $1$，因此选取 $A$ 的一个列向量 $\vbf{\alpha}_1$，其他的列向量都可以由其表示，故 $A = \vbf{\alpha} \transpose{\vbf{\beta}}$。
+\end{proof}
+
 \begin{example}
 	如果数域上的 $n$ 级矩阵 $A$ 满足 $A \transpose{A} = E$，且 $|A| = -1$，求证：$|E+A| = 0$。
 \end{example}
 
 \begin{solution}
-	注意到
-	\[ |E+A| = |A\transpose{A} + AE| = -|\transpose{A} + E| = -|A+E| \]
-	故 $|E+A| = 0$。
-\end{solution}
-
-\begin{example}
-	如果 $m \times n$ 的矩阵 $A$ 和 $n \times s$ 的矩阵 $B$ 满足 $AB = O$，求证：$\rank(A) + \rank(B) \leqslant n$。
-\end{example}
-
-\begin{solution}
-	注意到 $B$ 的每个列向量都是 $A \vbf{\beta}_i = \vbf{0}$ 的解。因此有 $\rank(B) \leqslant n - \rank(A)$。
+	
 \end{solution}
 
 \section{可逆矩阵}
@@ -269,9 +275,104 @@
 由矩阵 $A$ 的若干行、若干列的交叉位置元素按原来顺序排成的矩阵称为 $A$ 的一个子矩阵。若把分为若干组，列也分成若干组，从而 $A$ 被分成若干个子矩阵，把 $A$ 看成是由这些子矩阵组成的，这称为矩阵的分块，这种由子矩阵组成的矩阵称为分块矩阵。
 
 \begin{theorem}
+	如果 $A_{11}, A_{22}, \cdots, A_{ss}$ 都是方阵，则
+	\[ \left| \begin{matrix}
+			A_{11} & 0      & \cdots & 0      \\
+			A_{21} & A_{22} & \cdots & 0      \\
+			\vdots & \vdots &        & \vdots \\
+			A_{s1} & A_{s2} & \cdots & A_{ss}
+		\end{matrix} \right| = |A_{11}| \cdots |A_{ss}| \]
+\end{theorem}
+
+\begin{proof}
+	由 Laplace 定理即知。
+\end{proof}
+
+\begin{theorem}
 	设 $A = \left(\begin{matrix} B & C\\ 0 & D \end{matrix}\right)$，其中 $B,C,D$ 都是方阵，那么
 	\[A^{-1} = \left(\begin{matrix} B^{-1} & -B^{-1}CD^{-1}\\ 0 & D^{-1} \end{matrix}\right)\]
 \end{theorem}
+
+\begin{theorem}[Sylvester 秩不等式]
+	设 $A, B$ 分别是 $s \times n, n \times m$ 的矩阵，则
+	\[ \rank(A) + \rank(B) \leqslant \rank(AB) + n \]
+\end{theorem}
+
+\begin{proof}
+	由于矩阵的初等行（列）变换不改变矩阵的秩，构造分块矩阵
+	\[ n + \rank(AB) = \rank \left(\begin{matrix}
+				E_n & 0 \\ 0 & AB
+			\end{matrix}\right) = \rank\left(\begin{matrix}
+				B & E_n \\ 0 & A
+			\end{matrix}\right) \geqslant \rank(B) + \rank(A) \]
+\end{proof}
+
+\begin{example}
+	如果 $n$ 级矩阵 $A$ 满足 $A^2 = A$，则称 $A$ 是幂等矩阵。证明：$A$ 是幂等矩阵当且仅当
+	\[ \rank(A) + \rank(E - A) = n \]
+\end{example}
+
+\begin{solution}
+	注意到
+	\[ \rank(A) + \rank(E - A) = \rank\left(\begin{matrix}
+				A & 0 \\ 0 & E - A
+			\end{matrix}\right) = \rank\left(\begin{matrix}
+				A - A^2 & 0 \\ 0 & E
+			\end{matrix}\right) = n \]
+\end{solution}
+
+\begin{example}
+	设 $A, B$ 是 $n$ 级矩阵，有
+	
+	（1） $|A^*| = |A|^{n-1}$。
+	
+	（2） \[ \rank(A^*) = \begin{cases}
+			n, & \rank(A) = n      \\
+			1, & \rank(A) = n - 1  \\
+			0, & \rank(A) < n - 1
+		\end{cases} \]
+	
+	（3）\[ (A^*)^* = |A|^{n-2} A \]
+	
+	（4）\[ (A^{-1})^{*} = (A^*)^{-1} = \frac{A}{|A|} \]
+	
+	（5）\[ (AB)^* = B^*A^* \]
+\end{example}
+
+\begin{example}
+	设 $A, B, C, D$ 都是数域上的 $n$ 级矩阵，则
+	\[ \left| \begin{matrix}
+			A & B \\ C & D
+		\end{matrix} \right| = |AD - ACA^{-1}B| \]
+\end{example}
+
+\begin{theorem}[Frobenius 秩不等式]
+	设 $A, B, C$ 分别是 $s \times n, n \times m, m \times t$，则
+	\[ \rank(ABC) \geqslant \rank(AB) + \rank(BC) - \rank(B) \]
+\end{theorem}
+
+\begin{theorem}
+	$n$ 级矩阵 $A$ 是对合矩阵的充要条件是
+	\[ \rank(E + A) + \rank(E - A) = n \]
+\end{theorem}
+
+\begin{proof}
+	注意到
+	\[ n = \rank(2E) \leqslant \rank(E - A) + \rank(E + A) \leqslant \rank(E - A^2) + n \]
+	当且仅当 $A^2 = E$ 时等号成立。
+\end{proof}
+
+\begin{example}
+	设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，且 $\rank(A) = 1$，求证：存在 $k$ 使得 $A^2 = kA$。
+\end{example}
+
+\begin{proof}
+	因为 $\rank(A) = 1$，因此可以把 $A$ 分解为 $A = \vbf{\alpha}\transpose{\vbf{\beta}}$。从而
+	\[ A^2 = \vbf{\alpha}\transpose{\vbf{\beta}}\vbf{\alpha}\transpose{\vbf{\beta}} = (\transpose{\vbf{\beta}}\vbf{\alpha})\vbf{\alpha}\transpose{\vbf{\beta}} \]
+	其中 $k = \transpose{\vbf{\beta}}\vbf{\alpha}$ 为一实数。
+\end{proof}
+
+
 
 \section{正交矩阵}
 
@@ -343,10 +444,10 @@ $n$ 维向量空间 $\mathbb{R}^n$ 有了标准内积后，就称 $\mathbb{R}^n$
 	设 $\seq{\alpha}{s}$ 是欧几里得空间 $\mathbb{R}^n$ 中一个线性无关的向量组，令
 	\[
 		\begin{aligned}
-			\vbf{\beta}_1 & =\alpha_1                                                                                           \\
-			\vbf{\beta}_2 & =\alpha_2 - \frac{\alpha_2,\vbf{\beta}_1}{\vbf{\beta}_1,\vbf{\beta}_1}\vbf{\beta}_1                 \\
-			              & \cdots                                                                                              \\
-			\vbf{\beta}_s & = \alpha_s-\sum_{j=1}^{s-1}\frac{\alpha_s,\vbf{\beta}_j}{\vbf{\beta}_j,\vbf{\beta}_j}\vbf{\beta}_j
+			\vbf{\beta}_1 & =\alpha_1                                                                                               \\
+			\vbf{\beta}_2 & =\alpha_2 - \frac{(\alpha_2,\vbf{\beta}_1)}{(\vbf{\beta}_1,\vbf{\beta}_1)}\vbf{\beta}_1                 \\
+			              & \cdots                                                                                                  \\
+			\vbf{\beta}_s & = \alpha_s-\sum_{j=1}^{s-1}\frac{(\alpha_s,\vbf{\beta}_j)}{(\vbf{\beta}_j,\vbf{\beta}_j)}\vbf{\beta}_j
 		\end{aligned}
 	\]
 	则 $\seq{\vbf{\beta}}{s}$ 是正交向量组，并且与 $\seq{\alpha}{s}$ 等价。

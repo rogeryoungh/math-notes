@@ -188,6 +188,15 @@
 	\[ \lim_{x \to 0} \frac{\ln(\sin^ x + \ee^x) - 2x}{\ln(x^2 + \ee^{2x}) - 2x} = 1 \]
 \end{solution}
 
+\begin{problem}[000066]
+求极限
+\[ \lim_{x \to 0} \frac{\left(1+\frac{1}{n}\right)^{n^2}}{\ee^n} \]
+\end{problem}
+
+\begin{solution}
+	\[ \lim_{x \to 0} \frac{\left(1+\frac{1}{n}\right)^{n^2}}{\ee^n} = \frac{1}{\sqrt{\ee}} \]
+\end{solution}
+
 \section{一元微分学}
 
 \begin{problem}[000009]
@@ -916,6 +925,23 @@ C. 敛散性和 $a$ 的取值无关，必收敛。D. 敛散性与 $a$ 的取值�
 	这里需要把变量 $t$ 消去，联立得
 	\[ 2 x y'' + \sqrt{1 + (y')^2} = 0 \]
 \end{solution}
+
+\section{无穷级数}
+
+\begin{problem}[000065]
+判断级数
+\[ \sum_{n=2}^{\infty} \frac{(-1)^n}{\left(n + (-1)^n\right)^p} \]
+的收敛性（绝对、条件），其中 $p > 1$。
+\end{problem}
+
+\begin{solution}
+当 $p > 1$ 时，显然绝对收敛，又 $0 < p \leqslant 1$ 显然绝对发散，接下来只需考察是否条件收敛。设原来级数为 $\sum a_n$，构造
+\[ b_n = \frac{(-1)^n}{n^p} \]
+令其和函数分别为 $S_n, T_n$，不难发现
+\[ T_{2n} + S_{2n} = 0, \quad T_{2n+1} + S_{2n+1} = \frac{1}{(2n+1)^p} - \frac{1}{(2n)^p} \to 0 \]
+又显然 $T_n \to 0$，故 $S_n \to 0$。
+\end{solution}
+
 
 \section{概率论与数理统计}
 

@@ -341,11 +341,13 @@ Todo Lagrange 橙子法。
 \end{definition}
 
 假如 $L$ 以参数的形式给出
-\[ \vbf{r}(t) = (x(t), y(t), z(t)) \]
+\[ \vbf{r}(t) = (x(t), y(t)) \]
 且函数 $f$ 在 $L$ 上连续，则 $f$ 在 $L$ 上的第一型曲线积分存在且
-\[ \int_L f \d s = \int_{\alpha}^{\beta}f(x(t), y(t), z(t)) \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \d t = \int_{\alpha}^\beta f(\vbf{r}(t))|\vbf{r}'(t)| \d t \]
-特别的，如果 $\vbf{r}(x) = (x, y(x))$，则
+\[ \int_L f \d s = \int_{\alpha}^{\beta}f(x(t), y(t)) \sqrt{x'(t)^2 + y'(t)^2} \d t = \int_{\alpha}^\beta f(\vbf{r}(t))|\vbf{r}'(t)| \d t \]
+如果 $L$ 以 $\vbf{r}(x) = (x, y(x))$ 的形式给出则
 \[ \int_L f \d s = \int_{a}^{b} f(x, y(x)) \sqrt{1 + y'^2} \d x \]
+如果曲线 $L$ 以极坐标 $r = r(\theta)$ 给出，则
+\[ \int_L f \d s = \int_{a}^{b} f(r(\theta) \cos \theta, r(\theta) \sin \theta) \sqrt{(r(\theta))^2 + (r'(\theta))^2} \d \theta \]
 
 \subsection{第一型曲面积分}
 
@@ -510,7 +512,7 @@ Green 公式就是考虑 Newton - Leibniz 公式的高维推广，由边界得�
 		\end{matrix} \right| \]
 \end{theorem}
 
-\section{旋转体}
+\subsection{旋转体}
 
 假设平面曲线 $y = f(x)$ 绕 $x$ 轴进行旋转，则旋转体体积为
 \[ V = \pi \int_a^b f^2(x) \d x \]
@@ -521,4 +523,80 @@ Green 公式就是考虑 Newton - Leibniz 公式的高维推广，由边界得�
 故
 \[ V = \pi \int_a^b |x \cos \theta - y \sin \theta|^2(\cos \theta \d x + \sin \theta \d y) = \pi \int_a^b \frac{|yk-x|^2}{(k^2+1)^{\frac{3}{2}}}(y'k+1) \d x \]
 
+\section{场论}
+
+如果对于区域 $D$ 每点 $x$ 都指定一个对象 $\vbf{T}(x)$，称为张量，我们就把映射
+\[ \vbf{T} : x \mapsto \vbf{T}(x) \]
+称为 $D$ 上的张量场。考研仅考虑 $\vbf{T}$ 是向量的情形。
+
+
+\subsection{向量场}
+
+\newcommand{\grad}{\operatorname{grad}}
+
+向量场 $\vbf{T}$ 是对每个时间 $t$ 都指定了一个向量值映射 $\vbf{T}_t$。假设 $\Omega \subseteq \mathbb{R}^3$。
+
+\begin{itemize}
+	\item 数量场：函数 $f(x, y, z, t)$。
+	\item 向量场：向量映射 $\vbf{f}(x, y, z, t)$。
+	\item 若场不随时间变化则称稳定场，否则称为不稳定场。一般来说稳定场都可以表示为
+	      \[ F(x, y, z) = (P(x,y,z), Q(x, y, z), R(x, y, z)) \]
+	\item 给定 $\Omega$ 上的稳定向量场 $\vbf{F}$，$\Omega$ 中的光滑曲线 $\Gamma$ 称为 $\vbf{F}$ 的向量线或流线，如果 $\Gamma$ 上每点出的切线方向都和 $\vbf{F}$ 一致。显然流线方程为
+	      \[ \frac{x'(t)}{P(\vbf{r}(t))} = \frac{y'(t)}{Q(\vbf{r}(t))} = \frac{z'(t)}{R(\vbf{r}(t))} \]
+	      这里 $\vbf{r}(t) = (x(t), y(t), z(t))$ 是 $\Gamma$ 的向量表达式。如果进一步要求 $\vbf{r}'(t) = \vbf{F}(\vbf{r}(t))$，则称 $\Gamma$ 是 $\vbf{F}$ 的积分曲线。
+\end{itemize}
+
+我们可以定义数量场的等值面
+\[ f^{-1}(c) = \{(x, y, z) \in \mathbb{R}^3 \mid f(x, y, z) = c \} \]
+若 $f$ 在 $\Omega$ 上连续，可以定义其梯度
+\[ \vbf{\grad}(f) = (f_x, f_y, f_z) \]
+这个向量场称为 $f$ 的梯度场。函数沿着方向
+\[ \vbf{v} = (\cos(\vbf{v}, x), \cos(\vbf{v}, y), \cos(\vbf{v}, z)) \]
+的方向导数可以表示为
+\[ \frac{\partial f}{\partial \vbf{v}} = \vbf{\grad}(f) \cdot \vbf{v} = |\vbf{\grad}(f)| \cos \theta \]
+因此等值面上的法向量为
+\[ \vbf{n} = \frac{1}{|\vbf{\grad}(f)|}(f_x, f_y, f_z) \]
+此时
+\[ \frac{\partial f}{\partial \vbf{n}} = |\vbf{\grad}(f)| \geqslant 0, \quad \vbf{\grad}(f) = \frac{\partial f}{\partial \vbf{n}} \vbf{n} \]
+即函数 $f$ 在一点的梯度和其等值面在该点的单位法向量是平行的，且这个方向是导数取得最大值的方向。
+
+\subsection{向量场的散度}
+
+\newcommand{\vdiv}{\operatorname{div}}
+
+假设 $\vbf{F} = (P, Q, R)$ 在 $\Omega$ 上连续，且 $\Sigma$ 是 $\Omega$ 中的光滑定向曲面，则曲面积分
+\[ \Phi(\vbf{F}, \Sigma) = \iint_{\Sigma} \vbf{F} \cdot \vbf{n} \d S \]
+称为向量场 $\vbf{F}$ 沿着曲线 $\Sigma$ 的通量。当 $\vbf{F}$ 导数连续时，称
+\[ \vbf{\vdiv}(F) = P_x + Q_y + R_z \]
+为 $\vbf{F}$ 的散度。如果散度为 $0$ 则称 $\vbf{F}$ 是无源场.
+
+用 Gauss 公式可以写成
+\[ \iint_{\partial \Omega} \vbf{F} \cdot \d \vbf{S} = \iiint_{\Omega} \vbf{\vdiv}(\vbf{F}) \d V \]
+
+散度有性质
+\[ \vbf{\vdiv}(\lambda \vbf{F} + \mu \vbf{G}) = \lambda \vbf{\vdiv}(\vbf{F}) + \mu \vbf{\vdiv}(\vbf{G}) \]
+和
+\[ \vbf{\vdiv}(f \vbf{F}) = f \vbf{\vdiv}(\vbf{F}) + \vbf{\grad}(f) \cdot \vbf{F}  \]
+
+\subsection{旋度}
+
+\newcommand{\rot}{\operatorname{rot}}
+
+假设 $\vbf{F} = (P, Q, R)$ 在 $\Omega$ 上连续，且 $\Gamma$ 是 $\Omega$ 中的光滑定向曲线，则曲线积分
+\[ \int_{\Gamma} \vbf{F} \cdot \vbf{\tau} \d s = \int_{\Gamma} \vbf{F} \cdot \d \vbf{s} \]
+为向量场 $\vbf{F}$ 沿着曲线 $\Gamma$ 的环量。当 $\vbf{F}$ 在 $\Omega$ 上可导时，称
+\[ \vbf{\rot}(\vbf{F}) = \left|\begin{matrix}
+		\vbf{i}                     & \vbf{j}                     & \vbf{k}                     \\
+		\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+		P                           & Q                           & R
+	\end{matrix}\right| = (R_y - Q_z, P_z - R_x, Q_x - P_y) \]
+为 $\vbf{F}$ 的旋度。如果旋度为 $0$ 则称 $\vbf{F}$ 为无旋场。此时 Stokes 公式可以写为
+\[ \iint_{\Sigma} \vbf{\rot}(\vbf{F}) \cdot \d \vbf{S} = \int_{\partial \Sigma} \vbf{F} \cdot \d \vbf{s} \]
+
+旋度有性质
+\[ \vbf{\rot}(\lambda \vbf{F} + \mu \vbf{G}) = \lambda \vbf{\rot}(\vbf{F}) + \mu \vbf{\rot}(\vbf{G}) \]
+和
+\[ \vbf{\rot}(f \vbf{F}) = f \vbf{\rot}(\vbf{F}) + \vbf{\grad}(f) \times \vbf{F}  \]
+且
+\[ \vbf{\rot}(\vbf{\grad}(f)) = \vbf{0} \]
 

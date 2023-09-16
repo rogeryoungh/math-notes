@@ -178,7 +178,7 @@
 \end{example}
 
 \begin{solution}
-	
+
 \end{solution}
 
 \section{可逆矩阵}
@@ -307,19 +307,19 @@
 			\end{matrix}\right) \geqslant \rank(B) + \rank(A) \]
 \end{proof}
 
-\begin{example}
-	如果 $n$ 级矩阵 $A$ 满足 $A^2 = A$，则称 $A$ 是幂等矩阵。证明：$A$ 是幂等矩阵当且仅当
-	\[ \rank(A) + \rank(E - A) = n \]
-\end{example}
+\begin{theorem}
+	如果 $n$ 级矩阵满足 $(A - aE)(A - bE) = O$，其中 $a \neq b$，证明：$\rank(A - aE) + \rank(A - bE) = n$。
+\end{theorem}
 
-\begin{solution}
-	注意到
-	\[ \rank(A) + \rank(E - A) = \rank\left(\begin{matrix}
-				A & 0 \\ 0 & E - A
-			\end{matrix}\right) = \rank\left(\begin{matrix}
-				A - A^2 & 0 \\ 0 & E
-			\end{matrix}\right) = n \]
-\end{solution}
+\begin{proof}
+	一方面
+	\[ \rank(A - aE) + \rank(A - bE) \leqslant \rank(O) + n = n \]
+	另一方面
+	\[ \rank(A - aE) + \rank(A - bE) \geqslant \rank((A - aE) - (A - bE)) = n \]
+	因此 $\rank(A - aE) + \rank(A - bE) = n$。
+\end{proof}
+
+如果 $n$ 级矩阵 $A$ 满足 $A^2 = A$，则称 $A$ 是幂等矩阵。一个直接的推论是，$A$ 是幂等矩阵当且仅当 $\rank(A) + \rank(E - A) = n$。
 
 \begin{example}
 	设 $A, B$ 是 $n$ 级矩阵，有
@@ -338,6 +338,12 @@
 	
 	（5）\[ (AB)^* = B^*A^* \]
 \end{example}
+
+\begin{proof}
+	（2）当 $\rank(A) = n$ 时 $A$ 可逆，显然 $A^*$ 也可逆；
+	当 $\rank(A) < n - 1$ 时，不存在不为零的 $n-1$ 阶子式，故 $A^* = O, \rank(A^*) = 0$;
+	当 $\rank(A) = n - 1$ 时，$|A| = 0$，因此 $A A^* = O$，于是 $\rank(A) + \rank(A^*) \leqslant n$。又 $A$ 存在不为零的 $n-1$ 阶子式，故 $A^* \neq O$，因此 $\rank(A^*) = 1$。 
+\end{proof}
 
 \begin{example}
 	设 $A, B, C, D$ 都是数域上的 $n$ 级矩阵，则

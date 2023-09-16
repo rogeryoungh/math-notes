@@ -140,6 +140,18 @@
 	懒得证了，TODO。大致思想是注意到 $S_{2m-1}$ 和 $S_{2m}$ 分别是单减和单增的，从而 $[S_{2m-1}, S_{2m}]$ 是退缩区间套。
 \end{proof}
 
+\subsection{常见级数的收敛性}
+
+\begin{theorem}
+	级数 $\sum \frac{1}{n^p}$ 在 $p > 1$ 时收敛，$p \leqslant 1$ 时发散。
+\end{theorem}
+
+\begin{proof}
+	定义函数 $f(x) = \frac{1}{n^p}$，由于 $f$ 当 $p > 0$ 时在 $[1, \infty)$ 上单调递减，则由积分判别法知
+	\[ \int_{1}^{+\infty} f(x) \d x = \int_{1}^{+\infty} \frac{1}{x^p} \d x \]
+	因此 $p > 1$ 时收敛，$p \leqslant 1$ 时发散。
+\end{proof}
+
 \section{一般项级数收敛判别法}
 
 若级数 $\sum a_n$ 各项绝对值组成的级数 $\sum |a_n|$ 收敛，那么称原级数绝对收敛；若原级数收敛，绝对值级数不收敛，则称为条件收敛。

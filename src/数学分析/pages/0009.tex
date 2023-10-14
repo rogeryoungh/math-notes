@@ -1,18 +1,20 @@
 \chapter{概率论}
 
+\newcommand{\bbP}{\mathbb{P}}
+
 考研中遇到的概率论很少，暂放于此。
 
 \section{随机事件与概率}
 
 假定某个试验有有限个可能的结果 $\seq{e}{N}$，其出现机会是等可能的。假定事件 $E$ 包含了其中的 $M$ 个结果，则称事件 $E$ 的概率为
-\[ P(E) = M / N \]
+\[ \bbP(E) = M / N \]
 这是古典概型。另一些时候，我们把结果扩展到无限的情况。我们把度量（可以通俗的理解为面积）相同的事件称为等可能的，这是几何概型。
 
-称集合 $\Omega$ 随机事件的样本空间，其元素 $\omega$ 称为基本事件。事件 $A$ 是 $\Omega$ 的一个子集，赋给每个事件一个实数值 $P(A)$，称为概率。其满足要求：
+称集合 $\Omega$ 随机事件的样本空间，其元素 $\omega$ 称为基本事件。事件 $A$ 是 $\Omega$ 的一个子集，赋给每个事件一个实数值 $\bbP(A)$，称为概率。其满足要求：
 
 \begin{itemize}
-	\item 非负性：$P(A) \geqslant 0$。
-	\item 规范性：$P(\Omega) = 1, P(\varnothing) = 0$。
+	\item 非负性：$\bbP(A) \geqslant 0$。
+	\item 规范性：$\bbP(\Omega) = 1, \bbP(\varnothing) = 0$。
 	\item 加法公理。
 \end{itemize}
 
@@ -20,7 +22,7 @@
 
 \begin{theorem}[加法公理]
 	若干个互斥事件之和的概率，等于各事件的概率之和：
-	\[ P\left(\bigcup A_i\right) = \sum P(A_i) \]
+	\[ \bbP\left(\bigcup A_i\right) = \sum \bbP(A_i) \]
 \end{theorem}
 
 \begin{note}
@@ -28,41 +30,70 @@
 \end{note}
 
 \begin{definition}
-	设 $A,B$ 是两个事件且 $P(A) > 0$，我们称在已知 $A$ 发生的条件下事件 $B$ 发生的概率为条件概率，记作
-	\[ P(B | A) = \frac{P(AB)}{P(A)} \]
+	设 $A,B$ 是两个事件且 $\bbP(A) > 0$，我们称在已知 $A$ 发生的条件下事件 $B$ 发生的概率为条件概率，记作
+	\[ \bbP(B | A) = \frac{\bbP(AB)}{\bbP(A)} \]
 \end{definition}
 
-假如 $P(B \mid A) > P(B)$，我们可以说事件 $A$ 促进了事件 $B$ 的发生。反之 $P(B \mid A) = P(A)$，则 $B$ 的发生对 $A$ 无影响。
+假如 $\bbP(B \mid A) > \bbP(B)$，我们可以说事件 $A$ 促进了事件 $B$ 的发生。反之 $\bbP(B \mid A) = \bbP(A)$，则 $B$ 的发生对 $A$ 无影响。
 
 形式的说：
 
 \begin{definition}[条件概率]
 	若两事件 $A, B$ 满足
-	\[ P(A B) = P(A) P(B) \]
+	\[ \bbP(A B) = \bbP(A) \bbP(B) \]
 	则称 $A, B$ 独立。
 \end{definition}
 
 变换形式是为了避免 $0$ 的讨论。
 
 设一列事件 $A_1, A_2, \cdots$，假如从中取出任意有限个都成立
-\[ P(A_{i1} \cdots A_{im}) = P(A_{i1}) \cdots P(A_{im}) \]
+\[ \bbP(A_{i1} \cdots A_{im}) = \bbP(A_{i1}) \cdots \bbP(A_{im}) \]
 那么称事件 $A_1, A_2, \cdots$ 相互独立。注意与两两独立的区别。
 
 
 \begin{theorem}[全概率公式]
 	设 $B_1, \cdots$ 为一列事件，他们两两互斥且每次试验至少发生一个。有时称这种性质为“完备事件群”。那么对任意事件 $A$ 有
-	\[ P(A) = P(B_1)P(A \mid B_1) + P(B_2)P(A \mid B_2) + \cdots \]
+	\[ \bbP(A) = \sum_{i=1}^n \bbP(B_i)\bbP(A \mid B_i) \]
 \end{theorem}
+
+\begin{proof}
+	显然
+	\[ \bbP(A) = \sum_{i=1}^n \bbP(B_i A) = \sum_{i=1}^n \bbP(B_i)\bbP(A \mid B_i) \]
+\end{proof}
 
 
 \begin{theorem}[全概率公式]
 	贝叶斯公式：对 $n$ 个两两不相容事件 $\seq{A}{N}$，则对事件 $B$ 有
-	\[ P\left(A_j | B\right) = \frac{P(A_j)P(B | A_j)}{\sum\limits_{i=1}^n P(A_i)P(B | A_i) } \]
+	\[ \bbP\left(A_j | B\right) = \frac{\bbP(A_j)\bbP(B | A_j)}{\sum\limits_{i=1}^n \bbP(A_i)\bbP(B | A_i) } \]
 \end{theorem}
 
+\begin{proof}
+	显然
+	\[ \bbP\left(A_j | B\right) = \frac{\bbP(A_j B)}{\bbP(B)} = \frac{\bbP(A_j)\bbP(B | A_j)}{\sum\limits_{i=1}^n \bbP(A_i)\bbP(B | A_i) } \]
+\end{proof}
+
 \begin{note}
-	若 $P(AB) = 0$，不意味着 $AB = \varnothing$。比如 $[0,1]\cap [1,2] = \{1\}$，但概率是 $0$。
+	若 $\bbP(AB) = 0$，不意味着 $AB = \varnothing$。比如 $[0,1]\cap [1,2] = \{1\}$，但概率是 $0$。
 \end{note}
+
+\subsection{摸球不放回模型}
+
+袋中有 $a$ 个黑球，$b$ 个白球，若不放回的取 $n$ 个球，其中恰好 $k$ 个白球的概率为
+\[ \bbP(A_k) = \frac{\binom{b}{k} \binom{a}{n-k}}{\binom{a+b}{n}} \]
+
+\begin{theorem}[抽签原理]
+	袋中有 $a$ 个黑球，$b$ 个白球，若不放回的依次取球，每次抽中白球的概率都为 $\frac{b}{a+b}$。
+\end{theorem}
+
+\begin{proof}
+	对于第 $i$ 次抽检，可以看成从 $a+b$ 个球中抽出 $i$ 个球排成一排，其可能数是 $A_{a+b}^i$。而第 $i$ 个位置是白球的概率为 $b A_{a+b-1}^{i-1}$，故
+	\[ \bbP(A_i) = \frac{b A_{a+b-1}^{i-1}}{A_{a+b}^i} = \frac{b}{a+b} \]
+\end{proof}
+
+\subsection{摸球放回模型}
+
+袋中有 $a$ 个黑球，$b$ 个白球，若有放回的取出 $n$ 个球，其中恰好 $k$ 个白球的概率为
+\[ \bbP(B_k) = \binom{n}{k} \frac{a^{n-k} b^k}{(a+b)^n} = [x^k] \left(\frac{a + bx}{a+b}\right)^n \]
 
 \section{一维随机变量及其分布}
 
@@ -74,9 +105,9 @@
 
 \begin{definition}
 	设 $X$ 是离散型随机变量，其全部可能值为 $\{a_1, \cdots\}$，则称
-	\[ p_i = P\{X = a_i\} \]
+	\[ p_i = \bbP\{X = a_i\} \]
 	为其概率函数。称
-	\[ F(x) = P\{X \leqslant x\} = \sum_{a_i \leqslant x} p_i \]
+	\[ F(x) = \bbP\{X \leqslant x\} = \sum_{a_i \leqslant x} p_i \]
 	是其分布函数。记为 $X \sim F(x)$，称 $X$ 服从 $F(x)$ 分布。
 \end{definition}
 
@@ -86,7 +117,7 @@
 	\item $F(x)$ 对 $x$ 单调不减。
 	\item $F(x)$ 是 $x$ 的右连续函数。
 	\item $F(- \infty) = \lim\limits_{i \to -\infty} F(x) = 0$，$F(+\infty) = \lim\limits_{x \to + \infty} F(x) = 1$。
-	\item $P\{X \leqslant a\} = F(a)$，$P\{X < a\} = F(a - 0)$，$P\{X = a\} = F(a) - F(a - 0)$。
+	\item $\bbP\{X \leqslant a\} = F(a)$，$\bbP\{X < a\} = F(a - 0)$，$\bbP\{X = a\} = F(a) - F(a - 0)$。
 \end{itemize}
 
 如果随机变量只取有限的可列值，则称为离散型随机变量，可以写分布列。
@@ -100,29 +131,29 @@
 \begin{itemize}
 	\item $f(x) \geqslant 1$。
 	\item 对任何常数 $a, b$ 有
-	      \[ P\{a \leqslant X \leqslant b\} = F(b) - F(a) = \int_{a}^{b} f(x) \d x, \qquad \int_{-\infty}^{\infty} f(x) \d x = 1 \]
+	      \[ \bbP\{a \leqslant X \leqslant b\} = F(b) - F(a) = \int_{a}^{b} f(x) \d x, \qquad \int_{-\infty}^{\infty} f(x) \d x = 1 \]
 \end{itemize}
 
 \subsection{常见随机分布}
 
 \paragraph{二项分布}
 如果 $X$ 的概率分布为
-\[ P\{X = k\} = \binom{n}{k} p^k(1 - p)^{n-k}. \quad k = 0, 1, \cdots, n \]
-则称 $X$ 服从参数为 $(n, p)$ 的二项分布，记为 $X \sim B(n, p)$。特别的，当 $n=1$ 时称为二项分布。二项分布也是 $n$ 重伯努利实验中事件 $A$ 发生的次数，其中 $P(A) = p$。
+\[ \bbP\{X = k\} = \binom{n}{k} p^k(1 - p)^{n-k}. \quad k = 0, 1, \cdots, n \]
+则称 $X$ 服从参数为 $(n, p)$ 的二项分布，记为 $X \sim B(n, p)$。特别的，当 $n=1$ 时称为二项分布。二项分布也是 $n$ 重伯努利实验中事件 $A$ 发生的次数，其中 $\bbP(A) = p$。
 
 \paragraph{泊松分布}
 如果 $X$ 的概率分布为
-\[ P\{X = k\} = \frac{\lambda^k}{k!} \ee^{-\lambda} , \quad k = 0, 1, \cdots \]
-则记为 $X \sim P(\lambda)$。
+\[ \bbP\{X = k\} = \frac{\lambda^k}{k!} \ee^{-\lambda} , \quad k = 0, 1, \cdots \]
+则记为 $X \sim \bbP(\lambda)$。
 
 \paragraph{几何分布}
 如果 $X$ 的概率分布为
-\[ P\{X=k\} = (1 - p)^{k-1}p, \quad k = 1, 2, \cdots \]
+\[ \bbP\{X=k\} = (1 - p)^{k-1}p, \quad k = 1, 2, \cdots \]
 则记为 $X \sim G(p)$。
 
 \paragraph{超几何分布}
 如果 $X$ 的概率分布为
-\[ P\{X = k\} = \frac{\binom{M}{k} \binom{N - M}{n - k}}{\binom{N}{n}}, \quad \max(0, n - N + M) \leqslant k \leqslant \min(M, n) \]
+\[ \bbP\{X = k\} = \frac{\binom{M}{k} \binom{N - M}{n - k}}{\binom{N}{n}}, \quad \max(0, n - N + M) \leqslant k \leqslant \min(M, n) \]
 则记为 $X \sim H(n, N, M)$。设有 $N$ 个产品组成的整体，其中有 $M$ 个不合格产品，从中取出 $n$ 个，次品数为 $k$，这就是组合意义。
 
 \paragraph{均匀分布}
@@ -150,7 +181,7 @@
 
 \begin{definition}
 	以 $\{a_{i1}, \cdots\}$ 记 $X_i$ 的全部可能值，则事件的概率
-	\[ p(\seq{j}{n}) = P\{X_1 = a_{1j_1}, \cdots, X_n = a_{n j_n}\} \]
+	\[ p(\seq{j}{n}) = \bbP\{X_1 = a_{1j_1}, \cdots, X_n = a_{n j_n}\} \]
 	为随机变量的概率函数。显然应该满足条件
 	\[ p(j_1, \cdots) \geqslant 0, \quad \sum_{j_n} \cdots \sum_{j_1} p(j_1, \cdots)  =1 \]
 \end{definition}
@@ -160,12 +191,12 @@
 
 \begin{definition}
 	设 $f(\seq{x}{n})$ 是定义在 $\mathbb{R}^n$ 上的非负函数，使得对 $\mathbb{R}^n$ 中的任何集合 $A$，有
-	\[ P\{X \in A\} = \int_A \cdots \int f(\seq{x}{n}) \d x_1 \cdots \d x_n \]
-	则称 $f$ 是 $X$ 的概率密度函数。显然当 $P\{ X \in \mathbb{R}^n\} = 1$。
+	\[ \bbP\{X \in A\} = \int_A \cdots \int f(\seq{x}{n}) \d x_1 \cdots \d x_n \]
+	则称 $f$ 是 $X$ 的概率密度函数。显然当 $\bbP\{ X \in \mathbb{R}^n\} = 1$。
 \end{definition}
 
 也可以定义分布函数
-\[ F(\seq{x}{n}) = P\{X_1 \leqslant x_1, \cdots, X_n \leqslant x_n \} \]
+\[ F(\seq{x}{n}) = \bbP\{X_1 \leqslant x_1, \cdots, X_n \leqslant x_n \} \]
 
 对于二维 $(X, Y)$，若 $f$ 在点 $(x, y)$ 处连续，则
 \[ \frac{\partial^2 F(x, y)}{\partial x \partial y} = f(x, y) \]
@@ -174,7 +205,7 @@
 \paragraph{边缘分布}
 
 对任意的 $n$ 个实数，$x_1, x_2, \cdots, x_n$，称 $n$ 元函数
-\[ F(\seq{x}{n}) = P\{X_1 \leqslant x_1, X_2 \leqslant x_2, \cdots. X_n \leqslant x_n\} \]
+\[ F(\seq{x}{n}) = \bbP\{X_1 \leqslant x_1, X_2 \leqslant x_2, \cdots. X_n \leqslant x_n\} \]
 为多维随机变量 $(\seq{x}{n})$ 的联合分布函数，记为 $(\seq{x}{n}) \sim F(\seq{x}{n})$。
 
 \begin{itemize}
@@ -182,11 +213,11 @@
 	\item $F(x, y)$ 是 $x, y$ 的右连续函数。
 	\item $F(-\infty, y) = F(x, -\infty) = F(-\infty, -\infty) = 0$，$F(+\infty, +\infty) = 1$。
 	\item 对任意 $x_1 < x_2, y_1 < y_2$，有
-	      \[ P\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
+	      \[ \bbP\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
 \end{itemize}
 
 设其联合分布函数为 $F(x,y)$，定义边缘分布函数
-\[ F_X(x) = P\{X \leqslant x\} = F(x, +\infty) \]
+\[ F_X(x) = \bbP\{X \leqslant x\} = F(x, +\infty) \]
 同理，有 $F_Y(y) = F(+\infty, y)$。
 
 
@@ -202,12 +233,12 @@
 \paragraph{条件概率分布}
 
 对于二维离散型随机向量 $(X, Y)$，其联合概率分布为
-\[ p_{i,j} = P\{X= x_i, Y = y_j\} \]
+\[ p_{i,j} = \bbP\{X= x_i, Y = y_j\} \]
 记为 $(X,Y) \sim p_{i,j}$。依条件概率的定义，有
-\[ P\{ X = x_i \mid Y = y_i \} = \frac{P\{X = x_i, Y = y_j\}}{P\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
+\[ \bbP\{ X = x_i \mid Y = y_i \} = \frac{\bbP\{X = x_i, Y = y_j\}}{\bbP\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
 
 设二维连续型随机向量 $(X, Y)$，其概率密度是 $f(x, y)$。假设 $y \in [a, b]$，依条件概率的定义，有
-\[ P\{X \leqslant c \mid a \leqslant Y \leqslant b\} = \frac{P\{X \leqslant c , a \leqslant Y \leqslant b\}}{P\{a \leqslant y \leqslant b \}} = \frac{\int_{-\infty}^c \int_{a}^b f(x, y) \d y \d x }{\int_a^b f_Y(y) \d y }\]
+\[ \bbP\{X \leqslant c \mid a \leqslant Y \leqslant b\} = \frac{\bbP\{X \leqslant c , a \leqslant Y \leqslant b\}}{\bbP\{a \leqslant y \leqslant b \}} = \frac{\int_{-\infty}^c \int_{a}^b f(x, y) \d y \d x }{\int_a^b f_Y(y) \d y }\]
 对 $c$ 求导，即得条件密度函数
 \[ f_{X \mid Y}(x \mid a \leqslant y \leqslant b) = \frac{\int_{a}^b f(x, y) \d y}{\int_{a}^b f_{Y}(y) \d t} \]
 考虑极限，$a, b$ 收敛于 $y$ 处，有
@@ -228,7 +259,7 @@
 离散的情况是容易的，实在不行手算。
 
 设连续型随机变量 $X$ 有密度函数 $f(x)$，对于函数 $g$，考虑 $Y=g(X)$ 下的情况。假设 $g$ 严格上升，设 $h = g^{-1}$，有
-\[ P\{Y \leqslant y\} = P\{X \leqslant h(y)\} = \int_{-\infty}^{h(y)} f(t) \d t \]
+\[ \bbP\{Y \leqslant y\} = \bbP\{X \leqslant h(y)\} = \int_{-\infty}^{h(y)} f(t) \d t \]
 则 $y$ 的密度函数为
 \[ l(y) = f(h(y)) h'(y) \]
 同理，对严格递减也可以进行讨论，得到结论
@@ -248,7 +279,7 @@
 	\end{matrix}\right| \]
 不为 $0$。在 $(Y_1, Y_2)$ 的平面上任取一个区域 $A$，对应于 $(X_1, X_2)$ 上的区域是 $B$。即
 \[ \begin{aligned}
-		P\{(Y_1, Y_2) \in A\} & = P\{(X_1, X_2) \in B\}                                                      \\
+		\bbP\{(Y_1, Y_2) \in A\} & = \bbP\{(X_1, X_2) \in B\}                                                      \\
 		                      & = \iint_{B} f(x_1, x_2) \d x_1 \d x_2                                        \\
 		                      & = \iint_{A} f(h_1(y_1, y_2), h_2(y_1, y_2)) \cdot |J(y_1, y_2) \d y_1 \d y_2
 	\end{aligned} \]
@@ -264,7 +295,7 @@
 
 \section{随机变量的数字特征}
 
-设 $X$ 是随机变量，其分布列为 $p_i = P\{X = x_i\}$，记
+设 $X$ 是随机变量，其分布列为 $p_i = \bbP\{X = x_i\}$，记
 \[ E(X) = \sum_{i=1}^\infty x_i p_i \]
 为随机变量 $X$ 的数学期望。若 $X$ 是连续型随机变量，则记
 \[ E(X) = \int_{-\infty}^{+\infty} x f(x) \d x \]
@@ -284,7 +315,7 @@
 
 \begin{theorem}[切比雪夫不等式]
 	如果随机变量 $X$ 的期望 $E(X)$ 和方差 $D(X)$ 存在，则对任意 $\eps > 0$ 有
-	\[ P\{|X - E(X)| < \eps\} \geqslant 1 - \frac{D(X)}{\eps^2} \]
+	\[ \bbP\{|X - E(X)| < \eps\} \geqslant 1 - \frac{D(X)}{\eps^2} \]
 \end{theorem}
 
 我们定义 $(X, Y)$ 的协方差为
@@ -295,9 +326,9 @@
 \section{大数定律与中心极限定理}
 
 设随机变量 $X$ 与随机变量序列 $\{X_n\}$，如果对任意的 $\eps > 0$ 有
-\[ \lim_{n \to \infty} P\{|X_n - X| < \eps \} =1 \]
+\[ \lim_{n \to \infty} \bbP\{|X_n - X| < \eps \} =1 \]
 则称随机变量序列 $\{X_n\}$ 依概率收敛于随机变量 $X$，记为
-\[ \lim_{n \to \infty} X_n = X(P), \quad \text{或}\ X_n \stackrel{P}{\longrightarrow} X(n \to \infty) \]
+\[ \lim_{n \to \infty} X_n = X(\bbP), \quad \text{或}\ X_n \stackrel{\bbP}{\longrightarrow} X(n \to \infty) \]
 
 \begin{theorem}[切比雪夫大数定律]
 	设 $\{X_n\}$ 是相互独立的随机变量序列，如果方差 $D(X)$ 存在且有一致有上界，则 $\{X_n\}$ 服从大数定律
@@ -318,12 +349,12 @@
 	假设 $\{X_n\}$ 是独立同分布的随机变量序列，如果
 	\[ E(X_i) = \mu, D(X_i) = \sigma^2 > 0 \]
 	存在，则对任意的实数 $x$ 有
-	\[ \lim_{n \to \infty} P\left\{ \frac{\sum_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+	\[ \lim_{n \to \infty} \bbP\left\{ \frac{\sum_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
 \end{theorem}
 
 \begin{theorem}[棣莫弗 - 拉普拉斯定理]
 	设随机变量 $Y_n \sim B(n, p)$，其中 $0 < p < 1$ 且 $n > 1$，则对任意的实数 $x$，有
-	\[ \lim_{n \to \infty} P\left\{ \frac{Y_n - np}{\sqrt{np(1 - p)}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+	\[ \lim_{n \to \infty} \bbP\left\{ \frac{Y_n - np}{\sqrt{np(1 - p)}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
 \end{theorem}
 
 \section{数理统计}
@@ -369,7 +400,7 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\calX^2$ 分布，记为 $X \sim \calX^2(n)$。
 
 对于给定的 $\alpha(0 < \alpha < 1)$，称满足
-\[ P\left\{\calX^2 > \calX_\alpha^2(n)\right\} = \int_{\calX_\alpha^2(n)}^n f(x) \d x = \alpha  \]
+\[ \bbP\left\{\calX^2 > \calX_\alpha^2(n)\right\} = \int_{\calX_\alpha^2(n)}^n f(x) \d x = \alpha  \]
 的 $\calX_\alpha^2(n)$ 为 $\calX^2(n)$ 分布的上 $\alpha$ 分位点。
 
 \paragraph{$t$ 分布}
@@ -398,8 +429,8 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 
 最大似然原理：对未知参数 $\theta$ 进行估计时，在该参数可能的取值范围 $I$ 内选取，用使”样本获得观测值 $\seq{x}{n}$ 的概率最大的参数值 $\hat{\theta}$ 作为 $\theta$ 的估计。
 
-假设 $X$ 是离散型随机变量，其概率分布为 $P\{X = x\} = p(x; \theta)$，那么求其取值概率
-\[ L(\seq{x}{n};\theta) = P\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n P\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
+假设 $X$ 是离散型随机变量，其概率分布为 $\bbP\{X = x\} = p(x; \theta)$，那么求其取值概率
+\[ L(\seq{x}{n};\theta) = \bbP\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n \bbP\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
 称为样本的似然函数。若存在 $\hat{theta}$ 使得 $L$ 取到最大值，则称 $\hat{theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
 
 同理，连续型随机变量也有

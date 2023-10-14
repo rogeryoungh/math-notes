@@ -197,6 +197,18 @@
 	\[ \lim_{x \to 0} \frac{\left(1+\frac{1}{n}\right)^{n^2}}{\ee^n} = \frac{1}{\sqrt{\ee}} \]
 \end{solution}
 
+\begin{problem}[000067]
+设 $x_1 = \sqrt{a}, x_{n+1} = \sqrt{a + x_n}$，证明：$\lim\limits_{n\to \infty} x_n$ 存在，并求其值。
+\end{problem}
+
+\begin{solution}
+	设 $A = \sqrt{a + A}$，取正解
+	\[ A = \frac{1 + \sqrt{1+4a}}{2} \]
+	假设 $\sqrt{a} \leqslant x_n \leqslant A$，不难推得
+	\[ |x_{n+1} - A| = \frac{|x_n - A|}{\sqrt{a+x_n} + A} \leqslant \frac{1}{A} |x_n - A| \]
+	因此 $\lim\limits_{n \to \infty} x_n \to A$。
+\end{solution}
+
 \section{一元微分学}
 
 \begin{problem}[000009]

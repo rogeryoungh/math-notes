@@ -93,6 +93,8 @@
 
 可以发现一个有趣的性质，非齐次方程的解可以由齐次形式下的解的“常数变易”得到。因此先考虑解齐次形式，再变易常数为函数 $c(x)$，这种解法记作常数变易法。
 
+\subsection{各种变形}
+
 \paragraph{Bernoulli 微分方程} 形如
 \[ \frac{\d y}{\d x} = p(x) y + q(x) y^n, \quad n \neq 0,1 \]
 的方程称为 Bernoulli 微分方程。设 $y \neq 0$，得到
@@ -114,6 +116,15 @@
 因此方程化为
 \[ \frac{\d^2 y}{\d u^2} + (p-1) \frac{\d y}{\d u} + qy = r(\ee^u) \]
 
+\subsection{可降阶的二阶微分方程}
+
+\paragraph{不含 $y$} 若微分方程不含 $y$，即方程可表示为
+\[ y'' = f(x, y') \]
+则可以构造 $y'=p$，从而变成一阶的微分方程。
+
+\paragraph{不含 $x$} 即方程可以表示为
+\[ y'' = f(y, y') \]
+则可以令 $p = y'$，得到 $y'' = \frac{p \d p}{\d y}$，则原方程变为一阶方程。
 
 \section{恰当微分方程}
 
@@ -159,7 +170,7 @@
 \[ \sin x = \frac{1}{2}(\ee^{i x} + \ee^{-i x}), \quad \cos x = \frac{1}{2} (\ee^{ix} - \ee^{-ix}) \]
 因此我们在计算时完全可以将指数和三角统一起来，叙述过程时再改成三角。
 
-\paragraph{常系数}
+\subsection{常系数}
 
 设所有系数都是常数，即方程为
 \[ L[y] \equiv \frac{\d^n y}{\d x^n} + a_{n-1} \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + a_1 \frac{\d y}{\d x} + a_0 y = 0 \]
@@ -173,6 +184,31 @@
 \[ L[z] = \frac{\d^n y}{\d x^n} + b_{n-1} \frac{\d^{n-1} y}{\d x^{n-1}} + \cdots + b_{k} \frac{\d^k y}{\d x^k} = 0 \]
 可以观察出其 $k$ 个线性无关的解 $y = 1, x, x^2, \cdots, x^{k-1}$，故原方程的 $k$ 个解为
 \[ z = \ee^{\mu x}, x \ee^{\mu x}, \cdots, x^{k-1} \ee^{\mu x} \]
+
+\subsection{常见二阶微分方程}
+
+常见的二阶常系数微分方程的一般形式是
+\[ y'' + p y' + qy = f(x) \]
+首先求其对应的齐次微分方程的通解。
+
+令 $\Delta = p^2 - 4q > 0$，设其两个实根为 $r_1, r_2$，可得通解
+\[ y = C_1 \ee^{r_1 x} + C_2 \ee^{r_2 x} \]
+若 $\Delta = 0$，存在重根 $r_1$，则通解为
+\[ y = (C_1 + C_2 x) \ee^{r x} \]
+若 $\Delta < 0$，存在一对共轭虚根 $\alpha \pm \beta i$，则通解为
+\[ y = \ee^{a x} (C_1 \cos \beta x + C_2 \sin \beta x) \]
+
+当自由项
+\[ f(x) = P_n(x) \ee^{ax} \]
+时，特解要设为
+\[ y^* = x^k \ee^{ax} Q_n(x) \]
+其中 $k$ 为特征方程的根和 $a$ 的重合次数（这个规则很神秘，可以从微分算子法的角度记忆），$P_n(x), Q_n(x)$ 为关于 $x$ 的度 $n$ 多项式。
+
+当自由项为
+\[ f(x) = \ee^{ax} \left( P_n(x) \sin b x \right) \]
+时，特解要设为
+\[ y^* = x^k \ee^{ax} (Q_n(x) \cos bx + R_n(x) \sin bx) \]
+其中 $k$ 为特征方程的根和 $a \pm bi$ 是否重合（重合一定重俩），$P_n(x), Q_n(x), R_n(x)$ 为关于 $x$ 的度 $n$ 多项式。
 
 \section{Gronwall 定理}
 

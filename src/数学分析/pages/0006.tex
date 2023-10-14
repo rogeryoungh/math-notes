@@ -4,11 +4,9 @@
 
 给定一个无穷数列 $\{a_n\}$，称形式和
 \[ \sum_{i=1}^\infty a_i = a_1 + a_2 + a_3 + \cdots \]
-为无穷级数，其中 $a_i$ 记作通项或一般项。对于前 $n$ 项和，我们称为第 $n$ 个部分和。
+为无穷级数，其中 $a_i$ 记作通项或一般项。对于前 $n$ 项和，我们称 $S_n$ 为第 $n$ 个部分和。
 
-若 $\lim_{n \to \infty} S_n = S$ 存在且有限，则称级数级数 $\sum a_i$ 收敛，否则就称级数发散。
-
-显然若级数 $\sum a_i$ 收敛，则通项
+若 $\lim\limits_{n \to \infty} S_n = S$ 存在且有限，则称级数级数 $\sum a_i$ 收敛，否则就称级数发散。显然若级数 $\sum a_i$ 收敛，则通项
 \[ a_n = S_n - S_{n-1} \to S - S = 0 \quad(n \to \infty) \]
 
 \begin{theorem}[Cauchy 准则]
@@ -95,10 +93,10 @@
 \end{theorem}
 
 \begin{proof}
-	假设级数收敛于 $S$，由收敛的性质知，$\lim_{n \to \infty} f(n) = 0$，故 $f$ 非负。进而对任意正整数 $N$ 有
+	假设级数收敛于 $S$，由收敛的性质知，$\lim\limits_{n \to \infty} f(n) = 0$，故 $f$ 非负。进而对任意正整数 $N$ 有
 	\[ \int_{1}^{N} f(x) \d x = \sum_{n=2}^N \int_{n -1}^{n} f(x) \d x \leqslant \sum_{n=1}^{N-1} f(n) \leqslant \sum_{n=1}^{\infty} f(n) = S \]
 	考虑对 $M \in (N, N + 1]$，都有
-	\[ 0 \leqslant \int_{1}^{M} f(x) \d x \leqslant \int_{1}^{N+1} \leqslant S \]
+	\[ 0 \leqslant \int_{1}^{M} f(x) \d x \leqslant \int_{1}^{N+1} f(x) \d x \leqslant S \]
 	因此该反常积分收敛。
 	
 	反之，设反常积分。。。不想证了 TODO
@@ -130,16 +128,6 @@
 	设 $a_n$ 单调递减趋于 $0$。则 $\sum a_n$ 收敛当且仅当 $\sum 2^k a_{2^k}$ 收敛。
 \end{theorem}
 
-在 Taylor 公式中，我们经常得到正负项交替出现的级数，我们称为交错级数。
-
-\begin{theorem}[Leibniz 判别法]
-	若 $a_n$ 单调递减趋于 $0$，则级数 $\sum (-1)^{n-1} a_n$ 收敛。
-\end{theorem}
-
-\begin{proof}
-	懒得证了，TODO。大致思想是注意到 $S_{2m-1}$ 和 $S_{2m}$ 分别是单减和单增的，从而 $[S_{2m-1}, S_{2m}]$ 是退缩区间套。
-\end{proof}
-
 \subsection{常见级数的收敛性}
 
 \begin{theorem}
@@ -158,6 +146,17 @@
 
 更神秘的判别法，比如 Abel 判别法、Dirichlet 判别法感觉不太用得到，跳过。
 
+\subsection{交错级数}
+
+在 Taylor 公式中，我们经常得到正负项交替出现的级数，我们称为交错级数。
+
+\begin{theorem}[Leibniz 判别法]
+	若 $a_n$ 单调递减趋于 $0$，则级数 $\sum (-1)^{n-1} a_n$ 收敛。
+\end{theorem}
+
+\begin{proof}
+	懒得证了，TODO。大致思想是注意到 $S_{2m-1}$ 和 $S_{2m}$ 分别是单减和单增的，从而 $[S_{2m-1}, S_{2m}]$ 是退缩区间套。
+\end{proof}
 
 \section{函数项级数的一致收敛}
 
@@ -231,6 +230,31 @@
 		\item 若 $\rho = \infty$ 时，幂级数的收敛半径是 $R = 0$。
 	\end{itemize}
 \end{theorem}
+
+\section{求和函数的一些方法}
+
+求和函数主要以配凑为主，需要一定的积累。
+
+\subsection{多项式系数}
+
+首先观察公式
+\[ \begin{aligned}
+		\frac{1}{1 - x}     & = \sum_{n=0}^{\infty} x^n             \\
+		\frac{1}{(1 - x)^2} & = \sum_{n=0}^{\infty} (n+1) x^n       \\
+		\frac{2}{(1 - x)^2} & = \sum_{n=0}^{\infty} (n+1)(n+2) x^n
+	\end{aligned} \]
+推广有
+\[ \frac{1}{(1-x)^k} = \sum_{n=0}^{\infty} \binom{n+k-1}{k-1} x^n \]
+因此把系数配凑为类似下降阶乘的形式即可。
+
+\subsection{存在分母}
+
+主要从以下函数寻找灵感。
+\[ \begin{aligned}
+		- \ln(1-x) & = \sum_{n=1}^{\infty} \frac{x^n}{n}               \\
+		\arctan x  & = \sum_{n=0}^{\infty} (-1)^n\frac{x^{2n+1}}{2n+1} \\
+		\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right)  & = \sum_{n=0}^{\infty} \frac{x^{2n+1}}{2n+1} \\
+	\end{aligned} \]
 
 \section{Fourier 级数}
 

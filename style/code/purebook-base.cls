@@ -60,6 +60,6 @@
 
 \RequirePackage{enumitem}
 
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1em,itemindent=1em}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1em,itemindent=1em}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1em,itemindent=1em}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0.25em,itemindent=1em}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0.25em,itemindent=1em}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0.25em,itemindent=1em}

@@ -1,0 +1,1112 @@
+\chapter{高等数学}
+
+\section{函数、极限、连续}
+
+\subsection{大纲要求}
+
+1. 理解函数的概念，掌握函数的表示法，会建立应用问题的函数关系。
+
+2. 了解函数的有界性、单调性、周期性和奇偶性。
+
+3. 理解复合函数及分段函数的概念，了解反函数及隐函数的概念。
+
+4. 掌握基本初等函数的性质及其图形，了解初等函数的概念。
+
+5. 理解极限的概念，理解函数左极限与右极限的概念以及函数极限存在与左极限、右极限之间的关系。
+
+6. 掌握极限的性质及四则运算法则。
+
+7. 掌握极限存在的两个准则，并会利用它们求极限，掌握利用两个重要极限求极限的方法。
+
+8. 理解无穷小量、无穷大量的概念，掌握无穷小量的比较方法，会用等价无穷小量求极限。
+
+9. 理解函数连续性的概念（含左连续与右连续），会判别函数间断点的类型。
+
+10. 了解连续函数的性质和初等函数的连续性，理解闭区间上连续函数的性质（有界性、最大值和最小值定理、介值定理），并会应用这些性质。
+
+\subsection{函数}
+
+有界性：若函数 $f$ 在定义域 $D$ 上，存在正数 $M$ 使得 $|f(x)| \leqslant M$ 对任意 $x \in D$ 都成立，则称 $f$ 在 $D$ 上有界。
+
+单调性：若函数 $f$ 在定义域 $D$ 上，对其上任意两点 $x_1, x_2$（不妨 $x_1 < x_2$），恒有 $f(x_1) < f(x_2)$，则称 $f$ 在区间 $D$ 上是单调增加的；恒有 $f(x_1) > f(x_2)$，则称 $f$ 在区间 $D$ 上是单调减少的。
+
+\subsection{数列极限}
+
+\begin{definition}[数列极限的 $\eps - N$ 定义]
+	设 $\{a_n\}$ 为数列，$A$ 为定数。若对任给的正数 $\eps$，总存在正整数 $N=N(\eps)$，使得当 $n>N$ 时有
+	\[|a_n - A| < \eps\]
+	则称数列 $\{a_n\}$ 收敛于 $A$，或称 $A$ 为数列 $\{a_n\}$ 的极限，记作
+	\[\lim\limits_{n\to \infty} a_n = A \text{，或}\ a_n \to a(n \to \infty)\]
+\end{definition}
+
+数列极限的性质：
+
+\begin{itemize}
+	\item 唯一性：若数列收敛，则极限唯一；
+	\item 局部有界性：若数列收敛，则数列有界；
+	\item 局部保号性：若数列收敛于 $A$，且 $|A| \neq 0$，则存在正整数 $N$ 使得当 $n > N$ 时 $a_n A > 0$。
+\end{itemize}
+
+数列极限的存在准则：
+
+\begin{itemize}
+	\item 单调有界原理：单调有界数列必有极限。
+	\item 夹逼准则：若存在 $N$ 使得当 $n > N$ 时有 $x_n \leqslant y_n \leqslant z_n$，且 $\lim x_n = \lim z_n = A$，则 $\lim y_n = A$。
+	\item 致密性定理：数列的任何子列都收敛。
+	\item Cauchy 列：数列为 Cauchy 列。即任给 $\eps>0$，均存在 $N(\eps)$ 使任取 $m,n>N(\eps)$ 有 $|a_m-a_n| < \eps$。
+\end{itemize}
+
+\subsection{函数极限}
+
+\begin{definition}[函数在 $x_0$ 处的极限]
+	设函数 $f$ 在去心邻域 $U^\circ(x_0;\delta')$ 内有定义，$A$ 为定数。若对任给的 $\eps>0$，存在正数 $\delta<\delta'$，使得当 $0<|x-x_0|<\delta$ 时，有 $|f(x)-A|<\eps$，则称函数 $f$ 当 $x$ 趋于 $x_0$ 时以 $A$ 为极限，记作
+	\[ \lim_{x \to x_0}f(x) = A\ \text{或}\ f(x)\to A(x \to x_0) \]
+\end{definition}
+
+\begin{definition}[函数在 $\infty$ 处的极限]
+	设函数 $f$ 在 $|x| > M'$ 上有定义，$A$ 为定数。若对任给的 $\eps>0$，存在正数 $M=M(\eps) > M'$，使得当 $x>M$ 时，有
+	\[ |f(x)-A| < \eps \]
+	则称函数 $f$ 当 $x$ 趋于 $\infty$ 时以 $A$ 为极限，记作
+	\[ \lim_{x \to \infty}f(x) = A\ \text{或}\ f(x) \to A(x \to \infty) \]
+\end{definition}
+
+\begin{note}
+	注意函数在 $\infty$ 处的极限包括 $+\infty$ 和 $-\infty$ 两个方向。
+\end{note}
+
+函数极限的性质：
+
+\begin{itemize}
+	\item 唯一性：若函数极限存在，则极限唯一；
+	\item 局部有界性：若函数极限存在，则存在去心邻域使其有界；
+	\item 局部保号性：若函数极限为 $A$，且 $|A| \neq 0$，则 $f$ 在某去心邻域 $U^\circ(x_0)$ 上满足 $f(x) \cdot A > 0$。
+	\item 左极限和右极限相等 $\Longleftrightarrow$ 极限存在。
+\end{itemize}
+
+常用极限：
+
+\[ \lim_{x \to 0} \frac{\sin x}{x} = 1, \quad \lim_{x \to 0} (1+x)^{\frac{1}{x}} = \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = \ee \]
+
+
+\subsection{连续}
+
+\begin{definition}[连续性]
+	设函数 $f$ 在某 $U(x_0)$ 上有定义。若
+	\[ \lim_{x\to x_0}f(x) = f(x_0) \]
+	则称 $f$ 在点 $x_0$ 连续。
+
+	连续性的 $\eps-\delta$ 形式定义：若对任给的 $\eps>0$，存在 $\delta>0$，使得当 $|x-x_0|<\delta$ 时，有 $|f(x)-f(x_0)|<\eps$，则称函数 $f$ 在点 $x_0$ 连续。
+\end{definition}
+
+记 $\Delta x = x-x_0$，称为自变量 $x$ 在点 $x_0$ 的增量或改变量。设 $y_0=f(x_0)$，相应的函数 $y$ 在点 $x_0$ 的增量记为
+\[ \Delta y = f(x)-f(x) = f(x+\Delta)-f(x_0) = y-y_0 \]
+
+
+
+\begin{definition}[间断点]
+	设函数 $f$ 在某去心邻域 $U^\circ(x_0)$ 上有定义。若满足下列情况之一：
+	\begin{itemize}
+		\item $f(x_0)$ 处无定义
+		\item $\lim f(x)$ 不存在；
+		\item $\lim f(x_0) \neq f(x_0)$。
+	\end{itemize}
+	则称 $x_0$ 为间断点。
+\end{definition}
+
+间断点分类：
+
+\begin{itemize}
+	\item 第一类间断点：$f(x^+)$ 与 $f(x^-)$ 均存在。
+	      \begin{itemize}
+		      \item 可去间断点：$f(x^+) = f(x^-)$。
+		      \item 跳跃间断点：$f(x^+) \neq f(x^-)$。
+	      \end{itemize}
+	\item 第二类间断点：$f(x^+)$ 与 $f(x^-)$ 至少有一个不存在。
+	      \begin{itemize}
+		      \item 无穷间断点：$f(x^+)$ 与 $f(x^-)$ 至少有一个为 $\infty$。
+		      \item 震荡间断点：函数在区间内变动无限多次，如 $\sin \frac{1}{x}$。
+	      \end{itemize}
+\end{itemize}
+
+
+最值：设 $f$ 在区间 $I$ 上有定义，若存在 $x_0 \in I$ 使得 $f(x) \leqslant f(x_0)$，则称 $f(x_0)$ 是区间上的最大值；若使得 $f(x) \geqslant f(x_0)$，则称 $f(x_0)$ 是区间上的最小值。
+
+连续函数的性质：
+
+\begin{itemize}
+	\item 基本初等函数在定义域区间内都是连续的；
+	\item 最值定理：闭区间上连续的函数一定有界且必存在最大和最小值。
+	\item 零点定理：函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，若 $f(a)f(b) < 0$ 则必存在至少一点 $\xi \in (a, b)$ 使得 $f(\xi) = 0$。
+	\item 介值定理：函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，那么对于 $f(a)$ 和 $f(b)$ 之间的数 $c$，必存在 $\xi \in (a, b)$ 使得 $f(\xi) = c$。
+\end{itemize}
+
+\section{一元函数微分学}
+
+\subsection{大纲要求}
+
+1. 理解导数和微分的概念，理解导数与微分的关系，理解导数的几何意义，会求平面曲线的切线方程和法线方程，了解导数的物理意义，会用导数描述一些物理量，理解函数的可导性与连续性之间的关系。
+
+2. 掌握导数的四则运算法则和复合函数的求导法则，掌握基本初等函数的导数公式。了解微分的四则运算法则和一阶微分形式的不变性，会求函数的微分。
+
+3. 了解高阶导数的概念，会求简单函数的高阶导数。
+
+4. 会求分段函数的导数，会求隐函数和由参数方程所确定的函数以及反函数的导数。
+
+5. 理解并会用罗尔（Rolle）定理、拉格朗日（Lagrange）中值定理和泰勒（Taylor）定理，了解并会用柯西（Cauchy）中值定理。
+
+6. 掌握用洛必达法则求未定式极限的方法。
+
+7. 理解函数的极值概念，掌握用导数判断函数的单调性和求函数极值的方法，掌握函数最大值和最小值的求法及其应用。
+
+8. 会用导数判断函数图形的凹凸性（注：在区间 $(a, b)$ 内，设函数 $f(x)$ 具有二阶导数。当 $f'(x) > 0$ 时，$f(x)$ 的图形是凹的；当 $f(x) < 0$ 时， $f(x)$ 的图形是凸的），会求函数图形的拐点以及水平、铅直和斜渐近线，会描绘函数的图形。
+
+9. 了解曲率、曲率圆与曲率半径的概念，会计算曲率和曲率半径。
+
+\subsection{导数}
+
+\begin{definition}[微分]
+	设函数 $f$ 定义在某个邻域内 $U(x_0, r)$ 内，如果存在常数 $A$ 使得
+	\[ f(x) = f(x_0) + A(x - x_0) + o(x - x_0) \]
+	当 $x \to x_0$ 成立，则称 $f$ 在 $x_0$ 处可微。线性函数 $A(x-x_0)$ 称为 $f$ 在 $x_0$ 处的微分。我们记作 $\d y = \d f = A \d x$。
+\end{definition}
+
+\begin{definition}[导数]
+	设函数 $y=f(x)$ 在邻域 $U(x_0, r)$ 内有定义，若极限
+	\[ \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0} \]
+	存在，则称函数 $f$ 在点 $x_0$ 可导，并称该极限为函数 $f$ 在点 $x_0$ 的导数，记作 $f'(x_0)$。
+\end{definition}
+
+显然一元函数可微等价于可导。
+
+可导与连续（记住 $|x|$ 和 $x|x|$）：
+\[ \text{左右连续} \Leftarrow \text{左右可导}  \Leftarrow \text{可导}  \Rightarrow \text{连续} \Leftrightarrow \text{左右连续} \]
+
+重点例子：
+\[ f_n(x) = x^n \sin \frac{1}{x}, \quad f_n(0) = 0 \]
+\begin{itemize}
+	\item $f_1(x)$ 在 $\mathbb{R}$ 上连续，但 $x=0$ 处不可导。
+	\item $f_2(x)$ 在 $\mathbb{R}$ 上连续，在 $\mathbb{R}$ 上可导，但 $f'(x)$ 不在 $x=0$ 处连续。
+	\item $f_3(x)$ 在 $\mathbb{R}$ 上连续，在 $\mathbb{R}$ 上可导，且 $f'(x)$ 在 $\mathbb{R}$ 上连续。
+\end{itemize}
+
+导数关于加法线性
+\[ (u \pm v)' = u' \pm v', \quad  (Cu)' = Cu' \]
+乘除法
+\[ (uv)' = u'v + v'u, \quad \left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2} \]
+
+复合函数的求导法则：设 $y = f(u), u = g(x)$ 且 $f(u), g(x)$ 都可导，那么
+\[ \frac{\d y}{\d x} = \frac{\d y}{\d u} \cdot \frac{\d u}{\d x}, \quad y'(x) = f'(u) g'(x) \]
+
+高阶导数的计算（Leibniz 公式）：若 $f = uv$，则
+\[ f^{(n)} = (uv)^{(n)} = \sum_{k=0}^{n} \binom{n}{k} u^{(n-k)}{(k)} \]
+
+一阶微分的不变性：无论 $u$ 是中间变量还算自变量，微分形式 $\d y = f'(u) \d u$ 保持不变。二阶就没有不变性。
+
+\subsection{常见导数公式}
+
+指数对数幂函数
+\[  (C)' = 0, \quad \left(x^a\right)' = a x^{a-1}, \quad
+	\left(\ee^x\right)' = \ee^x, \quad
+	\left(\ln x\right)' = \frac{1}{x} \]
+当 $a > 0$ 且 $a \neq 1$ 时
+\[ \left(a^x\right)' = \ln a, \quad \left(\log_a x\right)' = \frac{1}{x \ln a}  \]
+三角函数
+\[ \left(\sin x\right)' = \cos x, \quad \left(\cos x\right)' = -\sin x, \quad \left(\tan x\right)' = \frac{1}{\cos^2 x} = \sec^2 x \]
+另一堆三角函数
+\[ \left(\cot x\right)' = -\csc^2 x, \quad \left(\sec x\right)' = -\sec x\tan x, \quad \left(\csc x\right)' = \sec x \cot x \]
+反三角函数
+\[
+	\left(\arcsin x\right)' = \frac{1}{\sqrt{1-x^2}} , \quad
+	\left(\arccos x\right)' = -\frac{1}{\sqrt{1-x^2}}, \quad
+	\left(\arctan x\right)' = \frac{1}{1+x^2}
+\]
+
+\subsection{L'Hospital 法则}
+
+\begin{theorem}[L'Hospital 法则]
+	设 $f,g$ 是 $(a,b)$ 上的连续可导函数，$g' \neq 0$，当 $x \to a+$ 时：
+	\begin{itemize}
+		\item （$0/0$ 型）有 $\lim f(x) = \lim g(x) = 0$
+		\item （$\infty/\infty$ 型）有 $\lim f(x) = \lim g(x) = \infty$
+		\item （$\ast/\infty$ 型）有 $\lim g(x) = \infty$
+	\end{itemize}
+	且极限 $\lim \frac{f'(x)}{g'(x)}$ 存在，则
+	\[ \lim \frac{f(x)}{g(x)} = \lim \frac{f'(x)}{g'(x)} \]
+\end{theorem}
+
+\begin{theorem}[Stolz 定理一]
+	设数列 $\{x_n\},\{y_n\}$，且 $\{y_n\}$ 严格单调地趋于 $+\infty$，如果
+	\[\lim_{n\to \infty}\frac{x_n-x_{n-1}}{y_n-y_{n-1}}=A\]
+	则
+	\[\lim_{n\to \infty} \frac{x_n}{y_n} = A\]
+\end{theorem}
+
+\begin{theorem}[Stolz 定理二]
+	设数列 $\{y_n\}$ 严格单调地趋于 $0$，且数列 $\{x_n\}$ 也收敛到 $0$，那么如果
+	\[\lim_{n\to \infty}\frac{x_n-x_{n-1}}{y_n-y_{n-1}}=A\]
+	则
+	\[\lim_{n\to \infty} \frac{x_n}{y_n} = A\]
+\end{theorem}
+
+\subsection{微分中值定理}
+
+微分中值定理主要有三个：Rolle 定理、Lagrange 中值定理和 Cauchy 中值定理。
+
+\begin{theorem}[Rolle 中值定理]
+	若函数 $f$ 在 $[a,b]$ 上连续可导，且 $f(a)=f(b)$。则存在 $\xi\in(a,b)$，使得 $f'(\xi)=0$。
+\end{theorem}
+
+\begin{proof}
+	因为 $f(x)$ 在 $[a,b]$ 上连续，所以有最大值 $M$ 和最小值 $m$。
+
+	1. 若 $m=M$，显然成立。
+
+	2. 若 $m < M$，又 $f(a) = f(b)$，故最值必然在 $\xi \in (a, b)$ 中取到，从而 $x=\xi$ 是其极值点，由 Fermat 定理知 $f'(\xi) = 0$。
+\end{proof}
+
+我们可以做更多点的推广。假如 $f(x_1) = f(x_2) = f(x_3)$ 都相等，据此存在 $\xi_1 \in (x_1, x_2)$ 和 $\xi_2 \in (x_2, x_3)$ 使得 $f'(\xi_1) = f'(\xi_2) = 0$，再用一遍定理知存在 $\xi_3 \in (\xi_1, \xi_2)$ 使得 $f''(\xi_3) = 0$。
+
+\begin{theorem}[Lagrange 定理]
+	若函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，则存在 $\xi\in(a,b)$，使得
+	\[ f'(\xi)=\frac{f(b)-f(a)}{b-a} \]
+\end{theorem}
+
+\begin{proof}
+	做辅助函数
+	\[ F(x) = f(x) - f(a) - \frac{f(b) - f(a)}{b - a}(x - a) \]
+	显然 $F(a) = F(b) = 0$，且满足 Rolle 定理的其他两个条件，故存在 $\xi \in (a, b)$ 使得
+	\[ F'(\xi) = f'(\xi) - \frac{f(b) - f(a)}{b - a} = 0 \]
+	移项即证。
+\end{proof}
+
+一般可以直接说，存在 $\xi \in (a, b)$ 使得 $f(b) - f(a) = f'(\xi)(b-a)$。考虑设
+\[ \xi = (1-\theta)a + \theta b = a + \theta(b-a), \quad \theta \in (0, 1) \]
+因此可以说存在 $\theta \in (0, 1)$ 使得
+\[ f(b) - f(a) = f'(a + \theta(b-a)) (b-a) \]
+
+\begin{theorem}[Cauchy 中值定理]
+	设 $f,g$ 在 $[a,b]$ 上连续，在 $(a,b)$ 中可微，且 $g'(x)\ne 0$，则存在 $\xi\in (a,b)$，使得
+	\[ \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(\xi)}{g'(\xi)} \]
+\end{theorem}
+
+\begin{proof}
+	首先注意到 $g(b) \neq g(a)$，否则由 Rolle 定理知存在 $g'(x) = 0$。构造
+	\[ F(x) = f(x) - f(a) - \lambda (g(x) - g(a)) , \quad \lambda = \frac{f(b) - f(a)}{g(b) - g(a)} \]
+	注意到 $F(a) = F(b) = 0$，由 Rolle 定理知存在 $\xi \in (a, b)$
+	\[ F'(\xi) = f'(\xi) - \lambda g'(\xi) = 0 \]
+\end{proof}
+
+\subsection{Taylor 公式}
+
+假设函数 $f$ 在 $x_0$ 处 $n$ 阶可导，定义其在 $x_0$ 处的 $n$ 阶 Taylor 多项式定义为
+\[ P_n(x;x_0, f) = f(x_0) + \sum_{k=1}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k \]
+当 $x_0 = 0$ 时，即为 Maclaurin 公式。
+
+\begin{theorem}[Peano 型余项]
+	存在 $\delta > 0$ 使得对 $x \in (x_0 - \delta, x_0 + \delta)$ 有
+	\[ f(x) = P_n(x) + r_n(x), \quad r_n(x) = o((x-x_n)^n), \quad x \to x_0 \]
+\end{theorem}
+
+\begin{proof}
+	我们可以通过洛 $n$ 次证明。略。
+\end{proof}
+
+\begin{theorem}[Lagrange 型余项]
+	存在 $\delta > 0$，设 $f$ 在 $(x_0, x_0+\delta)$ 上连续并 $n + 1$ 阶可导，则对任意的 $x$ 都存在 $\xi$ 有
+	\[ f(x) = P_n(x) + r_n(x), \quad r_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1} \]
+\end{theorem}
+
+\begin{proof}
+	固定 $x$，构造辅助函数
+	\[ G(t) = f(x) - \sum_{k=0}^n \frac{f^{(k)}(t)}{k!} (x-t)^k \]
+	并任意的取在 $(x_0, x_0 + \delta)$ 上连续可导的函数 $H(t)$，且 $H(x) = 0$。存在 $\xi \in (x_0, x_0 + \delta)$ 满足
+	\[ \frac{G(x_0)}{H(x_0)} = \frac{G(x) - G(x_0)}{H(x) - H(x_0)} = \frac{G'(\xi)}{H'(\xi)} = -\frac{f^{(n+1)}(\xi)}{n!H'(\xi)}(x-\xi)^n \]
+	即
+	\[ G(x_0) = -\frac{f^{(n+1)}(\xi)}{n! H'(\xi)}(x-\xi)^nH(x_0) \]
+	取 $H(t) = (x-t)^{n+1}$ 即证。
+\end{proof}
+
+\begin{theorem}[Cauchy 型余项]
+	存在 $\delta > 0$，设 $f$ 在 $(x_0, x_0+\delta)$ 上连续并 $n + 1$ 阶可导，则对任意的 $x$ 都存在 $\xi$ 有
+	\[ f(x) = P_n(x) + r_n(x), \quad r_n(x) = \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n(x-x_0) \]
+\end{theorem}
+
+\begin{proof}
+	在上一个证明中取 $H(t) = x - t$ 即可。
+\end{proof}
+
+常见 Taylor 展开：
+
+\[
+	\begin{aligned}
+		\frac{1}{1-x} & = \sum_{k=0}^\infty x^n                             = 1 + x + x^2 + x^3  + x^4 + x^5 + O(x^6)                                             \\
+		\ln(1+x)      & = \sum_{k=0}^\infty\frac{(-1)^k}{k+1}x^{k+1}        = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} + O(x^8)          \\
+		\sin x        & = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1}  = x - \frac{x^3}{6} + \frac{x^5}{120} + O(x^{7})                                      \\
+		\cos x        & = \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}x^{2k}      = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} +  O(x^{8})                    \\
+		\ee^x         & = \sum_{k=0}^\infty\frac{1}{k!}x^k                  = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + O(x^{6}) \\
+	\end{aligned}
+\]
+
+奇奇怪怪的 Taylor 展开：
+
+\[
+	\begin{aligned}
+		\tan x                                     & = x + \frac{x^3}{3} + \frac{2x^5}{15} +  O(x^{7})                                                \\
+		\sqrt{x+1}                                 & = 1 + \frac{x}{2}-\frac{x^2}{8} +\frac{x^3}{16}-\frac{5 x^4}{128} +\frac{7 x^5}{256} +  O(x^{6}) \\
+		\ln(x + \sqrt{1+x^2})                      & = x - \frac{x^3}{6} + \frac{3x^5}{40} - \frac{5 x^7}{112} + O(x^{9})                             \\
+		\arcsin x                                  & = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5 x^7}{112}+ O(x^{9})                              \\
+		\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right) & = x + \frac{x^3}{3} + \frac{x^5}{5} + \frac{x^7}{7}  + O(x^{7})                                  \\
+		\arctan x                                  & = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7}  + O(x^{9})                                  \\
+		\sqrt[x]{1+x}                              & = \ee x - \frac{\ee x}{2} + \frac{11 \ee x^2}{24} - \frac{7 \ee x^3}{16} + O(x^{4})
+	\end{aligned}
+\]
+
+对于其他的函数，可以转化为已知函数，比如 $x^x = \ee^{x \ln x}$ 和 $a^x = \ee^{x \ln a}$。
+
+\subsection{导数的应用}
+
+\subsubsection*{单调性}
+
+若函数 $f$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可导，若 $f' \geqslant 0$ 则 $f$ 在 $[a, b]$ 内单调递增；若 $f' \leqslant 0$ 则 $f$ 在 $[a, b]$ 内单调递减。
+
+极值：若函数 $f$ 在某邻域 $U(x_0)$ 内有定义，若在去心邻域 $U^\circ(x_0)$ 上满足 $f(x) < f(x_0)$ 则 $f(x_0)$ 是在 $f$ 上的极大值，$x_0$ 称为 $f$ 的极值点。
+
+驻点：导数为 $0$ 的点。
+
+\begin{theorem}[Fermat 定理]
+	设函数 $f$ 在点 $x_0$ 的某邻域上有定义，且在点 $x_0$ 可导。若点 $x_0$ 为极值点，则必有 $f'(x_0)=0$。
+\end{theorem}
+
+\begin{proof}
+	不妨设 $x_0$ 为 $f$ 的极小值点，则存在邻域 $U(x_0, \delta)$ 且满足不等式 $f(x) \leqslant f(x_0)$，那么
+	\[ \frac{f(x) - f(x_0)}{x - x_0} \geqslant 0, \quad x \in (x_0 - \delta, x_0) \qquad
+		\frac{f(x) - f(x_0)}{x - x_0} \leqslant 0, \quad x \in (x_0, x_0 + \delta) \]
+	从而
+	\[ 0 \leqslant f_+'(x_0) = f'(x_0) = f_-'(x_0) \leqslant 0 \]
+	故 $f'(x_0) = 0$。
+\end{proof}
+
+极值的第一充分条件：设 $f$ 在 $x_0$ 处连续，且在 $x_0$ 的某去心邻域 $U^\circ(x_0, \delta)$ 可导。
+\begin{itemize}
+	\item 若 $f'(x)$ 在 $x=x_0$ 处两侧异号，则 $x_0$ 处取得极值。
+	\item 若 $f'(x)$ 在 $x=x_0$ 处两侧同号，则 $x_0$ 处不是极值点。
+\end{itemize}
+
+极值的第二充分条件：设 $f$ 在 $x_0$ 处二阶可导，且 $f'(x_0) = 0, f''(x_0) \neq 0$，则 $f$ 在 $x_0$ 处取得极值。
+
+\subsubsection*{凹凸性}
+
+\begin{definition}[凹凸性]
+	设 $f$ 为定义在区间 $I$ 上的函数，若对 $I$ 上当任意两点 $x_1,x_2$，不妨设 $x_1 < x_2$ 若
+	\[ f\left(\frac{x_1+x_2}{2}\right) > \frac{f(x_1)+f(x_2)}{2} \]
+	则曲线上凹。若
+	\[ f\left(\frac{x_1+x_2}{2}\right) < \frac{f(x_1)+f(x_2)}{2} \]
+	则曲线上凸。
+\end{definition}
+
+二阶导和凹凸性（记住 $x^2$ 就行）：设函数 $f$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内二阶可导，若在 $(a, b)$ 内 $f'' > 0$ 则曲线上凹；若 $f'' < 0$，则上凸。
+
+拐点：函数在 $P(x_0, f(x_0))$ 左右侧凹凸性不一致。注意拐点是 $P(x, y)$。
+
+拐点的第一充分条件：设 $f$ 在 $U(x_0)$ 连续，去心邻域内二阶可导（注意不要求 $f''(x_0)$ 存在。
+\begin{itemize}
+	\item 若 $f''(x)$ 在 $x=x_0$ 处两侧异号，则 $(x_0, f(x_0))$ 处是拐点。
+	\item 若 $f''(x)$ 在 $x=x_0$ 处两侧同号，则 $(x_0, f(x_0))$ 处不是拐点。
+\end{itemize}
+
+拐点的第二充分条件：设 $f$ 在 $x_0$ 处三阶可导，且 $f''(x_0) = 0, f'''(x_0) \neq 0$，则 $f$ 在 $(x_0, f(x_0))$ 处取得拐点。
+
+拐点的第三充分条件：设 $f$ 满足
+\[ f'(x) = f''(x_0) = \cdots f^{(n)}(x_0) = 0 \]
+但 $f^{(n+1)}(x_0) \neq 0$，则
+\begin{itemize}
+	\item 当 $n$ 是偶数时，$(x_0, f(x_0))$ 是拐点；
+	\item 当 $n$ 是奇数时，$(x_0, f(x_0))$ 是极值点；
+\end{itemize}
+
+\subsubsection*{平面几何}
+
+渐近线：若曲线上的动点 $M$ 无限的远离原点时，点 $M$ 与某固定的直线 $L$ 的距离趋向于 $0$，则称 $L$ 是曲线的渐近线。有以下三种：
+\begin{itemize}
+	\item 若 $\lim\limits_{x \to a\pm} = \infty$，则称 $x=a$ 是其铅直渐近线；
+	\item 若 $\lim\limits_{x \to \pm \infty} = c$，则称 $y=c$ 为其水平渐近线。
+	\item 若 $\lim\limits_{x \to \pm\infty}\frac{f(x)}{x} = a \neq 0$ 且 $\lim\limits_{x \to \pm\infty} f(x) - ax = b$，则称 $y = ax + b$ 为其水平渐近线。
+\end{itemize}
+
+平面曲线 $y = f(x)$ 在 $M(x_0, y_0)$ 处的切线方程为
+\[ y - y_0 = f'(x_0)(x - x_0) \]
+法线方程为
+\[ y - y_0 = \frac{1}{f'(x_0)}(x - x_0) \]
+
+曲率：
+\[ K = \frac{|y''|}{\left(1 + (y')^2\right)^{\frac{3}{2}}} = \frac{|y''x' - x''y'|}{((x')^2 + (y')^2)^{\frac{3}{2}}} \]
+半径 $\rho = \frac{1}{K}$。
+
+\section{一元函数积分学}
+
+\subsection{大纲要求}
+
+1. 理解原函数的概念，理解不定积分和定积分的概念。
+
+2. 掌握不定积分的基本公式，掌握不定积分和定积分的性质及定积分中值定理，掌握换元积分法与分部积分法。
+
+3. 会求有理函数、三角函数有理式和简单无理函数的积分。
+
+4. 理解积分上限的函数，会求它的导数，掌握牛顿-莱布尼茨公式。
+
+5. 理解反常积分的概念，了解反常积分收敛的比较判别法，会计算反常积分。
+
+6. 掌握用定积分表达和计算一些几何量与物理量（平面图形的面积、平面曲线的弧长、旋转体的体积及侧面积、平行截面面积为已知的立体体积、功、引力、压力、质心、形心等）及函数的平均值。
+
+\subsection{不定积分}
+
+\begin{note}
+	不定积分可能含有奇点，不连续的段应当分别计算。比如
+	\[ \int_{0}^{\pi} \frac{\d x}{1 + \sin^2 x} \]
+	就应当在 $\frac{\pi}{2}$ 两侧分别计算。
+\end{note}
+
+\begin{theorem}[第一类换元积分法]
+	设 $f(u)$ 具有原函数，$u = \varphi(x)$ 可导，则有换元公式
+	\[ \int f(\varphi(x)) \varphi'(x) \d x = \left[\int f(u) \d u \right]_{u = \varphi(x)} \]
+\end{theorem}
+
+\begin{theorem}[第二类换元积分法]
+	设 $x = \psi(t)$ 是单调的可导函数，并且 $\psi'(t) \neq 0$。又设 $f(\psi(t)) \psi'(t)$ 具有原函数，则有换元公式
+	\[ \int f(x) \d x = \left[ \int f(\psi(t))\psi'(t) \d t \right]_{t = \psi^{-1}(x)} \]
+\end{theorem}
+
+有理分式积分：拆开分母，待定系数分子，拆的好分即可。
+
+根式积分：
+
+\begin{itemize}
+	\item 遇到有理分式，拆开分母，待定分子系数。
+	\item 遇到 $\sqrt[n]{ax+b}$，则令 $t = \sqrt[n]{ax+b}$。
+	\item 遇到 $\sqrt[n]{\frac{ax+b}{cx+d}}$，则令 $t = \sqrt[n]{\frac{ax+b}{cx+d}}$。
+	\item 遇到 $\sqrt{a^2 - x^2}$，则设 $x = a\sin t$ 或 $x = a\cos t$。
+	\item 遇到 $\sqrt{a^2 + x^2}$，则设 $x = a \tan t$。
+	\item 遇到 $\sqrt{x^2 - a^2}$，则设 $x = a \sec t = \frac{a}{\cos t}$。
+\end{itemize}
+
+分部积分法：
+\[ \int u v' \d x = u v - \int u' v \d x \]
+可以把常见的几类初等函数按复杂程度排序：反三角、对数、幂函数、三角函数、指数函数，一般使用复杂的做 $u$，简单的做 $v'$。
+
+\subsection{不定积分表}
+
+以下是一些常见函数的原函数
+
+\[ \begin{aligned}
+		\int {x}^{m} \d x                  & = \frac{1}{m + 1} x^{m+1} + C, \quad m \neq 1        \\
+		\int x^{-1} \d x                   & = \ln |x| + C                                        \\
+		\int \frac{1}{1 + x^2} \d x        & = \arctan x + C                                      \\
+		\int \frac{1}{1 - x^2} \d x        & = \frac{1}{2} \ln \left| \frac{1+x}{1-x} \right| + C \\
+		\int \frac{1}{\sqrt{1 + x^2}} \d x & = \ln(x+\sqrt{1 + x^2}) + C                          \\
+		\int \frac{1}{\sqrt{1 - x^2}} \d x & = \arcsin x + C                                      \\
+	\end{aligned} \]
+
+我们这里列一些组合的。
+
+
+
+\begin{example}[有理式]
+	\[ \begin{aligned}
+			\int \frac{1}{(x+a)(x+b)} \d x & = \frac{1}{b-a} \ln \left| \frac{x+b}{x+a} \right| + C                \\
+			\int \frac{1}{x^2(x+a)}   \d x & = \frac{1}{a^2} \ln \left| 1 + \frac{a}{x} \right| - \frac{1}{ax} + C \\
+			\int \frac{1}{x(x^2+a)}   \d x & = \frac{1}{2a} \ln \left| \frac{x^2}{x^2+a}\right| + C
+		\end{aligned} \]
+\end{example}
+
+\begin{example}[带 $a^2 \pm x^2$]
+	\[ \begin{aligned}
+			\int \frac{1}{a^2+x^2} \d x                     & = \frac{1}{a} \arctan \frac{x}{a} + C                                                        \\
+			\int \frac{1}{a^2 - x^2} \d x                   & = \frac{1}{a} \arctanh \frac{x}{a} + C  = \frac{1}{2a} \ln \left| \frac{a+x}{a-x}\right| + C \\
+			\int \frac{1}{\sqrt{a^2 - x^2}} \d x            & = \arcsin \frac{x}{a} + C                                                                    \\
+			\int \frac{1}{\sqrt{a^2 + x^2}} \d x            & = \arcsinh \frac{x}{a} + C  = \ln \left| \sqrt{a^2 + x^2} + x^2 \right|  + C                 \\
+			\int \frac{x}{\sqrt{a^2 \pm x^2}} \d x          & = \pm\sqrt{a^2 \pm x^2} + C                                                                  \\
+			\int \frac{1}{(a^2 \pm x^2)^{\frac{3}{2}}} \d x & = \frac{x}{a^2\sqrt{x^2 \pm a^2}} + C                                                        \\
+			\int \frac{x}{(a^2 \pm x^2)^{\frac{3}{2}}} \d x & = \mp \frac{x}{a^2\sqrt{x^2 \pm a^2}} + C                                                    \\
+			\int \sqrt{a^2 + x^2} \d x                      & = \frac{x}{2}  \sqrt{a^2+x^2}+\frac{a^2}{2} \int \frac{\d x}{\sqrt{a^2-x^2}}
+		\end{aligned} \]
+\end{example}
+
+\begin{example}[根式]
+	\[ \begin{aligned}
+			\int x \sqrt{x+a} \d x           & = \frac{2}{15} (3x - 2a) (x+a)^{\frac{3}{2}} + C                                                                   \\
+			\int \frac{x}{\sqrt{x+a}} \d x   & = \frac{2}{3} (x - 2a) \sqrt{x+a} + C                                                                              \\
+			\int \frac{1}{x\sqrt{x+a}} \d x  & = -\frac{1}{\sqrt{a}} \ln \left| \frac{\sqrt{a + x} + \sqrt{a}}{\sqrt{a + x} - \sqrt{a}} \right| + C , \quad a > 0 \\
+			\int \frac{1}{x\sqrt{x-a}} \d x  & = \frac{2}{\sqrt{a}}\arctan \sqrt{\frac{x}{a}-1}, \quad a > 0                                                      \\
+			\int \sqrt{\frac{a+x}{a-x}} \d x & = \arcsin \frac{x}{a} - \sqrt{a^2 - x^2} + C, \quad a > 0                                                          \\
+			\int \sqrt{\frac{a-x}{a+x}} \d x & = \arcsin \frac{x}{a} + \sqrt{a^2 + x^2} + C, \quad a > 0                                                          \\
+			\int \frac{\sqrt{x+a}}{x} \d x   & = 2 \sqrt{x+a} + a \int \frac{\d x}{x \sqrt{x+a}}
+		\end{aligned} \]
+\end{example}
+
+\subsection{定积分}
+
+\begin{theorem}
+	假设函数 $\varphi : [\alpha, \beta] \to [a, b]$ 连续可导，且 $\varphi(\alpha) = a, \varphi(\beta) = b$，则对任意的 $[a, b]$ 上的可积函数 $f$ 有 $f(\varphi(t))\varphi'(t)$ 可积，且
+	\[ \int_{a}^{b} f(x) \d x = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \d t \]
+	假如 $\varphi$ 严格单调，则有
+	\[ \int_{\varphi(\alpha)}^{\varphi(\beta)} f(x) \d x = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \d t \]
+
+\end{theorem}
+
+\begin{theorem}[Wallis 公式]
+	\[ I_n = \int_{0}^{\frac{\pi}{2}} \sin^n \d x = \int_{0}^{\frac{\pi}{2}} \cos^n \d x = \frac{n-2}{n}I_{n-2} \]
+	其中 $I_0 = \frac{\pi}{2}, I_1 = 1$。用双阶乘记之
+	\[ I_{2n}=\frac{(2n-1)!!}{(2n)!!}\frac{\pi}{2}, \quad I_{2n+1}=\frac{(2n)!!}{(2n+1)!!} \sim \sqrt{\pi (n+1)} \]
+\end{theorem}
+
+\subsection{反常积分}
+
+TODO。
+
+\subsection{积分的应用}
+
+\subsubsection*{曲线围成的面积}
+
+曲线 $y = f(x)$ 在 $[a, b]$ 上围成的曲边梯形面积
+\[ S = \int_{a}^{b} |f(x)| \d x \]
+曲线 $r = r(\theta)$ 在 $[\alpha, \beta]$ 上围成的曲边扇形的面积
+\[ S = \frac{1}{2} \int_{\alpha}^{\beta} r_{\theta}^2 \d \theta \]
+
+\subsubsection*{平面曲线的弧长}
+
+当曲线由 $x = x(t), y = y(t)$ 决定时，且 $x, y$ 在 $t \in [a, b]$ 上具有连续导数且不同时为 $0$ 时，弧长
+\[ s = \int_{a}^{b} \sqrt{[x'(t)]^2 + [y'(t)]^2} \d t \]
+当曲线由方程 $y = f(x)$ 给出时，且 $f$ 在 $[a, b]$ 上具有连续导数时，弧长
+\[ s = \int_{a}^{b} \sqrt{1 + [f'(x)]^2} \d x \]
+当曲线由 $r = r(\theta)$，且 $r$ 在 $[a, b]$ 上具有连续导数时，弧长
+\[ s = \int_{a}^{b} \sqrt{[r(\theta)]^2 + [r'(\theta)]^2} \d \theta \]
+
+
+\subsubsection*{旋转体的体积}
+
+如果旋转体是 $y = f(x)$ 在 $[a, b]$ 上的曲边梯形，则其绕 $x$ 轴旋转的体积为
+\[ V_x = \pi \int_a^b [f(x)]^2 \d x \]
+如果绕 $y$ 轴旋转，则
+\[ V_y = 2\pi \int_{a}^{b} x f(x) \d x \]
+
+假如曲线绕直线 $y = \tan \theta x = k x$ 进行旋转，则高度应当是
+\[ d = |x \cos \theta - y \sin \theta| \]
+小矩形的宽度为增量在直线上的投影
+\[ (\d x, \d y) \cdot (\cos \theta, \sin \theta) = \cos \theta \d x + \sin \theta \d y \]
+故
+\[ V_x = \pi \int_a^b |x \cos \theta - y \sin \theta|^2(\cos \theta \d x + \sin \theta \d y) = \pi \int_a^b \frac{|yk-x|^2}{(k^2+1)^{\frac{3}{2}}}(y'k+1) \d x \]
+
+\subsubsection*{旋转体的侧面积}
+
+如果旋转体是 $y = f(x)$ 在 $[a, b]$ 上的曲边梯形，则其绕 $x$ 轴旋转的侧面积为
+\[ A = \int 2\pi f(x) \d s = 2\pi \int_{a}^{b} f(x) \sqrt{1 + [f'(x)]^2} \d x \]
+
+
+\section{向量代数和空间解析几何}
+
+\subsection{大纲要求}
+
+1. 理解空间直角坐标系，理解向量的概念及其表示。
+
+2. 掌握向量的运算（线性运算、数量积、向量积、混合积），了解两个向量垂直、平行的条件。
+
+3. 理解单位向量、方向数与方向余弦、向量的坐标表达式，掌握用坐标表达式进行向量运算的方法。
+
+4. 掌握平面方程和直线方程及其求法。
+
+5. 会求平面与平面、平面与直线、直线与直线之间的夹角，并会利用平面、直线的相互关系（平行、垂直、相交等））解决有关问题。
+
+6. 会求点到直线以及点到平面的距离。
+
+7. 了解曲面方程和空间曲线方程的概念。
+
+8. 了解常用二次曲面的方程及其图形，会求简单的柱面和旋转曲面的方程。
+
+9. 了解空间曲线的参数方程和一般方程。了解空间曲线在坐标平面上的投影，并会求该投影曲线的方程。
+
+\subsection{向量运算}
+
+叉积的性质
+\begin{itemize}
+	\item 反交换律：$a \times b = - b \times a$；
+	\item 分配律 $c \times (a + b) = c \times a + c \times b$。
+\end{itemize}
+
+混合积的性质：
+\begin{itemize}
+	\item $(a \times b) \cdot c = (b \times c) \cdot a = (c \times a) \cdot b$；
+	\item $(a \times b) \cdot c = a \cdot (b \times c)$；
+	\item $(a \times b) \cdot c = 0 \Leftrightarrow a, b, c$ 共面。
+\end{itemize}
+
+混合积的坐标形式：
+\[ [abc] = (a \times b) \cdot c = \left| \begin{matrix}
+		a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z
+	\end{matrix}\right| \]
+
+两向量平行的条件：假设 $a \neq 0$，则 $b$ 平行于 $a$ 的充要条件即
+\begin{itemize}
+	\item 存在唯一的实数 $\lambda$ 使得 $b = \lambda a$;
+	\item 向量 $a, b$ 线性相关；
+	\item $a \times b = 0$。
+\end{itemize}
+
+两向量垂直的条件：假设 $a \neq 0$，则 $b$ 垂直于 $a$ 的充要条件为 $a \cdot b = 0$。
+
+\subsection{平面与直线}
+
+\subsubsection*{平面方程}
+
+点法式：给定法向量 $\vbf{n} = (A, B, C)$，和其上的一点 $M(x_0, y_0, z_0)$，则平面方程为
+\[ A(x-x_0) + B(y-y_0) + C(z-z_0) = 0 \]
+
+一般式：
+\[ \pi_1(x, y, z) = Ax + By + Cz + D = 0 \]
+其法向量为 $\vbf{n} = (A, B, C)$。
+
+三点式
+\[ \left|\begin{matrix}
+		x - x_1 & y - y_1 & z - z_1 \\
+		x - x_2 & y - y_2 & z - z_2 \\
+		x - x_3 & y - y_3 & z - z_3 \\
+	\end{matrix} \right| = 0 \]
+
+截距式
+\[ \frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1 \]
+
+
+\subsubsection*{直线方程}
+
+一般式：
+\[ \pi_1(x, y, z) = \pi_2(x, y, z) = 0 \]
+即两个平面的交点。该直线的方向向量为 $\vbf{\tau} = \vbf{n}_1 \times \vbf{n}_2$。
+
+点向式：若给定直线的方向向量 $\vbf{\tau} = (D, E, F)$ 和其上一点 $M_0(x_0, y_0, z_0)$，则方程为
+\[ \frac{x - x_0}{D} = \frac{y - y_0}{E} = \frac{z - z_0}{F} \]
+其方向向量为 $\vbf{\tau} = (D, E, F)$。约定分母为零则分子为 $0$。
+
+两点式：
+\[ \frac{x - x_1}{x_2 - x_1} = \frac{y - y_1}{y_2 - y_1} = \frac{z - z_1}{z_2 - z_1} \]
+
+参数形式：令
+\[ \frac{x - x_0}{D} = \frac{y - y_0}{E} = \frac{z - z_0}{F} = t \]
+则得到
+\[ x = x_0 + Dt, \quad y = y_0 + Et, \quad z = z_0 + Ft \]
+
+过直线 $L$ 的全体平面束，若直线表现为两平面交线（即一般式）$\pi_1 \cap \pi_2$，则平面束方程为
+\[ \pi_1(x, y, z) + \lambda \pi_2(x, y, z) = 0, \quad \lambda \in \mathbb{R}^\ast \]
+其他形式则很容易构造两个平面转化为一般式。
+
+如果直线 $L_1$ 与直线 $L_2, L_3$ 都垂直，则方向向量可以取 $\vbf{n}_1 = \vbf{n}_2 \times \vbf{n}_3$。
+
+\subsubsection*{平面与直线的夹角}
+
+由余弦定理知
+\[ \cos \langle n_1, n_2 \rangle = \frac{|n_1 \cdot n_2|}{|n_1| |n_2|} \]
+\begin{itemize}
+	\item 平面与平面：即法向量的夹角 $\cos \varphi = \cos\langle n_1, n_2 \rangle$。
+	\item 直线与直线：即方向向量的夹角 $\cos \varphi = \cos\langle \tau_1, \tau_2 \rangle$。
+	\item 平面与直线：不太一样 $\sin \varphi = \cos\langle n_1, \tau_1 \rangle$。
+\end{itemize}
+
+\subsubsection*{距离公式}
+
+点到平面：点 $P(x_0, y_0, z_0)$ 到直线 $Ax+By+Cz+D =0$ 的距离公式为
+\[ d = \frac{|Ax_0 + By_0 + Cz_0 + D}{\sqrt{A^2 + B^2 + C^2}} \]
+
+平行平面：两个平行平面 $Ax+By+Cz+D_{1,2} = 0$ 的距离公式
+\[ d = \frac{|D_1 - D_2|}{\sqrt{A^2 + B^2 + C^2}} \]
+也可以随便代入一个点，算点到平面的距离。
+
+点到直线：设 $P$ 是直线外一点，$M$ 是直线上任意一点，且直线的方向向量为 $\tau$，则距离为
+\[ d = \frac{|\overrightarrow{PM} \times \tau|}{|\tau|} \]
+
+异面直线：设两条直线的方向向量为 $\tau_1, \tau_2$，并分别选一点 $P_1, P_2$，则距离为
+\[ d = \frac{|(\tau_1 \times \tau_2) \cdot \overrightarrow{P_1P_2}|}{|\tau_1 \times \tau_2|} \]
+
+\subsubsection*{空间曲面与曲面}
+
+空间曲面可以表示为 $F(x, y, z) = 0$ 的三维方程。
+
+曲线的一般方程：表示为两个曲面的交集，即 $F_1(x,y,z) = F_2(x, y,z) = 0$。
+
+空间曲线的参数方程：即也表示为参数方程 $x(t), y(t), z(t)$。
+
+投影曲线：比如对一般方程 $F_1 = F_2 = 0$ 在 $xOy$ 轴进行投影，则消去 $z$ 得到 $H(x, y)$，其就是投影曲线。
+
+\section{多元函数微分学}
+
+\subsection{大纲要求}
+
+1. 理解多元函数的概念，理解二元函数的几何意义。
+
+2. 了解二元函数的极限与连续的概念以及有界闭区域上连续函数的性质。
+
+3. 理解多元函数偏导数和全微分的概念，会求全微分，了解全微分存在的必要条件和充分条件，了解全微分形式的不变性。
+
+4. 理解方向导数与梯度的概念，并掌握其计算方法。
+
+5. 掌握多元复合函数一阶、二阶偏导数的求法。
+
+6. 了解隐函数存在定理，会求多元隐函数的偏导数。
+
+7. 了解空间曲线的切线和法平面及曲面的切平面和法线的概念，会求它们的方程。
+
+8. 了解二元函数的二阶泰勒公式。
+
+9. 理解多元函数极值和条件极值的概念，掌握多元函数极值存在的必要条件，了解二元函数极值存在的充分条件，会求二元函数的极值，会用拉格朗日乘数法求条件极值，会求简单多元函数的最大值和最小值，并会解决一些简单的应用问题。
+
+\subsection{极值问题}
+
+\subsubsection*{无条件极值}
+
+那么对于二元函数 $f$，设 $(x_0, y_0)$ 为其驻点，引入记号
+\[ \Delta(x_0, y_0) = (f_{xx} f_{yy} - f_{xy}^2)(x_0, y_0) \]
+则有如下结论：
+\begin{itemize}
+	\item 如果 $\Delta > 0$ 且 $f_xx > 0$，为严格极小值。
+	\item 如果 $\Delta > 0$ 且 $f_xx < 0$，为严格极大值。
+	\item 如果 $\Delta < 0$，不是极值。
+	\item 如果 $\Delta = 0$ 无法判断。
+\end{itemize}
+
+\subsubsection*{有条件极值}
+
+Lagrange 乘数法：要找函数 $z = f(x, y)$ 在 $\varphi(x, y) = 0$ 下的极值点，可以先做函数
+\[ L(x, y) = f(x, y) = \lambda \varphi(x, y) \]
+联立
+\[ \begin{cases}
+		\frac{\partial L}{\partial x} = f_x'(x,y) + \lambda \varphi_x'(x, y) = 0 \\
+		\frac{\partial L}{\partial y} = f_y'(x,y) + \lambda \varphi_y'(x, y) = 0 \\
+		\varphi(x, y) = 0
+	\end{cases} \]
+该方程解出的 $x, y, \lambda$ 中的 $(x, y)$ 即是全部可能极值点。
+
+
+\subsubsection*{二元函数的二阶 Taylor 公式}
+
+\begin{theorem}
+	设 $z = f(x, y)$ 在点 $(x_0, y_0)$ 的邻域内且有连续 $3$ 阶偏导数，$(x_0 + h, y_0 + k)$ 为此邻域内任一点，令
+	\[ D_{h,k} = h \frac{\partial}{\partial x} + k \frac{\partial}{\partial y} \]
+	则有
+	\[
+		\begin{aligned}
+			f(x_0 + h, y_0 + k) & = f(x_0, y_0) + \left(h \frac{\partial}{\partial x} + k \frac{\partial}{\partial y}\right) f(x_0, y_0)                                               \\
+			                    & + \frac{1}{2!} \left(h \frac{\partial}{\partial x} + k \frac{\partial}{\partial y}\right)^2 f(x_0, y_0)                                              \\
+			                    & + \frac{1}{3} \left(h \frac{\partial}{\partial x} + k \frac{\partial}{\partial y}\right)^3 f(x_0 + \theta h, y_0 + \theta k) \quad \theta \in (0, 1) \\
+		\end{aligned}
+	\]
+\end{theorem}
+
+一般的，记号
+\[ \left(h \frac{\partial}{\partial x} + k \frac{\partial}{\partial y}\right)^m f = \sum_{p=0}^{m} \binom{m}{k} h^p k^{m-p} \frac{\partial^m f}{\partial x^p \partial y^{m-p}} \]
+
+\section{多元函数积分学}
+
+\subsection{大纲要求}
+
+1. 理解二重积分、三重积分的概念，了解重积分的性质，，了解二重积分的中值定理。
+
+2. 掌握二重积分的计算方法（直角坐标、极坐标），会计算三重积分（直角坐标、柱面坐标、球面坐标）。
+
+3. 理解两类曲线积分的概念，了解两类曲线积分的性质及两类曲线积分的关系。
+
+4. 掌握计算两类曲线积分的方法。
+
+5. 掌握格林公式并会运用平面曲线积分与路径无关的条件，会求二元函数全微分的原函数。
+
+6. 了解两类曲面积分的概念、性质及两类曲面积分的关系，掌握计算两类曲面积分的方
+法，掌握用高斯公式计算曲面积分的方法，并会用斯托克斯公式计算曲线积分。
+
+7. 了解散度与旋度的概念，并会计算。
+
+8. 会用重积分、曲线积分及曲面积分求一些几何量与物理量（平面图形的面积、体积、曲面面积、弧长、质量、质心、形心、转动惯量、引力、功及流量等）。
+
+\subsection{重积分}
+
+极坐标系转换
+\[ \iint_{D} f(x, y) \d \sigma = \iint_{D} f(r \cos \theta, r \sin \theta) r \d r \d \theta  \]
+特别注意 $r$ 是函数，不是定值！
+
+\subsection{神秘公式}
+
+\begin{theorem}[Green 公式]
+	假设 $D \subset \mathbb{R}^2$ 是由有限条光滑或分段光滑的 Jordan 曲线所围成的区域，并取 $\partial D$ 的正向。对任何有一阶连续偏导数的 $P, Q$ 有
+	\[ \int_{\partial D} P \d x + Q \d y = \iint_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \d x \d y = \iint_{D} \left| \begin{matrix}
+			\frac{\partial}{\partial x} & \frac{\partial}{\partial y} \\
+			P                           & Q
+		\end{matrix} \right| \d x \d y \]
+\end{theorem}
+
+\begin{theorem}[Gauss 公式]
+	设 $\Omega \subset \mathbb{R}^3$ 是区域且边界 $\partial \Omega$ 是由分段光滑的定向曲面构成。设 $P, Q, R$ 是一阶导数连续的，则
+	\[ \iint_{\partial \Omega} P \d y \d z + Q \d z \d x + R \d x \d y = \iiint_{\Omega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \d x \d y \d z \]
+\end{theorem}
+
+\begin{theorem}[Stokes 公式]
+	设 $\Sigma$ 是光滑定向曲面且边界 $\partial \Sigma$ 为分段光滑闭曲线，取诱导定向。对其上具有一阶连续偏导数的函数 $P, Q, R$ 有
+	\[ \int_{\partial \Sigma} P \d x + Q \d y + R \d z = \iint_\Sigma \left| \begin{matrix}
+			\d y \d z                   & \d z \d x                   & \d x \d y                   \\
+			\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+			P                           & Q                           & R
+		\end{matrix} \right| \]
+\end{theorem}
+
+\subsection{多元积分的应用}
+
+\subsubsection*{面积与体积}
+
+平面区域 $D$ 的面积等于 $\displaystyle \iint_D \d x \d y$，体积 $\displaystyle \iiint_D \d x \d y \d z$。
+
+以 $f(x,y)$ 为顶的曲顶柱体的体积为 $\displaystyle \iint_D f(x, y)\d x \d y$。
+
+曲面的表面积：对于曲面 $S: z = f(x,y)$，$D_{xy}$ 为其在 $xOy$ 面上的投影区域，则曲面的面积公式为
+\[ A = \iint_{D_{xy}} \sqrt{ 1 + [f_x'(x,y)]^2 + [f_y'(x,y)]^2 } \d x \d y \]
+
+
+\subsubsection*{形心与质心}
+
+对于平面 $D$ 上的薄片，其面密度为 $\rho(x, y)$，其质量为
+\[ M = \iint_D \rho(x,y) \d \sigma \]
+则质心坐标公式为
+\[ \quad \overline{x} = \frac{1}{M}\iint_D x \rho(x,y) \d \sigma, \quad \overline{y} =\frac{1}{M}\iint_D y \rho(x,y) \d \sigma \]
+
+类似的，对于空间 $\Omega$ 上物体，其体密度为 $\rho(x, y, z)$，其质量为
+\[ M = \iiint_\Omega \rho(x,y,z) \d v \]
+则质心坐标公式为
+\[ \overline{x} = \frac{1}{M}\iiint_D x \rho(x,y,z) \d v, \quad \overline{y} = \frac{1}{M}\iiint_D y \rho(x,y,z) \d v, \quad \overline{z} = \frac{1}{M}\iiint_D z \rho(x,y,z) \d v \]
+
+\subsubsection*{转动惯量}
+
+对于平面 $D$ 上的薄片，其面密度为 $\rho(x, y)$，令 $d(x,y)$ 为上面任何一点到转动轴的距离，则
+\[ I = \iint_D d^2 \rho(x, y) \d \sigma \]
+
+对于空间 $\Omega$ 上的物体，其体密度为 $\rho(x, y, z)$，令 $d(x,y,z)$ 为上面任何一点到转动轴的距离，则
+\[ I = \iiint_\Omega d^2 \rho(x, y, z) \d v \]
+
+\section{无穷级数}
+
+\subsection{大纲要求}
+
+1. 理解常数项级数收敛、发散以及收敛级数的和的概念，掌握级数的基本性质及收敛的必要条件。
+
+2. 掌握几何级数与 $p$ 级数的收敛与发散的条件。
+
+3. 掌握正项级数收敛性的比较判别法、比值判别法、根值判别法，会用积分判别法。
+
+4. 掌握交错级数的莱布尼茨判别法。
+
+5. 了解任意项级数绝对收敛与条件收敛的概念以及绝对收敛与收敛的关系。
+
+6. 了解函数项级数的收敛域及和函数的概念。
+
+7. 理解幂级数收敛半径的概念，并掌握幂级数的收敛半径、收敛区间及收敛域的求法。
+
+8. 了解幂级数在其收敛区间内的基本性质（和函数的连续性、逐项求导和逐项积分），
+会求一些幂级数在收敛区间内的和函数，并会由此求出某些数项级数的和。
+
+9. 了解函数展开为泰勒级数的充分必要条件。
+
+10. 掌握 $e^x$，$\sin x$，$\cos x$，$\ln(1+x)$ 及 $(1+x)^{\alpha}$ 的的麦克劳林（Maclaurin）展开式，会用它们将一些简单函数间接展开为幂级数。
+
+11. 了解傅里叶级数的概念和狄利克雷收敛定理，会将定义在 $[-l, l]$ 上的函数展开为傅里叶级数，会将定义在 $[0, l]$ 上的函数展开为正弦级数与余弦级数，会写出傅里叶级数的和函数的表达式。
+
+\subsection{幂级数}
+
+
+对于幂级数 $\sum f_i x^i$，计算
+\begin{itemize}
+	\item 比值法：$\rho = \lim \left| \frac{a_{n+1}}{a_n} \right|$。
+	\item 根式法：$\rho = \lim \sqrt[n]{|a_n|}$。
+\end{itemize}
+则
+\begin{itemize}
+	\item 若 $0 < \rho < +\infty$ 时，$R = \frac{1}{\rho}$。
+	\item 若 $\rho = 0$ 时，$R = +\infty$。
+	\item 若 $\rho = \infty$ 时，$R = 0$。
+\end{itemize}
+
+\subsection{Fourier 级数}
+
+函数列
+\[ 1, \quad \cos x, \quad \sin x, \quad \cos 2x, \quad \sin 2x , \cdots \]
+称为三角函数系，若这一列的函数记为 $\{\varphi_i(x)\}$ 则
+\[ \int_{-\pi}^{\pi} \varphi_i(x) \varphi_j(x) \d x = 0, \quad \forall i \neq j \]
+这个性质称为三角函数系的正交性。有限和
+\[ a_0 + \sum_{k=1}^n (a_k \cos kx + b_k \sin kx) \]
+称为三角多项式，而形式和
+\[ a_0 + \sum_{k=1}^\infty (a_k \cos kx + b_k \sin kx) \]
+称为三角级数，其中 $a_0, a_k, b_k$ 称为三角函数的系数。
+
+\begin{definition}[Fourier 级数]
+	假设 $f$ 是一个周期为 $2\pi$ 的 Riemann 可积函数，令
+	\[ a_k = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos kx \d x, \quad b_k = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin k x \d x \]
+	其中 $a_0, a_k, b_k$ 称为 $f$ 的 Fourier 级数，形式和
+	\[ \frac{a_0}{2} + \sum_{k=1}^\infty (a_k \cos k x+ b_k \sin k x) \]
+	称为 $f$ 的 Fourier 级数或者 Fourier 展开。
+\end{definition}
+
+比如
+\[ \begin{aligned}
+		x   & = \sum_{k=1}^{\infty} \frac{2}{k} (-1)^{k+1} \sin k x, \quad                   & -\pi \leqslant x \leqslant \pi \\
+		x^2 & = \frac{\pi^2}{3} + \sum_{k=1}^{\infty} \frac{4}{k^2} (-1)^{k} \cos k x, \quad & -\pi \leqslant x \leqslant \pi \\
+	\end{aligned} \]
+
+一般的，对于周期为 $[-l,l]$ 的函数 $f(x)$，则其 Fourier 级数展开式为
+\[ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos \frac{n \pi x}{l} + b_n \sin \frac{n \pi x}{l} \right) \]
+其中
+\[ a_n = \frac{1}{l} \int_{-l}^{l} f(x) \cos \frac{n \pi x}{l} \d x, \quad b_n = \frac{1}{l} \int_{-l}^{l} f(x) \sin \frac{n \pi x}{l} \d x  \]
+
+
+\section{常微分方程}
+
+\subsection{大纲要求}
+
+1. 了解微分方程及其阶、解、通解、初始条件和特解等概念。
+
+2. 掌握变量可分离的微分方程及一阶线性微分方程的解法。
+
+3. 会解齐次微分方程、伯努利方程和全微分方程，会用简单的变量代换解某些微分方程。
+
+4. 会用降阶法解下列形式的微分方程：$y^{(n)} = f(x)$，$y''= f(x,y')$ 和 $y''= f(y,y')$。
+5. 理解线性微分方程解的性质及解的结构。
+
+6. 掌握二阶常系数齐次线性微分方程的解法，并会解某些高于二阶的常系数齐次线性微分方程。
+
+7. 会解自由项为多项式、指数函数、正弦函数、余弦函数以及它们的和与积的二阶常系数非齐次线性微分方程。
+
+8. 会解欧拉方程。
+
+9. 会用微分方程解决一些简单的应用问题。
+
+\subsection{一阶微分方程}
+
+\subsubsection*{可分离变量的微分方程}
+
+如果方程可以写成 $f(x) \d x = g(y) \d y$ 的形式，则称为可分离变量的微分方程，两边同时积分即可。
+
+\begin{note}
+	特别注意分离变量时，分母为 $0$ 可能也有解。
+\end{note}
+
+\subsubsection*{齐次方程}
+
+形如
+\[ \frac{\d y}{\d x} = g\left(\frac{y}{x}\right) \]
+的方程，记作齐次微分方程。做变量代换 $u = \frac{y}{x}$，有
+\[ \frac{\d u}{\d x} = \frac{1}{x} \left(\frac{\d y}{\d x} -\frac{y}{x} \right) = \frac{g(u) - u}{x} \]
+就变成变量分离的了。
+
+USELESS！！可能再多点变化：
+\[ \frac{\d y}{\d x} = g \left(\frac{a_1 x + b_1 y + c_1}{a_2 x + b_2 y + c_2}\right) \]
+分为三种情况讨论：
+\begin{enumerate}
+	\item 如果
+	      \[ \frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2} = k \]
+	      则比较显然。
+	\item 如果
+	      \[ \frac{a_1}{a_2} = \frac{b_1}{b_2} = k \neq \frac{c_1}{c_2} \]
+	      令 $u = a_2 x + b_2 y$，此时有
+	      \[ \frac{\d u}{\d x} = g \left(a_2 + b_2 \frac{k u + c_1}{u + c_2}\right) \]
+	      是变量分离方程。
+	\item 对于剩余的情况，把分子分母看成两条不相交的直线，尝试平移到原点。设交点为 $(x, y) = (x_0, y_0)$，有
+	      \[ \frac{\d y}{\d x} = \frac{\d (y - y_0)}{\d (x - x_0)} = g \left(\frac{a_1 (x - x_0) + b_1 (y - y_0)}{a_2(x - x_0) + b_2 (y - y_0)} \right) \]
+	      也变成了齐次形式。
+\end{enumerate}
+
+\subsubsection*{一阶线性微分方程}
+
+一阶线性非齐次常微分方程为
+\[ \frac{\d y}{\d x} + p(x) y = q(x) \]
+即 $P(x) = \int p(x) \d x$，注意到
+\[ \frac{\left(y\ee^{P(x)}\right)'}{\ee^{P(x)}} =  y' + p(x) y = q(x) \]
+可以得到 $y(x)$ 的解
+\[ y(x) = \ee^{-P(x)} \left( \int \ee^{P(x)} q(x) + C \right)  \]
+
+\subsubsection*{Bernoulli 微分方程} 形如
+\[ \frac{\d y}{\d x} = p(x) y + q(x) y^n, \quad n \neq 0,1 \]
+的方程称为 Bernoulli 微分方程。设 $y \neq 0$，得到
+\[ y^{-n} \frac{\d y}{\d x} = \frac{\d (y^{1-n})}{(1-n)\d x} = y^{1-n}p(x) + q(x) \]
+换元 $u = y^{1-n}$ 即可。
+
+\subsubsection*{Riccati 方程}
+形如
+\[ \frac{\d y}{\d x} + p(x) y + q(x)y^2 = r(x) \]
+的方程称为 Riccati 微分方程。设 $\phi(x)$ 是其一个特解，令 $u = y - \phi$，得到
+\[ \frac{\d u}{\d x} + (p + 2 \phi q) u + q u^2 = 0 \]
+即是一个 Bernoulli 方程。
+
+\subsubsection*{Euler 方程}
+形如
+\[ x^2 \frac{\d^2 y}{\d x^2} + p x \frac{\d y}{\d x} + q = r(x) \]
+当 $x > 0$ 时，令 $x = \ee^u$，则
+\[ \frac{\d y}{\d x} = \frac{\d y}{x \d u}, \quad \frac{\d^2 y}{\d x^2} = \frac{1}{x^2} \left( \frac{\d^2 y}{\d u^2} - \frac{\d y}{\d u} \right) \]
+因此方程化为
+\[ \frac{\d^2 y}{\d u^2} + (p-1) \frac{\d y}{\d u} + qy = r(\ee^u) \]
+
+
+\subsubsection*{恰当微分方程}
+
+如果方程 $P(x, y) \d x + Q(x, y) \d y = 0$ 能写成全微分 $u(x, y)$，则通解为 $u(x, y) = C$。注意到
+\[ \frac{\partial f}{\partial y} = \frac{\partial^2 u}{\partial y \partial x} = \frac{\partial^2 u}{\partial x \partial y} = \frac{\partial g}{\partial x} \]
+故其是该方程为恰当微分方程的充要条件。
+
+\subsection{可降阶的高阶方程}
+
+一般有三类：
+
+\begin{itemize}
+	\item $y'' = f(x, y')$ 型：令 $p = y'$，方程化为 $y'' = p' = f(x, p)$；
+	\item $y'' = f(y, y')$ 型：令 $p = y'$，方程化为 $y'' = \frac{p \d p}{\d y} = f(y, p)$；
+	\item $y^{(n)} = f(x)$ 型：对 $f$ 积分 $n$ 次。
+\end{itemize}
+
+\subsection{Gronwall 定理}
+
+考虑区间 $[a, b]$ 上的微分不等式
+\[ y'(x) + p(x) y(x) \leqslant f(x) \]
+令 $P(x)$ 为 $p(x)$ 的原函数，类似于普通微分方程的解法，有
+\[ \frac{\d }{\d x} \left(y(x) \ee^{P(x)}\right) = (y'(x) + p(x) y) \ee^{P(x)} \leqslant f(x) \ee^{P(x)} \]
+选取 $u \in [a, b]$，在 $[a, u]$ 上积分得到
+\[ y(u) \ee^{P(u)} - y(a) \leqslant \int_{a}^{u} f(s) \ee^{P(s)} \d s = \ee^{P(u)} \int_{a}^{u} f(s) \ee^{P(s) - P(u)} \d s  \]
+从而得到
+\[ y(x) \leqslant y(a) \ee^{-P(u)} + \int_{a}^{u} f(s) \ee^{P(s) - P(u)} \d s \]
+
+特殊的，令 $f \equiv 0$，有
+\[ y(x) \leqslant y(a) \ee^{-P(x)} \]
+如果 $y_1, y_2$ 满足如下微分不等式
+\[ y_1' + p(x) y_1 \leqslant y_2' + p(x) y_2, \quad y_1(a) = y_2(a) \]
+则一定 $y_1 \equiv y_2$。
+
+\subsection{线性微分方程}
+
+\subsubsection*{二阶常系数齐次线性微分方程}
+
+对于方程 $y'' + py' + qy = 0$，求其特征方程的根 $r_1, r_2$，然后
+\begin{itemize}
+	\item 如果是一对不等的实根，则 $y = C_1 \ee^{r_1x} + C_2 \ee^{r_2 x}$；
+	\item 如果是一对相的实根，则 $y = (C_1 + C_2 x) \ee^{rx}$；
+	\item 如果是一对共轭复根 $\alpha \pm \beta i$，则 $y = \ee^{ax} (C_1 \cos \beta x + C_2 \sin \beta x)$；
+\end{itemize}
+
+\subsubsection*{二阶常系数非齐次线性微分方程}
+
+对于方程 $y'' + py' + qy = f(x)$，求其特解：
+
+\begin{itemize}
+	\item 若 $f(x) = \ee^{a x} P_n(x)$，则特解设为 $y^* = \ee^{ax} Q_n(x) x^k$，其中
+	\begin{itemize}
+		\item 当 $a$ 不是特征方程的根时，$k = 0$；
+		\item 当 $a$ 是单根时，$k = 1$；
+		\item 当 $a$ 是重根时，$K = 2$；
+	\end{itemize}
+	\item 当
+	\[ f(x) = \ee^{ax}\left( P_m(x) \cos b x + P_n(x) \sin b x \right) \]
+	时，设
+	\[ y^* = \ee^{ax}\left( Q_l^{(1)}(x) \cos b x + Q_l^{(1)} \sin b x \right) \]
+	\begin{itemize}
+		\item $l = \max(n, m)$；
+		\item 当 $a \pm b i$ 不是特征根时，$k = 0$；
+		\item 当 $a \pm b i$ 是单根时，$k = 1$；
+	\end{itemize}
+\end{itemize}

@@ -53,7 +53,7 @@ jobs:
           cp ./src/数学分析/main.pdf ./output/calculus.pdf
           cp ./src/抽象代数/main.pdf ./output/abstract-algebra.pdf
           cp ./src/高等代数/main.pdf ./output/linear-algebra.pdf
-          cp ./src/考研背诵手册/main.pdf ./output/linear-algebra.pdf
+          cp ./src/考研背诵手册/main.pdf ./output/考研背诵手册.pdf
           cd output
           pdf2htmlEX ./calculus.pdf
           pdf2htmlEX ./linear-algebra.pdf
@@ -70,6 +70,7 @@ jobs:
             ./output/calculus.pdf
             ./output/abstract-algebra.pdf
             ./output/linear-algebra.pdf
+            ./output/考研背诵手册.pdf
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

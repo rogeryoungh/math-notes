@@ -19,7 +19,7 @@
 
 1. 理解随机变量的概念，理解分布函数
 $$
-F(x) = P\{X \leqslant x\}(-\infty < x < +\infty)
+	F(x) = P\{X \leqslant x\}(-\infty < x < +\infty)
 $$
 的概念及性质，会计算与随机变量相联系的事件的概率。
 
@@ -29,7 +29,7 @@ $$
 
 4. 理解连续型随机变量及其概率密度的概念，掌握均匀分布 $U(a, b)$、 正态分布 $N(\mu, \sigma^2)$、指数分布及其应用，其中参数为 $\lambda(\lambda > 0)$ 的指数分布 $E(\lambda)$ 的概率密度为
 $$
-f(x) = \begin{cases} \lambda e^{-\lambda x}, & x > 0 \\ 0, &x \leqslant 0 \end{cases}
+	f(x) = \begin{cases} \lambda e^{-\lambda x}, & x > 0 \\ 0, &x \leqslant 0 \end{cases}
 $$
 5. 会求随机变量函数的分布。
 
@@ -116,9 +116,9 @@ $$
 \subsection*{期望}
 
 设 $X$ 是随机变量，其分布列为 $p_i = \bbP\{X = x_i\}$，记
-\[ E(X) = \sum_{i=1}^\infty x_i p_i \]
+\[ E[X] = \sum_{i=1}^\infty x_i p_i, \quad E[g(X)] = \sum_{i=1}^\infty g(x_i) p_i \]
 为随机变量 $X$ 的数学期望。若 $X$ 是连续型随机变量，则记
-\[ E(X) = \int_{-\infty}^{+\infty} x f(x) \d x \]
+\[ E[X] = \int_{-\infty}^{+\infty} x f(x) \d x, \quad E[g(X)] = \int_{-\infty}^{+\infty} g(x) f(x) \d x \]
 为其期望
 
 期望的性质
@@ -191,6 +191,15 @@ $X, Y$ 不相关与下列命题互推
 	\item $D(X \pm Y) = DX + DY$。
 \end{itemize}
 
+\subsection{\texorpdfstring{$\Gamma$ 函数}{Γ 函数}}
+
+$\Gamma$ 函数是一有力的工具，其定义为
+\[ \Gamma(z) = \int_{0}^{+\infty} t^{z-1} \ee^{-t} \d t \]
+其具有递推式和余元公式
+\[ \Gamma(z + 1) = z \Gamma(z), \quad \Gamma(z) \Gamma(1-z) = \frac{\pi}{\sin \pi z} \]
+特殊的，$\Gamma(n + 1) = n!$，和 $\Gamma(\frac{1}{2}) = \sqrt{\pi}$。不难化简
+\[ I_n = \int_{0}^{+\infty} x^n \ee^{-x^2} \d x = \frac{1}{2} \int_{0}^{+\infty} \left(x^2\right)^{\frac{n+1}{2}} \ee^{-x^2} \d \left(x^2\right) = \frac{1}{2} \Gamma\left(\frac{n+1}{2}\right)  \]
+
 \section{大数定律和中心极限定理}
 
 \subsection{大纲要求}
@@ -206,7 +215,7 @@ $X, Y$ 不相关与下列命题互推
 设随机变量 $X$ 与随机变量序列 $\{X_n\}$，如果对任意的 $\eps > 0$ 有
 \[ \lim_{n \to \infty} \bbP\{|X_n - X| < \eps \} =1 \]
 则称随机变量序列 $\{X_n\}$ 依概率收敛于随机变量 $X$，记为
-\[ \lim_{n \to \infty} X_n = X(\bbP), \quad \text{或}\ X_n \stackrel{\bbP}{\longrightarrow} X(n \to \infty) \]
+\[ \lim_{n \to \infty} X_n = X(P), \quad \text{或}\ X_n \stackrel{P}{\longrightarrow} X(n \to \infty) \]
 
 \begin{theorem}[切比雪夫大数定律]
 	设 $\{X_n\}$ 是相互独立的随机变量序列，如果方差 $D(X)$ 存在且有一致有上界，则 $\{X_n\}$ 服从大数定律
@@ -246,6 +255,40 @@ $X, Y$ 不相关与下列命题互推
 2. 了解 $\chi^2$ 分布、$t$ 分布、$F$ 分布的概念及性质，了解上侧 $\alpha$ 分位数的概念并会查表计算。
 
 3. 了解正态总体的常用抽样分布。
+
+\subsection{统计量}
+
+研究对象的全体称为总体，组成总体的每一个元素称为个体。我们把总体和 $X$ 等同起来，所谓总体的分布就是指 $X$ 的分布。
+
+$n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\seq{x}{n}$ 所组成的总体为 $(\seq{x}{n})$ 称为来自总体 $X$ 容量为 $n$ 的一个简单随机样本，简称样本。一次抽样结果的 $n$ 个具体数值称为 $\seq{x}{n}$ 的一个观测值（样本值）。
+
+假设总体 $X$ 的分布函数为 $F$，则 $(\seq{x}{n})$ 的分布函数为
+\[ F(\seq{x}{n}) = \prod_{i=1}^n F(x_i) \]
+
+设 $\seq{x}{n}$ 为来自总体 $X$ 的一个样本，$g$ 为仅与 $x$ 有关的 $n$ 元函数，则称 $g$ 为样本的一个统计量。若 $(\seq{x}{n})$ 为样本值，则 $g(\seq{x}{n})$ 为观测值。
+
+样本均值
+\[ \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i \]
+样本方差
+\[ S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \]
+样本 $k$ 阶（原点）矩
+\[ A_k = \frac{1}{n} \sum_{i=1}^n X_i^k \]
+样本 $k$ 阶中心矩
+\[ B_k = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^k \]
+
+将 $n$ 个观测量从小到大的顺序排列，记随机变量 $X_{(k)}$ 为第 $k$ 顺序统计量。
+
+常用统计量：
+
+\[
+	\begin{aligned}
+		E(X_i)          & = E(X)             \\
+		D(X_i)          & = D(X)             \\
+		E(\overline{X}) & = E(X)             \\
+		D(\overline{X}) & = \frac{1}{n} D(X) \\
+		E(S^2)          & = D(X)
+	\end{aligned}
+\]
 
 \subsection{三大分布}
 
@@ -295,15 +338,30 @@ $X, Y$ 不相关与下列命题互推
 
 \paragraph{最大似然估计法}
 
-最大似然原理：对未知参数 $\theta$ 进行估计时，在该参数可能的取值范围 $I$ 内选取，用使”样本获得观测值 $\seq{x}{n}$ 的概率最大的参数值 $\hat{\theta}$ 作为 $\theta$ 的估计。
+似然性与概率的区别：
+\begin{itemize}
+	\item 概率 $p(x;\theta)$ 是在已知参数 $\theta$ 的情况下，发生观测结果 $x$ 的概率；
+	\item 似然性 $L(x; \theta)$ 是从观测结果 $x$ 出发，分布函数为 $\theta$ 的可能性大小。
+\end{itemize}
+
+最大似然原理：对未知参数 $\theta$ 进行估计时，在该参数可能的取值范围 $I$ 内选取，用使样本获得观测值 $\seq{x}{n}$ 的概率最大的参数值 $\hat{\theta}$ 作为 $\theta$ 的估计。
 
 假设 $X$ 是离散型随机变量，其概率分布为 $\bbP\{X = x\} = p(x; \theta)$，那么求其取值概率
 \[ L(\seq{x}{n};\theta) = \bbP\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n \bbP\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
-称为样本的似然函数。若存在 $\hat{theta}$ 使得 $L$ 取到最大值，则称 $\hat{theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
+称为样本的似然函数。若存在 $\hat{\theta}$ 使得 $L$ 取到最大值，则称 $\hat{\theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
 
 同理，连续型随机变量也有
 \[ L(\seq{x}{n}; \theta) = \prod_{i=1}^n f(x_i; \theta) \]
 
+最大似然估计法步骤：
+\begin{enumerate}
+	\item 计算似然函数 $L(\theta)$
+	\item 求关于 $\theta$ 的最大值点，一般情况下可微，求导或者对数求导
+	      \[ \frac{\d L}{\d \theta} = 0, \quad \frac{\d (\ln L)}{\d \theta} = \frac{L'(\theta)}{L(\theta)} = 0 \]
+	      得到极值点
+	\item 用样本 $X_i$ 代替样本值 $x_i$，得到最大似然估计量 $\hat{\theta}$。
+\end{enumerate}
+倘若有多个参数 $\theta$，也是计算多元极值点。
 
 \section{假设检验}
 

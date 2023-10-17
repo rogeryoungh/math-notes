@@ -4,8 +4,8 @@
 
 \section{二次型及其标准型}
 
-\begin{definition}
-	数域 $K$ 上的一个 $n$ 元二次型型是系数在 $K$ 中的 $n$ 个变量的齐次多项式，它的一般形式是
+\begin{definition}[二次型]
+	数域 $K$ 上的一个 $n$ 元二次型是系数在 $K$ 中的 $n$ 个变量的齐次多项式，它的一般形式是
 	\[f(\seq{x}{n}) = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j\]
 	其中 $a_{ij} = a_{ji}$。
 \end{definition}
@@ -36,7 +36,7 @@
 如果二次型 $\transpose{\vbf{X}} A \vbf{X}$ 等价于一个只含平方项的二次型，那么这个只含平方项的二次型称为 $\XAX$ 的一个标准形。如果 $A$ 合同于一个对角矩阵，则这个对角矩阵称为 $A$ 的一个合同标准型。
 
 对于 $n$ 级实对称矩阵 $A$，存在 $n$ 级的正交矩阵 $T$ 使得
-\[ T^{-1}AT = \diag{\seq{\lambda}{n}} \]
+\[ T^{-1}AT = \diag\{\seq{\lambda}{n}\} \]
 其中 $\seq{\lambda}{n}$ 是 $A$ 的全部特征值，因此 $A$ 合同于 $T^{-1}AT$。从而在 $\vbf{X} = T\vbf{Y}$ 的替换下，得到一个标准型
 \[ \lambda_1y_1^2 + \lambda_2y_2^2 + \cdots + \lambda_ny_n^2 \]
 
@@ -76,7 +76,7 @@
 				\frac{1}{3}  & -\frac{2}{3} & \frac{2}{3}        \\
 				\frac{2}{3}  & \frac{2}{3}  & \frac{1}{3}
 			\end{matrix}\right) \]
-	此处 $T$ 即是正交矩阵，且 $T^{-1}AT = \diag{2, 5, -1}$。令
+	此处 $T$ 即是正交矩阵，且 $T^{-1}AT = \diag\{2, 5, -1\}$。令
 	\[ \transpose{\left(x, y, z\right)} = T \transpose{\left(a, b, c\right)} \]
 	则
 	\[ f(x, y, z) = 2a^2 + 5y^2 - z^2 \]

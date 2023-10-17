@@ -828,7 +828,73 @@ Lagrange 乘数法：要找函数 $z = f(x, y)$ 在 $\varphi(x, y) = 0$ 下的�
 \[ \iint_{D} f(x, y) \d \sigma = \iint_{D} f(r \cos \theta, r \sin \theta) r \d r \d \theta  \]
 特别注意 $r$ 是函数，不是定值！
 
-\subsection{神秘公式}
+\begin{note}
+	遇到很规整的重积分时，注意看能不能用轮换对称性！
+\end{note}
+
+\subsection{曲线积分}
+
+设 $L \subset R^3$ 是一条可求长的连续曲线，起点终点分别为 $A$ 和 $B$。$L$ 的分割 $\|T\|$ 是指 $L$ 上的有序有限点列
+\[ A = P_0 \to P_1 \to \cdots P_n = B \]
+令
+\[ \Delta_s = \left| \widehat{P_{i-1}P_i} \right|, \quad \|T\| = \max_{i=1}^n \Delta s_i \]
+
+\begin{definition}[第一型曲线积分]
+	给定的 $f$ 是定义在曲线弧 $L$ 上的有界函数。对 $L$ 做分割 $\vbf{T}$ 并求和
+	\[ \sum_{i=1}^{n} f(T_i) \Delta s_i \]
+	如果 $\|\vbf{T}\| \to 0$ 时，$S(f, \vbf{T})$ 存在极限且和分割 $\vbf{T}$ 无关，称该极限
+	\[ \int_L f \d s = \int_{L} f(x, y, z) \d s = \lim_{\|T\| \to 0} \sum_{i=1}^{n} f(T_i) \Delta s_i \]
+	为函数 $f$ 在曲线 $L$ 上的第一型曲线积分。此时称 $f$ 为被积函数而 $L$ 称为积分路径。
+\end{definition}
+
+\begin{definition}[第二型曲线积分]
+	设 $\vbf{F} = (P, Q, R)$ 是一向量值函数，定义其沿着曲线 $L$ 的第二型曲线积分为
+	\[ \int_L \vbf{F} \cdot \vbf{\tau} \d s = \int_L (P(x,y,z) \cos \alpha + Q(x, y, z) \cos \beta + R(x, y, z) \cos \gamma) \d s \]
+	其中 $\d s$ 是 $L$ 的弧微元。定义弧微元向量
+	\[ \d \vbf{s} = \vbf{\tau} \d s = (\d x, \d y, \d z) \]
+	从而可以记成
+	\[ \int_L \vbf{F} \cdot \d \vbf{s} = \int_L P \d x + Q \d y + R \d z \]
+\end{definition}
+
+\subsection{曲面积分}
+
+假设 $\Sigma$ 是可求面积的连续曲面，分割 $\vbf{T}$ 是用坐标曲线网将 $\Sigma$ 分成的 $n$ 个小曲面。令
+\[ \Delta S_i = |\Sigma_i|, \quad \|\vbf{T}\| = \max_{i=1}^n \Delta S_i \]
+
+
+\begin{definition}[第一型曲面积分]
+	给定的 $f$ 是定义在 $\Sigma$ 上的有界函数。对 $\Sigma$ 做分割 $\vbf{T}$ 并求和
+	\[ S(f, \vbf{T}) = \sum_{i=1}^{n} f(P_i)\Delta S_i \]
+	如果 $\|\vbf{T}\| \to 0$ 时，$S(f, \vbf{T})$ 存在极限且和分割 $\vbf{T}$ 无关，称该极限
+	\[ \iint_\Sigma f \d S = \iint_{\Sigma} f(x, y, z) \d S = \lim_{\|T\| \to 0} \sum_{i=1}^{n} f(P_i) \Delta S_i \]
+	为函数 $f$ 在曲线 $\Sigma$ 上的第一型曲面积分。此时称 $f$ 为被积函数而 $\Sigma$ 称为积分曲面。
+\end{definition}
+
+第一型曲线积分的计算：
+
+假如 $L$ 以参数的形式给出
+\[ \vbf{r}(t) = (x(t), y(t)) \]
+且函数 $f$ 在 $L$ 上连续，则 $f$ 在 $L$ 上的第一型曲线积分存在且
+\[ \int_L f \d s = \int_{\alpha}^{\beta}f(x(t), y(t)) \sqrt{x'(t)^2 + y'(t)^2} \d t = \int_{\alpha}^\beta f(\vbf{r}(t))|\vbf{r}'(t)| \d t \]
+如果 $L$ 以 $\vbf{r}(x) = (x, y(x))$ 的形式给出则
+\[ \int_L f \d s = \int_{a}^{b} f(x, y(x)) \sqrt{1 + y'^2} \d x \]
+如果曲线 $L$ 以极坐标 $r = r(\theta)$ 给出，则
+\[ \int_L f \d s = \int_{a}^{b} f(r(\theta) \cos \theta, r(\theta) \sin \theta) \sqrt{(r(\theta))^2 + (r'(\theta))^2} \d \theta \]
+
+
+\begin{definition}[第二型曲面积分]
+	设 $\vbf{F} = (P, Q, R)$ 是一向量值函数，定义其沿着曲面 $L$ 的第二型曲面积分为
+	\[ \int_L \vbf{F} \cdot \vbf{\tau} \d s = \int_L (P(x,y,z) \cos \alpha + Q(x, y, z) \cos \beta + R(x, y, z) \cos \gamma) \d s \]
+	其中 $\d s$ 是 $L$ 的弧微元。定义弧微元向量
+	\[ \d \vbf{s} = \vbf{\tau} \d s = (\d x, \d y, \d z) \]
+	从而可以记成
+	\[ \int_L \vbf{F} \cdot \d \vbf{s} = \int_L P \d x + Q \d y + R \d z \]
+\end{definition}
+
+特别的，若 $z = z(x, y)$，则法向量
+\[ \vbf{n} = \pm \frac{1}{\sqrt{1 + z_x^2 + z_y^2}} (-z_x, z_y, 1) \]
+
+\subsection{旋度、散度}
 
 \begin{theorem}[Green 公式]
 	假设 $D \subset \mathbb{R}^2$ 是由有限条光滑或分段光滑的 Jordan 曲线所围成的区域，并取 $\partial D$ 的正向。对任何有一阶连续偏导数的 $P, Q$ 有
@@ -838,18 +904,58 @@ Lagrange 乘数法：要找函数 $z = f(x, y)$ 在 $\varphi(x, y) = 0$ 下的�
 		\end{matrix} \right| \d x \d y \]
 \end{theorem}
 
-\begin{theorem}[Gauss 公式]
-	设 $\Omega \subset \mathbb{R}^3$ 是区域且边界 $\partial \Omega$ 是由分段光滑的定向曲面构成。设 $P, Q, R$ 是一阶导数连续的，则
-	\[ \iint_{\partial \Omega} P \d y \d z + Q \d z \d x + R \d x \d y = \iiint_{\Omega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \d x \d y \d z \]
+\begin{theorem}[Green 定理]
+	假设 $D \subset \mathbb{R}^2$ 是区域且 $P, Q$ 在 $D$ 上连续，则下列命题等价：
+
+	\begin{itemize}
+		\item 对 $D$ 内从 $M_1 \to M_2$ 的任意分段光滑曲线 $L_1, L_2$，曲线积分
+		      \[ \int_{L_1} P \d x + Q \d y = \int_{L_2} P \d x + Q \d y \]
+		\item 如果存在 $U$ 使得 $\d U = P \d x + Q \d y$，即称 $P \d x + Q \d y$ 在 $D$ 上是正合的，称 $U$ 是其原函数。
+		\item 沿着 $D$ 内任意分段光滑闭曲线 $L$，有
+		      \[ \oint_{L} P \d x + Q \d y = 0 \]
+		\item 恒有
+		      \[ \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y} \]
+	\end{itemize}
 \end{theorem}
+
+\subsubsection*{高斯公式与散度}
+
+对于向量场
+\[ A(x, y, z) = (P, Q, R) \]
+其中 $\Sigma$ 是场中一段有向曲面，$\vbf{n}$ 是曲面 $\Sigma$ 在点 $(x, y, z)$ 处的单位法向量，积分
+\[ \iint_{\Sigma} A \cdot \vbf{n} \d S  \]
+记为向量场 $A$ 通过曲面 $\Sigma$ 向指定侧的通量。定义散度为
+\[ \operatorname{div} A = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} = \nabla \cdot \vbf{A} \]
+
+\begin{theorem}[Gauss 公式]
+	设 $\Omega \subset \mathbb{R}^3$ 是区域且边界 $\partial \Omega$ 是由分段光滑的定向曲面构成。对于向量场 $A = (P, Q, R)$ 是一阶导数连续的，则
+	\[ \iint_{\partial \Omega} P \d y \d z + Q \d z \d x + R \d x \d y = \iiint_{\Omega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \d x \d y \d z \]
+	也可记为
+	\[ \iint_{\partial \Omega} A \cdot \vbf{n} \d S = \iiint_{\Omega} \operatorname{div} A \d V \]
+\end{theorem}
+
+\subsubsection*{斯托克公式与旋度}
+
+对于向量场
+\[ A(x, y, z) = (P, Q, R) \]
+$\Gamma$ 是一条有向闭曲线，$\vbf{\tau}$ 是曲线 $\Gamma$ 在点 $(x, y, z)$ 处的单位切向量，积分
+\[ \oint_{\Gamma} A \cdot \vbf{\tau} \d s  \]
+记为向量场 $A$ 沿有向闭曲线 $\Gamma$ 的环流量。定义旋度为
+\[ \operatorname{rot} A = \left(R_y - Q_z, P_z - R_x, Q_x - P_y \right) = \left| \begin{matrix}
+		\vbf{e}_1                   & \vbf{e}_2                   & \vbf{e}_3                   \\
+		\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+		P                           & Q                           & R
+	\end{matrix} \right| \]
 
 \begin{theorem}[Stokes 公式]
 	设 $\Sigma$ 是光滑定向曲面且边界 $\partial \Sigma$ 为分段光滑闭曲线，取诱导定向。对其上具有一阶连续偏导数的函数 $P, Q, R$ 有
 	\[ \int_{\partial \Sigma} P \d x + Q \d y + R \d z = \iint_\Sigma \left| \begin{matrix}
-			\d y \d z                   & \d z \d x                   & \d x \d y                   \\
-			\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
-			P                           & Q                           & R
-		\end{matrix} \right| \]
+		\d y \d z                   & \d z \d x                   & \d x \d y                   \\
+		\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+		P                           & Q                           & R
+	\end{matrix} \right| \]
+	也可记为
+	\[ \int_{\partial \Sigma} A \cdot \vbf{\tau} \d s = \iint_\Sigma \operatorname{rot} A \cdot \vbf{n} \d S \]
 \end{theorem}
 
 \subsection{多元积分的应用}
@@ -872,9 +978,9 @@ Lagrange 乘数法：要找函数 $z = f(x, y)$ 在 $\varphi(x, y) = 0$ 下的�
 \[ \quad \overline{x} = \frac{1}{M}\iint_D x \rho(x,y) \d \sigma, \quad \overline{y} =\frac{1}{M}\iint_D y \rho(x,y) \d \sigma \]
 
 类似的，对于空间 $\Omega$ 上物体，其体密度为 $\rho(x, y, z)$，其质量为
-\[ M = \iiint_\Omega \rho(x,y,z) \d v \]
+\[ M = \iiint_\Omega \rho(x,y,z) \d V \]
 则质心坐标公式为
-\[ \overline{x} = \frac{1}{M}\iiint_D x \rho(x,y,z) \d v, \quad \overline{y} = \frac{1}{M}\iiint_D y \rho(x,y,z) \d v, \quad \overline{z} = \frac{1}{M}\iiint_D z \rho(x,y,z) \d v \]
+\[ \overline{x} = \frac{1}{M}\iiint_D x \rho(x,y,z) \d V, \quad \overline{y} = \frac{1}{M}\iiint_D y \rho(x,y,z) \d V, \quad \overline{z} = \frac{1}{M}\iiint_D z \rho(x,y,z) \d V \]
 
 \subsubsection*{转动惯量}
 
@@ -882,7 +988,7 @@ Lagrange 乘数法：要找函数 $z = f(x, y)$ 在 $\varphi(x, y) = 0$ 下的�
 \[ I = \iint_D d^2 \rho(x, y) \d \sigma \]
 
 对于空间 $\Omega$ 上的物体，其体密度为 $\rho(x, y, z)$，令 $d(x,y,z)$ 为上面任何一点到转动轴的距离，则
-\[ I = \iiint_\Omega d^2 \rho(x, y, z) \d v \]
+\[ I = \iiint_\Omega d^2 \rho(x, y, z) \d V \]
 
 \section{无穷级数}
 
@@ -1095,18 +1201,18 @@ USELESS！！可能再多点变化：
 
 \begin{itemize}
 	\item 若 $f(x) = \ee^{a x} P_n(x)$，则特解设为 $y^* = \ee^{ax} Q_n(x) x^k$，其中
-	\begin{itemize}
-		\item 当 $a$ 不是特征方程的根时，$k = 0$；
-		\item 当 $a$ 是单根时，$k = 1$；
-		\item 当 $a$ 是重根时，$K = 2$；
-	\end{itemize}
+	      \begin{itemize}
+		      \item 当 $a$ 不是特征方程的根时，$k = 0$；
+		      \item 当 $a$ 是单根时，$k = 1$；
+		      \item 当 $a$ 是重根时，$K = 2$；
+	      \end{itemize}
 	\item 当
-	\[ f(x) = \ee^{ax}\left( P_m(x) \cos b x + P_n(x) \sin b x \right) \]
-	时，设
-	\[ y^* = \ee^{ax}\left( Q_l^{(1)}(x) \cos b x + Q_l^{(1)} \sin b x \right) \]
-	\begin{itemize}
-		\item $l = \max(n, m)$；
-		\item 当 $a \pm b i$ 不是特征根时，$k = 0$；
-		\item 当 $a \pm b i$ 是单根时，$k = 1$；
-	\end{itemize}
+	      \[ f(x) = \ee^{ax}\left( P_m(x) \cos b x + P_n(x) \sin b x \right) \]
+	      时，设
+	      \[ y^* = \ee^{ax}\left( Q_l^{(1)}(x) \cos b x + Q_l^{(1)} \sin b x \right) \]
+	      \begin{itemize}
+		      \item $l = \max(n, m)$；
+		      \item 当 $a \pm b i$ 不是特征根时，$k = 0$；
+		      \item 当 $a \pm b i$ 是单根时，$k = 1$；
+	      \end{itemize}
 \end{itemize}

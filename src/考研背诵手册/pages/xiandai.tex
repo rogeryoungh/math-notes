@@ -195,7 +195,7 @@
 	\item 如果 $r(A) < r(\widetilde{A})$ 则方程矛盾，无解；
 	\item 如果 $r(A) = r(\widetilde{A})$，进一步把 $\widetilde{A}$ 化为行最简型矩阵。
 	      \begin{enumerate}
-					\item 如果 $r(A) = r(\widetilde{A}) = n$，说明方程组有唯一解。
+		      \item 如果 $r(A) = r(\widetilde{A}) = n$，说明方程组有唯一解。
 		      \item 如果 $r(A) = r(\widetilde{A}) = r < n$，说明方程组有无穷组解，令 $r$ 个首个非零元对应的 $x$ 取做非自由未知数，其余 $n-r$ 个未知数去做自由元，令自由未知数分别等于 $\seq{c}{n-r}$，即可写出 $n-r$ 个参数的通解。
 	      \end{enumerate}
 \end{enumerate}
@@ -212,35 +212,31 @@
 
 \subsection{特征值}
 
-\begin{definition}
-	设 $A$ 是数域 $K$ 上的一个 $n$ 级矩阵，如果 $K^n$ 中有非零列向量 $\vbf{\alpha}$ 使得
-	\[ A \vbf{\alpha} = \lambda_0\vbf{\alpha},\text{且}\ \lambda_0\in K \]
-	那么称 $\lambda_0$ 是 $A$ 的一个特征值，称 $\vbf{\alpha}$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量。
+\begin{definition}[特征值，特征向量]
+	设 $A$ 是 $n$ 级矩阵，如果存在数 $\lambda$ 和非零列向量 $\vbf{\alpha}$ 使得
+	\[ A \vbf{\alpha} = \lambda\vbf{\alpha} \]
+	那么称 $\lambda$ 是 $A$ 的一个特征值，称 $\vbf{\alpha}$ 是 $A$ 的属于特征值 $\lambda$ 的一个特征向量，称 $f(\lambda) = |\lambda E - A|$ 是 $A$ 的特征多项式。
 \end{definition}
 
-\begin{theorem}
-	设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，则
-	
-	（1） $\lambda_0$ 是 $A$ 的一个特征值当且仅当 $\lambda_0$ 是 $A$ 的特征多项式 $|\lambda E-A|$ 在 $K$ 中的一个根。
-	
-	（2） $\vbf{\alpha}$ 是 $A$ 的属于特征值 $\lambda_0$ 的一个特征向量当且仅当 $\vbf{\alpha}$ 是齐次线性方程组 $(\lambda_0E-A)\vbf{X} = \vbf{0}$  的一个解。
-\end{theorem}
+\begin{note}
+	注意零向量不是特征向量！
+\end{note}
 
-设 $\lambda_j$ 是 $A$ 的一个特征值，把齐次线性方程组 $(\lambda_jE-A)\vbf{X} = \vbf{0}$ 的解空间称为 $A$ 的属于 $\lambda_j$ 的特征子空间，其中的全部非零向量都是 $A$ 的属于 $\lambda_j$ 的全部特征向量。
+如果 $\lambda_0$ 是 $A$ 的特征值，对应的 $\alpha_0$ 是 $A$ 的特征向量，则
+\begin{itemize}
+	\item $\lambda_0$ 是特征多项式 $f(\lambda_0) = 0$ 的一个根；
+	\item $\alpha_0$ 是齐次线性方程组 $(\lambda_0 E - A) \vbf{X} = \vbf{0}$ 的一个解，该解空间的全部非零向量都是 $\lambda_0$ 的特征向量，称为特征子空间。
+	\item 对于多项式 $\varphi(x)$，则 $\varphi(\lambda_0)$ 是 $\varphi(A)$ 的特征值，$\alpha_0$ 仍是其对应的特征向量。
+	\item 不同特征值对应的特征向量线性无关。
+	\item 若 $\lambda_0$ 是 $f(\lambda)$ 的 $k$ 重根，则称 $\lambda_0$ 的代数重数为 $k$，简称为重数。
+	\item 若特征子空间的维度是 $k$，则称 $\lambda_0$ 的几何重数为 $k$。几何重数一定不超过代数重数。
+\end{itemize}
 
-设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，$\lambda_1$ 是 $A$ 的一个特征值。把 $A$ 的属于 $\lambda_1$ 的特征子空间的维数叫做特征值 $\lambda_1$ 的几何重数，而把 $\lambda_1$ 作为 $A$ 的特征多项式根的重数叫做 $\lambda_1$ 的代数重数。代数重数简称为重数。
-
-特征值有如下结论：
+如果 $n$ 级矩阵有 $n$ 个特征值，则有如下结论：
 \begin{itemize}
 	\item $\lambda_1 + \cdots \lambda_n = \operatorname{tr}(A)$；
 	\item $\lambda_1 \cdots \lambda_n = |A|$；
 \end{itemize}
-
-对于多项式 $\varphi(x)$，若 $\lambda$ 是 $A$ 的特征值，则 $\varphi(\lambda)$ 是 $\varphi(A)$ 的特征值。
-
-注意零向量不是特征向量。
-
-
 
 \subsection{相似矩阵}
 
@@ -253,21 +249,16 @@
 	\item 相似矩阵的迹、行列式相等；
 \end{itemize}
 
-
-
-\begin{theorem}
-	数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是：$A$ 的特征多项式的全部复根都属于 $K$，并且 $A$ 的每个特征值的几何重数等于它的代数重数。
-\end{theorem}
+$n$ 阶矩阵 $A$ 可对角化的充要条件：$A$ 有 $n$ 个线性无关的特征向量。此时每个特征值的几何重数都和代数重数相等。
 
 \subsection{实对称矩阵}
 
-\begin{theorem}
-	实对称矩阵 $A$ 的属于不同特征值的特征向量是正交的。
-\end{theorem}
-
-\begin{theorem}
-	实对称矩阵一定正交相似于对角矩阵。
-\end{theorem}
+实对称矩阵矩阵的性质：
+\begin{itemize}
+	\item 不同特征值对应的特征向量相互正交；
+	\item 必能相似对角化，且可使用正交矩阵对角化；
+	\item 若 $n$ 阶，则 $0$ 必为 $A$ 的 $n-r$ 重特征值；
+\end{itemize}
 
 对于 $n$ 级实对称矩阵 $A$，找一个正交矩阵 $T$，使得 $T^{-1}AT$ 为对角矩阵的步骤如下。
 
@@ -300,7 +291,7 @@
 	\[ \vbf{\eta}_1 = \transpose{\left(-\frac{2}{\sqrt{5}}, 0, \frac{1}{\sqrt{5}}\right)}, \vbf{\alpha}_2 = \transpose{\left(\frac{2}{3\sqrt{5}}, \frac{\sqrt{5}}{3}, \frac{4}{3 \sqrt{5}}\right)}, \vbf{\eta}_3 = \transpose{\left(-\frac{1}{3}, \frac{2}{3}, -\frac{2}{3}\right)} \]
 	因此
 	\[ T = \left(\begin{matrix}
-				-\frac{2}{\sqrt{5}} & \frac{2}{3\sqrt{5}}  & -\frac{1}{3} \\ 
+				-\frac{2}{\sqrt{5}} & \frac{2}{3\sqrt{5}}  & -\frac{1}{3} \\
 				0                   & \frac{\sqrt{5}}{3}   & \frac{2}{3}  \\
 				\frac{1}{\sqrt{5}}  & \frac{4}{3 \sqrt{5}} & -\frac{2}{3}
 			\end{matrix}\right) \]
@@ -315,3 +306,68 @@
 2. 掌握用正交变换化二次型为标准形的方法，会用配方法化二次型为标准形。
 
 3. 理解正定二次型、正定矩阵的概念，并掌握其判别法
+
+\subsection{二次型}
+
+\newcommand{\XAX}{\transpose{\vbf{X}}A\vbf{X}}
+
+\begin{definition}[二次型]
+	$n$ 元二次型是 $n$ 个变量的二次齐次多项式，它的一般形式是
+	\[f(\seq{x}{n}) = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j\]
+	把二次型的系数排成一个 $n$ 级矩阵 $A$，则二次型可以写作矩阵形式
+	\[f(\seq{x}{n}) = \XAX\]
+\end{definition}
+
+矩阵的合同：如果 $n$ 级矩阵 $A$ 与 $B$，如果存在可逆矩阵 $C$ 使得
+\[ \transpose{C}AC = B \]
+那么称 $A$ 与 $B$ 合同，记作 $A\simeq B$。
+
+对于 $\mathbb{R}^n$ 上的向量 $\vbf{X}, \vbf{Y}$，称 $X = CY$ 是 $\vbf{X}$ 到 $\vbf{Y}$ 的线性替换，若 $C$ 是正交矩阵，则称为正交替换。替换下的二次型为
+\[ \XAX = \transpose{(C\vbf{Y})} A (C\vbf{Y}) = \vbf{Y}\left(\transpose{C} A C\right)\vbf{Y} \]
+替换前后的二次型等价。
+
+二次型的等价形式
+\begin{itemize}
+	\item 标准型：存在可逆先行替换，使得二次型只含平方项。
+	\item 规范型：系数只取 $1,-1,0$。
+\end{itemize}
+
+\begin{example}
+	用正交替换把下述实二次型化为标准型
+	\[ f(x, y, z) = x^2 + 2y^2 + 3z^3 - 4xy - 4yz \]
+\end{example}
+
+\begin{solution}
+	首先得到矩阵
+	\[ A = \left(\begin{matrix}
+				1 & -2 & 0 \\ -2 & 2 & -2 \\ 0 & -2 & 3
+			\end{matrix}\right) \]
+	计算其特征值
+	\[ |\lambda E -A| = (\lambda - 2)(\lambda - 5)(\lambda + 1) \]
+	即 $A$ 的全部特征值为 $\lambda = 2, 5, -1$，对应的基础解系单位化得到
+	\[ \vbf{\eta}_1 = \transpose{\left(-\frac{2}{3}, \frac{1}{3}, \frac{2}{3}\right)}, \vbf{\eta}_2 = \transpose{\left(\frac{1}{3}, -\frac{2}{3}, \frac{2}{3}\right)}, \vbf{\eta}_3 = \transpose{\left(\frac{2}{3}, \frac{2}{3}, \frac{1}{3}\right)}  \]
+	令
+	\[ T = \left(\begin{matrix}
+				-\frac{2}{3} & \frac{1}{3}  & \frac{2}{3} \\
+				\frac{1}{3}  & -\frac{2}{3} & \frac{2}{3}        \\
+				\frac{2}{3}  & \frac{2}{3}  & \frac{1}{3}
+			\end{matrix}\right) \]
+	此处 $T$ 即是正交矩阵，且 $T^{-1}AT = \operatorname{diag}\{2, 5, -1\}$。令
+	\[ \transpose{\left(x, y, z\right)} = T \transpose{\left(a, b, c\right)} \]
+	则
+	\[ f(x, y, z) = 2a^2 + 5y^2 - z^2 \]
+\end{solution}
+
+\subsection{正定二次型}
+
+实数域上的二次型简称为实二次型，$n$ 元实二次型 $\XAX$ 经过一个适当的非退化线性替换 $\vbf{X} = C\vbf{Y}$ 可以化成下述形式的标准形
+\[ d_1y_1^2+\cdots+d_py_p^2-d_{p+1}y_{p+1}^2-\cdots-d_ry_r^2 \]
+其中 $d_i>0,i=1,\cdots,r$。再做一次非退化线性替换可以变成
+\[ z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2 \]
+
+定义二次型的惯性系数
+\begin{itemize}
+	\item 正惯性系数：规范型中系数为 $+1$ 的平方项个数；
+	\item 负惯性系数：规范型中系数为 $-1$ 的平方项个数；
+	\item 符号差：正惯性系数减去负惯性系数。
+\end{itemize}

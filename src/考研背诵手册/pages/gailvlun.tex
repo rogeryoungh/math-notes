@@ -1,5 +1,7 @@
 \chapter{概率论}
 
+\newcommand{\bbP}{\mathbb{P}}
+
 \section{随机事件和概率}
 
 \subsection{大纲要求}
@@ -31,6 +33,40 @@ f(x) = \begin{cases} \lambda e^{-\lambda x}, & x > 0 \\ 0, &x \leqslant 0 \end{c
 $$
 5. 会求随机变量函数的分布。
 
+\subsection{常见分布}
+
+\paragraph{二项分布 $X \sim B(n, p)$}
+如果 $X$ 的概率分布为
+\[ \bbP\{X = k\} = \binom{n}{k} p^k(1 - p)^{n-k}. \quad k = 0, 1, \cdots, n \]
+特别的，当 $n=1$ 时称为二项分布。二项分布也是 $n$ 重伯努利实验中事件 $A$ 发生的次数，其中 $\bbP(A) = p$。
+
+\paragraph{泊松分布 $X \sim P(\lambda)$}
+如果 $X$ 的概率分布为
+\[ \bbP\{X = k\} = \frac{\lambda^k}{k!} \ee^{-\lambda} , \quad k = 0, 1, \cdots \]
+
+
+\paragraph{几何分布 $X \sim G(p)$}
+如果 $X$ 的概率分布为
+\[ \bbP\{X=k\} = (1 - p)^{k-1}p, \quad k = 1, 2, \cdots \]
+
+\paragraph{超几何分布 $X \sim H(n, N, M)$}
+如果 $X$ 的概率分布为
+\[ \bbP\{X = k\} = \frac{\binom{M}{k} \binom{N - M}{n - k}}{\binom{N}{n}}, \quad \max(0, n - N + M) \leqslant k \leqslant \min(M, n) \]
+设有 $N$ 个产品组成的整体，其中有 $M$ 个不合格产品，从中取出 $n$ 个，次品数为 $k$，这就是组合意义。
+
+\paragraph{均匀分布 $X \sim U(a, b)$}
+如果 $X$ 的概率密度函数为
+\[ f(x) = \frac{1}{b - a}, \quad a < x < b \]
+
+\paragraph{指数分布 $X \sim E(\lambda)$}
+如果 $X$ 的概率密度函数为
+\[ f(x) = \lambda \ee^{-\lambda x}, \quad x > 0 \]
+
+\paragraph{正态分布 $X \sim N(\mu, \sigma^2)$}
+如果 $X$ 的概率密度为
+\[ f(x) = \frac{1}{\sqrt{2 \pi}  \sigma} \exp \left(- \frac{(x - \mu)^2}{2\sigma^2}  \right) \]
+如果 $X \sim N(\mu, \sigma^2)$，则 $\frac{X - \mu}{\sigma} \sim N(0, 1)$。
+
 
 \section{多维随机变量及其分布}
 
@@ -44,6 +80,28 @@ $$
 
 4. 会求两个随机变量简单函数的分布，会求多个相互独立随机变量简单函数的分布。
 
+\subsection{两个随机变量简单函数}
+
+对于随机变量 $(X, Y)$，求 $g(X, Y)$ 的概率密度和分布函数有两种方法：
+
+\subsubsection*{定义法}
+
+设其概率密度函数为 $f(x, y)$，先求 $Z = g(X, Y)$ 的概率密度
+\[ F_Z(z) = \bbP\{Z \leqslant z\} = \bbP\{g(X,Y) \leqslant z\} = \iint_{g(X,Y) \leqslant z} f(x, y) \d x \d y \]
+其概率密度则为 $f_Z(z) = \frac{\d F_z(z)}{\d z}$。
+
+\subsubsection*{公式法}
+
+对于 $Z = X + Y$，则
+\[ f_Z(z) = \int_{-\infty}^{+\infty} f(z - y, y) \d y = \int_{-\infty}^{+\infty} f(x, z - x) \d x \]
+对于 $Z = XY$，则
+\[ f_Z(z) = \int_{-\infty}^{+\infty} \frac{1}{|x|}f\left(x, \frac{z}{x}\right) \d y = \int_{-\infty}^{+\infty} \frac{1}{|y|}f\left(\frac{z}{y}, y\right) \d x \]
+对于 $Z = \frac{X}{Y}$，则
+\[ f_Z(z) = \int_{-\infty}^{+\infty} |y|f(yz, y) \d y \]
+对于 $Z = \max\{X, Y\}$，则
+\[ F_Z(z) = F_X(z)F_Y(z) \]
+对于 $Z = \min\{X, Y\}$，则
+\[ F_Z(z) = 1 - (1 - F_X(z))(1 - F_Y(z)) \]
 
 \section{随机变量的数字特征}
 
@@ -52,6 +110,37 @@ $$
 1. 理解随机变量数字特征（数学期望、方差、标准差、矩、协方差、相关系数）的概念，会运用数字特征的基本性质，并掌握常用分布的数字特征。
 
 2. 会求随机变量函数的数学期望。
+
+\subsection{期望和方差}
+
+设 $X$ 是随机变量，其分布列为 $p_i = \bbP\{X = x_i\}$，记
+\[ E(X) = \sum_{i=1}^\infty x_i p_i \]
+为随机变量 $X$ 的数学期望。若 $X$ 是连续型随机变量，则记
+\[ E(X) = \int_{-\infty}^{+\infty} x f(x) \d x \]
+为其期望
+
+其拥有线性性。比如设 $X, Y$ 相互独立，有
+\[ E(X Y) = E(X) E(Y), \quad E(X \pm Y) = E(X) \pm E(Y) \]
+
+我们记 $E[(X - E(X))^2]$ 为 $X$ 的方差，有
+\[ D(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2 \]
+称 $\sqrt{D(X)}$ 为 $X$ 的标准差，或者均方差，记为 $\sigma(X)$。
+
+若 $X$ 是离散型随机变量，则
+\[ D(X) = \sum_{i=1}^{\infty} (x_i - E)^2 p_i \]
+连续性随机变量，则
+\[ D(X) = \int_{-\infty}^{\infty} (x-E)^2 f(x) \d x \]
+
+\begin{theorem}[切比雪夫不等式]
+	如果随机变量 $X$ 的期望 $E(X)$ 和方差 $D(X)$ 存在，则对任意 $\eps > 0$ 有
+	\[ \bbP\{|X - E(X)| < \eps\} \geqslant 1 - \frac{D(X)}{\eps^2} \]
+\end{theorem}
+
+我们定义 $(X, Y)$ 的协方差为
+\[ \operatorname{Cov}(X, Y) = E[(X - E(X)(Y - E(Y)))] = E(XY) - E(X) E(Y) \]
+
+称 $\rho_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sqrt{D(X) D(Y)}}$ 为 $X, Y$ 的相关系数。
+
 
 
 \section{大数定律和中心极限定理}
@@ -64,6 +153,40 @@ $$
 
 3. 了解棣莫弗-拉普拉斯定理（二项分布以正态分布为极限分布）和列维-林德伯格定理（独立同分布随机变量序列的中心极限定理）。
 
+\subsection{神秘公式}
+
+设随机变量 $X$ 与随机变量序列 $\{X_n\}$，如果对任意的 $\eps > 0$ 有
+\[ \lim_{n \to \infty} \bbP\{|X_n - X| < \eps \} =1 \]
+则称随机变量序列 $\{X_n\}$ 依概率收敛于随机变量 $X$，记为
+\[ \lim_{n \to \infty} X_n = X(\bbP), \quad \text{或}\ X_n \stackrel{\bbP}{\longrightarrow} X(n \to \infty) \]
+
+\begin{theorem}[切比雪夫大数定律]
+	设 $\{X_n\}$ 是相互独立的随机变量序列，如果方差 $D(X)$ 存在且有一致有上界，则 $\{X_n\}$ 服从大数定律
+	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \frac{1}{n} \sum_{i=1}^n E(X_i) \]
+\end{theorem}
+
+\begin{theorem}[伯努利大数定律]
+	假设 $\mu_n$ 是 $n$ 重伯努利实验中时间 $A$ 发生的次数，在每次实验中 $A$ 发生的概率为 $p(0 < p < 1)$，则
+	\[ \frac{\mu_n}{n} \stackrel{P}{\longrightarrow} p \]
+\end{theorem}
+
+\begin{theorem}[辛钦大数定律]
+	设 $\{X_n\}$ 是独立同分布的随机变量序列，如果 $E(X_i) = \mu$ 存在，则
+	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \mu \]
+\end{theorem}
+
+\begin{theorem}[列维 - 林德伯格定理]
+	假设 $\{X_n\}$ 是独立同分布的随机变量序列，如果
+	\[ E(X_i) = \mu, D(X_i) = \sigma^2 > 0 \]
+	存在，则对任意的实数 $x$ 有
+	\[ \lim_{n \to \infty} \bbP\left\{ \frac{\sum_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+\end{theorem}
+
+\begin{theorem}[棣莫弗 - 拉普拉斯定理]
+	设随机变量 $Y_n \sim B(n, p)$，其中 $0 < p < 1$ 且 $n > 1$，则对任意的实数 $x$，有
+	\[ \lim_{n \to \infty} \bbP\left\{ \frac{Y_n - np}{\sqrt{np(1 - p)}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+\end{theorem}
+
 
 \section{数理统计的基本概念}
 
@@ -75,6 +198,24 @@ $$
 2. 了解 $\chi^2$ 分布、$t$ 分布、$F$ 分布的概念及性质，了解上侧 $\alpha$ 分位数的概念并会查表计算。
 
 3. 了解正态总体的常用抽样分布。
+
+\subsection{三大分布}
+
+\paragraph{$\chi^2$ 分布}
+
+若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $X \sim \chi^2(n)$。
+
+对于给定的 $\alpha(0 < \alpha < 1)$，称满足
+\[ \bbP\left\{\chi^2 > \chi_\alpha^2(n)\right\} = \int_{\chi_\alpha^2(n)}^n f(x) \d x = \alpha  \]
+的 $\chi_\alpha^2(n)$ 为 $\chi^2(n)$ 分布的上 $\alpha$ 分位点。
+
+\paragraph{$t$ 分布}
+
+设随机变量 $X \sim N(0, 1), Y \sim \chi^2(n)$，$X$ 与 $Y$ 互相独立，则随机变量 $t = \frac{X}{\sqrt{Y / n}}$ 服从自由度为 $n$ 的 $t$ 分布，记为 $t \sim t(n)$.
+
+\paragraph{$F$ 分布}
+
+设随机变量 $X \sim \chi^2(n_1), y \sim \chi^2(n_2)$，且 $X$ 与 $Y$ 相互独立，则 $F = \frac{X / n_1}{Y / n_2}$ 服从自由度为 $(n_1, n_2)$ 的 $F$ 分布，记为 $F \sim F(n_1, n_2)$。
 
 
 \section{参数估计}
@@ -89,6 +230,31 @@ $$
 
 4. 理解区间估计的概念，会求单个正态总体的均值和方差的置信区间，会求两个正态总
 体的均值差和方差比的置信区间。
+
+\subsection{神秘估计}
+
+设总体 $X$ 的分布函数为 $F(x; \theta)$，其中 $\theta$ 是一个未知参数，$\seq{x}{n}$ 是取自总体 $X$ 的一个样本。由样本构造一个适当的统计量 $\hat{\theta}(\seq{x}{n})$ 作为参数 $\theta$ 的估计，则称 $\hat{\theta}$ 为其估计量。
+
+如果 $\seq{x}{n}$ 是样本的一个观察值，将其带入估计量得值 $\hat{\theta}(\seq{x}{n})$ 并以此值作为未知参数的近似值，则称为 $\theta$ 的估计值。
+
+\paragraph{矩估计法}
+
+设总体 $X$ 分布有 $n$ 个样本，有 $k$ 个未知参数。若 $X$ 的原点矩存在，我们令样本矩等于总体矩
+\[ \frac{1}{n} \sum_{i=1}^{N} X_i^l = E(X^l), \quad l = 1, \cdots, k \]
+这是包含 $k$ 个参数的 $k$ 个方程，由此解得矩估计量和矩估计值。
+
+一般约定：用矩法方程求总体未知参数的估计量时，从低阶开始。
+
+\paragraph{最大似然估计法}
+
+最大似然原理：对未知参数 $\theta$ 进行估计时，在该参数可能的取值范围 $I$ 内选取，用使”样本获得观测值 $\seq{x}{n}$ 的概率最大的参数值 $\hat{\theta}$ 作为 $\theta$ 的估计。
+
+假设 $X$ 是离散型随机变量，其概率分布为 $\bbP\{X = x\} = p(x; \theta)$，那么求其取值概率
+\[ L(\seq{x}{n};\theta) = \bbP\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n \bbP\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
+称为样本的似然函数。若存在 $\hat{theta}$ 使得 $L$ 取到最大值，则称 $\hat{theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
+
+同理，连续型随机变量也有
+\[ L(\seq{x}{n}; \theta) = \prod_{i=1}^n f(x_i; \theta) \]
 
 
 \section{假设检验}

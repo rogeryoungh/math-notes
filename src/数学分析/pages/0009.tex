@@ -393,23 +393,22 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 
 \subsection{三大分布}
 
-\newcommand{\calX}{\mathcal{X}}
 
-\paragraph{$\calX^2$ 分布}
+\paragraph{$\chi^2$ 分布}
 
-若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\calX^2$ 分布，记为 $X \sim \calX^2(n)$。
+若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $X \sim \chi^2(n)$。
 
 对于给定的 $\alpha(0 < \alpha < 1)$，称满足
-\[ \bbP\left\{\calX^2 > \calX_\alpha^2(n)\right\} = \int_{\calX_\alpha^2(n)}^n f(x) \d x = \alpha  \]
-的 $\calX_\alpha^2(n)$ 为 $\calX^2(n)$ 分布的上 $\alpha$ 分位点。
+\[ \bbP\left\{\chi^2 > \chi_\alpha^2(n)\right\} = \int_{\chi_\alpha^2(n)}^n f(x) \d x = \alpha  \]
+的 $\chi_\alpha^2(n)$ 为 $\chi^2(n)$ 分布的上 $\alpha$ 分位点。
 
 \paragraph{$t$ 分布}
 
-设随机变量 $X \sim N(0, 1), Y \sim \calX^2(n)$，$X$ 与 $Y$ 互相独立，则随机变量 $t = \frac{X}{\sqrt{Y / n}}$ 服从自由度为 $n$ 的 $t$ 分布，记为 $t \sim t(n)$.
+设随机变量 $X \sim N(0, 1), Y \sim \chi^2(n)$，$X$ 与 $Y$ 互相独立，则随机变量 $t = \frac{X}{\sqrt{Y / n}}$ 服从自由度为 $n$ 的 $t$ 分布，记为 $t \sim t(n)$.
 
 \paragraph{$F$ 分布}
 
-设随机变量 $X \sim \calX^2(n_1), y \sim \calX^2(n_2)$，且 $X$ 与 $Y$ 相互独立，则 $F = \frac{X / n_1}{Y / n_2}$ 服从自由度为 $(n_1, n_2)$ 的 $F$ 分布，记为 $F \sim F(n_1, n_2)$。
+设随机变量 $X \sim \chi^2(n_1), y \sim \chi^2(n_2)$，且 $X$ 与 $Y$ 相互独立，则 $F = \frac{X / n_1}{Y / n_2}$ 服从自由度为 $(n_1, n_2)$ 的 $F$ 分布，记为 $F \sim F(n_1, n_2)$。
 
 \subsection{参数的点估计}
 

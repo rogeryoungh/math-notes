@@ -7,6 +7,7 @@ LaTeX 初学者，这些是我学习数学的笔记。
 - [数学分析](https://rogeryoungh.github.io/math-notes/calculus.html)，[PDF](https://rogeryoungh.github.io/math-notes/calculus.pdf)
 - [高等代数](https://rogeryoungh.github.io/math-notes/linear-algebra.html)，[PDF](https://rogeryoungh.github.io/math-notes/linear-algebra.pdf)
 - [抽象代数](https://rogeryoungh.github.io/math-notes/abstract-algebra.html)，[PDF](https://rogeryoungh.github.io/math-notes/abstract-algebra.pdf)
+- [考研背诵手册](https://rogeryoungh.github.io/math-notes/kaoyan.html)，[PDF](https://rogeryoungh.github.io/math-notes/kaoyan.pdf)
 
 ## Github Release
 

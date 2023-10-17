@@ -113,17 +113,25 @@ $$
 
 \subsection{期望和方差}
 
+\subsection*{期望}
+
 设 $X$ 是随机变量，其分布列为 $p_i = \bbP\{X = x_i\}$，记
 \[ E(X) = \sum_{i=1}^\infty x_i p_i \]
 为随机变量 $X$ 的数学期望。若 $X$ 是连续型随机变量，则记
 \[ E(X) = \int_{-\infty}^{+\infty} x f(x) \d x \]
 为其期望
 
-其拥有线性性。比如设 $X, Y$ 相互独立，有
-\[ E(X Y) = E(X) E(Y), \quad E(X \pm Y) = E(X) \pm E(Y) \]
+期望的性质
+\begin{itemize}
+	\item 对于常数 $C$，有 $E[C] = C$；
+	\item 线性性：$E[\sum k_iX_i] = \sum k_i E[X]$；
+	\item 独立性：如果 $X_1, \cdots, X_n$ 相互独立，$E[X_1X_2\cdots X_n] = E[X_1] \cdots E[X_n]$。
+\end{itemize}
 
-我们记 $E[(X - E(X))^2]$ 为 $X$ 的方差，有
-\[ D(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2 \]
+\subsection*{方差}
+
+我们记 $E[(X - EX)^2]$ 为 $X$ 的方差，有
+\[ D(X) = E[(X - EX)^2] = E(X^2) - (EX)^2 \]
 称 $\sqrt{D(X)}$ 为 $X$ 的标准差，或者均方差，记为 $\sigma(X)$。
 
 若 $X$ 是离散型随机变量，则
@@ -131,17 +139,57 @@ $$
 连续性随机变量，则
 \[ D(X) = \int_{-\infty}^{\infty} (x-E)^2 f(x) \d x \]
 
+方差的性质
+\begin{itemize}
+	\item 对于常数 $C$，有 $D[C] = C^2$；
+	\item 线性性：如果 $X_1, \cdots, X_n$ 相互独立，$D[\sum k_iX_i] = \sum k_i^2 E[X]$。
+\end{itemize}
+
+\subsection{协方差和相关系数}
+
+\subsection*{矩}
+\begin{itemize}
+	\item $k$ 阶原点矩：$E[X^k]$；
+	\item $k$ 阶中心距：$E[(X - EX)^k]$；
+	\item $k + l$ 阶混合矩：$E[X^k Y^l]$；
+	\item $k + l$ 阶中心距：$E[(X - EX)^k (Y - EY)^l]$；
+\end{itemize}
+
+\subsection*{协方差}
+
+\newcommand{\opCov}{\operatorname{Cov}}
+
+我们定义 $(X, Y)$ 的协方差为
+\[ \opCov(X, Y) = E[(X - EX)(Y - EY))] = E(XY) - EX \cdot EY \]
+
+称 $\rho_{XY} = \frac{\opCov(X, Y)}{\sqrt{D(X) D(Y)}}$ 为 $X, Y$ 的相关系数。
+
 \begin{theorem}[切比雪夫不等式]
 	如果随机变量 $X$ 的期望 $E(X)$ 和方差 $D(X)$ 存在，则对任意 $\eps > 0$ 有
 	\[ \bbP\{|X - E(X)| < \eps\} \geqslant 1 - \frac{D(X)}{\eps^2} \]
 \end{theorem}
 
-我们定义 $(X, Y)$ 的协方差为
-\[ \operatorname{Cov}(X, Y) = E[(X - E(X)(Y - E(Y)))] = E(XY) - E(X) E(Y) \]
-
-称 $\rho_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sqrt{D(X) D(Y)}}$ 为 $X, Y$ 的相关系数。
 
 
+\subsection*{协方差的性质}
+
+\begin{itemize}
+	\item $\opCov(X, Y) = \opCov(Y, X)$；
+	\item $\opCov(X, X) = DX$；
+	\item $\opCov(aX, bY) = ab \opCov(X, Y)$；
+	\item $\opCov(X_1 + X_2, Y) = \opCov(X_1, Y) + \opCov(X_2, Y)$；
+	\item $D(X \pm Y) = DX + DY \pm 2Cov(X, Y)$；
+\end{itemize}
+
+$X, Y$ 相互独立可以推出不相关，但反之不行；
+
+$X, Y$ 不相关与下列命题互推
+\begin{itemize}
+	\item $\rho_{XY} = 0$；
+	\item $\opCov(X, Y) = 0$
+	\item $E[XY] = EX \cdot EY$；
+	\item $D(X \pm Y) = DX + DY$。
+\end{itemize}
 
 \section{大数定律和中心极限定理}
 

@@ -1,6 +1,8 @@
 \chapter{概率论}
 
 \newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbD}{\mathbb{D}}
 
 \section{随机事件和概率}
 
@@ -18,9 +20,7 @@
 \subsection{大纲要求}
 
 1. 理解随机变量的概念，理解分布函数
-$$
-	F(x) = P\{X \leqslant x\}(-\infty < x < +\infty)
-$$
+\[ F(x) = P\{X \leqslant x\}, \quad -\infty < x < +\infty \]
 的概念及性质，会计算与随机变量相联系的事件的概率。
 
 2. 理解离散型随机变量及其概率分布的概念，掌握 $0-1$ 分布、二项分布 $B(n, p)$、几何分布、超几何分布、泊松（Poisson）分布 $P(\lambda)$ 及其应用。
@@ -28,9 +28,7 @@ $$
 3. 了解泊松定理的结论和应用条件，会用泊松分布近似表示二项分布。
 
 4. 理解连续型随机变量及其概率密度的概念，掌握均匀分布 $U(a, b)$、 正态分布 $N(\mu, \sigma^2)$、指数分布及其应用，其中参数为 $\lambda(\lambda > 0)$ 的指数分布 $E(\lambda)$ 的概率密度为
-$$
-	f(x) = \begin{cases} \lambda e^{-\lambda x}, & x > 0 \\ 0, &x \leqslant 0 \end{cases}
-$$
+\[ f(x) = \begin{cases} \lambda e^{-\lambda x}, & x > 0 \\ 0, &x \leqslant 0 \end{cases} \]
 5. 会求随机变量函数的分布。
 
 \subsection{常见分布}
@@ -38,34 +36,39 @@ $$
 \paragraph{二项分布 $X \sim B(n, p)$}
 如果 $X$ 的概率分布为
 \[ \bbP\{X = k\} = \binom{n}{k} p^k(1 - p)^{n-k}. \quad k = 0, 1, \cdots, n \]
-特别的，当 $n=1$ 时称为二项分布。二项分布也是 $n$ 重伯努利实验中事件 $A$ 发生的次数，其中 $\bbP(A) = p$。
+组合意义是 $n$ 重伯努利实验中事件 $A$ 发生的次数，其中 $\bbP(A) = p$。其 $\bbE [X] = np, \bbD [X] = np(1-p)$。
 
 \paragraph{泊松分布 $X \sim P(\lambda)$}
 如果 $X$ 的概率分布为
 \[ \bbP\{X = k\} = \frac{\lambda^k}{k!} \ee^{-\lambda} , \quad k = 0, 1, \cdots \]
+其 $\bbE [X] = \lambda, \bbD [X] = \lambda$。
 
 
 \paragraph{几何分布 $X \sim G(p)$}
 如果 $X$ 的概率分布为
 \[ \bbP\{X=k\} = (1 - p)^{k-1}p, \quad k = 1, 2, \cdots \]
+其 $\bbE [X] = \frac{1}{p}, \bbD [X] = \frac{1-p}{p^2}$。
 
 \paragraph{超几何分布 $X \sim H(n, N, M)$}
 如果 $X$ 的概率分布为
 \[ \bbP\{X = k\} = \frac{\binom{M}{k} \binom{N - M}{n - k}}{\binom{N}{n}}, \quad \max(0, n - N + M) \leqslant k \leqslant \min(M, n) \]
-设有 $N$ 个产品组成的整体，其中有 $M$ 个不合格产品，从中取出 $n$ 个，次品数为 $k$，这就是组合意义。
+其组合意义是在 $N$ 个产品 $M$ 个不合格产品，从中取出 $n$ 个次品数为 $k$。
 
 \paragraph{均匀分布 $X \sim U(a, b)$}
 如果 $X$ 的概率密度函数为
 \[ f(x) = \frac{1}{b - a}, \quad a < x < b \]
+其 $\bbE [X] = \frac{a+b}{2}, \bbD [X] = \frac{(b-a)^2}{12}$。
 
 \paragraph{指数分布 $X \sim E(\lambda)$}
 如果 $X$ 的概率密度函数为
 \[ f(x) = \lambda \ee^{-\lambda x}, \quad x > 0 \]
+其 $\bbE [X] = \frac{1}{\lambda}, \bbD [X] = \frac{1}{\lambda^2}$。
 
 \paragraph{正态分布 $X \sim N(\mu, \sigma^2)$}
 如果 $X$ 的概率密度为
 \[ f(x) = \frac{1}{\sqrt{2 \pi}  \sigma} \exp \left(- \frac{(x - \mu)^2}{2\sigma^2}  \right) \]
 如果 $X \sim N(\mu, \sigma^2)$，则 $\frac{X - \mu}{\sigma} \sim N(0, 1)$。
+其 $\bbE [X] = \mu, \bbD [X] = \sigma^2$。
 
 
 \section{多维随机变量及其分布}
@@ -116,43 +119,43 @@ $$
 \subsection*{期望}
 
 设 $X$ 是随机变量，其分布列为 $p_i = \bbP\{X = x_i\}$，记
-\[ E[X] = \sum_{i=1}^\infty x_i p_i, \quad E[g(X)] = \sum_{i=1}^\infty g(x_i) p_i \]
+\[ \bbE [X] = \sum_{i=1}^\infty x_i p_i, \quad \bbE[g(X)] = \sum_{i=1}^\infty g(x_i) p_i \]
 为随机变量 $X$ 的数学期望。若 $X$ 是连续型随机变量，则记
-\[ E[X] = \int_{-\infty}^{+\infty} x f(x) \d x, \quad E[g(X)] = \int_{-\infty}^{+\infty} g(x) f(x) \d x \]
+\[ \bbE [X] = \int_{-\infty}^{+\infty} x f(x) \d x, \quad \bbE[g(X)] = \int_{-\infty}^{+\infty} g(x) f(x) \d x \]
 为其期望
 
 期望的性质
 \begin{itemize}
-	\item 对于常数 $C$，有 $E[C] = C$；
-	\item 线性性：$E[\sum k_iX_i] = \sum k_i E[X]$；
-	\item 独立性：如果 $X_1, \cdots, X_n$ 相互独立，$E[X_1X_2\cdots X_n] = E[X_1] \cdots E[X_n]$。
+	\item 对于常数 $C$，有 $\bbE[C] = C$；
+	\item 线性性：$\bbE[\sum k_iX_i] = \sum k_i \bbE [X]$；
+	\item 独立性：如果 $X_1, \cdots, X_n$ 相互独立，$\bbE[X_1X_2\cdots X_n] = \bbE[X_1] \cdots \bbE[X_n]$。
 \end{itemize}
 
 \subsection*{方差}
 
-我们记 $E[(X - EX)^2]$ 为 $X$ 的方差，有
-\[ D(X) = E[(X - EX)^2] = E(X^2) - (EX)^2 \]
-称 $\sqrt{D(X)}$ 为 $X$ 的标准差，或者均方差，记为 $\sigma(X)$。
+我们记 $\bbE[(X - \bbE X)^2]$ 为 $X$ 的方差，有
+\[ \bbD [X] = \bbE[(X - \bbE X)^2] = \bbE X^2 - (\bbE X)^2 \]
+称 $\sqrt{\bbD [X]}$ 为 $X$ 的标准差，或者均方差，记为 $\sigma(X)$。
 
 若 $X$ 是离散型随机变量，则
-\[ D(X) = \sum_{i=1}^{\infty} (x_i - E)^2 p_i \]
+\[ \bbD [X] = \sum_{i=1}^{\infty} (x_i - \bbE X)^2 p_i \]
 连续性随机变量，则
-\[ D(X) = \int_{-\infty}^{\infty} (x-E)^2 f(x) \d x \]
+\[ \bbD [X] = \int_{-\infty}^{\infty} (x-\bbE X)^2 f(x) \d x \]
 
 方差的性质
 \begin{itemize}
-	\item 对于常数 $C$，有 $D[C] = C^2$；
-	\item 线性性：如果 $X_1, \cdots, X_n$ 相互独立，$D[\sum k_iX_i] = \sum k_i^2 E[X]$。
+	\item 对于常数 $C$，有 $\bbD[C] = C^2$；
+	\item 线性性：如果 $X_1, \cdots, X_n$ 相互独立，$\bbD[\sum k_iX_i] = \sum k_i^2 \bbE [X]$。
 \end{itemize}
 
 \subsection{协方差和相关系数}
 
 \subsection*{矩}
 \begin{itemize}
-	\item $k$ 阶原点矩：$E[X^k]$；
-	\item $k$ 阶中心距：$E[(X - EX)^k]$；
-	\item $k + l$ 阶混合矩：$E[X^k Y^l]$；
-	\item $k + l$ 阶中心距：$E[(X - EX)^k (Y - EY)^l]$；
+	\item $k$ 阶原点矩：$\bbE[X^k]$；
+	\item $k$ 阶中心距：$\bbE[(X - \bbE X)^k]$；
+	\item $k + l$ 阶混合矩：$\bbE[X^k Y^l]$；
+	\item $k + l$ 阶中心距：$\bbE[(X - \bbE X)^k (Y - \bbE Y)^l]$；
 \end{itemize}
 
 \subsection*{协方差}
@@ -160,13 +163,13 @@ $$
 \newcommand{\opCov}{\operatorname{Cov}}
 
 我们定义 $(X, Y)$ 的协方差为
-\[ \opCov(X, Y) = E[(X - EX)(Y - EY))] = E(XY) - EX \cdot EY \]
+\[ \opCov(X, Y) = \bbE[(X - \bbE X)(Y - \bbE Y))] = \bbE(XY) - \bbE X \cdot \bbE Y \]
 
-称 $\rho_{XY} = \frac{\opCov(X, Y)}{\sqrt{D(X) D(Y)}}$ 为 $X, Y$ 的相关系数。
+称 $\rho_{XY} = \frac{\opCov(X, Y)}{\sqrt{\bbD [X] \bbD(Y)}}$ 为 $X, Y$ 的相关系数。
 
 \begin{theorem}[切比雪夫不等式]
-	如果随机变量 $X$ 的期望 $E(X)$ 和方差 $D(X)$ 存在，则对任意 $\eps > 0$ 有
-	\[ \bbP\{|X - E(X)| < \eps\} \geqslant 1 - \frac{D(X)}{\eps^2} \]
+	如果随机变量 $X$ 的期望 $\bbE [X]$ 和方差 $\bbD [X]$ 存在，则对任意 $\eps > 0$ 有
+	\[ \bbP\{|X - \bbE [X]| < \eps\} \geqslant 1 - \frac{\bbD [X]}{\eps^2} \]
 \end{theorem}
 
 
@@ -175,10 +178,10 @@ $$
 
 \begin{itemize}
 	\item $\opCov(X, Y) = \opCov(Y, X)$；
-	\item $\opCov(X, X) = DX$；
+	\item $\opCov(X, X) = \bbD X$；
 	\item $\opCov(aX, bY) = ab \opCov(X, Y)$；
 	\item $\opCov(X_1 + X_2, Y) = \opCov(X_1, Y) + \opCov(X_2, Y)$；
-	\item $D(X \pm Y) = DX + DY \pm 2Cov(X, Y)$；
+	\item $\bbD(X \pm Y) = \bbD X + \bbD Y \pm 2Cov(X, Y)$；
 \end{itemize}
 
 $X, Y$ 相互独立可以推出不相关，但反之不行；
@@ -187,8 +190,8 @@ $X, Y$ 不相关与下列命题互推
 \begin{itemize}
 	\item $\rho_{XY} = 0$；
 	\item $\opCov(X, Y) = 0$
-	\item $E[XY] = EX \cdot EY$；
-	\item $D(X \pm Y) = DX + DY$。
+	\item $\bbE[XY] = \bbE X \cdot \bbE Y$；
+	\item $\bbE(X \pm Y) = \bbE X + \bbE Y$。
 \end{itemize}
 
 \subsection{\texorpdfstring{$\Gamma$ 函数}{Γ 函数}}
@@ -218,8 +221,8 @@ $\Gamma$ 函数是一有力的工具，其定义为
 \[ \lim_{n \to \infty} X_n = X(P), \quad \text{或}\ X_n \stackrel{P}{\longrightarrow} X(n \to \infty) \]
 
 \begin{theorem}[切比雪夫大数定律]
-	设 $\{X_n\}$ 是相互独立的随机变量序列，如果方差 $D(X)$ 存在且有一致有上界，则 $\{X_n\}$ 服从大数定律
-	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \frac{1}{n} \sum_{i=1}^n E(X_i) \]
+	设 $\{X_n\}$ 是相互独立的随机变量序列，如果方差 $\bbD [X]$ 存在且有一致有上界，则 $\{X_n\}$ 服从大数定律
+	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \frac{1}{n} \sum_{i=1}^n \bbE(X_i) \]
 \end{theorem}
 
 \begin{theorem}[伯努利大数定律]
@@ -228,13 +231,13 @@ $\Gamma$ 函数是一有力的工具，其定义为
 \end{theorem}
 
 \begin{theorem}[辛钦大数定律]
-	设 $\{X_n\}$ 是独立同分布的随机变量序列，如果 $E(X_i) = \mu$ 存在，则
+	设 $\{X_n\}$ 是独立同分布的随机变量序列，如果 $\bbE(X_i) = \mu$ 存在，则
 	\[ \frac{1}{n} \sum_{i=1}^n X_i \stackrel{P}{\longrightarrow} \mu \]
 \end{theorem}
 
 \begin{theorem}[列维 - 林德伯格定理]
 	假设 $\{X_n\}$ 是独立同分布的随机变量序列，如果
-	\[ E(X_i) = \mu, D(X_i) = \sigma^2 > 0 \]
+	\[ \bbE(X_i) = \mu, \bbD(X_i) = \sigma^2 > 0 \]
 	存在，则对任意的实数 $x$ 有
 	\[ \lim_{n \to \infty} \bbP\left\{ \frac{\sum_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
 \end{theorem}
@@ -251,21 +254,22 @@ $\Gamma$ 函数是一有力的工具，其定义为
 
 1. 理解总体、简单随机样本、统计量、样本均值、样本方差及样本矩的概念，其中样本
 方差定义为
-\[ S^2 = \frac{1}{n-1} \sum_{t=1}^n (\chi_1 = \chi) \cal \]
+\[ S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X}) \]
+
 2. 了解 $\chi^2$ 分布、$t$ 分布、$F$ 分布的概念及性质，了解上侧 $\alpha$ 分位数的概念并会查表计算。
 
 3. 了解正态总体的常用抽样分布。
 
 \subsection{统计量}
 
-研究对象的全体称为总体，组成总体的每一个元素称为个体。我们把总体和 $X$ 等同起来，所谓总体的分布就是指 $X$ 的分布。
+随机试验的每一个可能的观察值称为个体，全部观察值称为总体，总体中包含个体的个数称为总体的容量。
 
-$n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\seq{x}{n}$ 所组成的总体为 $(\seq{x}{n})$ 称为来自总体 $X$ 容量为 $n$ 的一个简单随机样本，简称样本。一次抽样结果的 $n$ 个具体数值称为 $\seq{x}{n}$ 的一个观测值（样本值）。
+$n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为来自总体 $X$ 或者来自分布函数 $F$ 的简单随机样本，其容量为 $n$。一次抽样结果的 $n$ 个具体数值称为 $\seq{x}{n}$ 的一个观测值（样本值）。
+
+设 $\seq{x}{n}$ 为来自总体 $X$ 的一个样本，$g$ 为仅与 $x$ 有关的 $n$ 元函数，则称 $g$ 为样本的一个统计量。若 $(\seq{x}{n})$ 为样本值，则 $g(\seq{x}{n})$ 为观测值。
 
 假设总体 $X$ 的分布函数为 $F$，则 $(\seq{x}{n})$ 的分布函数为
 \[ F(\seq{x}{n}) = \prod_{i=1}^n F(x_i) \]
-
-设 $\seq{x}{n}$ 为来自总体 $X$ 的一个样本，$g$ 为仅与 $x$ 有关的 $n$ 元函数，则称 $g$ 为样本的一个统计量。若 $(\seq{x}{n})$ 为样本值，则 $g(\seq{x}{n})$ 为观测值。
 
 样本均值
 \[ \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i \]
@@ -275,26 +279,26 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 \[ A_k = \frac{1}{n} \sum_{i=1}^n X_i^k \]
 样本 $k$ 阶中心矩
 \[ B_k = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^k \]
-
 将 $n$ 个观测量从小到大的顺序排列，记随机变量 $X_{(k)}$ 为第 $k$ 顺序统计量。
 
-常用统计量：
+显然样本与总体同分布
+\[ \bbE[X_i] = \bbE [X], \quad \bbD[X_i] = \bbD[X] \]
+均值与方差
+\[ \bbE[\overline{X}] = \bbE [X], \quad \bbD(\overline{X}) = \frac{1}{n} \bbD [X], \quad \bbE[S^2] = \bbD [X]  \]
 
-\[
-	\begin{aligned}
-		E(X_i)          & = E(X)             \\
-		D(X_i)          & = D(X)             \\
-		E(\overline{X}) & = E(X)             \\
-		D(\overline{X}) & = \frac{1}{n} D(X) \\
-		E(S^2)          & = D(X)
-	\end{aligned}
-\]
+\begin{note}
+	为什么样本方差的分母是 $n-1$？因为此时 $\bbE[S^2] = \bbD [X]$，即 $S^2$ 是 $\bbD[X]$ 的无偏估计量。具体的，不难带入样本均值计算
+	\[ \bbE\left[\sum_{i=1}^n \left(X_i - \frac{\sum X_i}{n}\right)^2\right]
+		= \bbE\left[  \frac{n-1}{n} \left(\sum_{i=1}^n X_i^2\right) - \frac{1}{n}
+			\left(\sum_{i=1}^{n} \sum_{i \neq j} X_iX_j\right) \right]
+		= (n-1) \bbD[X] \]
+\end{note}
 
 \subsection{三大分布}
 
 \paragraph{$\chi^2$ 分布}
 
-若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $X \sim \chi^2(n)$。
+若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $X \sim \chi^2(n)$。其中 $\bbE[\chi^2] = n, \bbD[\chi^2] = 2n$。
 
 对于给定的 $\alpha(0 < \alpha < 1)$，称满足
 \[ \bbP\left\{\chi^2 > \chi_\alpha^2(n)\right\} = \int_{\chi_\alpha^2(n)}^n f(x) \d x = \alpha  \]
@@ -322,21 +326,21 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 4. 理解区间估计的概念，会求单个正态总体的均值和方差的置信区间，会求两个正态总
 体的均值差和方差比的置信区间。
 
-\subsection{神秘估计}
+\subsection{参数的点估计}
 
-设总体 $X$ 的分布函数为 $F(x; \theta)$，其中 $\theta$ 是一个未知参数，$\seq{x}{n}$ 是取自总体 $X$ 的一个样本。由样本构造一个适当的统计量 $\hat{\theta}(\seq{x}{n})$ 作为参数 $\theta$ 的估计，则称 $\hat{\theta}$ 为其估计量。
+设总体 $X$ 的分布形式已知，但含有未知参数 $\theta$，或者总体的某数字特征存在但未知，从总体中抽取样本 $\seq{X}{n}$，相应的样本值为 $\seq{x}{n}$。借助于样本给出一个未知参数具体数值的参数估计问题就是点估计问题。
 
-如果 $\seq{x}{n}$ 是样本的一个观察值，将其带入估计量得值 $\hat{\theta}(\seq{x}{n})$ 并以此值作为未知参数的近似值，则称为 $\theta$ 的估计值。
+要解决点估计问题，就要构造一个适当的统计量 $\hat{\theta}(\seq{x}{n})$ 作为参数 $\theta$ 的近似值，则称 $\hat{\theta}(\seq{X}{n})$ 为 $\theta$ 的估计量，$\hat{\theta}(\seq{X}{n})$ 为 $\theta$ 为 $\theta$ 的估计值。
 
-\paragraph{矩估计法}
+\subsection{矩估计法}
 
 设总体 $X$ 分布有 $n$ 个样本，有 $k$ 个未知参数。若 $X$ 的原点矩存在，我们令样本矩等于总体矩
-\[ \frac{1}{n} \sum_{i=1}^{N} X_i^l = E(X^l), \quad l = 1, \cdots, k \]
+\[ \frac{1}{n} \sum_{i=1}^{N} X_i^l = \bbE(X^l), \quad l = 1, \cdots, k \]
 这是包含 $k$ 个参数的 $k$ 个方程，由此解得矩估计量和矩估计值。
 
 一般约定：用矩法方程求总体未知参数的估计量时，从低阶开始。
 
-\paragraph{最大似然估计法}
+\subsection{最大似然估计法}
 
 似然性与概率的区别：
 \begin{itemize}
@@ -344,7 +348,7 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 	\item 似然性 $L(x; \theta)$ 是从观测结果 $x$ 出发，分布函数为 $\theta$ 的可能性大小。
 \end{itemize}
 
-最大似然原理：对未知参数 $\theta$ 进行估计时，在该参数可能的取值范围 $I$ 内选取，用使样本获得观测值 $\seq{x}{n}$ 的概率最大的参数值 $\hat{\theta}$ 作为 $\theta$ 的估计。
+最大似然估计值即对给定的观测值 $\seq{x}{n}$，该估计值 $\hat{\theta}$ 使似然性最大。
 
 假设 $X$ 是离散型随机变量，其概率分布为 $\bbP\{X = x\} = p(x; \theta)$，那么求其取值概率
 \[ L(\seq{x}{n};\theta) = \bbP\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n \bbP\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
@@ -363,10 +367,47 @@ $n$ 个相互独立且与总体 $X$ 具有相同概率分布的随机变量 $\se
 \end{enumerate}
 倘若有多个参数 $\theta$，也是计算多元极值点。
 
+\subsection{估计量的评选标准}
+
+无偏性：若估计量 $\hat{\theta}$ 的数学期望 $\bbE[\hat{\theta}]$ 存在，且 $\bbE[\hat{\theta}] = \theta$，则称 $\hat{\theta}$ 是 $\theta$ 的无偏估计量。
+
+有效性：若 $\hat{\theta}_1$ 和 $\hat{\theta}_2$ 都是 $\theta$ 的估计量，若 $\bbD[\hat{\theta}_1] \leqslant \bbD[\hat{\theta}_2]$，则称 $\hat{\theta}_1$ 较 $\hat{\theta}_2$ 有效。
+一致性（相合性）：若估计量 $\hat{\theta}$ 在 $n \to \infty$ 时 $\hat{\theta}$ 依概率收敛于 $\theta$，则称 $\hat{\theta}$ 是 $\theta$ 的一致估计量。
+
 \section{假设检验}
 
 \subsection{大纲要求}
 
 1. 理解显著性检验的基本思想，掌握假设检验的基本步骤，了解假设检验可能产生的两类错误。
 
-2. 掌握单个及两个正态总体的均值和方差的假设检验
+2. 掌握单个及两个正态总体的均值和方差的假设检验。
+
+\subsection{假设检验的基本概念}
+
+假设检验问题：总体函数未知，或者参数未知的情况下，提出一些关于总体分布或者参数的假设，然后抽取样本构建统计量，再根据样本所提的假设做出接受或者拒绝的决策。
+
+检验法：借助于样本值来判断接受假设，或者拒绝假设的法则，称为检验法。
+
+需要着重考察的假设称为原假设，常常记为 $H_0$；与原假设相对立的假设称为备选假设（或对立假设），备择假设记为 $H_1$。
+
+检验统计量：如果基于某一个统计量的观测值来确定接受 $H_0$ 或者拒绝 $H_0$ 时，这一统计量称为检验统计量。
+
+当统计量落在某个区域时就拒绝 $H_0$，这一区域称为拒绝域，拒绝域的边界点称为临界点。
+
+两类错误：
+\begin{itemize}
+	\item 第 I 类错误：弃真，$H_0$ 实际上为真时但拒绝 $H_0$。
+	\item 第 II 类错误：取伪，$H_0$ 实际上为假但接受 $H_0$。
+\end{itemize}
+
+显著性水平：在做检验时要求犯第一类错误的概率 $\leqslant \alpha$，则 $\alpha$ 称为显著性水平，通常取 $0.1, 0.05$ 等值。
+
+显著性检验：对于给定的样本容量，只控制犯第 I 类错误的概率，而不考虑犯第 II 类错误的检验法，称为显著性检验。
+
+假设检验的一般步骤：
+\begin{itemize}
+	\item 提出所要检验的原假设 $H_0$ 与备择假设 $H_1$；
+	\item 选择检验的统计量，并在 $H_0$ 成立下求出它的分布；
+	\item 给定显著性水平，在 $H_0$ 成立下去欸的那个临界值和否定域；
+	\item 由样本值推算出统计量的值，判断该值是否落入否定域。
+\end{itemize}

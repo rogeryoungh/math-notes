@@ -14,6 +14,54 @@
 
 3. 理解事件独立性的概念，掌握用事件独立性进行概率计算；理解独立重复试验的概念，掌握计算有关事件概率的方法。
 
+\subsection{概率}
+
+\begin{definition}
+	设 $A,B$ 是两个事件且 $\bbP(A) > 0$，我们称在已知 $A$ 发生的条件下事件 $B$ 发生的概率为条件概率，记作
+	\[ \bbP(B | A) = \frac{\bbP(AB)}{\bbP(A)} \]
+\end{definition}
+
+假如 $\bbP(B \mid A) > \bbP(B)$，我们可以说事件 $A$ 促进了事件 $B$ 的发生。反之 $\bbP(B \mid A) = \bbP(A)$，则 $B$ 的发生对 $A$ 无影响。
+
+若两事件 $A, B$ 满足
+\[ \bbP(A B) = \bbP(A) \bbP(B) \]
+则称 $A, B$ 独立。
+
+设一列事件 $A_1, A_2, \cdots$，假如从中取出任意有限个都成立
+\[ \bbP(A_{i1} \cdots A_{im}) = \bbP(A_{i1}) \cdots \bbP(A_{im}) \]
+那么称事件 $A_1, A_2, \cdots$ 相互独立。注意与两两独立的区别。
+
+
+\begin{theorem}[全概率公式]
+	设 $B_1, \cdots$ 为一列事件，他们两两互斥且每次试验至少发生一个。有时称这种性质为“完备事件群”。那么对任意事件 $A$ 有
+	\[ \bbP(A) = \sum_{i=1}^n \bbP(B_i)\bbP(A \mid B_i) \]
+\end{theorem}
+
+\begin{proof}
+	显然
+	\[ \bbP(A) = \sum_{i=1}^n \bbP(B_i A) = \sum_{i=1}^n \bbP(B_i)\bbP(A \mid B_i) \]
+\end{proof}
+
+
+\begin{theorem}[贝叶斯公式]
+	对 $n$ 个两两不相容事件 $\seq{A}{N}$，则对事件 $B$ 有
+	\[ \bbP\left(A_j | B\right) = \frac{\bbP(A_j)\bbP(B | A_j)}{\sum\limits_{i=1}^n \bbP(A_i)\bbP(B | A_i) } \]
+\end{theorem}
+
+\begin{proof}
+	显然
+	\[ \bbP\left(A_j | B\right) = \frac{\bbP(A_j B)}{\bbP(B)} = \frac{\bbP(A_j)\bbP(B | A_j)}{\sum\limits_{i=1}^n \bbP(A_i)\bbP(B | A_i) } \]
+\end{proof}
+
+\begin{note}
+	若 $\bbP(AB) = 0$，不意味着 $AB = \varnothing$。比如 $[0,1]\cap [1,2] = \{1\}$，但概率是 $0$。
+\end{note}
+
+
+\begin{theorem}[伯努利定理]
+	假如一次试验中，事件 $A$ 发生的概率为 $p(0 < p < 1)$，则 $n$ 重伯努利试验中，事件 $A$ 恰好发生 $k$ 次的概率为
+	\[ \binom{n}{k} p^k (1 - p)^{n-k} \]
+\end{theorem}
 
 \section{随机变量及其分布}
 
@@ -66,7 +114,7 @@
 
 \paragraph{正态分布 $X \sim N(\mu, \sigma^2)$}
 如果 $X$ 的概率密度为
-\[ f(x) = \frac{1}{\sqrt{2 \pi}  \sigma} \exp \left(- \frac{(x - \mu)^2}{2\sigma^2}  \right) \]
+\[ f(x) = \frac{1}{\sigma} \varphi\left(\frac{x - \mu}{\sigma}\right) = \frac{1}{\sqrt{2 \pi}  \sigma} \exp \left(- \frac{(x - \mu)^2}{2\sigma^2}  \right), \quad \varphi(x) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right) \]
 如果 $X \sim N(\mu, \sigma^2)$，则 $\frac{X - \mu}{\sigma} \sim N(0, 1)$。
 其 $\bbE [X] = \mu, \bbD [X] = \sigma^2$。
 
@@ -82,6 +130,63 @@
 3. 掌握二维均匀分布，了解二维正态分布 $N(\mu_1, \mu_2; \sigma_1^2, \sigma_2^2; \rho)$ 的概率密度，理解其中参数的概率意义。
 
 4. 会求两个随机变量简单函数的分布，会求多个相互独立随机变量简单函数的分布。
+
+\subsection{多维随机变量及其分布}
+
+\paragraph{离散型}
+
+假如每个分量是离散型的，那么称 $X$ 是 $n$ 维离散型随机变量。
+
+\begin{definition}
+	以 $\{a_{i1}, \cdots\}$ 记 $X_i$ 的全部可能值，则事件的概率
+	\[ p(\seq{j}{n}) = \bbP\{X_1 = a_{1j_1}, \cdots, X_n = a_{n j_n}\} \]
+	为随机变量的概率函数。显然应该满足条件
+	\[ p(j_1, \cdots) \geqslant 0, \quad \sum_{j_n} \cdots \sum_{j_1} p(j_1, \cdots)  =1 \]
+\end{definition}
+
+\paragraph{连续型}
+连续型随机变量不能简单的定义为各分量都是“一维连续型随机变量的那种”。考虑 $X_1 = X_2$，则 $(X_1, X_2)$ 仅在对角线处有值，故不可能存在概率密度函数。
+
+\begin{definition}
+	设 $f(\seq{x}{n})$ 是定义在 $\mathbb{R}^n$ 上的非负函数，使得对 $\mathbb{R}^n$ 中的任何集合 $A$，有
+	\[ \bbP\{X \in A\} = \int_A \cdots \int f(\seq{x}{n}) \d x_1 \cdots \d x_n \]
+	则称 $f$ 是 $X$ 的概率密度函数。显然当 $\bbP\{ X \in \mathbb{R}^n\} = 1$。
+\end{definition}
+
+也可以定义分布函数
+\[ F(\seq{x}{n}) = \bbP\{X_1 \leqslant x_1, \cdots, X_n \leqslant x_n \} \]
+
+对于二维 $(X, Y)$，若 $f$ 在点 $(x, y)$ 处连续，则
+\[ \frac{\partial^2 F(x, y)}{\partial x \partial y} = f(x, y) \]
+反之若 $F(x, y)$ 连续可导，则此式是其概率密度。
+
+\paragraph{边缘分布}
+
+对任意的 $n$ 个实数，$x_1, x_2, \cdots, x_n$，称 $n$ 元函数
+\[ F(\seq{x}{n}) = \bbP\{X_1 \leqslant x_1, X_2 \leqslant x_2, \cdots. X_n \leqslant x_n\} \]
+为多维随机变量 $(\seq{x}{n})$ 的联合分布函数，记为 $(\seq{x}{n}) \sim F(\seq{x}{n})$。
+
+\begin{itemize}
+	\item $F(x, y)$ 是 $x, y$ 的单调不减函数。
+	\item $F(x, y)$ 是 $x, y$ 的右连续函数。
+	\item $F(-\infty, y) = F(x, -\infty) = F(-\infty, -\infty) = 0$，$F(+\infty, +\infty) = 1$。
+	\item 对任意 $x_1 < x_2, y_1 < y_2$，有
+	      \[ \bbP\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
+\end{itemize}
+
+设其联合分布函数为 $F(x,y)$，定义边缘分布函数
+\[ F_X(x) = \bbP\{X \leqslant x\} = F(x, +\infty) \]
+同理，有 $F_Y(y) = F(+\infty, y)$。
+
+
+
+\subsection{二维正态分布}
+
+设二维随机变量的概率密度为
+\[ f(x, y) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1-p^2)} \left(\frac{(x-\mu_1)^2}{\sigma_1^2} + \frac{(y-\mu_2)^2}{\sigma_2^2} - 2 \rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1 \sigma_2}\right) \right) \]
+记为 $N(\mu_1, \mu_2; \sigma_1, \sigma_2; \rho)$。
+
+当 $\rho = 0$，可以看作 $X \sim N(\mu_1, \sigma_1^2), Y \sim N(\mu_2, \sigma_2^2)$。
 
 \subsection{两个随机变量简单函数}
 
@@ -366,6 +471,10 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 	\item 用样本 $X_i$ 代替样本值 $x_i$，得到最大似然估计量 $\hat{\theta}$。
 \end{enumerate}
 倘若有多个参数 $\theta$，也是计算多元极值点。
+
+\begin{note}
+	注意参数 $\theta$ 的取值范围，有时候最值不是极值。
+\end{note}
 
 \subsection{估计量的评选标准}
 

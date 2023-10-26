@@ -44,7 +44,7 @@
 
 \begin{definition}
 	设 $D \subset \mathbb{R}^n$，且 $\vbf{a} \in D'$ 是 $D$ 的聚点，如果对任意 $\eps > 0$ 存在 $\delta > 0$ 使得当 $\vbf{x} \in U^{\circ}(\vbf{a}, \delta) \cap D$ 有
-	\[ |f(\vbf{x} - A)| < \eps \]
+	\[ |f(\vbf{x}) - A| < \eps \]
 	成立，则称 $f(\vbf{x})$ 在 $D$ 上当 $\vbf{x} \to \vbf{a}$ 时以 $A$ 为极限，或者称为 $n$ 重极限，记作
 	\[ \lim_{\vbf{x} \to \vbf{a}} f(\vbf{x}) = A \]
 \end{definition}
@@ -239,10 +239,9 @@
 \[ \Delta(x_0, y_0) = (f_{xx} f_{yy} - f_{xy}^2)(x_0, y_0) \]
 则有如下结论：
 \begin{itemize}
-	\item 如果 $\Delta > 0$ 且 $f_xx > 0$，为严格极小值。
-	\item 如果 $\Delta > 0$ 且 $f_xx < 0$，为严格极大值。
+	\item 如果 $\Delta > 0$，则当 $f_{xx} > 0$ 时为严格极小值；$f_{xx} < 0$ 为严格极大值。
 	\item 如果 $\Delta < 0$，不是极值。
-	\item 如果 $\Delta = 0$ 无法判断。
+	\item 如果 $\Delta = 0$ 无法判断，可能有可能没有。
 \end{itemize}
 
 无法判断的例子有 $f_1 = x^2y^2, g = -f, h = x^2 y^3$，在 $0$ 处极值情况各不相同。

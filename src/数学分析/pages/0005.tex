@@ -416,21 +416,21 @@
 \subsection{收敛判别法}
 
 接下来我们考察
-\[ I_f = \int_{a}^{+\infty} f(x) \d x \]
+\[ I(f) = \int_{a}^{+\infty} f(x) \d x \]
 的收敛性。
 
 \begin{theorem}[有界判别法]
 	积分
-	\[ I_f(A) = \int_{a}^{A} f(x) \d x \]
-	有界，是 $I_f$ 收敛的充分要条件。
+	\[ I_A(f) = \int_{a}^{A} f(x) \d x \]
+	有界，是 $I(f)$ 收敛的充分必要条件。
 \end{theorem}
 
 \begin{theorem}[比较判别法]
-	如果 $0 \leqslant f(x) \leqslant g(x)$。若 $I_f$ 发散则 $I_g$ 发散。若 $I_g$ 收敛则 $I_f$ 收敛。
+	如果 $0 \leqslant f(x) \leqslant g(x)$。若 $I(f)$ 发散则 $I(g)$ 发散。若 $I(g)$ 收敛则 $I(f)$ 收敛。
 
 	对于极限形式
 	\[ \lim_{x \to +\infty} \frac{f(x)}{g(x)} = K \geqslant 0 \]
-	若 $K = 0$ 且 $I_g$ 收敛则 $I_f$ 收敛。若 $K = +\infty$ 且 $I_g$ 发散则 $I_f$ 发散。若 $K$ 为正实数，则 $I_f$ 收敛是 $I_g$ 收敛的充要条件。
+	若 $K = 0$ 且 $I(g)$ 收敛则 $I(f)$ 收敛。若 $K = +\infty$ 且 $I(g)$ 发散则 $I(f)$ 发散。若 $K$ 为正实数，则 $I(f)$ 收敛是 $I(g)$ 收敛的充要条件。
 \end{theorem}
 
 \begin{proof}
@@ -442,13 +442,13 @@
 \begin{theorem}[Cauchy 判别法]
 	假定 $a > 0$，若
 	\[ f(x) \leqslant \frac{K}{x^p}, \quad K > 0, p > 1 \]
-	则 $I_f$ 收敛。若
+	则 $I(f)$ 收敛。若
 	\[ f(x) \geqslant \frac{K}{x^p}, \quad K > 0, p \leqslant 1 \]
-	则 $I_f$ 发散。
+	则 $I(f)$ 发散。
 
 	极限形式：若
 	\[ \lim_{x \to +\infty} x^p f(x) = K \geqslant 0 \]
-	当 $K$ 是非负实数且 $p > 1$ 时收敛。当 $K$ 是正实数或 $+\infty$ 且 $p \leqslant 1$ 时 $I_f$ 发散。
+	当 $K$ 是非负实数且 $p > 1$ 时收敛。当 $K$ 是正实数或 $+\infty$ 且 $p \leqslant 1$ 时 $I(f)$ 发散。
 \end{theorem}
 
 \begin{proof}

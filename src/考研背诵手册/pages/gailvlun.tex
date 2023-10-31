@@ -57,11 +57,25 @@
 	若 $\bbP(AB) = 0$，不意味着 $AB = \varnothing$。比如 $[0,1]\cap [1,2] = \{1\}$，但概率是 $0$。
 \end{note}
 
+\subsection{常见模型}
 
-\begin{theorem}[伯努利定理]
-	假如一次试验中，事件 $A$ 发生的概率为 $p(0 < p < 1)$，则 $n$ 重伯努利试验中，事件 $A$ 恰好发生 $k$ 次的概率为
-	\[ \binom{n}{k} p^k (1 - p)^{n-k} \]
+摸球不放回模型：袋中有 $a$ 个黑球，$b$ 个白球，若不放回的取 $n$ 个球，其中恰好 $k$ 个白球的概率为
+\[ \bbP(A_k) = \frac{\binom{b}{k} \binom{a}{n-k}}{\binom{a+b}{n}} \]
+
+摸球放回模型：袋中有 $a$ 个黑球，$b$ 个白球，若有放回的取出 $n$ 个球，其中恰好 $k$ 个白球的概率为
+\[ \bbP(B_k) = \binom{n}{k} \frac{a^{n-k} b^k}{(a+b)^n} = [x^k] \left(\frac{a + bx}{a+b}\right)^n \]
+
+伯努利定理：假如一次试验中，事件 $A$ 发生的概率为 $p(0 < p < 1)$，则 $n$ 重伯努利试验中，事件 $A$ 恰好发生 $k$ 次的概率为
+\[ \binom{n}{k} p^k (1 - p)^{n-k} \]
+
+\begin{theorem}[抽签原理]
+	袋中有 $a$ 个黑球，$b$ 个白球，若不放回的依次取球，每次抽中白球的概率都为 $\frac{b}{a+b}$。
 \end{theorem}
+
+\begin{proof}
+	对于第 $i$ 次抽检，可以看成从 $a+b$ 个球中抽出 $i$ 个球排成一排，其可能数是 $A_{a+b}^i$。而第 $i$ 个位置是白球的概率为 $b A_{a+b-1}^{i-1}$，故
+	\[ \bbP(A_i) = \frac{b A_{a+b-1}^{i-1}}{A_{a+b}^i} = \frac{b}{a+b} \]
+\end{proof}
 
 \section{随机变量及其分布}
 
@@ -77,6 +91,7 @@
 
 4. 理解连续型随机变量及其概率密度的概念，掌握均匀分布 $U(a, b)$、 正态分布 $N(\mu, \sigma^2)$、指数分布及其应用，其中参数为 $\lambda(\lambda > 0)$ 的指数分布 $E(\lambda)$ 的概率密度为
 \[ f(x) = \begin{cases} \lambda e^{-\lambda x}, & x > 0 \\ 0, &x \leqslant 0 \end{cases} \]
+
 5. 会求随机变量函数的分布。
 
 \subsection{常见分布}
@@ -180,6 +195,24 @@
 
 
 
+\paragraph{二维随机变量的独立性}
+
+对于二维离散型随机向量 $(X, Y)$，其联合概率分布为
+\[ p_{i,j} = \bbP\{X= x_i, Y = y_j\} \]
+记为 $(X,Y) \sim p_{i,j}$。依条件概率的定义，有
+\[ \bbP\{ X = x_i \mid Y = y_i \} = \frac{\bbP\{X = x_i, Y = y_j\}}{\bbP\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
+
+设二维连续型随机向量 $(X, Y)$，其概率密度是 $f(x, y)$。假设 $y \in [a, b]$，依条件概率的定义，有
+\[ \bbP\{X \leqslant c \mid a \leqslant Y \leqslant b\} = \frac{\bbP\{X \leqslant c , a \leqslant Y \leqslant b\}}{\bbP\{a \leqslant y \leqslant b \}} = \frac{\int_{-\infty}^c \int_{a}^b f(x, y) \d y \d x }{\int_a^b f_Y(y) \d y }\]
+对 $c$ 求导，即得条件密度函数
+\[ f_{X \mid Y}(x \mid a \leqslant y \leqslant b) = \frac{\int_{a}^b f(x, y) \d y}{\int_{a}^b f_{Y}(y) \d t} \]
+考虑极限，$a, b$ 收敛于 $y$ 处，有
+\[ f_{X \mid Y}(x \mid y) = \frac{f(x, y)}{f_{Y}(y)} \]
+
+设 $n$ 维随机向量 $(\seq{x}{n})$ 的联合密度函数为 $f(\seq{x}{n})$，而 $f_i$ 是 $X_i$ 的边缘密度函数，若
+\[ f(\seq{x}{n}) = f_1(x_1) \cdots f_n(x_n) \]
+则称随机变量 $\seq{x}{n}$ 相互独立。
+
 \subsection{二维正态分布}
 
 设二维随机变量的概率密度为
@@ -272,11 +305,6 @@
 
 称 $\rho_{XY} = \frac{\opCov(X, Y)}{\sqrt{\bbD [X] \bbD(Y)}}$ 为 $X, Y$ 的相关系数。
 
-\begin{theorem}[切比雪夫不等式]
-	如果随机变量 $X$ 的期望 $\bbE [X]$ 和方差 $\bbD [X]$ 存在，则对任意 $\eps > 0$ 有
-	\[ \bbP\{|X - \bbE [X]| < \eps\} \geqslant 1 - \frac{\bbD [X]}{\eps^2} \]
-\end{theorem}
-
 
 
 \subsection*{协方差的性质}
@@ -306,7 +334,7 @@ $\Gamma$ 函数是一有力的工具，其定义为
 其具有递推式和余元公式
 \[ \Gamma(z + 1) = z \Gamma(z), \quad \Gamma(z) \Gamma(1-z) = \frac{\pi}{\sin \pi z} \]
 特殊的，$\Gamma(n + 1) = n!$，和 $\Gamma(\frac{1}{2}) = \sqrt{\pi}$。不难化简
-\[ I_n = \int_{0}^{+\infty} x^n \ee^{-x^2} \d x = \frac{1}{2} \int_{0}^{+\infty} \left(x^2\right)^{\frac{n+1}{2}} \ee^{-x^2} \d \left(x^2\right) = \frac{1}{2} \Gamma\left(\frac{n+1}{2}\right)  \]
+\[ I_n = \int_{0}^{+\infty} x^n \ee^{-x^2} \d x = \frac{1}{2} \int_{0}^{+\infty} \left(x^2\right)^{\frac{n-1}{2}} \ee^{-x^2} \d \left(x^2\right) = \frac{1}{2} \Gamma\left(\frac{n+1}{2}\right)  \]
 
 \section{大数定律和中心极限定理}
 
@@ -319,6 +347,11 @@ $\Gamma$ 函数是一有力的工具，其定义为
 3. 了解棣莫弗-拉普拉斯定理（二项分布以正态分布为极限分布）和列维-林德伯格定理（独立同分布随机变量序列的中心极限定理）。
 
 \subsection{神秘公式}
+
+\begin{theorem}[切比雪夫不等式]
+	如果随机变量 $X$ 的期望 $\bbE [X]$ 和方差 $\bbD [X]$ 存在，则对任意 $\eps > 0$ 有
+	\[ \bbP\{|X - \bbE [X]| < \eps\} \geqslant 1 - \frac{\bbD [X]}{\eps^2} \]
+\end{theorem}
 
 设随机变量 $X$ 与随机变量序列 $\{X_n\}$，如果对任意的 $\eps > 0$ 有
 \[ \lim_{n \to \infty} \bbP\{|X_n - X| < \eps \} =1 \]
@@ -405,9 +438,6 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 
 若随机变量 $\seq{x}{n}$ 相互独立且都服从标准正态分布，则随机变量 $X = \sum X_i^2$ 服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $X \sim \chi^2(n)$。其中 $\bbE[\chi^2] = n, \bbD[\chi^2] = 2n$。
 
-对于给定的 $\alpha(0 < \alpha < 1)$，称满足
-\[ \bbP\left\{\chi^2 > \chi_\alpha^2(n)\right\} = \int_{\chi_\alpha^2(n)}^n f(x) \d x = \alpha  \]
-的 $\chi_\alpha^2(n)$ 为 $\chi^2(n)$ 分布的上 $\alpha$ 分位点。
 
 \paragraph{$t$ 分布}
 
@@ -417,6 +447,28 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 
 设随机变量 $X \sim \chi^2(n_1), y \sim \chi^2(n_2)$，且 $X$ 与 $Y$ 相互独立，则 $F = \frac{X / n_1}{Y / n_2}$ 服从自由度为 $(n_1, n_2)$ 的 $F$ 分布，记为 $F \sim F(n_1, n_2)$。
 
+对于给定的 $\alpha(0 < \alpha < 1)$ 和分布 $X$，称满足
+\[ \bbP\left\{X > X_\alpha\right\} = \int_{X_\alpha}^{\infty} f(x) \d x = \alpha  \]
+的 $X_\alpha$ 为 $X$ 分布的上 $\alpha$ 分位点。
+
+\subsection{常用结论}
+
+设 $\seq{X}{n}$ 是取自正态总体 $N(\mu, \sigma^2)$ 的一个样本，$\overline{X}, S^2$ 分别是其样本均值和方差，则
+\begin{itemize}
+	\item $\overline{X}$ 与 $S^2$ 相互独立。
+	\item \[ \overline{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right), \quad \frac{(\overline{X}-\mu)}{\sigma / \sqrt{n}} \sim N(0, 1) \]
+	\item \[ \frac{1}{\sigma^2} \sum_{i=1}^{n} (X_i - \mu)^2 \sim \chi^2(n) \]
+	\item \[ \frac{(n-1)S^2}{\sigma^2} = \sum_{i=1}^n \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 \sim \chi^2(n-1) \]
+	\item \[ \frac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1) \]
+\end{itemize}
+
+\textbf{独立}分布的可加性
+\begin{itemize}
+	\item 对于 $X \sim B(n,p), Y \sim B(m, p)$，则 $X+Y \sim B(n+m,p)$；
+	\item 对于 $X \sim P(\lambda_1), Y \sim P(\lambda_2)$，则 $X+Y \sim P(\lambda_1 + \lambda_2)$；
+	\item 对于 $X \sim N(\mu_1, \sigma_1^2), Y \sim N(\mu_2, \sigma_2^2)$，则 $X+Y \sim N(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$；
+	\item 对于 $X \sim \chi^2(n), Y \sim \chi^2(m)$，则 $X+Y \sim \chi^2(n+m)$；
+\end{itemize}
 
 \section{参数估计}
 

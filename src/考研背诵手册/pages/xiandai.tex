@@ -27,6 +27,8 @@
 若对不同行列展开，比如对于 $n$ 阶行列式 $|A|$ 的第 $k, i$ 行展开（$k \neq i$）
 \[\sum_{j=1}^na_{ij}A_{kj} = 0 \]
 
+行列式的一些计算技巧：\href{https://zhuanlan.zhihu.com/p/34685081}{知乎：八大类型行列式及其解法}。
+
 \section{矩阵}
 
 \subsection{大纲要求}
@@ -116,6 +118,56 @@
 	\item $A$ 无零特征值；
 	\item $A\vbf{x} = 0$ 只有零解；
 \end{itemize}
+
+\subsection{矩阵秩的性质}
+
+\begin{theorem}[Sylvester 秩不等式]
+	设 $A, B$ 分别是 $s \times n, n \times m$ 的矩阵，则
+	\[ r(A) + r(B) - n \leqslant r(AB) \leqslant \min\{r(A),r(B)\} \]
+\end{theorem}
+
+\begin{proof}
+	右侧显然。对于左侧，由于矩阵的初等行（列）变换不改变矩阵的秩，构造分块矩阵
+	\[ n + r(AB) = r \left(\begin{matrix}
+				E_n & 0 \\ 0 & AB
+			\end{matrix}\right) = r\left(\begin{matrix}
+				B & E_n \\ 0 & A
+			\end{matrix}\right) \geqslant r(B) + r(A) \]
+\end{proof}
+
+\begin{theorem}
+	设 $A$ 是一个 $s \times n$ 矩阵，且 $A \neq 0$，证明：$A$ 可以被分解为行列向量的乘积当且仅当 $r(A) = 1$
+\end{theorem}
+
+\begin{proof}
+	由于秩为 $1$，因此选取 $A$ 的一个列向量 $\vbf{\alpha}_1$，其他的列向量都可以由其表示，故 $A = \vbf{\alpha} \transpose{\vbf{\beta}}$。
+\end{proof}
+
+\begin{theorem}
+	\[ r(\transpose{A}A) = r(A \transpose{A}) = r(A) \]
+\end{theorem}
+
+\begin{proof}
+	试证 $A\vbf{X} = \vbf{0}$ 与 $(\transpose{A}A) \vbf{X} = \vbf{0}$ 同解。
+
+	假设 $\vbf{\eta}$ 是 $A \vbf{X} = \vbf{0}$ 的一个解，显然
+	\[ (\transpose{A}A) \vbf{X} = \transpose{A} (A \vbf{\eta}) = \transpose{A} \vbf{0} = \vbf{0} \]
+	反之，设 $\vbf{\eta}$ 是 $(\transpose{A}A) \vbf{X} = \vbf{0}$ 的一个解，注意到
+	\[ \transpose{(A \vbf{\eta})}(A \vbf{\eta}) = \transpose{\vbf{\eta}} ((\transpose{A}A) \vbf{\eta}) = 0 \]
+	即向量 $A \vbf{\eta}$ 的长度为 $0$，故 $A \vbf{\eta} = \vbf{0}$。
+\end{proof}
+
+\begin{theorem}
+	如果 $n$ 级矩阵满足 $(A - aE)(A - bE) = O$，其中 $a \neq b$，证明：$r(A - aE) + r(A - bE) = n$。
+\end{theorem}
+
+\begin{proof}
+	一方面
+	\[ r(A - aE) + r(A - bE) \leqslant r(O) + n = n \]
+	另一方面
+	\[ r(A - aE) + r(A - bE) \geqslant r((A - aE) - (A - bE)) = n \]
+	因此 $r(A - aE) + r(A - bE) = n$。
+\end{proof}
 
 \section{向量}
 
@@ -240,6 +292,19 @@
 
 相似矩阵：如果存在 $P$ 使得 $P^{-1} A P = B$，则称 $A$ 与 $B$ 相似，$P$ 称为相似变换阵。
 
+\begin{theorem}
+	数域 $K$ 上 $n$ 级矩阵 $A$ 可对角化的充分必要条件是，$K^n$ 中有 $n$ 个线性无关的列向量 $\seq{\vbf{\alpha}}{n}$，以及 $K$ 中有 $n$ 个数 $\seq{\lambda}{n}$（它们之中有些可能相等），使得
+	\[ A\vbf{\alpha}_i = \lambda_i \vbf{\alpha}_i, \quad  1 \leqslant i \leqslant n \]
+	这时，令 $P = (\seq{\vbf{\alpha}}{n})$，则
+	\[ P^{-1}AP = \operatorname{diag} \{\seq{\lambda}{n}\} \]
+\end{theorem}
+
+\begin{proof}
+	带入 $AP = PD$，注意到
+	\[ AP = (\seq{A\vbf{\alpha}}{n}) = (\lambda_1 \vbf{\alpha}_1, \cdots, \lambda_n \vbf{\alpha}_n)D = PD \]
+	因此存在 $A \vbf{\alpha}_i = \lambda_i \vbf{\alpha}_i$。
+\end{proof}
+
 相似矩阵的性质：
 \begin{itemize}
 	\item 相似矩阵的特征多项式相同，从而特征值相同；
@@ -347,7 +412,7 @@ $n$ 阶矩阵 $A$ 可对角化的充要条件：$A$ 有 $n$ 个线性无关的�
 	令
 	\[ T = \left(\begin{matrix}
 				-\frac{2}{3} & \frac{1}{3}  & \frac{2}{3} \\
-				\frac{1}{3}  & -\frac{2}{3} & \frac{2}{3}        \\
+				\frac{1}{3}  & -\frac{2}{3} & \frac{2}{3} \\
 				\frac{2}{3}  & \frac{2}{3}  & \frac{1}{3}
 			\end{matrix}\right) \]
 	此处 $T$ 即是正交矩阵，且 $T^{-1}AT = \operatorname{diag}\{2, 5, -1\}$。令

@@ -148,78 +148,53 @@
 
 \subsection{多维随机变量及其分布}
 
-\paragraph{离散型}
+随机变量 $(X,Y)$ 的联合分布为
+\[ F(x,y) = \bbP\{X \leqslant x, Y \leqslant y\} \]
+记为 $(X,Y) \sim F$。
 
-假如每个分量是离散型的，那么称 $X$ 是 $n$ 维离散型随机变量。
+\subsubsection*{离散型}
 
-\begin{definition}
-	以 $\{a_{i1}, \cdots\}$ 记 $X_i$ 的全部可能值，则事件的概率
-	\[ p(\seq{j}{n}) = \bbP\{X_1 = a_{1j_1}, \cdots, X_n = a_{n j_n}\} \]
-	为随机变量的概率函数。显然应该满足条件
-	\[ p(j_1, \cdots) \geqslant 0, \quad \sum_{j_n} \cdots \sum_{j_1} p(j_1, \cdots)  =1 \]
-\end{definition}
+离散型随机变量 $(X,Y)$ 的联合分布律为
+\[ \bbP\{X=x_i,Y=y_i\} = p_{ij} \]
+边缘分布律
+\[ p_{i,\cdot} = \bbP\{ X = x_i \} =  \sum_{j=1}^\infty p_{i,j}, \quad p_{\cdot,y_j} \bbP\{ Y = y_j \} =  \sum_{i=1}^\infty p_{iy} \]
+条件分布律
+\[ \bbP\{ X = x_i | Y = y_i \} = \frac{\bbP\{ X = x_i, Y = y_i \}}{\bbP\{Y = y_i \}} = \frac{p_{x_i,y_i}}{p_{\cdot,y}} \]
 
-\paragraph{连续型}
-连续型随机变量不能简单的定义为各分量都是“一维连续型随机变量的那种”。考虑 $X_1 = X_2$，则 $(X_1, X_2)$ 仅在对角线处有值，故不可能存在概率密度函数。
+\subsubsection*{连续型}
 
-\begin{definition}
-	设 $f(\seq{x}{n})$ 是定义在 $\mathbb{R}^n$ 上的非负函数，使得对 $\mathbb{R}^n$ 中的任何集合 $A$，有
-	\[ \bbP\{X \in A\} = \int_A \cdots \int f(\seq{x}{n}) \d x_1 \cdots \d x_n \]
-	则称 $f$ 是 $X$ 的概率密度函数。显然当 $\bbP\{ X \in \mathbb{R}^n\} = 1$。
-\end{definition}
+连续型随机变量 $(X,Y)$ 的联合分布函数为
+\[ F(x,y) = \bbP\{X \leqslant x, Y \leqslant y\} = \int_{-\infty}^{x} \int_{-\infty}^{y} f(u,v) \d u \d v \]
+边缘分布函数
+\[ F_{X}(x) = \bbP\{X \leqslant x\} = F(x, +\infty), \quad F_{Y}(y) =  = \bbP\{Y \leqslant y\} = F(+\infty, y) \]
 
-也可以定义分布函数
-\[ F(\seq{x}{n}) = \bbP\{X_1 \leqslant x_1, \cdots, X_n \leqslant x_n \} \]
-
-对于二维 $(X, Y)$，若 $f$ 在点 $(x, y)$ 处连续，则
+若 $F(x, y)$ 连续可导，则其概率密度为
 \[ \frac{\partial^2 F(x, y)}{\partial x \partial y} = f(x, y) \]
-反之若 $F(x, y)$ 连续可导，则此式是其概率密度。
+反之若 $f$ 在点 $(x, y)$ 处连续，概率分布满足。类似的有边缘概率密度
+\[ f_{X}(x) = \int_{-\infty}^{+\infty} f(x,y) \d y, \quad f_{Y}(y) = \int_{-\infty}^{+\infty} f(x,y) \d x \]
 
-\paragraph{边缘分布}
+\begin{note}
+	连续型随机变量不能简单的定义为“各分量都是一维连续型随机变量”的那种。考虑 $X_1 = X_2$，则 $(X_1, X_2)$ 仅在对角线处有值，故不可能存在概率密度函数。
+\end{note}
 
-对任意的 $n$ 个实数，$x_1, x_2, \cdots, x_n$，称 $n$ 元函数
-\[ F(\seq{x}{n}) = \bbP\{X_1 \leqslant x_1, X_2 \leqslant x_2, \cdots. X_n \leqslant x_n\} \]
-为多维随机变量 $(\seq{x}{n})$ 的联合分布函数，记为 $(\seq{x}{n}) \sim F(\seq{x}{n})$。
+\subsubsection*{二维随机变量的独立性}
 
-\begin{itemize}
-	\item $F(x, y)$ 是 $x, y$ 的单调不减函数。
-	\item $F(x, y)$ 是 $x, y$ 的右连续函数。
-	\item $F(-\infty, y) = F(x, -\infty) = F(-\infty, -\infty) = 0$，$F(+\infty, +\infty) = 1$。
-	\item 对任意 $x_1 < x_2, y_1 < y_2$，有
-	      \[ \bbP\{x_1 < X \leqslant x_2, y_1 Y \leqslant y_2\} = F(x_2, y_2) - F(x_2, y_1) - F(x_1, y_2) + F(x_1, y_1) \geqslant 0 \]
-\end{itemize}
-
-设其联合分布函数为 $F(x,y)$，定义边缘分布函数
-\[ F_X(x) = \bbP\{X \leqslant x\} = F(x, +\infty) \]
-同理，有 $F_Y(y) = F(+\infty, y)$。
-
-
-
-\paragraph{二维随机变量的独立性}
-
-对于二维离散型随机向量 $(X, Y)$，其联合概率分布为
-\[ p_{i,j} = \bbP\{X= x_i, Y = y_j\} \]
-记为 $(X,Y) \sim p_{i,j}$。依条件概率的定义，有
-\[ \bbP\{ X = x_i \mid Y = y_i \} = \frac{\bbP\{X = x_i, Y = y_j\}}{\bbP\{Y=y_j\}} = \frac{p_{i, j}}{p_{, j}} \]
-
-设二维连续型随机向量 $(X, Y)$，其概率密度是 $f(x, y)$。假设 $y \in [a, b]$，依条件概率的定义，有
-\[ \bbP\{X \leqslant c \mid a \leqslant Y \leqslant b\} = \frac{\bbP\{X \leqslant c , a \leqslant Y \leqslant b\}}{\bbP\{a \leqslant y \leqslant b \}} = \frac{\int_{-\infty}^c \int_{a}^b f(x, y) \d y \d x }{\int_a^b f_Y(y) \d y }\]
-对 $c$ 求导，即得条件密度函数
-\[ f_{X \mid Y}(x \mid a \leqslant y \leqslant b) = \frac{\int_{a}^b f(x, y) \d y}{\int_{a}^b f_{Y}(y) \d t} \]
-考虑极限，$a, b$ 收敛于 $y$ 处，有
+设二维连续型随机向量 $(X, Y)$，其概率密度是 $f(x, y)$。假设 $y \in [y_1, y_2]$，依条件概率的定义，有
+\[ F_{X|Y}(x \mid y_1 \leqslant Y \leqslant y_2) = \bbP\{X \leqslant x \mid y_1 \leqslant Y \leqslant y_2\} = \frac{\int_{-\infty}^x \int_{y_1}^{y_2} f(x, y) \d y \d x }{\int_{y_1}^{y_2} f_Y(y) \d y }\]
+对 $x$ 求导，即得条件密度函数
+\[ f_{X \mid Y}(x \mid y_1 \leqslant y \leqslant y_1) = \frac{\int_{y_1}^{y_2} f(x, y) \d y}{\int_{y_1}^{y_2} f_{Y}(y) \d t} \]
+考虑极限，$y_1, y_2$ 收敛于 $y$ 处时有
 \[ f_{X \mid Y}(x \mid y) = \frac{f(x, y)}{f_{Y}(y)} \]
 
-设 $n$ 维随机向量 $(\seq{x}{n})$ 的联合密度函数为 $f(\seq{x}{n})$，而 $f_i$ 是 $X_i$ 的边缘密度函数，若
-\[ f(\seq{x}{n}) = f_1(x_1) \cdots f_n(x_n) \]
+若二维随机变量 $(X,Y)$ 的联合概率密度函数 $f(x,y)$ 满足
+\[ f(x,y) = f_{X}(x) f_{Y}(y) \]
 则称随机变量 $\seq{x}{n}$ 相互独立。
 
 \subsection{二维正态分布}
 
 设二维随机变量的概率密度为
 \[ f(x, y) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1-p^2)} \left(\frac{(x-\mu_1)^2}{\sigma_1^2} + \frac{(y-\mu_2)^2}{\sigma_2^2} - 2 \rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1 \sigma_2}\right) \right) \]
-记为 $N(\mu_1, \mu_2; \sigma_1, \sigma_2; \rho)$。
-
-当 $\rho = 0$，可以看作 $X \sim N(\mu_1, \sigma_1^2), Y \sim N(\mu_2, \sigma_2^2)$。
+记为 $N(\mu_1, \mu_2; \sigma_1, \sigma_2; \rho)$，可以看作两个分布 $X \sim N(\mu_1, \sigma_1^2), Y \sim N(\mu_2, \sigma_2^2)$ 以相关系数 $\rho$ 合起来。
 
 \subsection{两个随机变量简单函数}
 
@@ -283,7 +258,7 @@
 方差的性质
 \begin{itemize}
 	\item 对于常数 $C$，有 $\bbD[C] = C^2$；
-	\item 线性性：如果 $X_1, \cdots, X_n$ 相互独立，$\bbD[\sum k_iX_i] = \sum k_i^2 \bbE [X]$。
+	\item 线性性：如果 $X_1, \cdots, X_n$ \textbf{相互独立}，$\bbD[\sum k_iX_i] = \sum k_i^2 \bbE [X]$。
 \end{itemize}
 
 \subsection{协方差和相关系数}
@@ -377,12 +352,12 @@ $\Gamma$ 函数是一有力的工具，其定义为
 	假设 $\{X_n\}$ 是独立同分布的随机变量序列，如果
 	\[ \bbE(X_i) = \mu, \bbD(X_i) = \sigma^2 > 0 \]
 	存在，则对任意的实数 $x$ 有
-	\[ \lim_{n \to \infty} \bbP\left\{ \frac{\sum_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+	\[ \lim_{n \to \infty} \bbP\left\{ \frac{\sum\limits_{i=1}^n X_i - n \mu}{\sigma \sqrt{n}} \leqslant x \right\} =  \int_{-\infty}^x \frac{1}{\sqrt{2 \pi}} \ee^{-\frac{t^2}{2}} \d t = \varPhi(x)  \]
 \end{theorem}
 
 \begin{theorem}[棣莫弗 - 拉普拉斯定理]
 	设随机变量 $Y_n \sim B(n, p)$，其中 $0 < p < 1$ 且 $n > 1$，则对任意的实数 $x$，有
-	\[ \lim_{n \to \infty} \bbP\left\{ \frac{Y_n - np}{\sqrt{np(1 - p)}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right) \d t = \Phi(x)  \]
+	\[ \lim_{n \to \infty} \bbP\left\{ \frac{Y_n - np}{\sqrt{np(1 - p)}} \leqslant x \right\} =  \int_{-\infty}^x \frac{1}{\sqrt{2 \pi}} \ee^{-\frac{t^2}{2}} \d t = \varPhi(x)  \]
 \end{theorem}
 
 
@@ -402,21 +377,17 @@ $\Gamma$ 函数是一有力的工具，其定义为
 
 随机试验的每一个可能的观察值称为个体，全部观察值称为总体，总体中包含个体的个数称为总体的容量。
 
-$n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为来自总体 $X$ 或者来自分布函数 $F$ 的简单随机样本，其容量为 $n$。一次抽样结果的 $n$ 个具体数值称为 $\seq{x}{n}$ 的一个观测值（样本值）。
+$n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为来自总体 $X$ 或者来自分布函数 $F$ 的简单随机样本，其容量为 $n$。一次抽样结果的 $n$ 个具体数值称为 $\seq{X}{n}$ 的一个观测值（样本值）。
 
-设 $\seq{x}{n}$ 为来自总体 $X$ 的一个样本，$g$ 为仅与 $x$ 有关的 $n$ 元函数，则称 $g$ 为样本的一个统计量。若 $(\seq{x}{n})$ 为样本值，则 $g(\seq{x}{n})$ 为观测值。
+设 $\seq{X}{n}$ 为来自总体 $X$ 的一个样本，$g$ 为仅与 $x$ 有关的 $n$ 元函数，则称 $g$ 为样本的一个统计量。若 $(\seq{x}{n})$ 为样本值，则 $g(\seq{x}{n})$ 为观测值。
 
-假设总体 $X$ 的分布函数为 $F$，则 $(\seq{x}{n})$ 的分布函数为
+假设总体 $X$ 的分布函数为 $F$，则 $(\seq{X}{n})$ 的分布函数为
 \[ F(\seq{x}{n}) = \prod_{i=1}^n F(x_i) \]
 
-样本均值
-\[ \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i \]
-样本方差
-\[ S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \]
-样本 $k$ 阶（原点）矩
-\[ A_k = \frac{1}{n} \sum_{i=1}^n X_i^k \]
-样本 $k$ 阶中心矩
-\[ B_k = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^k \]
+样本均值和样本方差
+\[ \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i, \quad S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \]
+样本 $k$ 阶（原点）矩和样本 $k$ 阶中心矩
+\[ A_k = \frac{1}{n} \sum_{i=1}^n X_i^k, \quad B_k = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^k \]
 将 $n$ 个观测量从小到大的顺序排列，记随机变量 $X_{(k)}$ 为第 $k$ 顺序统计量。
 
 显然样本与总体同分布
@@ -487,7 +458,7 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 
 设总体 $X$ 的分布形式已知，但含有未知参数 $\theta$，或者总体的某数字特征存在但未知，从总体中抽取样本 $\seq{X}{n}$，相应的样本值为 $\seq{x}{n}$。借助于样本给出一个未知参数具体数值的参数估计问题就是点估计问题。
 
-要解决点估计问题，就要构造一个适当的统计量 $\hat{\theta}(\seq{x}{n})$ 作为参数 $\theta$ 的近似值，则称 $\hat{\theta}(\seq{X}{n})$ 为 $\theta$ 的估计量，$\hat{\theta}(\seq{X}{n})$ 为 $\theta$ 为 $\theta$ 的估计值。
+要解决点估计问题，就要构造一个适当的统计量 $\widehat{\theta}(\seq{x}{n})$ 作为参数 $\theta$ 的近似值，则称 $\widehat{\theta}(\seq{X}{n})$ 为 $\theta$ 的估计量，$\widehat{\theta}(\seq{X}{n})$ 为 $\theta$ 为 $\theta$ 的估计值。
 
 \subsection{矩估计法}
 
@@ -505,11 +476,11 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 	\item 似然性 $L(x; \theta)$ 是从观测结果 $x$ 出发，分布函数为 $\theta$ 的可能性大小。
 \end{itemize}
 
-最大似然估计值即对给定的观测值 $\seq{x}{n}$，该估计值 $\hat{\theta}$ 使似然性最大。
+最大似然估计值即对给定的观测值 $\seq{x}{n}$，该估计值 $\widehat{\theta}$ 使似然性最大。
 
 假设 $X$ 是离散型随机变量，其概率分布为 $\bbP\{X = x\} = p(x; \theta)$，那么求其取值概率
 \[ L(\seq{x}{n};\theta) = \bbP\{X_1 = x_1, \cdots, X_n = x_n\} = \prod_{i=1}^n \bbP\{X_i=x_i\} = \prod_{i=1}^n p(x_i; \theta) \]
-称为样本的似然函数。若存在 $\hat{\theta}$ 使得 $L$ 取到最大值，则称 $\hat{\theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
+称为样本的似然函数。若存在 $\widehat{\theta}$ 使得 $L$ 取到最大值，则称 $\widehat{\theta}$ 为最大似然估计值，对应的统计量是 $\theta$ 的最大似然估计量。
 
 同理，连续型随机变量也有
 \[ L(\seq{x}{n}; \theta) = \prod_{i=1}^n f(x_i; \theta) \]
@@ -520,7 +491,7 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 	\item 求关于 $\theta$ 的最大值点，一般情况下可微，求导或者对数求导
 	      \[ \frac{\d L}{\d \theta} = 0, \quad \frac{\d (\ln L)}{\d \theta} = \frac{L'(\theta)}{L(\theta)} = 0 \]
 	      得到极值点
-	\item 用样本 $X_i$ 代替样本值 $x_i$，得到最大似然估计量 $\hat{\theta}$。
+	\item 用样本 $X_i$ 代替样本值 $x_i$，得到最大似然估计量 $\widehat{\theta}$。
 \end{enumerate}
 倘若有多个参数 $\theta$，也是计算多元极值点。
 
@@ -530,10 +501,36 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 
 \subsection{估计量的评选标准}
 
-无偏性：若估计量 $\hat{\theta}$ 的数学期望 $\bbE[\hat{\theta}]$ 存在，且 $\bbE[\hat{\theta}] = \theta$，则称 $\hat{\theta}$ 是 $\theta$ 的无偏估计量。
+无偏性：若估计量 $\widehat{\theta}$ 的数学期望 $\bbE[\widehat{\theta}]$ 存在，且 $\bbE[\widehat{\theta}] = \theta$，则称 $\widehat{\theta}$ 是 $\theta$ 的无偏估计量。
 
-有效性：若 $\hat{\theta}_1$ 和 $\hat{\theta}_2$ 都是 $\theta$ 的估计量，若 $\bbD[\hat{\theta}_1] \leqslant \bbD[\hat{\theta}_2]$，则称 $\hat{\theta}_1$ 较 $\hat{\theta}_2$ 有效。
-一致性（相合性）：若估计量 $\hat{\theta}$ 在 $n \to \infty$ 时 $\hat{\theta}$ 依概率收敛于 $\theta$，则称 $\hat{\theta}$ 是 $\theta$ 的一致估计量。
+有效性：若 $\widehat{\theta}_1$ 和 $\widehat{\theta}_2$ 都是 $\theta$ 的估计量，若 $\bbD[\widehat{\theta}_1] \leqslant \bbD[\widehat{\theta}_2]$，则称 $\widehat{\theta}_1$ 较 $\widehat{\theta}_2$ 有效。
+一致性（相合性）：若估计量 $\widehat{\theta}$ 在 $n \to \infty$ 时 $\widehat{\theta}$ 依概率收敛于 $\theta$，则称 $\widehat{\theta}$ 是 $\theta$ 的一致估计量。
+
+一致性：若估计量 $\widehat{\theta}$ 对任意 $\eps > 0$ 有
+\[ \lim_{n \to \infty} \bbP\{|\widehat{\theta}-\theta| \geqslant \eps\} = 0 \]
+即当 $\widehat{\theta} \stackrel{P}{\longrightarrow} \theta$ 时，称 $\widehat{\theta}$ 为 $\theta$ 的一致估计。
+
+\subsection{区间估计}
+
+估计量 $\widehat{\theta_1}, \widehat{\theta_2}$ 使得
+\[ \bbP\{\widehat{\theta_1} < \theta < \widehat{\theta_2}\} = 1-\alpha \]
+则称随机区间 $(\widehat{\theta_1}, \widehat{\theta_2})$ 是 $\theta$ 置信度 $1-\alpha$ 的置信区间，$\alpha$ 称为显著性水平。若 $\bbP\{\theta < \widehat{\theta_1}\} = \bbP\{\theta > \widehat{\theta_2}\} = \frac{\alpha}{2}$ 时，则称这种置信区间为等尾置信区间。
+
+对于 $X \sim N(\mu,\sigma^2)$，其置信区间为
+\begin{itemize}
+	\item $\sigma^2$ 已知，$\mu$ 的置信水平是 $1-\alpha$ 的置信区间为
+	      \[ U = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} = N(0, 1), \qquad
+		      I_1 = \left(\overline{X} - \frac{\sigma}{\sqrt{n}} z_{\alpha/2},\overline{X} + \frac{\sigma}{\sqrt{n}} z_{\alpha/2} \right) \]
+	\item $\sigma^2$ 未知，$\mu$ 的置信水平是 $1-\alpha$ 的置信区间为
+	      \[ U = \frac{\overline{X} - \mu}{S/\sqrt{n}} \sim t(n-1), \qquad
+		      I_2 = \left(\overline{X} - \frac{S}{\sqrt{n}} t_{\alpha/2},\overline{X} + \frac{S}{\sqrt{n}} t_{\alpha/2} \right) \]
+	\item $\mu$ 已知，$\sigma^2$ 的置信水平是 $1-\alpha$ 的置信区间为
+	      \[ W' = \frac{1}{\sigma^2}\sum_{i=1}^n (X_i - \mu)^2\sim \chi^2(n), \qquad
+		      I_3 = \left(\frac{\sum (X_i - \mu)^2}{\chi^2_{\alpha/2}(n)} , \frac{\sum (X_i - \mu)^2}{\chi^2_{1-\alpha/2}(n)} \right) \]
+	\item $\mu$ 未知，$\sigma^2$ 的置信水平是 $1-\alpha$ 的置信区间为
+	      \[ W = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1), \qquad
+		      I_4 = \left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)} , \frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)} \right) \]
+\end{itemize}
 
 \section{假设检验}
 
@@ -569,6 +566,8 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 \begin{itemize}
 	\item 提出所要检验的原假设 $H_0$ 与备择假设 $H_1$；
 	\item 选择检验的统计量，并在 $H_0$ 成立下求出它的分布；
-	\item 给定显著性水平，在 $H_0$ 成立下去欸的那个临界值和否定域；
+	\item 给定显著性水平，在 $H_0$ 成立下去的那个临界值和否定域；
 	\item 由样本值推算出统计量的值，判断该值是否落入否定域。
 \end{itemize}
+
+正态分布下均值与方差的假设检验：不抄了，看张宇。

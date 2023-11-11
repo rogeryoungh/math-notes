@@ -90,7 +90,28 @@
 \end{itemize}
 则称为行最简形矩阵。
 
-矩阵等价：如果矩阵 $A$ 能经过有限次初等变换变为 $B$，则称 $A$ 与 $B$ 等价，记 $A \sim B$。若仅限行变换或者列变换，则称行（列）等价。
+矩阵等价：
+\begin{itemize}
+	\item 矩阵等价：
+	      \begin{itemize}
+		      \item 矩阵 $A$ 能经过有限次初等变换变为 $B$，则称 $A$ 与 $B$ 等价。
+		      \item 也可以表述为存在可逆矩阵 $P,Q$ 使得 $PAQ = B$。
+	      \end{itemize}
+	\item 矩阵行等价：
+	      \begin{itemize}
+		      \item 矩阵 $A$ 能经过有限次初等\textbf{行}变换变为 $B$。
+		      \item 存在可逆矩阵 $P$ 使得 $PA = B$。
+		      \item 等价于 $Ax=0$ 与 $Bx=0$ 同解。
+		      \item 矩阵行向量等价。
+	      \end{itemize}
+	\item 矩阵列等价：
+	      \begin{itemize}
+		      \item 矩阵 $A$ 能经过有限次初等\textbf{列}变换变为 $B$。
+		      \item 存在可逆矩阵 $Q$ 使得 $AQ = B$。
+		      \item 矩阵列向量等价。
+	      \end{itemize}
+\end{itemize}
+
 
 求矩阵的逆：对矩阵 $(A \mid E)$ 做初等行变换，当 $A$ 变为 $E$，$E$ 则变为 $A^{-1}$。
 
@@ -108,10 +129,70 @@
 	\item 矩阵左乘初等矩阵则对应行变换，右乘列变换。
 \end{itemize}
 
+\subsection{矩阵乘法的不同视角}
+
+矩阵乘列向量
+\[ \begin{pmatrix}
+		1 & 2 \\ 3 & 4 \\ 5 & 6
+	\end{pmatrix} \begin{pmatrix}
+		x_1 \\ x_2
+	\end{pmatrix} = \begin{pmatrix}
+		(1x_1 + 2x_2) \\ (3x_1 + 4x_2) \\ (5x_1 + 6x_2)
+	\end{pmatrix} = x_1 \begin{pmatrix}
+		1 \\ 3 \\ 5
+	\end{pmatrix}+ x_2\begin{pmatrix}
+		2 \\ 4 \\ 6
+	\end{pmatrix} \]
+行向量乘矩阵
+\[ \begin{pmatrix}
+		y_1 & y_2 & y_3
+	\end{pmatrix} \begin{pmatrix}
+		1 & 2 \\ 3 & 4 \\ 5 & 6
+	\end{pmatrix} = y_1 \begin{pmatrix}
+		1 & 2
+	\end{pmatrix} + y_2\begin{pmatrix}
+		3 & 4
+	\end{pmatrix} + y_3\begin{pmatrix}
+		5 & 6
+	\end{pmatrix} \]
+矩阵乘矩阵
+\[ \begin{aligned}
+		\begin{pmatrix}
+			1 & 2 \\ 3 & 4 \\ 5 & 6
+		\end{pmatrix} \begin{pmatrix}
+			              x_1 & y_1 \\ x_2 & y_2
+		              \end{pmatrix}
+		 & = A \begin{pmatrix}
+			       \vbf{x} & \vbf{y}
+		       \end{pmatrix} = \begin{pmatrix}
+			                       A\vbf{x} & A\vbf{y}
+		                       \end{pmatrix}                                                          \\
+		 & = \begin{pmatrix}
+			     (1x_1 + 2x_2) & (1y_1 + 2y_2) \\ (3x_1 + 4x_2) & (3y_1 + 4y_2) \\ (5x_1 + 6x_2) & (5y_1 + 6y_2)
+		     \end{pmatrix} \\
+		 & = \begin{pmatrix}
+			     1 \\ 3 \\ 5
+		     \end{pmatrix} \begin{pmatrix}
+			                   x_1 & y_1
+		                   \end{pmatrix} + \begin{pmatrix}
+			                                   2 \\ 4 \\ 6
+		                                   \end{pmatrix} \begin{pmatrix}
+			                                                 x_2 & y_2
+		                                                 \end{pmatrix}
+	\end{aligned} \]
+
+如果 $AB = C$，则
+\begin{itemize}
+	\item $C$ 的列向量组可由 $A$ 的列向量组线性表示。
+	\item 若 $B$ 可逆，则 $C$ 的列向量组和 $A$ 的列向量组等价。
+	\item $C$ 的行向量组可由 $B$ 的行向量组线性表示。
+	\item 若 $A$ 可逆，则 $C$ 的行向量组和 $B$ 的行向量组等价。
+\end{itemize}
+
 \subsection{矩阵的性质}
 
 伴随矩阵：设矩阵 $A = (a_{ij})$，那么 $A$ 的伴随矩阵为
-\[ A^*=(A_{ij}) \]
+\[ A^*= \transpose{(A_{ij})}_{n\times n} \]
 即每行每列全为代数余子式。
 
 矩阵的逆、伴随、转置运算可交换
@@ -123,14 +204,18 @@
 数乘
 \[ (kA)^{-1} = k^{-1} A^{-1}, \quad \transpose{kA} = k\transpose{A}, \quad (kA)^{*} = k^{n-1} A^{*} \quad (n \geqslant 2) \]
 
-矩阵 $A$ 可逆的等价命题
+方阵 $A$ 可逆的等价命题
 \begin{itemize}
-	\item 存在 $B$ 使得 $AB = BA = E$；
-	\item $|A| \neq 0$；
-	\item $r(A) = n$；
-	\item $A$ 可以表示为初等矩阵的乘积；
-	\item $A$ 无零特征值；
-	\item $A\vbf{x} = 0$ 只有零解；
+	\item $\Leftrightarrow |A| \neq 0 \Leftrightarrow r(A) = n \Leftrightarrow$ $A$ 无零特征值。
+	\item $\Leftrightarrow Ax = 0$ 只有零解 $\Leftrightarrow$ 对于非零向量 $b$ 有 $Ax = b$ 解唯一。
+	\item $\Leftrightarrow$ $A$ 的行列向量组是 $\mathbb{R}^n$ 的一个基 $\Leftrightarrow$ $A$ 的行列向量组线性无关。
+	\item $\Leftrightarrow$ $A$ 可以分解为初等矩阵的乘积 $\Leftrightarrow$ $A$ 与单位阵 $E$ 等价。
+	\item $\Leftrightarrow$ $\transpose{A}A$ 为正定矩阵。
+\end{itemize}
+
+矩阵 $A_{m \times n}$ 列满秩等价于
+\begin{itemize}
+	\item $\Leftrightarrow r(A) = n \Leftrightarrow A$ 列向量组线性无关 $\Leftrightarrow$ $Ax = 0$ 只有零解。
 \end{itemize}
 
 \subsection{矩阵秩的性质}
@@ -162,11 +247,9 @@
 \end{theorem}
 
 \begin{proof}
-	试证 $A\vbf{X} = \vbf{0}$ 与 $(\transpose{A}A) \vbf{X} = \vbf{0}$ 同解。
-
-	假设 $\vbf{\eta}$ 是 $A \vbf{X} = \vbf{0}$ 的一个解，显然
-	\[ (\transpose{A}A) \vbf{X} = \transpose{A} (A \vbf{\eta}) = \transpose{A} \vbf{0} = \vbf{0} \]
-	反之，设 $\vbf{\eta}$ 是 $(\transpose{A}A) \vbf{X} = \vbf{0}$ 的一个解，注意到
+	试证 $A\vbf{x} = \vbf{0}$ 与 $(\transpose{A}A) \vbf{x} = \vbf{0}$ 同解。假设 $\vbf{\eta}$ 是 $A \vbf{x} = \vbf{0}$ 的一个解，显然
+	\[ (\transpose{A}A) \vbf{x} = \transpose{A} (A \vbf{\eta}) = \transpose{A} \vbf{0} = \vbf{0} \]
+	反之，设 $\vbf{\eta}$ 是 $(\transpose{A}A) \vbf{x} = \vbf{0}$ 的一个解，注意到
 	\[ \transpose{(A \vbf{\eta})}(A \vbf{\eta}) = \transpose{\vbf{\eta}} ((\transpose{A}A) \vbf{\eta}) = 0 \]
 	即向量 $A \vbf{\eta}$ 的长度为 $0$，故 $A \vbf{\eta} = \vbf{0}$。
 \end{proof}
@@ -202,6 +285,13 @@
 7. 了解内积的概念，掌握线性无关向量组正交规范化的施密特（Schmidt）方法。
 
 8. 了解规范正交基、正交矩阵的概念以及它们的性质。
+
+\subsection{线性相关}
+
+向量组 $\seq{\vbf{a}}{n}$ 线性相关：至少有一个向量可以用其余向量表示，即存在一组不全为 $0$ 的数使得
+\[ x_1 \vbf{a}_1 + \cdots + x_n \vbf{a}_n = \vbf{0} \]
+
+向量组等价：向量组 $\seq{\vbf{a}}{n}$ 若可以和 $\seq{\vbf{b}}{n}$ 相互表出，则称他们等价。
 
 \subsection{向量空间}
 
@@ -267,6 +357,31 @@
 		      \item 如果 $r(A) = r(\widetilde{A}) = r < n$，说明方程组有无穷组解，令 $r$ 个首个非零元对应的 $x$ 取做非自由未知数，其余 $n-r$ 个未知数去做自由元，令自由未知数分别等于 $\seq{c}{n-r}$，即可写出 $n-r$ 个参数的通解。
 	      \end{enumerate}
 \end{enumerate}
+
+\subsection{同解}
+
+如果线性方程 $Ax=0$ 的解都是 $Bx=0$ 的解，且 $Bx=0$ 的解也是 $Ax=0$ 的解，则称他们同解。
+
+如果线性方程 $Ax=0$ 与 $Bx=0$ 同解，则
+\begin{itemize}
+	\item 矩阵 $A$ 与 $B$ 行等价。
+	\item 存在可逆矩阵 $P$ 使得 $PA = B$。
+	\item $Ax=0$ 与 $\transpose{A}Ax =0$ 与 $\begin{pmatrix}
+		A \\ B
+	\end{pmatrix}$ 同解。
+	\item $r(A) = r(B) = r\begin{pmatrix}
+			      A \\ B
+		      \end{pmatrix}$。
+\end{itemize}
+
+如果线性方程 $Ax=\vbf{\alpha}$ 与 $Bx=\vbf{\beta}$ 同解，则
+\begin{itemize}
+	\item 矩阵 $(A,\vbf{\alpha})$ 与 $(B,\vbf{\beta})$ 行等价。
+	\item 存在可逆矩阵 $P$ 使得 $PA = B$。
+	\item $r(A,\vbf{\alpha}) = r(B,\vbf{\beta}) = r\begin{pmatrix}
+			      A,\vbf{\alpha} \\ B,\vbf{\beta}
+		      \end{pmatrix}$。
+\end{itemize}
 
 \section{矩阵的特征值和特征向量}
 
@@ -455,11 +570,12 @@ $n$ 阶矩阵 $A$ 可对角化的充要条件：$A$ 有 $n$ 个线性无关的�
 
 $n$ 阶矩阵 $A$ 正定的充要条件：
 \begin{itemize}
-	\item $f(x) = \transpose{x}Ax > 0$；
-	\item $A$ 的各阶顺序主子式全大于零；
+	\item 当 $x \neq 0$ 时，$f(x) = \transpose{x}Ax > 0$；
+	\item $A$ 所有子矩阵的行列式均大于零；
 	\item $A$ 的所有特征值大于零；
 	\item $A$ 的正惯性系数为 $n$；
 	\item 存在可逆阵 $P$ 使得 $A = \transpose{P}P$；
+	\item $A$ 的所有主元（无行交换）都是正的。
 \end{itemize}
 
 $A$ 正定的结论：

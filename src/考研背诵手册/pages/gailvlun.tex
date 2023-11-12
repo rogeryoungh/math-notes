@@ -512,9 +512,11 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 
 \subsection{区间估计}
 
-估计量 $\widehat{\theta_1}, \widehat{\theta_2}$ 使得
-\[ \bbP\{\widehat{\theta_1} < \theta < \widehat{\theta_2}\} = 1-\alpha \]
-则称随机区间 $(\widehat{\theta_1}, \widehat{\theta_2})$ 是 $\theta$ 置信度 $1-\alpha$ 的置信区间，$\alpha$ 称为显著性水平。若 $\bbP\{\theta < \widehat{\theta_1}\} = \bbP\{\theta > \widehat{\theta_2}\} = \frac{\alpha}{2}$ 时，则称这种置信区间为等尾置信区间。
+设总体 X 的分布 $F(x;\theta)$ 含有未知参数 $\theta$，若对于给定的概率 $1 - \alpha$ 存在两个统计量 $\theta_1, \theta_2$ 使得
+\[ \bbP\{\theta_1 < \theta < \theta_2\} = 1-\alpha \]
+则称随机区间 $(\theta_1, \theta_2)$ 是 $\theta$ 置信度 $1-\alpha$ 的置信区间，$\alpha$ 称为显著性水平。若 $\bbP\{\theta < \theta_1\} = \bbP\{\theta > \theta_2\} = \frac{\alpha}{2}$ 时，则称这种置信区间为等尾置信区间。
+
+一般对于具体题目，要求区间估计时，首先建立 $\widehat{\theta}$ 的统计量，再与常见分布建立联系，利用常见分布的分位点求解。
 
 对于 $X \sim N(\mu,\sigma^2)$，其置信区间为
 \begin{itemize}

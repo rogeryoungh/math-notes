@@ -193,7 +193,7 @@
 \subsection{二维正态分布}
 
 设二维随机变量的概率密度为
-\[ f(x, y) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1-p^2)} \left(\frac{(x-\mu_1)^2}{\sigma_1^2} + \frac{(y-\mu_2)^2}{\sigma_2^2} - 2 \rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1 \sigma_2}\right) \right) \]
+\[ f(x, y) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1-p^2)} \left(\frac{(x-\mu_1)^2}{\sigma_1^2} + \frac{(y-\mu_2)^2}{\sigma_2^2} - \frac{2 \rho}{\sigma_1 \sigma_2}(x-\mu_1)(y-\mu_2)\right) \right) \]
 记为 $N(\mu_1, \mu_2; \sigma_1, \sigma_2; \rho)$，可以看作两个分布 $X \sim N(\mu_1, \sigma_1^2), Y \sim N(\mu_2, \sigma_2^2)$ 以相关系数 $\rho$ 合起来。
 
 \subsection{两个随机变量简单函数}
@@ -289,7 +289,7 @@
 	\item $\opCov(X, X) = \bbD X$；
 	\item $\opCov(aX, bY) = ab \opCov(X, Y)$；
 	\item $\opCov(X_1 + X_2, Y) = \opCov(X_1, Y) + \opCov(X_2, Y)$；
-	\item $\bbD(X \pm Y) = \bbD X + \bbD Y \pm 2Cov(X, Y)$；
+	\item $\bbD(X \pm Y) = \bbD X + \bbD Y \pm 2 \opCov(X, Y)$；
 \end{itemize}
 
 $X, Y$ 相互独立可以推出不相关，但反之不行；
@@ -424,21 +424,28 @@ $n$ 个相互独立且与总体 $X$ 同分布的随机变量 $\seq{X}{n}$ 称为
 
 \subsection{常用结论}
 
-设 $\seq{X}{n}$ 是取自正态总体 $N(\mu, \sigma^2)$ 的一个样本，$\overline{X}, S^2$ 分别是其样本均值和方差，则
-\begin{itemize}
-	\item $\overline{X}$ 与 $S^2$ 相互独立。
-	\item \[ \overline{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right), \quad \frac{(\overline{X}-\mu)}{\sigma / \sqrt{n}} \sim N(0, 1) \]
-	\item \[ \frac{1}{\sigma^2} \sum_{i=1}^{n} (X_i - \mu)^2 \sim \chi^2(n) \]
-	\item \[ \frac{(n-1)S^2}{\sigma^2} = \sum_{i=1}^n \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 \sim \chi^2(n-1) \]
-	\item \[ \frac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1) \]
-\end{itemize}
-
 \textbf{独立}分布的可加性
 \begin{itemize}
 	\item 对于 $X \sim B(n,p), Y \sim B(m, p)$，则 $X+Y \sim B(n+m,p)$；
 	\item 对于 $X \sim P(\lambda_1), Y \sim P(\lambda_2)$，则 $X+Y \sim P(\lambda_1 + \lambda_2)$；
 	\item 对于 $X \sim N(\mu_1, \sigma_1^2), Y \sim N(\mu_2, \sigma_2^2)$，则 $X+Y \sim N(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$；
 	\item 对于 $X \sim \chi^2(n), Y \sim \chi^2(m)$，则 $X+Y \sim \chi^2(n+m)$；
+\end{itemize}
+
+设正态总体 $X \sim N(\mu, \sigma^2)$，则
+\begin{itemize}
+	\item $\bbE[X] = \mu$，$\bbD[X] = \sigma^2$，$\bbE[X^2] = \mu^2+\sigma^2$，$\bbD[X^2] = 2 \sigma^2(\sigma^2 + 2\mu^2)$。
+	\item $\bbE[|X - \mu|] = \sqrt{\frac{2 \sigma^2}{\pi}}$，$\bbD[|X - \mu|] = \sigma^2$，$\overline{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)$。
+	\item $\bbE[S^2] = \sigma^2$，$\bbD[S^2] = \frac{2 \sigma^2}{n - 1}$。
+\end{itemize}
+
+设 $\seq{X}{n}$ 是取自正态总体 $X$ 的一个样本，$\overline{X}, S^2$ 分别是其样本均值和方差，则
+\begin{itemize}
+	\item $\overline{X}$ 与 $S^2$ 相互独立。
+	\item \[ \overline{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right), \quad \frac{(\overline{X}-\mu)}{\sigma / \sqrt{n}} \sim N(0, 1) \]
+	\item \[ \sum_{i=1}^{n} \left(\frac{X_i - \mu}{\sigma}\right)^2 \sim \chi^2(n) \]
+	\item \[ \frac{(n-1)S^2}{\sigma^2} = \sum_{i=1}^n \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 \sim \chi^2(n-1) \]
+	\item \[ \frac{(\overline{X}-\mu)}{\sqrt{S^2 / n}} \sim t(n-1) \]
 \end{itemize}
 
 \section{参数估计}

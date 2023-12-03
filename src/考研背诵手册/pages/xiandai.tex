@@ -514,6 +514,19 @@
 	\item $\lambda_1 \cdots \lambda_n = |A|$；
 \end{itemize}
 
+设 $\lambda$ 是矩阵 $A$ 的一个特征值
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{ccccccccc}
+		\toprule
+		矩阵   & $A$       & $f(A)$       & $A^{-1}$       & $A^{*}$ (可逆）           & $P^{-1}AP$     & $\transpose{A}$ \\
+		\midrule
+		特征值  & $\lambda$ & $f(\lambda)$ & $\lambda^{-1}$ & $\frac{|A|}{ \lambda}$ & $\lambda$      & $\lambda$       \\
+		特征向量 & $\alpha$  & $\alpha$     & $\alpha$       & $\alpha$               & $P^{-1}\alpha$ & ~               \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 \subsection{相似矩阵}
 
 相似矩阵：如果存在 $P$ 使得 $P^{-1} A P = B$，则称 $A$ 与 $B$ 相似，$P$ 称为相似变换阵。

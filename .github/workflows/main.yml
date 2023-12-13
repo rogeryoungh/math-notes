@@ -44,7 +44,7 @@ jobs:
             notoserif/*.ttf
             notosanscjk/*.otf
             notoserifcjk/*.otf
-            lxgw-wenkai/lxgw-wenkai-v1.300/*.ttf
+            lxgw-wenkai/lxgw-wenkai-v1.312/*.ttf
 
       - name: rename
         run: |

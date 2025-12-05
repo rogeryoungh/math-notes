@@ -22,8 +22,9 @@
 
 #include "ch01.typ"
 
-
 = 数列极限
+
+#include "ch02.typ"
 
 = 函数极限
 

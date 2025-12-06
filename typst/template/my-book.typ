@@ -19,6 +19,7 @@
   // 字体
   set text(font: body-font, lang: "zh", region: "cn", size: base-size)
 	show raw: set text(font: mono-font, size: base-size * 0.9)
+  show math.text: set text(font: body-font)
 
   // 设置文档基本属性
   set document(author: author.name, title: title)
@@ -28,7 +29,10 @@
   // 段落设置
   // https://typst-doc-cn.github.io/docs/reference/model/par/
   // set par(first-line-indent: 2em, justify: true)
-  set par(first-line-indent: 2em, justify: true, leading: 0.75em)
+  set par(first-line-indent: (amount: 2em, all: true), justify: true, leading: 0.75em)
+  // 修复定理环境缩进
+  show figure: set par(first-line-indent: 0em)
+
   set enum(indent: 2em)
   set list(indent: 2em)
 
@@ -37,9 +41,9 @@
 
   // 行末缩进
   // show raw: it => it + fakepar
-  show figure: it => it + fakepar
-  show list.item: it => it + fakepar
-  show enum.item: it => it + fakepar
+  // show figure: it => it + fakepar
+  // show list.item: it => it + fakepar
+  // show enum.item: it => it + fakepar
 
   // 封面标题
   align(horizon+center)[
@@ -62,6 +66,7 @@
   // 标题
   set heading(numbering: numbly("第{1:一}章  ", default: "1.1  "))
   show heading: it => box(width: 100%)[
+    #set par(first-line-indent: 0em)
     #v(0.15em)
     #text([
       #if it.numbering != none {
@@ -69,7 +74,7 @@
       }
       #it.body
     ], 1.2em)
-    #v(-0.50em)
+    #v(0.50em)
   ]
 
   show heading.where(level: 1): it => [

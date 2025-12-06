@@ -1,5 +1,5 @@
-#import "../template/my-theorem.typ": theorem, definition, proof, thmrules
-#show: thmrules.with(qed-symbol: $square$)
+#import "../template/my-theorem.typ": theorem, definition, proof, show-theorion
+#show: show-theorion
 
 我初次用的书是华师的数分，现在发觉基础部分有相当多的细节。后参考自李逸的《基本分析讲义》。
 
@@ -79,9 +79,11 @@ $ A ast B := ast (a times B) = { A ast b | a in A , b in B } $
 
 #definition[
 若集合 $S$ 上的关系 $tilde.eq$ 满足
+
 - 自反性：对任意的 $x in S$ 有 $x tilde.eq x$。
 - 对称性：若 $x tilde.eq y$ 则 $y tilde.eq x$。
 - 传递性：若 $x tilde.eq y$ 且 $y tilde.eq z$ 则 $x tilde.eq z$。
+
 则称 $tilde.eq$ 为等价关系，一般记作 $tilde.op$ 或 $=$。
 ]
 
@@ -89,6 +91,7 @@ $ A ast B := ast (a times B) = { A ast b | a in A , b in B } $
 
 #definition[
 若集合 $S$ 上的关系 $prec.eq$ 满足
+
 - 反对称性：若 $x prec.eq y$ 且 $y prec.eq x$ 则 $x = y$。
 - 传递性：若 $x prec.eq y$ 且 $y prec.eq z$ 则 $x prec.eq z$。
 - 完全性：对任意的 $x , y in S$ 要么 $x prec.eq y$ 要么 $y prec.eq x$。（注意蕴含了自反性 $x prec.eq x$）。
@@ -101,6 +104,7 @@ $< , <= , > , >=$ 都可以定义全序集。
 
 #definition[
 设全序集 $S' subset.eq S$，若 $x in S$ 是：
+
 - $S$ 的最大元：若不存在 $y in S$ 使得 $x < y$，则称 $x$ 是最大元。
 - $S'$ 的上界：若对于任取的 $x' in S'$ 满足 $x' <= x$，则称 $x$ 是 $S'$ 的上界。
 - $S'$ 的上确界：对于任取的 $S'$ 的上界 $y$ 都有 $x <= y$，且 $x$ 是 $S'$ 的上界，则称 $x$ 是 $S'$ 的上确界。
@@ -204,13 +208,13 @@ $ e_1 = e_1 ast e_2 = e_2 $
 ]
 
 #definition[
-对于空间 $X$ 和空间内一点 $x in X$
+对于空间 $X$ 和空间内一点 $x in X$：
 
 1. 若子集 $U$ 包含着某一开集且开集包含着 $x$，则称 $U$ 为 $x$ 的邻域。
 2. 若子集 $U$ 是开集且 $x in U$，则称 $U$ 为 $x$ 的开邻域。
 ]
 
-#definition()[
+#definition[
 对于空间 $X$，若其子集 $F$ 满足 $X - F$ 是开集，则称 $F$ 是闭集。
 ]
 
@@ -251,7 +255,7 @@ $X'$ 若是连通空间，则称 $X'$ 是连通的。
 #definition()[
 给定有限的一列闭区间 ${ I_i = [a_i , b_i] }$，若
 
-（1） 其是下降的 $ I_1 supset.eq I_2 supset.eq I_3 supset dots.h.c $；
+（1） 其是下降的 $I_1 supset.eq I_2 supset.eq I_3 supset dots.h.c$；
 
 （2） 区间长度 $lim_(n arrow.r oo) (b_i - a_i) = 0$；
 
@@ -322,7 +326,7 @@ $n (y - x) > 1$。
 $ - m_2 < n x < m_1 $
 因此存在 $m in bb(N)^(+)$ 有 $- m_2 <= m <= m_1$ 使得
 $ m - 1 <= n x < m <= 1 + n x < n y $
-从而存在 $p = m / n$ 使得$x < p < y$。
+从而存在 $p = m / n$ 使得 $x < p < y$。
 ]
 
 == 数系的构造
@@ -435,6 +439,8 @@ $ (a , b) + (c , d) & := (a d + b c , b + d)\
 即 $bb(Q)$ 是一个域。
 
 #theorem()[
+保序性
+
 1. 加法保序：当 $x , y , z in bb(Q)$ 且 $y < z$ 时，$x + y < x + z$。
 2. 乘法保序：如果 $x , y in bb(Q)$，且 $x > 0 , y > 0$，则 $x y > 0$。
 ]

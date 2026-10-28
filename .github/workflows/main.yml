@@ -1,77 +1,48 @@
-name: LaTeX Build
+name: Typst Build
 
 on:
-  push: 
+  push:
     branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
-    name: LaTeX Build
+    name: Typst Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           ref: main
 
-      - name: copy cls to walk directory
-        run: bash scripts/gen-book.sh --copy
-
-      - name: download fonts
-        run: |
-          wget -q -O notosans.zip "https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-hinted.zip"
-          wget -q -O notoserif.zip "https://noto-website-2.storage.googleapis.com/pkgs/NotoSerif-hinted.zip"
-          wget -q -O notoserifcjk.zip "https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKsc-hinted.zip"
-          wget -q -O notosanscjk.zip "https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKsc-hinted.zip"
-          wget -q -O lxgw-wenkai.zip "https://github.com/lxgw/LxgwWenKai/releases/download/v1.312/lxgw-wenkai-v1.312.zip"
-          unzip -q notosans.zip -d notosans
-          unzip -q notoserif.zip -d notoserif
-          unzip -q notosanscjk.zip -d notosanscjk
-          unzip -q notoserifcjk.zip -d notoserifcjk
-          unzip -q lxgw-wenkai.zip -d lxgw-wenkai
-
-      # https://github.com/OI-wiki/OI-Wiki-export/blob/master/.github/workflows/auto-release.yml
-      - uses: xu-cheng/latex-action@v3
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v5
         with:
-          root_file: |
-            src/数学分析/main.tex
-            src/高等代数/main.tex
-            src/抽象代数/main.tex
-            src/考研背诵手册/main.tex
-          latexmk_use_xelatex: true
-          work_in_root_file_dir: true
-          extra_fonts: |
-            notosans/*.ttf
-            notoserif/*.ttf
-            notosanscjk/*.otf
-            notoserifcjk/*.otf
-            lxgw-wenkai/lxgw-wenkai-v1.312/*.ttf
+          typst-version: '0.15.1'
 
-      - name: rename
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-dejavu-core
+
+      - name: Build PDFs
+        run: |
+          mkdir -p output
+          typst compile --root . typst/数学分析/main.typ output/calculus.pdf
+          typst compile --root . typst/高等代数/main.typ output/linear-algebra.pdf
+          typst compile --root . typst/抽象代数/main.typ output/abstract-algebra.pdf
+          typst compile --root . typst/考研背诵手册/main.typ output/kaoyan.pdf
+
+      - name: Convert PDFs to HTML
+        working-directory: output
         run: |
           shopt -s expand_aliases
           alias pdf2htmlEX='docker run --rm -v `pwd`:/pdf bwits/pdf2htmlex pdf2htmlEX'
-          cp ./src/数学分析/main.pdf ./output/calculus.pdf
-          cp ./src/抽象代数/main.pdf ./output/abstract-algebra.pdf
-          cp ./src/高等代数/main.pdf ./output/linear-algebra.pdf
-          cp ./src/考研背诵手册/main.pdf ./output/kaoyan.pdf
-          cd output
           pdf2htmlEX ./calculus.pdf
           pdf2htmlEX ./linear-algebra.pdf
           pdf2htmlEX ./abstract-algebra.pdf
           pdf2htmlEX ./kaoyan.pdf
-          cd -
-
-      - uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Development Build"
-          files: |
-            ./output/calculus.pdf
-            ./output/abstract-algebra.pdf
-            ./output/linear-algebra.pdf
-            ./output/kaoyan.pdf
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

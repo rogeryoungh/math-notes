@@ -12,12 +12,12 @@ jobs:
     name: Typst Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7.0.1
         with:
           ref: main
 
       - name: Set up Typst
-        uses: typst-community/setup-typst@v5
+        uses: typst-community/setup-typst@v5.3.0
         with:
           typst-version: '0.15.1'
 
@@ -37,15 +37,17 @@ jobs:
       - name: Convert PDFs to HTML
         working-directory: output
         run: |
-          shopt -s expand_aliases
-          alias pdf2htmlEX='docker run --rm -v `pwd`:/pdf bwits/pdf2htmlex pdf2htmlEX'
+          pdf2htmlEX() {
+            docker run --rm -v "$PWD:/pdf" -w /pdf \
+              pdf2htmlex/pdf2htmlex:0.18.8.rc2-master-20200820-ubuntu-20.04-x86_64 "$@"
+          }
           pdf2htmlEX ./calculus.pdf
           pdf2htmlEX ./linear-algebra.pdf
           pdf2htmlEX ./abstract-algebra.pdf
           pdf2htmlEX ./kaoyan.pdf
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force_orphan: true

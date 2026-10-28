@@ -1,0 +1,376 @@
+#import "../../template/environments.typ": statement
+
+= 矩阵的运算
+<ga-4-矩阵的运算>
+== 矩阵的运算
+<ga-4-矩阵的运算-1>
+数域上 $K$ 两个矩阵的行数、列数都相等，且所有元素对应相等，那么称两个矩阵相等。
+
+#statement("definition", title: [])[
+设数域 $K$ 上的 $s times n$ 矩阵 $A = ( a_(i j) ) , B = ( b_(i j) )$，令 $A , B$ 的和为 $ A + B colon.eq ( a_(i j) + b_(i j) )_(s times n) $
+
+]
+#statement("definition", title: [])[
+设数域 $K$ 上的 $s times n$ 矩阵 $A = ( a_(i j) )$，令 $k in K$ 与 $A$ 的数量乘积为 $ k A colon.eq ( k a_(i j) )_(s times n) $
+
+]
+不难验证，矩阵的加法和数量乘法满足类似于 $n$ 维向量的 8 条运算法则。
+
+同样定义矩阵的减法 $ A - B colon.eq A + ( - B ) $
+
+#statement("definition", title: [])[
+设 $A = ( a_(i j) )_(s times n) , B = ( a_(i j) )_(n times m)$，令 $A , B$ 的乘积为 $ A B = (sum_(k = 1)^n a_(i k) b_(k j))_(s times m) $
+
+]
+同样，若 $A B$ 和 $B A$ 几乎都不相等，甚至不一定能够运算。
+
+#statement("theorem", title: [])[
+设 $A = ( a_(i j) )_(s times n) , B = ( b_(i j) )_(n times m) , C = ( c_(i j) )_(m times r)$，则 $ ( A B ) C = A ( B C ) $
+
+]
+注意到，若 $A , B eq.not 0$，有可能 $B A = 0$。因此 $B A = 0$ 不能推出 $B = 0$ 或 $A = 0$。
+
+#statement("definition", title: [零因子])[
+对于矩阵 $A$，若存在矩阵 $B eq.not 0$ 使得 $A B = 0$，那么称 $A$ 是一个左零因子。如果存在一个矩阵 $C eq.not 0$ 使得 $C A = 0$，那么称 $A$ 是一个右零因子。左零因子和右零因子称为零因子。
+
+]
+特殊的，零矩阵是零因子，称为平凡的零因子。
+
+#statement("theorem", title: [])[
+矩阵的乘法有分配律（左分配律、右分配律） $ A ( B + C ) = A B + A C $ $ ( B + C ) D = B D + C D $
+
+]
+矩阵的乘法不适合消去律，从 $A C = B C$ 且 $C eq.not 0$ 不能推出 $A = B$。
+
+主对角线上元素都是 $1$，其余元素都是 $0$ 的 $n$ 级矩阵称为 $n$ 级单位矩阵，记作 $E_n$ 或者简记作 $E$（有些书上记作 $I$）。主对角线上元素是同一个数 $k$，其余元素全为 $0$ 的 $n$ 级矩阵称为数量矩阵，可以记作 $k E$。
+
+因此有 $ E_s A_(s times n) = A_(s times n) , A_(s times n) E_n = A_(s times n) $ 若 $A$ 是 $n$ 级矩阵，则 $ E A = A E = A $ 矩阵的乘法与数量乘法满足下述关系式 $ k ( A B ) = ( k A ) B = A ( k B ) $
+
+数量矩阵还有 $ k E + l E = ( k + l ) E\
+k ( l E ) = ( k l ) E\
+( k E ) ( l E ) = ( k l ) E $
+
+矩阵的乘法虽不满足交换律，但若对具体的两个矩阵 $A$ 与 $B$，也有可能 $A B = B A$，那么称 $A$ 与 $B$ 可交换。比如数量矩阵与任一同级矩阵可交换 $ ( k E ) A = A ( k E ) = k A $
+
+#statement("definition", title: [])[
+定义 $n$ 级矩阵 $A$ 的非负整数次幂为 $ A^n colon.eq A dots.h.c A , quad A^(n + 1) colon.eq A A^n $
+
+]
+#statement("theorem", title: [])[
+$ ( A + B )^(sans(T)) = A^(sans(T)) + B^(sans(T)) , quad ( k A )^(sans(T)) = k A^(sans(T)) , quad ( A B )^(sans(T)) = B^(sans(T)) A^(sans(T)) $
+
+]
+如果把 $n$ 元线性方程组的系数矩阵记作 $A$，称常数项组成的列向量为 $bold(beta)$，未知量 $x_1 , dots.h.c , x_n$ 组成的列向量为 $X$，那么 $n$ 元线性方程组可以写成 $ A X = bold(beta) $ 于是列向量 $bold(eta)$ 是方程组的 $A X = bold(beta)$ 的解当且仅当 $A bold(eta) = bold(beta)$。
+
+== 特殊矩阵
+<ga-4-特殊矩阵>
+#statement("definition", title: [])[
+主对角线以外的元素全为 $0$ 的方阵称为对角矩阵，简记作 $ "diag" { d_1 , dots.h.c , d_n } $
+
+]
+#statement("definition", title: [])[
+只有一个元素是 $1$，其他元素全为 $0$ 的矩阵称为基本矩阵。$( i , j )$ 元为 $1$ 的基本矩阵记作 $E_(i j)$。
+
+]
+#statement("definition", title: [])[
+主对角线下（上）方的元素全为 $0$ 的方阵称为上（下）三角矩阵。
+
+]
+显然 $A = ( a_(i j) )$ 为上三角矩阵的 充分必要条件是 $ a_(i j) = 0 ， upright("当") med i > j $ 同样，上三角矩阵也可表述为 $ A = sum_(i = 1)^n sum_(j = i)^n a_(i j) E_(i j) $
+
+#statement("definition", title: [])[
+由单位矩阵经过一次初等行（列）变换得到的矩阵称为初等矩阵。
+
+]
+初等矩阵有且只有三种类型：$P ( j , i ( k ) ) , P ( i , j ) , P ( i ( c ) )$，其中 $c eq.not 0$。
+
+\1. 用 $P ( j , i ( k ) )$ 左乘 $A$，即把 $A$ 的第 $i$ 行的 $k$ 倍加到第 $j$ 行上。
+
+\2. 用 $P ( j , i ( k ) )$ 右乘 $A$，即把 $A$ 的第 $j$ 列的 $k$ 倍加到第 $i$ 列上。
+
+类似的，用 $P ( i , j )$ 左（右）乘 $A$，就相当于把 $A$ 的第 $i$ 行（列）与第 $j$ 行（列）互换。
+
+用 $P ( i ( c ) )$ 左（右）乘 $A$，就相当于用 $c$ 乘 $A$ 的第 $i$ 行（列）。
+
+#statement("definition", title: [])[
+一个矩阵 $A$ 如果满足 $A^(sans(T)) = A$，那么称 $A$ 是对称矩阵。
+
+]
+#statement("definition", title: [])[
+如果一个矩阵 $A$ 如果满足 $A^(sans(T)) = - A$，那么称 $A$ 是斜对称矩阵。
+
+]
+== 矩阵乘积的秩与行列式
+<ga-4-矩阵乘积的秩与行列式>
+#statement("theorem", title: [])[
+设 $A = ( a_(i j) )_(s times n) , B = ( b_(i j) )_(n times m)$，则 $ "rank" ( A B ) lt.eq min { "rank" ( A ) , "rank" ( B ) } $
+
+]
+#statement("theorem", title: [])[
+$ "rank" ( A + B ) lt.eq "rank" ( A ) + "rank" ( B ) $
+
+]
+#statement("proof", title: [])[
+显然 $A + B$ 的列向量总是可以由 $A$ 和 $B$ 列向量的极大无关组表出。
+
+]
+#statement("theorem", title: [])[
+设 $A = ( a_(i j) )_(s times n) , B = ( b_(i j) )_(n times m)$，则 $ det(A B) = det(A) det(B) = det(B) det(A) = det(B A) $
+
+]
+#statement("theorem", title: [Binet $-$ Cauchy 公式])[
+设 $A = ( a_(i j) )_(s times n) , B = ( b_(i j) )_(n times m)$，则
+
+\1. 如果 $s > n$，那么 $det(A B) = 0$；
+
+\2. 如果 $s lt.eq n$，那么 $det(A B)$ 等于 $A$ 的所有 $s$ 阶子式的与相应 $s$ 阶子式的乘积之和，即 $ det(A B) = sum_(1 lt.eq v_1 < dots.h.c < v_s lt.eq n) A binom(1 comma dots.h.c comma s, v_1 comma dots.h.c comma v_s) dot.op B binom(v_1 comma dots.h.c comma v_s, 1 comma dots.h.c comma s) $
+
+]
+#statement("theorem", title: [])[
+$ "rank" ( A^(sans(T)) A ) = "rank" ( A A^(sans(T)) ) = "rank" ( A ) $
+
+]
+#statement("proof", title: [])[
+试证 $A bold(X) = bold(0)$ 与 $( A^(sans(T)) A ) bold(X) = bold(0)$ 同解。
+
+假设 $bold(eta)$ 是 $A bold(X) = bold(0)$ 的一个解，显然 $ ( A^(sans(T)) A ) bold(X) = A^(sans(T)) ( A bold(eta) ) = A^(sans(T)) bold(0) = bold(0) $ 反之，设 $bold(eta)$ 是 $( A^(sans(T)) A ) bold(X) = bold(0)$ 的一个解，注意到 $ ( A bold(eta) )^(sans(T)) ( A bold(eta) ) = bold(eta)^(sans(T)) ( ( A^(sans(T)) A ) bold(eta) ) = 0 $ 即向量 $A bold(eta)$ 的长度为 $0$，故 $A bold(eta) = bold(0)$。
+
+]
+#statement("theorem", title: [])[
+设 $A$ 是一个 $s times n$ 矩阵，且 $A eq.not 0$，证明：$A$ 可以被分解为行列向量的乘积当且仅当 $"rank" ( A ) = 1$
+
+]
+#statement("proof", title: [])[
+由于秩为 $1$，因此选取 $A$ 的一个列向量 $bold(alpha)_1$，其他的列向量都可以由其表示，故 $A = bold(alpha) bold(beta)^(sans(T))$。
+
+]
+#statement("example", title: [])[
+如果数域上的 $n$ 级矩阵 $A$ 满足 $A A^(sans(T)) = E$，且 $det(A) = - 1$，求证：$det(E + A) = 0$。
+
+]
+#statement("solution", title: [])[
+]
+== 可逆矩阵
+<ga-4-可逆矩阵>
+#statement("definition", title: [])[
+对于数域 $K$ 上的矩阵 $A$，如果存在数域 $K$ 上的矩阵 $B$，使得 $ A B = B A = E $ 那么称 $A$ 是可逆矩阵（或非奇异矩阵），$B$ 称为 $A$ 的逆矩阵，记作 $A^(- 1)$。
+
+]
+易知可逆矩阵一定是方阵，$n$ 级矩阵 $A$ 可逆的充分必要条件是 $ det(A) eq.not 0 $
+
+#statement("definition", title: [])[
+设矩阵 $A = ( a_(i j) )$，那么 $A$ 的伴随矩阵为 $ A^(*) = ( A_(i j) ) $
+
+]
+有 $ A A^(*) = det(A) E $
+
+#statement("theorem", title: [])[
+数域 $K$ 上 $n$ 级矩阵 $A$ 可逆的充分必要条件是 $det(A) eq.not 0$。当 $A$ 可逆时， $ A^(- 1) = frac(A^(*), det(A)) $
+
+]
+易得，可逆矩阵有如下性质
+
+\1. $( A^(- 1) )^(- 1) = A$
+
+\2. $( A B )^(- 1) = B^(- 1) A^(- 1)$
+
+可逆矩阵能够通过初等行变换变成第简化行阶梯形矩阵一定是单位矩阵。
+
+#statement("theorem", title: [])[
+矩阵 $A$ 可逆的充分必要条件是它可以表示成一些初等矩阵的乘积。
+
+]
+用一个可逆矩阵左（右）乘一个矩阵 $A$，不改变 $A$ 的秩。这里给出了求可逆矩阵第逆矩阵的又一种方法，称为初等变换法。
+
+#statement("example", title: [])[
+设 $A , B$ 分别是 $n times m , m times n$ 的矩阵，如果已知 $E_n - A B$ 可逆，求 $( E_m - B A )^(- 1)$。
+
+]
+#statement("solution", title: [])[
+设存在 $m$ 级矩阵 $X$ 使得 $ ( E_m - B A ) ( E_m + X ) = E_m $ 即 $ X - B A X = B A $ 直觉指引我们构造 $X = B Y A$，带入有 $ B ( E_m - A B ) Y A = B A $ 因此可以令 $Y = ( E_m - A B )^(- 1)$，故 $ ( E_m - B A )^(- 1) = E_m + B ( E_n - A B )^(- 1) A $
+
+]
+#statement("example", title: [])[
+设方阵 $A , B$ 满足 $det(A) + det(B) = 0$，且 $A , B$ 是对合矩阵，即 $A^2 = B^2 = E$。证明：那么 $A + B , E + A B$ 都不可逆。
+
+]
+#statement("solution", title: [])[
+可以得到 $det(A) = plus.minus 1$，不妨设 $det(A) = 1 , det(B) = - 1$，则 $ det(A + B) & = det(A ( A + B )) = det(E + A B)\
+ & = - det(( A + B ) B) = - det(A B + E) $ 故 $det(A + B) = det(A B + E) = 0$。
+
+]
+#statement("example", title: [])[
+如果 $A^3 = 0$，求 $( E - A )^(- 1)$。
+
+]
+#statement("solution", title: [])[
+注意到 $ ( E - A ) ( E + A + A^2 ) = E - A^3 = E $ 因此 $ ( E - A )^(- 1) = E + A + A^2 $
+
+]
+#statement("example", title: [])[
+设 $n$ 级矩阵 $A , B$ 满足 $A + B = A B$，求证：$E - A , E - B$ 都可逆，且 $A B = B A$。
+
+]
+#statement("solution", title: [])[
+注意到 $ ( E - A ) ( E - B ) = E - A - B + A B = E $ 因此 $ E = ( E - B ) ( E - A ) = E + B A - A B $ 得到 $A B = B A$。
+
+]
+== 矩阵的分块
+<ga-4-矩阵的分块>
+由矩阵 $A$ 的若干行、若干列的交叉位置元素按原来顺序排成的矩阵称为 $A$ 的一个子矩阵。若把分为若干组，列也分成若干组，从而 $A$ 被分成若干个子矩阵，把 $A$ 看成是由这些子矩阵组成的，这称为矩阵的分块，这种由子矩阵组成的矩阵称为分块矩阵。
+
+#statement("theorem", title: [])[
+如果 $A_(1 1) , A_(2 2) , dots.h.c , A_(s s)$ 都是方阵，则 $ mat(delim: "|", A_(1 1), 0, dots.h.c, 0; A_(2 1), A_(2 2), dots.h.c, 0; dots.v, dots.v, #none, dots.v; A_(s 1), A_(s 2), dots.h.c, A_(s s)) = det(A_(1 1)) dots.h.c det(A_(s s)) $
+
+]
+#statement("proof", title: [])[
+由 Laplace 定理即知。
+
+]
+#statement("theorem", title: [])[
+设 $A = mat(delim: "(", B, C; 0, D)$，其中 $B , C , D$ 都是方阵，那么 $ A^(- 1) = mat(delim: "(", B^(- 1), - B^(- 1) C D^(- 1); 0, D^(- 1)) $
+
+]
+#statement("theorem", title: [Sylvester 秩不等式])[
+设 $A , B$ 分别是 $s times n , n times m$ 的矩阵，则 $ "rank" ( A ) + "rank" ( B ) lt.eq "rank" ( A B ) + n $
+
+]
+#statement("proof", title: [])[
+由于矩阵的初等行（列）变换不改变矩阵的秩，构造分块矩阵 $ n + "rank" ( A B ) = "rank" mat(delim: "(", E_n, 0; 0, A B) = "rank" mat(delim: "(", B, E_n; 0, A) gt.eq "rank" ( B ) + "rank" ( A ) $
+
+]
+#statement("theorem", title: [])[
+如果 $n$ 级矩阵满足 $( A - a E ) ( A - b E ) = O$，其中 $a eq.not b$，证明：$"rank" ( A - a E ) + "rank" ( A - b E ) = n$。
+
+]
+#statement("proof", title: [])[
+一方面 $ "rank" ( A - a E ) + "rank" ( A - b E ) lt.eq "rank" ( O ) + n = n $ 另一方面 $ "rank" ( A - a E ) + "rank" ( A - b E ) gt.eq "rank" ( ( A - a E ) - ( A - b E ) ) = n $ 因此 $"rank" ( A - a E ) + "rank" ( A - b E ) = n$。
+
+]
+如果 $n$ 级矩阵 $A$ 满足 $A^2 = A$，则称 $A$ 是幂等矩阵。一个直接的推论是，$A$ 是幂等矩阵当且仅当 $"rank" ( A ) + "rank" ( E - A ) = n$。
+
+#statement("example", title: [])[
+设 $A , B$ 是 $n$ 级矩阵，有
+
+（1） $det(A^(*)) = det(A)^(n - 1)$。
+
+（2） $ "rank" ( A^(*) ) = cases(delim: "{", n comma & "rank" ( A ) = n, 1 comma & "rank" ( A ) = n - 1, 0 comma & "rank" ( A ) < n - 1) $
+
+（3）$ ( A^(*) )^(*) = det(A)^(n - 2) A $
+
+（4）$ ( A^(- 1) )^(*) = ( A^(*) )^(- 1) = frac(A, det(A)) $
+
+（5）$ ( A B )^(*) = B^(*) A^(*) $
+
+]
+#statement("proof", title: [])[
+（2）当 $"rank" ( A ) = n$ 时 $A$ 可逆，显然 $A^(*)$ 也可逆； 当 $"rank" ( A ) < n - 1$ 时，不存在不为零的 $n - 1$ 阶子式，故 $A^(*) = O , "rank" ( A^(*) ) = 0$; 当 $"rank" ( A ) = n - 1$ 时，$det(A) = 0$，因此 $A A^(*) = O$，于是 $"rank" ( A ) + "rank" ( A^(*) ) lt.eq n$。又 $A$ 存在不为零的 $n - 1$ 阶子式，故 $A^(*) eq.not O$，因此 $"rank" ( A^(*) ) = 1$。
+
+]
+#statement("example", title: [])[
+设 $A , B , C , D$ 都是数域上的 $n$ 级矩阵，则 $ mat(delim: "|", A, B; C, D) = det(A D - A C A^(- 1) B) $
+
+]
+#statement("theorem", title: [Frobenius 秩不等式])[
+设 $A , B , C$ 分别是 $s times n , n times m , m times t$，则 $ "rank" ( A B C ) gt.eq "rank" ( A B ) + "rank" ( B C ) - "rank" ( B ) $
+
+]
+#statement("theorem", title: [])[
+$n$ 级矩阵 $A$ 是对合矩阵的充要条件是 $ "rank" ( E + A ) + "rank" ( E - A ) = n $
+
+]
+#statement("proof", title: [])[
+注意到 $ n = "rank" ( 2 E ) lt.eq "rank" ( E - A ) + "rank" ( E + A ) lt.eq "rank" ( E - A^2 ) + n $ 当且仅当 $A^2 = E$ 时等号成立。
+
+]
+#statement("example", title: [])[
+设 $A$ 是数域 $K$ 上的 $n$ 级矩阵，且 $"rank" ( A ) = 1$，求证：存在 $k$ 使得 $A^2 = k A$。
+
+]
+#statement("proof", title: [])[
+因为 $"rank" ( A ) = 1$，因此可以把 $A$ 分解为 $A = bold(alpha) bold(beta)^(sans(T))$。从而 $ A^2 = bold(alpha) bold(beta)^(sans(T)) bold(alpha) bold(beta)^(sans(T)) = ( bold(beta)^(sans(T)) bold(alpha) ) bold(alpha) bold(beta)^(sans(T)) $ 其中 $k = bold(beta)^(sans(T)) bold(alpha)$ 为一实数。
+
+]
+== 正交矩阵
+<ga-4-正交矩阵>
+#statement("definition", title: [])[
+实数域上的 $n$ 级矩阵 $A$ 如果满足 $ A A^(sans(T)) = E $ 那么称 $A$ 是正交矩阵。
+
+]
+那么其具有如下性质
+
+\1. 若 $A$ 和 $B$ 都是 $n$ 级正交矩阵，则 $A B$ 也是正交矩阵。
+
+\2. 若 $A$ 是正交矩阵，则 $A^(- 1)$ （即 $A^(sans(T))$）也是正交矩阵。
+
+\3. 若 $A$ 是正交矩阵，则 $det(A) = plus.minus 1$
+
+引用 Kronecker 记号 $delta_(i j)$，它的含义是 $ delta_(i j) = cases(delim: "{", 1 comma quad upright("当") med i = j, 0 comma quad upright("当") med i eq.not j) $
+
+#statement("theorem", title: [])[
+设实数域上 $n$ 级矩阵 $A$ 的行向量组为 $gamma_1 , dots.h.c , gamma_n$，列向量组为 $alpha_1 , dots.h.c , alpha_n$，则 $ gamma_i gamma'_j = delta_(i j) , alpha'_i alpha_j = delta_(i j) , 1 lt.eq i , j lt.eq n $
+
+]
+#statement("definition", title: [])[
+在 $bb(R)^n$ 中，任给 $alpha = ( a_1 , dots.h.c , a_n ) , bold(beta) = ( b_1 , dots.h.c , b_n )$，规定 $ ( alpha , bold(beta) ) colon.eq sum a_n b_n = alpha bold(beta)^(sans(T)) $ 这个二元实值函数 $( alpha , bold(beta) )$ 称为 $bb(R)^n$ 的一个内积（通常称为标准内积）。
+
+]
+可以验证 $bb(R)^n$ 的标准内积有下列性质：
+
+\1. 对称性 $( alpha , bold(beta) ) = ( bold(beta) , alpha )$。
+
+\2. 线性性之一 $( alpha + gamma , bold(beta) ) = ( alpha , bold(beta) ) + ( gamma , bold(beta) )$。
+
+\3. 线性性之二 $( k alpha , bold(beta) ) = k ( alpha , bold(beta) )$。
+
+\4. 正定性 $( alpha , alpha ) gt.eq 0$，当且仅当 $alpha = bold(0)$ 时等号成立。
+
+可以验证 $ ( k_1 alpha_1 + k_2 alpha_2 , bold(beta) ) = k_1 ( alpha_1 , bold(beta) ) + k_2 ( alpha_2 , bold(beta) ) $ $ ( alpha , k_1 bold(beta)_1 + k_2 bold(beta)_2 ) = k_1 ( alpha , bold(beta)_1 ) + k_2 ( alpha , bold(beta)_2 ) $
+
+$n$ 维向量空间 $bb(R)^n$ 有了标准内积后，就称 $bb(R)^n$ 为一个欧几里得空间。其中，向量 $alpha$ 的长度 $norm(alpha)$ 规定为 $ norm(alpha) colon.eq sqrt(( alpha , alpha )) $
+
+不难验证 $ norm(k alpha) = abs(k) norm(alpha) $
+
+长度为 $1$ 的向量称为单位向量，把非零向量 $alpha$ 除以 $norm(alpha)$ 称为把 $alpha$ 单位化。
+
+在欧几里得空间 $bb(R)^n$ 中，如果 $( alpha , bold(beta) ) = 0$，那么称 $alpha$ 与 $bold(beta)$ 是正交的，记作 $alpha tack.t bold(beta)$。由非零向量组成的向量组如果其中每两个不同的向量都正交，那么称它们为正交向量组。如果其每个向量都是单位向量，那么称它为正交单位向量组。
+
+特殊的，零向量与任何向量正交，仅由一个非零向量组成的向量组也是正交向量组。
+
+不难验证，欧几里得空间 $bb(R)^n$ 中 $n$ 个向量组成的正交向量组一定是 $bb(R)^n$ 的一个基，称它为正交基。如果其每个向量都是单位向量，那么称它为 $bb(R)^n$ 的一个标准正交基。
+
+#statement("theorem", title: [])[
+实数域上的 $n$ 级矩阵 $A$ 是正交矩阵的充分必要条件为：$A$ 的行（列）向量组是欧几里得空间 $bb(R)^n$ 的一个标准正交基。
+
+]
+#statement("theorem", title: [])[
+设 $alpha_1 , dots.h.c , alpha_s$ 是欧几里得空间 $bb(R)^n$ 中一个线性无关的向量组，令 $ bold(beta)_1 & = alpha_1\
+bold(beta)_2 & = alpha_2 - frac(( alpha_2 , bold(beta)_1 ), ( bold(beta)_1 , bold(beta)_1 )) bold(beta)_1\
+ & dots.h.c\
+bold(beta)_s & = alpha_s - sum_(j = 1)^(s - 1) frac(( alpha_s , bold(beta)_j ), ( bold(beta)_j , bold(beta)_j )) bold(beta)_j $ 则 $bold(beta)_1 , dots.h.c , bold(beta)_s$ 是正交向量组，并且与 $alpha_1 , dots.h.c , alpha_s$ 等价。
+
+]
+这给出了在欧几里得空间 $bb(R)^n$ 中从一个线性无关的向量组 $alpha_1 , dots.h.c , alpha_s$ 出发，够造出与它等价的一个正交向量组的方法，这种方法称为 施密特 Schmidt 正交化过程，只要再将 $bold(beta)_1 , dots.h.c , bold(beta)_s$ 中每个向量单位化，则其就是与原向量组等价的正交单位向量组，就是 $bb(R)^n$ 的一个标准正交基。
+
+== $K^n$ 到 $K^s$ 的线性映射
+<ga-4-kn-到-ks-的线性映射>
+映射视作熟知的。设 $f$ 是集合 $S$ 到集合 $S'$，$S$ 所有元素在 $f$ 下的象组成的集合叫做 $f$ 的值域或者 $f$ 的象，记作 $f ( S )$ 或 $"Im" f$。
+
+#statement("definition", title: [])[
+数域 $K$ 上的向量空间 $K^n$ 到 $K^s$ 的一个映射 $sigma$ 如果保持加法和数量乘法，即 $forall alpha , bold(beta) in K^n , k in K$ 有 $ sigma ( alpha + bold(beta) ) = sigma ( alpha ) + sigma ( bold(beta) ) $ $ sigma ( k alpha ) = k sigma ( alpha ) $ 那么称 $sigma$ 是 $K^n$ 到 $K^s$ 上的一个线性映射。
+
+]
+设 $A$ 是数域 $K$ 上 $s times n$ 矩阵，令 $ bold(A) : K^n & arrow.r K^s\
+alpha & mapsto A alpha $
+
+#statement("definition", title: [])[
+设 $sigma$ 是 $K^n$ 到 $K^s$ 的一个映射，$K^n$ 的一个子集 $ { alpha in K^n mid(|) sigma ( alpha ) = bold(0) } $ 称为映射 $sigma$ 的核，记作 $"Ker" sigma$
+
+]
+不难验证，如果 $sigma$ 是 $K^n$ 到 $K^s$ 的一个线性映射，那么 $"Ker" sigma$ 是 $K^n$ 的一个子空间。
+
+#statement("theorem", title: [])[
+设数域上 $K$ 上齐次线性方程组 $A X = bold(0)$ 的解空间是 $W$，$A$ 对应的线性映射为 $bold(A)$ 则 $ "Ker" bold(A) = W $
+
+]
+因此 $ dim "Ker" bold(A) + dim "Im" bold(A) = dim K^n $

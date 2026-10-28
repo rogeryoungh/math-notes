@@ -17,24 +17,19 @@
   sym.circle.stroked.tiny,
 )
 
-= 线性方程组的解法
+// 十章正文逐章对应 src/高等代数/main.tex 的 include 顺序。
+// 数学与未完成的证明、解答均按源笔记保留；索引链接到术语原位置。
+#include "pages/0001.typ"
+#include "pages/0002.typ"
+#include "pages/0003.typ"
+#include "pages/0004.typ"
+#include "pages/0005.typ"
+#include "pages/0006.typ"
+#include "pages/0007.typ"
+#include "pages/0008.typ"
+#include "pages/0009.typ"
+#include "pages/0010.typ"
 
-= 行列式
-
-= 线性方程组的解系
-
-= 矩阵的运算
-
-= 矩阵的相抵与相似
-
-= 二次型 · 矩阵的合同
-
-= 多项式环
-
-= 线性空间
-
-= 线性映射
-
-= 具有度量的线性空间
+#include "index.typ"
 
 

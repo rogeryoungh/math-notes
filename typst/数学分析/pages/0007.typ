@@ -1,0 +1,126 @@
+#import "../../template/environments.typ": statement
+
+= 常微分方程
+<0007-常微分方程>
+如果知道函数及其导数、微分组成的关系式，得到的便是微分方程。
+
+== 基本概念
+<0007-基本概念>
+自变量只有一个的方程是#strong[常微分方程]，两个以上则称#strong[偏微分方程]，其中未知函数最高阶导数的阶数称为微分方程的阶数。一般的 $n$ 阶常微分方程具有形式 $ F (x , y , frac(upright(d) y, upright(d) x) , dots.h.c , frac(upright(d)^n y, upright(d) x^n)) = 0 $ 如方程的左端为 $y$ 及各阶导数的一次有理整式，则称为 $n$ 阶线性微分方程，否则称为非线性微分方程。一般的 $n$ 阶线性微分方程有形式 $ frac(upright(d)^n y, upright(d) x^n) + a_(n - 1) ( x ) frac(upright(d)^(n - 1) y, upright(d) x^(n - 1)) + dots.h.c + a_1 ( x ) frac(upright(d) y, upright(d) x) + a_0 ( x ) y = f ( x ) $ 这里 $a_i ( x ) , f ( x )$ 是关于 $x$ 的已知函数。
+
+如果函数 $y = phi ( x )$ 带入方程后，能使其变为恒等式，则称函数 $y = phi ( x )$ 为方程的解。如果隐函数 $Phi ( x , y ) = 0$ 是其解，则称隐式解，也可以不加区分的称为解。
+
+含有 $n$ 个独立的任意常数 $C_1 , dots.h.c , C_n$ 的解 $ y = phi ( x , C_1 , dots.h.c , C_n ) $ 称为 $n$ 阶方程的通解，其中独立性指 $phi$ 及各阶偏导数关于 $n$ 个常数 $C_1 , dots.h.c , C_n$ 的 Jacobi 行列式不为 $0$。为了确定微分方程的一个特解，需要给出定解条件。常见的定解条件是初值条件和边值条件，其中初值条件指：当 $x = x_0$ 时，有 $ y = y_0 , y' = y_0^(( 1 )) , dots.h.c , y^(( n - 1 )) = y_0^(( n - 1 )) $ 满足初值条件的解称为微分方程的特解。
+
+== 变量分离微分方程
+<0007-变量分离微分方程>
+形如 $ frac(upright(d) y, upright(d) x) = f ( x ) g ( y ) $ 的方程，称为变量分离方程，假如 $g ( y ) eq.not 0$ 我们可以很容易的分离它 $ frac(upright(d) y, g ( y )) = f ( x ) upright(d) x $ 两边同时积分即可。另外，不要忘记当 $g ( y ) = 0$ 时也有解 $y = y_0$。
+
+有两种常见的变式：
+
+（1）形如 $ frac(upright(d) y, upright(d) x) = g (y / x) $ 的方程，记作齐次微分方程。做变量代换 $u = y / x$，有 $ frac(upright(d) u, upright(d) x) = 1 / x (frac(upright(d) y, upright(d) x) - y / x) = frac(g ( u ) - u, x) $ 就变成变量分离的了。
+
+（2）形如 $ frac(upright(d) y, upright(d) x) = g (frac(a_1 x + b_1 y + c_1, a_2 x + b_2 y + c_2)) $ 分为三种情况讨论：
+
++ 如果 $ a_1 / a_2 = b_1 / b_2 = c_1 / c_2 = k $ 则比较显然。
+
++ 如果 $ a_1 / a_2 = b_1 / b_2 = k eq.not c_1 / c_2 $ 令 $u = a_2 x + b_2 y$，此时有 $ frac(upright(d) u, upright(d) x) = g (a_2 + b_2 frac(k u + c_1, u + c_2)) $ 是变量分离方程。
+
++ 对于剩余的情况，把分子分母看成两条不相交的直线，尝试平移到原点。设交点为 $( x , y ) = ( x_0 , y_0 )$，有 $ frac(upright(d) y, upright(d) x) = frac(upright(d) ( y - y_0 ), upright(d) ( x - x_0 )) = g (frac(a_1 ( x - x_0 ) + b_1 ( y - y_0 ), a_2 ( x - x_0 ) + b_2 ( y - y_0 ))) $ 也变成了齐次形式。
+
+== 一阶线性微分方程
+<0007-一阶线性微分方程>
+一阶线性常微分方程的一般形式是 $ frac(upright(d) y, upright(d) x) = p ( x ) y + q ( x ) $ 其中 $p ( x ) , q ( x )$ 在给定区间上连续的函数。当 $q ( x ) = 0$ 时，称为一阶线性齐次常微分方程；否则称一阶线性非齐次常微分方程。
+
+以下用大写字母简记为积分，方便记忆。
+
+===== 一阶线性其次常微分方程
+<0007-一阶线性其次常微分方程>
+即 $ frac(upright(d) y, upright(d) x) = p ( x ) y $ 那么我们可以分离变量 $ frac(upright(d) y, y) = p ( x ) upright(d) x $ 两边积分得到 $ ln abs(y) = integral_(x_0)^x p ( t ) upright(d) t + C_1 $ 其中 $C_1$ 是任意常数；若引入任意非零常数 $C_2 = plus.minus upright(e)^(C_1)$，就得到 $ y ( x ) = C_2 upright(e)^(integral_(x_0)^x p ( t ) upright(d) t) = C_2 upright(e)^(P ( x )) $ 显然 $y = 0$ 也是一解，故 $C_2$ 是可以取任意常数的。
+
+这样对于给定初值的问题 $ frac(upright(d) y, upright(d) x) = p ( x ) y , quad y ( x_0 ) = y_0 $ 的通解为 $ y ( x ) = y_0 upright(e)^(integral_(x_0)^x p ( t ) upright(d) t) = y_0 upright(e)^(P ( x )) $
+
+除此之外，我们有以下性质：
+
+- 方程的解要么恒为零，要么恒不为零。
+
+- 方程任何有限个解的线性组合仍是解，所有解构成一个一维线性空间。
+
+===== 一阶线性非齐次常微分方程
+<0007-一阶线性非齐次常微分方程>
+一阶线性非齐次常微分方程为 $ frac(upright(d) y, upright(d) x) = p ( x ) y + q ( x ) $ 考虑套用之前的公式，设 $ u ( x ) = y upright(e)^(- integral_(x_0)^x p ( t ) upright(d) t) = y upright(e)^(- P ( x )) $ 注意到 $ frac(upright(d) u, upright(d) x) dot.op upright(e)^(integral_(x_0)^x p ( t ) upright(d) t) = y' - p ( x ) y = q ( x ) $ 可以得到 $y ( x )$ 的解 $ y ( x ) = upright(e)^(integral_(x_0)^x p ( t ) upright(d) t) (integral upright(e)^(- integral p ( s ) upright(d) s) q ( s ) upright(d) s + C) = upright(e)^(P ( x )) (integral upright(e)^(- P ( x )) q ( x ) + C) $
+
+可以发现一个有趣的性质，非齐次方程的解可以由齐次形式下的解的"常数变易"得到。因此先考虑解齐次形式，再变易常数为函数 $c ( x )$，这种解法记作常数变易法。
+
+=== 各种变形
+<0007-各种变形>
+===== Bernoulli 微分方程
+<0007-bernoulli-微分方程>
+形如 $ frac(upright(d) y, upright(d) x) = p ( x ) y + q ( x ) y^n , quad n eq.not 0 , 1 $ 的方程称为 Bernoulli 微分方程。设 $y eq.not 0$，得到 $ y^(- n) frac(upright(d) y, upright(d) x) = frac(upright(d) ( y^(1 - n) ), ( 1 - n ) upright(d) x) = y^(1 - n) p ( x ) + q ( x ) $ 换元 $u = y^(1 - n)$ 即可。
+
+===== Riccati 方程
+<0007-riccati-方程>
+形如 $ frac(upright(d) y, upright(d) x) + p ( x ) y + q ( x ) y^2 = r ( x ) $ 的方程称为 Riccati 微分方程。设 $phi.alt ( x )$ 是其一个特解，令 $u = y - phi.alt$，得到 $ frac(upright(d) u, upright(d) x) + ( p + 2 phi.alt q ) u + q u^2 = 0 $ 即是一个 Bernoulli 方程。
+
+===== Euler 方程
+<0007-euler-方程>
+形如 $ x^2 frac(upright(d)^2 y, upright(d) x^2) + p x frac(upright(d) y, upright(d) x) + q = r ( x ) $ 当 $x > 0$ 时，令 $x = upright(e)^u$，则 $ frac(upright(d) y, upright(d) x) = frac(upright(d) y, x upright(d) u) , quad frac(upright(d)^2 y, upright(d) x^2) = 1 / x^2 (frac(upright(d)^2 y, upright(d) u^2) - frac(upright(d) y, upright(d) u)) $ 因此方程化为 $ frac(upright(d)^2 y, upright(d) u^2) + ( p - 1 ) frac(upright(d) y, upright(d) u) + q y = r ( upright(e)^u ) $
+
+=== 可降阶的二阶微分方程
+<0007-可降阶的二阶微分方程>
+===== 不含 $y$
+<0007-不含-y>
+若微分方程不含 $y$，即方程可表示为 $ y'' = f ( x , y' ) $ 则可以构造 $y' = p$，从而变成一阶的微分方程。
+
+===== 不含 $x$
+<0007-不含-x>
+即方程可以表示为 $ y'' = f ( y , y' ) $ 则可以令 $p = y'$，得到 $y'' = frac(p upright(d) p, upright(d) y)$，则原方程变为一阶方程。
+
+== 恰当微分方程
+<0007-恰当微分方程>
+有时可以考虑答案是全微分的形式。设 $ f ( x , y ) upright(d) x + g ( x , y ) upright(d) y = 0 $ 并假设 $f , g$ 连续。设其左端恰好是某个二元函数 $u ( x , y )$ 的全微分 $ f ( x , y ) upright(d) x + g ( x , y ) upright(d) y = upright(d) u ( x , y ) = frac(partial u, partial x) upright(d) x + frac(partial u, partial y) upright(d) y $ 则称其为恰当微分方程。容易验证其通解为 $u ( x , y ) = C$。
+
+注意到 $ frac(partial f, partial y) = frac(partial^2 u, partial y partial x) = frac(partial^2 u, partial x partial y) = frac(partial g, partial x) $ 故其是该方程为恰当微分方程的充要条件。
+
+再考虑如何求出 $u$，先以 $y$ 为参数 $ u = integral f ( x , y ) upright(d) x + phi ( y ) $ 回带得到 $ frac(partial u, partial y) = g ( x , y ) = frac(upright(d) phi ( y ), upright(d) y) + frac(partial, partial y) integral f ( x , y ) upright(d) x $ 总之有解 $ u = integral f ( x , y ) upright(d) x + integral (g ( x , y ) - frac(partial, partial y) integral f ( x , y ) upright(d) x) upright(d) y $
+
+这个形式过于复杂，一般情况下多瞪眼可能更快。下面是一些常见的表
+
+$ y upright(d) x + x upright(d) y & = upright(d) x y\
+frac(y upright(d) x - x upright(d) y, y^2) & = upright(d) x / y\
+frac(y upright(d) x - x upright(d) y, x y) & = upright(d) ln abs(x / y)\
+frac(y upright(d) x - x upright(d) y, x^2 + y^2) & = upright(d) arctan x / y\
+frac(y upright(d) x - x upright(d) y, x^2 - y^2) & = upright(d) ln abs(frac(x - y, x + y))\
+ $
+
+假如一个方程乘以 $mu ( x , y )$ 就成为了恰当微分方程，则称 $mu$ 是原方程的积分因子。假若方程有解存在，则必有积分因子存在，而且不是唯一的。因此之前的很多方法都可以改写成积分因子法，但从零瞪出一个因子非常有技巧性，实战中不实用。
+
+== 齐次线性微分方程
+<0007-齐次线性微分方程>
+一般的 $n$ 阶线性微分方程有形式 $ frac(upright(d)^n y, upright(d) x^n) + a_(n - 1) ( x ) frac(upright(d)^(n - 1) y, upright(d) x^(n - 1)) + dots.h.c + a_1 ( x ) frac(upright(d) y, upright(d) x) + a_0 ( x ) y = f ( x ) $
+
+倘若 $f ( x ) equiv 0$ 则是齐次线性微分方程，否则为非齐次。对其分析过程比较复杂，这里直接给出结论：方程的线性无关解最大个数为 $n$，所有解构成一个 $n$ 维线性空间。其非齐次的通解可以将各个系数用常数变易法待定，计算即可。
+
+注意到 $ upright(e)^(i x) = cos x + i sin x $ 反推得到 $ sin x = frac(upright(e)^(i x) - upright(e)^(- i x), 2 i) , quad cos x = frac(upright(e)^(i x) + upright(e)^(- i x), 2) $ 因此我们在计算时完全可以将指数和三角统一起来，叙述过程时再改成三角。
+
+=== 常系数
+<0007-常系数>
+设所有系数都是常数，即方程为 $ L [ y ] equiv frac(upright(d)^n y, upright(d) x^n) + a_(n - 1) frac(upright(d)^(n - 1) y, upright(d) x^(n - 1)) + dots.h.c + a_1 frac(upright(d) y, upright(d) x) + a_0 y = 0 $ 考虑代入 $ L [ upright(e)^(lambda x) ] = ( lambda^n + a_(n - 1) lambda^(n - 1) + dots.h.c + a_0 ) upright(e)^(lambda x) = F ( lambda ) upright(e)^(lambda x) $ 其中方程 $F ( lambda )$ 是关于 $lambda$ 的 $n$ 次多项式，我们求解 $F ( lambda ) = 0$ 即可，因此又称为特征方程，其根称为特征根。假如所有的根都不是重根，那么可以直接得到 $n$ 个线性无关的解 $y_i = upright(e)^(lambda_i x)$。
+
+假若方程存在 $k$ 重根 $mu$，即特征方程存在因子 $( lambda - mu )^k$，考虑平移代换 $z = y upright(e)^(mu x)$，继续代入 $y = upright(e)^(lambda x)$ 有 $ L [ y upright(e)^(mu x) ] = L [ upright(e)^(( lambda + mu ) x) ] = F ( lambda + mu ) upright(e)^(( lambda + mu ) x) $ 显然 $F ( lambda + mu )$ 含有 $k$ 重零根，对比系数可以得到方程 $L [ y ] = 0$ 的 $0 tilde.op k - 1$ 项系数为 $0$，即方程形如 $ L [ z ] = frac(upright(d)^n y, upright(d) x^n) + b_(n - 1) frac(upright(d)^(n - 1) y, upright(d) x^(n - 1)) + dots.h.c + b_k frac(upright(d)^k y, upright(d) x^k) = 0 $ 可以观察出其 $k$ 个线性无关的解 $y = 1 , x , x^2 , dots.h.c , x^(k - 1)$，故原方程的 $k$ 个解为 $ z = upright(e)^(mu x) , x upright(e)^(mu x) , dots.h.c , x^(k - 1) upright(e)^(mu x) $
+
+=== 常见二阶微分方程
+<0007-常见二阶微分方程>
+常见的二阶常系数微分方程的一般形式是 $ y'' + p y' + q y = f ( x ) $ 首先求其对应的齐次微分方程的通解。
+
+令 $Delta = p^2 - 4 q > 0$，设其两个实根为 $r_1 , r_2$，可得通解 $ y = C_1 upright(e)^(r_1 x) + C_2 upright(e)^(r_2 x) $ 若 $Delta = 0$，存在重根 $r_1$，则通解为 $ y = ( C_1 + C_2 x ) upright(e)^(r x) $ 若 $Delta < 0$，存在一对共轭虚根 $alpha plus.minus beta i$，则通解为 $ y = upright(e)^(a x) ( C_1 cos beta x + C_2 sin beta x ) $
+
+当自由项 $ f ( x ) = P_n ( x ) upright(e)^(a x) $ 时，特解要设为 $ y^(*) = x^k upright(e)^(a x) Q_n ( x ) $ 其中 $k$ 为特征方程的根和 $a$ 的重合次数（这个规则很神秘，可以从微分算子法的角度记忆），$P_n ( x ) , Q_n ( x )$ 为关于 $x$ 的度 $n$ 多项式。
+
+当自由项为 $ f ( x ) = upright(e)^(a x) (P_n ( x ) sin b x) $ 时，特解要设为 $ y^(*) = x^k upright(e)^(a x) ( Q_n ( x ) cos b x + R_n ( x ) sin b x ) $ 其中 $k$ 为特征方程的根和 $a plus.minus b i$ 是否重合（重合一定重俩），$P_n ( x ) , Q_n ( x ) , R_n ( x )$ 为关于 $x$ 的度 $n$ 多项式。
+
+== Gronwall 定理
+<0007-gronwall-定理>
+考虑区间 $[ a , b ]$ 上的微分不等式 $ y' ( x ) + p ( x ) y ( x ) lt.eq f ( x ) $ 令 $P ( x )$ 为 $p ( x )$ 的原函数，类似于普通微分方程的解法，有 $ frac(upright(d), upright(d) x) (y ( x ) upright(e)^(P ( x ))) = ( y' ( x ) + p ( x ) y ) upright(e)^(P ( x )) lt.eq f ( x ) upright(e)^(P ( x )) $ 选取 $u in [ a , b ]$，在 $[ a , u ]$ 上积分得到 $ y ( u ) upright(e)^(P ( u )) - y ( a ) lt.eq integral_a^u f ( s ) upright(e)^(P ( s )) upright(d) s = upright(e)^(P ( u )) integral_a^u f ( s ) upright(e)^(P ( s ) - P ( u )) upright(d) s $ 从而得到 $ y ( x ) lt.eq y ( a ) upright(e)^(- P ( u )) + integral_a^u f ( s ) upright(e)^(P ( s ) - P ( u )) upright(d) s $
+
+特殊的，令 $f equiv 0$，有 $ y ( x ) lt.eq y ( a ) upright(e)^(- P ( x )) $ 如果 $y_1 , y_2$ 满足如下微分不等式 $ y'_1 + p ( x ) y_1 lt.eq y'_2 + p ( x ) y_2 , quad y_1 ( a ) = y_2 ( a ) $ 则一定 $y_1 equiv y_2$。

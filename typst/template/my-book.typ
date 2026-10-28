@@ -5,7 +5,7 @@
 #let en-font = "New Computer Modern"
 #let cjk-font = "Noto Serif CJK SC"
 #let body-font = (en-font, cjk-font)
-#let mono-font = ("Maple Mono", "Noto Sans CJK SC", cjk-font)
+#let mono-font = ("DejaVu Sans Mono", "Noto Sans Mono CJK SC", cjk-font)
 
 #let url-color = rgb(128, 0, 0)
 
@@ -64,7 +64,14 @@
   pagebreak()
 
   // 标题
-  set heading(numbering: numbly("第{1:一}章  ", default: "1.1  "))
+  set heading(numbering: (..nums) => {
+    let values = nums.pos()
+    if values.len() == 1 {
+      "第" + numbering("一", values.first()) + "章  "
+    } else {
+      numbering("1.1", ..values) + "  "
+    }
+  })
   show heading: it => box(width: 100%)[
     #set par(first-line-indent: 0em)
     #v(0.15em)

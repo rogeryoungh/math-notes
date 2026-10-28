@@ -24,7 +24,13 @@
   ]
 
   // 外部间距跟随正文段距；仅标题签与正文框内部保持零间距。
-  if kind in ("proof", "solution") {
+  if target() == "html" {
+    html.elem("section", attrs: (class: "statement statement-" + kind))[
+      #html.elem("div", attrs: (class: "statement-caption"), caption)
+      #html.elem("div", attrs: (class: "statement-body"), body)
+      #if kind == "proof" { html.elem("span", attrs: (class: "qed"))[□] }
+    ]
+  } else if kind in ("proof", "solution") {
     block(breakable: true, width: 100%, spacing: auto)[
       #set par(first-line-indent: (amount: 2em, all: false))
       #caption #h(0.5em) #body

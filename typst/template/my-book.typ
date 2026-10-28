@@ -1,10 +1,12 @@
+#import "html-book.typ": html-project
+
 #let en-font = "New Computer Modern"
 #let cjk-font = "Noto Serif CJK SC"
 #let body-font = (en-font, cjk-font)
 #let mono-font = ("DejaVu Sans Mono", "Noto Sans Mono CJK SC", cjk-font)
 #let url-color = rgb(128, 0, 0)
 
-#let project(title: "", author: (), date: datetime.today(), outlined: true, base-size: 10.5pt, body) = {
+#let pdf-project(title: "", author: (), date: datetime.today(), outlined: true, base-size: 10.5pt, body) = {
   set text(font: body-font, lang: "zh", region: "cn", size: base-size)
   show raw: set text(font: mono-font, size: base-size * 0.9)
   show math.text: set text(font: body-font)
@@ -94,4 +96,9 @@
   set page(numbering: "1")
   counter(page).update(1)
   body
+}
+
+#let project(title: "", author: (), date: datetime.today(), outlined: true, base-size: 10.5pt, body) = context {
+  let render = if target() == "html" { html-project } else { pdf-project }
+  render(title: title, author: author, date: date, outlined: outlined, base-size: base-size, body)
 }

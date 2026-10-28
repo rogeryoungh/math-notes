@@ -34,17 +34,12 @@ jobs:
           typst compile --root . typst/抽象代数/main.typ output/abstract-algebra.pdf
           typst compile --root . typst/考研背诵手册/main.typ output/kaoyan.pdf
 
-      - name: Convert PDFs to HTML
-        working-directory: output
+      - name: Build HTML
         run: |
-          pdf2htmlEX() {
-            docker run --rm -v "$PWD:/pdf" -w /pdf \
-              pdf2htmlex/pdf2htmlex:0.18.8.rc2-master-20200820-ubuntu-20.04-x86_64 "$@"
-          }
-          pdf2htmlEX ./calculus.pdf
-          pdf2htmlEX ./linear-algebra.pdf
-          pdf2htmlEX ./abstract-algebra.pdf
-          pdf2htmlEX ./kaoyan.pdf
+          typst compile --root . --features html typst/数学分析/main.typ output/calculus.html
+          typst compile --root . --features html typst/高等代数/main.typ output/linear-algebra.html
+          typst compile --root . --features html typst/抽象代数/main.typ output/abstract-algebra.html
+          typst compile --root . --features html typst/考研背诵手册/main.typ output/kaoyan.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4.1.0

@@ -70,9 +70,18 @@ figcaption { margin-top: .6em; }
 img, svg { max-width: 100%; height: auto; }
 table { border-collapse: collapse; max-width: 100%; margin: 1em auto; }
 th, td { padding: .35em .7em; border: 1px solid var(--rule); }
-math { font-family: "New Computer Modern Math", "STIX Two Math", math; }
-math[display="block"] { margin-block: 1em; overflow-x: auto; overflow-y: hidden; padding-block: .3em; }
-math:not([display="block"]) { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
+.inline-equation {
+  display: inline-block; max-width: 100%; vertical-align: middle;
+  transform: translateY(-.1em); line-height: 0; text-indent: 0;
+  padding-block: .15em; overflow-x: auto; overflow-y: hidden;
+}
+.block-equation {
+  display: block;
+  margin-block: 1em; padding-block: .35em; text-indent: 0;
+  overflow-x: auto; overflow-y: hidden;
+}
+.inline-equation > svg, .block-equation > svg { max-width: none; }
+.block-equation > svg { margin-inline: auto; }
 body > section[role="doc-endnotes"] {
   width: min(100%, 210mm); margin: -2rem auto 2rem;
   padding: 0 20mm 18mm; background: white; overflow-wrap: anywhere;

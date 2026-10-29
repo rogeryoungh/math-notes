@@ -1,4 +1,4 @@
-// HTML keeps semantic text and MathML; the shared stylesheet supplies layout.
+// HTML keeps semantic text; Typst lays out equations and diagrams as SVG.
 #let html-project(title: "", author: (), date: datetime.today(), outlined: true, base-size: 10.5pt, body) = {
   set document(author: author.name, title: title)
   set text(font: ("New Computer Modern", "Noto Serif CJK SC"), lang: "zh", region: "cn", size: base-size)
@@ -10,10 +10,16 @@
       numbering("1.1", ..values)
     }
   })
-  // A mathematical accent preserves overlines in native MathML.
-  show math.overline: it => math.accent(it.body, sym.macron)
+  // Frames switch to paged layout; leave their nested equations untouched.
+  show math.equation: it => context if target() == "html" {
+    html.elem(
+      if it.block { "div" } else { "span" },
+      attrs: (class: if it.block { "block-equation" } else { "inline-equation" }, role: "math"),
+      html.frame(it),
+    )
+  } else { it }
   // Positioned diagrams need Typst's layout engine rather than CSS.
-  show figure: it => html.elem("figure", html.frame(it))
+  show figure: it => context if target() == "html" { html.elem("figure", html.frame(it)) } else { it }
   show heading: it => html.elem("h" + str(calc.min(it.level, 6)))[
     #if it.numbering != none {
       html.elem("span", attrs: (class: "heading-number"), context counter(heading).display())
